@@ -6,6 +6,13 @@ public abstract class User {
     private String passWord;
     private String address;
 
+    /**
+     * Construct an instance of the entity User.
+     * @param accountName The account name of the user.
+     * @param phoneNumber The phone number of the user.
+     * @param passWord The password of the user.
+     * @param address The address of the user.
+     */
     public User(String accountName, String phoneNumber, String passWord, String address) {
         this.accountName = accountName;
         this.phoneNumber = phoneNumber;
@@ -13,6 +20,9 @@ public abstract class User {
         this.address = address;
     }
 
+    /**
+     * The Setter methods of the instance values.
+     */
     public void setAccountName(String accountName) {
         this.accountName = accountName;
     }
@@ -29,6 +39,9 @@ public abstract class User {
         this.address = address;
     }
 
+    /**
+     * The getter methods of the instance values.
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
