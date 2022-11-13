@@ -34,5 +34,5 @@ public class OrderHistoryView{
         frame.setLayout(null);
         frame.setVisible(true);
     }
-    
+
 }
