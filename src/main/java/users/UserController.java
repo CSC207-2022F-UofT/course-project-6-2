@@ -55,11 +55,30 @@ public class UserController {
      * @return A boolean indicating whether the login is successful
      */
     public static boolean login(String phoneNumber, String passWord) {
-        if (sellers.get(phoneNumber) != null && sellers.get(phoneNumber).equals(passWord)) {
+        if (sellers.get(phoneNumber) != null && sellers.get(phoneNumber).getPassWord().equals(passWord)) {
             return true;
-        } else if (customers.get(phoneNumber) != null && customers.get(phoneNumber).equals(passWord)) {
+        } else if (customers.get(phoneNumber) != null && customers.get(phoneNumber).getPassWord().equals(passWord)) {
             return true;
         }
         return false;
+    }
+
+    /**
+     * resetPassword: Receive newPassword and check if the new password is different from previous password,
+     * a user can only reset the password if and only if the new password is different from their previous password
+     * @param newPassword A String of new password the user wants to reset to
+     * @param user A User instance
+     * @return A boolean indicating whether reset successfully
+     */
+    public Boolean resetPassword(User user, String newPassword){
+        if (user instanceof Seller){
+            if (sellers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
+                return false;
+            }
+            return true;
+        } else if(customers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
+            return false;
+        }
+        return true;
     }
 }
