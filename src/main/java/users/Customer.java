@@ -1,5 +1,4 @@
 package users;
-
 import order.Order;
 
 import java.io.Serializable;
