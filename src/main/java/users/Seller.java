@@ -2,10 +2,10 @@ package users;
 
 import drink.Drink;
 import order.Order;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Seller extends User {
+public class Seller extends User implements Serializable {
 
     private String storeName;
     public ArrayList<Order> allOrders;
