@@ -3,7 +3,7 @@ package users;
 import java.util.ArrayList;
 
 public class Customer extends User{
-    public int dateOfBirth;
+    public int age;
     public ArrayList<String> orderHistory;
 
     /**
@@ -11,21 +11,21 @@ public class Customer extends User{
      * @param accountName The nickname of the customer.
      * @param passWord The password of the customer.
      * @param phoneNumber The phone number of the customer.
-     * @param dateOfBirth The date of birth of the customer.
+     * @param age The date of birth of the customer.
      * @param address The address of the customer.
      * @param orderHistory The order history of the customer.
      */
-    public Customer(String accountName, String passWord, String phoneNumber, int dateOfBirth, String address, ArrayList<String> orderHistory){
+    public Customer(String accountName, String passWord, String phoneNumber, int age, String address, ArrayList<String> orderHistory){
         super(accountName, passWord, phoneNumber, address);
-        this.dateOfBirth = dateOfBirth;
+        this.age = age;
         this.orderHistory = orderHistory;
     }
 
     /**
      * Setter methods for the new instance values.
      */
-    public void setDateOfBirth(int dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setOrderHistory(ArrayList<String> orderHistory) {
@@ -35,8 +35,8 @@ public class Customer extends User{
     /**
      * Getter methods for the new instance values.
      */
-    public int getDateOfBirth() {
-        return this.dateOfBirth;
+    public int getAge() {
+        return this.age;
     }
 
     public ArrayList<String> getOrderHistory() {
