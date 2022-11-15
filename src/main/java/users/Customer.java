@@ -1,5 +1,7 @@
 package users;
 
+import order.Order;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -45,4 +47,9 @@ public class Customer extends User implements Serializable {
     public ArrayList<String> getOrderHistory() {
         return this.orderHistory;
     }
+
+    public void recorder(Order order){
+        Order newOrder = new Order(order);
+    }
+
 }

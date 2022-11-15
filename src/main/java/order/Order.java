@@ -27,6 +27,14 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
+    public Order(Order order) {
+        this.orderNum = this.generateOrderNum();
+        this.orderItems = order.orderItems;
+        this.orderQuantities = order.orderQuantities;
+        this.orderList = order.orderList;
+        this.orderStatus = "inProgress";
+    }
+
     /**
      * The setter method of the instance values.
      */
@@ -73,5 +81,9 @@ public class Order {
 
     public String getOrderStatus() {
         return this.orderStatus;
+    }
+
+    public String generateOrderNum(){
+        return null;
     }
 }
