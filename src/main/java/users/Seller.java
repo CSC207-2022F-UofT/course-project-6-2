@@ -1,12 +1,15 @@
 package users;
 
+import drink.Drink;
+import order.Order;
+
 import java.util.ArrayList;
 
 public class Seller extends User {
 
     private String storeName;
-    public ArrayList<String> orderInProgress;
-    public ArrayList<String> orderCompleted;
+    public ArrayList<Order> allOrders;
+    public ArrayList<Drink> items;
 
     /**
      * Construct an instance of the entity Seller.
@@ -15,14 +18,14 @@ public class Seller extends User {
      * @param passWord The password of the seller.
      * @param address The address of the seller.
      * @param storeName The store name.
-     * @param orderInProgress The list of order numbers that are in progress.
-     * @param orderCompleted The list of order numbers that are already completed.
+     * @param allOrders The list of orders for the seller.
+     * @param items The list of drink that the seller sell.
      */
-    public Seller(String accountName, String phoneNumber, String passWord, String address, String storeName, ArrayList<String> orderInProgress, ArrayList<String> orderCompleted) {
+    public Seller(String accountName, String phoneNumber, String passWord, String address, String storeName, ArrayList<Order> allOrders, ArrayList<Drink> items) {
         super(accountName, phoneNumber, passWord, address);
         this.storeName = storeName;
-        this.orderInProgress = orderInProgress;
-        this.orderCompleted = orderCompleted;
+        this.allOrders = allOrders;
+        this.items = items;
     }
 
     /**
@@ -33,12 +36,12 @@ public class Seller extends User {
         this.storeName = storeName;
     }
 
-    public void setOrderInProgress(ArrayList<String> orderInProgress) {
-        this.orderInProgress = orderInProgress;
+    public void setAllOrders(ArrayList<Order> allOrders) {
+        this.allOrders = allOrders;
     }
 
-    public void setOrderCompleted(ArrayList<String> orderCompleted) {
-        this.orderCompleted = orderCompleted;
+    public void setItems(ArrayList<Drink> items) {
+        this.items = items;
     }
 
     /**
@@ -48,12 +51,11 @@ public class Seller extends User {
         return this.storeName;
     }
 
-    public ArrayList<String> getOrderInProgress() {
-        return this.orderInProgress;
+    public ArrayList<Order> getAllOrders() {
+        return this.allOrders;
     }
 
-    public ArrayList<String> getOrderCompleted() {
-        return this.orderCompleted;
+    public ArrayList<Drink> getItems() {
+        return this.items;
     }
-
 }
