@@ -1,7 +1,5 @@
 package OrderHistory;
 
-import Controller.UIController;
-
 import javax.swing.*;
 
 
