@@ -9,6 +9,7 @@ public class Order {
     public ArrayList<String> orderItems;
     public ArrayList<String> orderQuantities;
     public HashMap<String, String> orderList;
+    public String orderStatus;
 
     /**
      * Construct an instance of the Entity Order.
@@ -16,12 +17,14 @@ public class Order {
      * @param orderItems The item names in this order.
      * @param orderQuantities The quantities of each item that customer has order.
      * @param orderList The list that has all the items and the corresponding quantities for this order.
+     * @param orderStatus A string indicating the current status of the order, including [inProgress, ready, pickedUp, delivered].
      */
-    public Order(String orderNum, ArrayList<String> orderItems, ArrayList<String> orderQuantities, HashMap<String, String> orderList){
+    public Order(String orderNum, ArrayList<String> orderItems, ArrayList<String> orderQuantities, HashMap<String, String> orderList, String orderStatus){
         this.orderNum = orderNum;
         this.orderItems = orderItems;
         this.orderQuantities = orderQuantities;
         this.orderList = orderList;
+        this.orderStatus = orderStatus;
     }
 
     /**
@@ -45,6 +48,10 @@ public class Order {
         }
     }
 
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
     /**
      * The getter method of the instance values.
      */
@@ -62,5 +69,9 @@ public class Order {
 
     public HashMap<String, String> getOrderList() {
         return orderList;
+    }
+
+    public String getOrderStatus() {
+        return this.orderStatus;
     }
 }
