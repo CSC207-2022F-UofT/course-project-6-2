@@ -1,5 +1,7 @@
 package users;
 
+import drink.Drink;
+
 import java.util.ArrayList;
 
 public class Seller extends User {
@@ -7,6 +9,7 @@ public class Seller extends User {
     private String storeName;
     public ArrayList<String> orderInProgress;
     public ArrayList<String> orderCompleted;
+    public ArrayList<Drink> items;
 
     /**
      * Construct an instance of the entity Seller.
@@ -17,12 +20,14 @@ public class Seller extends User {
      * @param storeName The store name.
      * @param orderInProgress The list of order numbers that are in progress.
      * @param orderCompleted The list of order numbers that are already completed.
+     * @param items The list of drink that the seller sell.
      */
-    public Seller(String accountName, String phoneNumber, String passWord, String address, String storeName, ArrayList<String> orderInProgress, ArrayList<String> orderCompleted) {
+    public Seller(String accountName, String phoneNumber, String passWord, String address, String storeName, ArrayList<String> orderInProgress, ArrayList<String> orderCompleted, ArrayList<Drink> items) {
         super(accountName, phoneNumber, passWord, address);
         this.storeName = storeName;
         this.orderInProgress = orderInProgress;
         this.orderCompleted = orderCompleted;
+        this.items = items;
     }
 
     /**
@@ -41,6 +46,10 @@ public class Seller extends User {
         this.orderCompleted = orderCompleted;
     }
 
+    public void setItems(ArrayList<Drink> items) {
+        this.items = items;
+    }
+
     /**
      * The getter methods for the new instance values.
      */
@@ -56,4 +65,7 @@ public class Seller extends User {
         return this.orderCompleted;
     }
 
+    public ArrayList<Drink> getItems() {
+        return this.items;
+    }
 }
