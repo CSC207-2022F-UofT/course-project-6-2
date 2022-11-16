@@ -2,7 +2,7 @@ package order;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.*;
 
 public class Order {
     public String orderNum;
@@ -13,7 +13,7 @@ public class Order {
 
     /**
      * Construct an instance of the Entity Order.
-     * @param orderNum The order number of a single order.
+     * @param orderNum The order number of a single order with len 10.
      * @param orderItems The item names in this order.
      * @param orderQuantities The quantities of each item that customer has order.
      * @param orderList The list that has all the items and the corresponding quantities for this order.
@@ -74,4 +74,14 @@ public class Order {
     public String getOrderStatus() {
         return this.orderStatus;
     }
+
+    /**
+     * Generate a random string represent as the order number of the order.
+     * @return A random generated string with digits and letters.
+     */
+    public static String generateOrderNum(){
+        UUID randomUUID = UUID.randomUUID();
+        return randomUUID.toString().replaceAll("-", "");
+    }
+
 }
