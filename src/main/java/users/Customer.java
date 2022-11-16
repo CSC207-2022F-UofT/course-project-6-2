@@ -1,10 +1,12 @@
 package users;
 
+import order.Order;
+
 import java.util.ArrayList;
 
 public class Customer extends User{
     public int age;
-    public ArrayList<String> orderHistory;
+    public ArrayList<Order> orderHistory;
 
     /**
      * Construct an instance of the entity Customer.
@@ -15,7 +17,7 @@ public class Customer extends User{
      * @param address The address of the customer.
      * @param orderHistory The order history of the customer.
      */
-    public Customer(String accountName, String passWord, String phoneNumber, int age, String address, ArrayList<String> orderHistory){
+    public Customer(String accountName, String passWord, String phoneNumber, int age, String address, ArrayList<Order> orderHistory){
         super(accountName, passWord, phoneNumber, address);
         this.age = age;
         this.orderHistory = orderHistory;
@@ -28,7 +30,7 @@ public class Customer extends User{
         this.age = age;
     }
 
-    public void setOrderHistory(ArrayList<String> orderHistory) {
+    public void setOrderHistory(ArrayList<Order> orderHistory) {
         this.orderHistory = orderHistory;
     }
 
@@ -39,7 +41,16 @@ public class Customer extends User{
         return this.age;
     }
 
-    public ArrayList<String> getOrderHistory() {
+    public ArrayList<Order> getOrderHistory() {
         return this.orderHistory;
+    }
+
+    public String getOrderStatus(Order order){
+        for(int i = 0; i < this.orderHistory.size(); i++){
+            if (this.orderHistory.get(i).orderNum == order.orderNum){
+                return this.orderHistory.get(i).orderStatus;
+            }
+        }
+        return "Order Not Found";
     }
 }
