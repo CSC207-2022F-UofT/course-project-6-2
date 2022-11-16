@@ -81,7 +81,7 @@ public class Order {
      */
     public static String generateOrderNum(){
         UUID randomUUID = UUID.randomUUID();
-        return randomUUID.toString().replaceAll("-", "");
+        return randomUUID.toString().replaceAll("-", "").substring(0, 10);
     }
 
 }
