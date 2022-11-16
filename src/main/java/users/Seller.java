@@ -58,4 +58,17 @@ public class Seller extends User {
     public ArrayList<Drink> getItems() {
         return this.items;
     }
+
+    /**
+     * Seller modify the order status for particular order.
+     * @param order The order that need to be modified.
+     * @param status The changed status of the order.
+     */
+    public void modifyOrderStatus(Order order, String status){
+        for(int i = 0; i < this.allOrders.size(); i++){
+            if (this.allOrders.get(i).orderNum == order.orderNum){
+                this.allOrders.get(i).orderStatus = status;
+            }
+        }
+    }
 }
