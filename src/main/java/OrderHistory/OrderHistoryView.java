@@ -1,13 +1,17 @@
 package OrderHistory;
 
+import UI.Button;
+import UI.Label;
+import UI.TextField;
+
 import javax.swing.*;
+import java.awt.*;
 
+public class OrderHistoryView {
 
-public class OrderHistoryView{
-
+    static JFrame frame = new JFrame();
+    static JPanel panel = new JPanel();
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
 
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,24 +19,19 @@ public class OrderHistoryView{
         frame.add(panel);
         panel.setLayout(null);
 
-        JTextField orderNumber = new JTextField();
-        orderNumber.setBounds(25, 25, 225, 30);
-        frame.add(orderNumber);
+        TextField orderNumber = new TextField();
+        orderNumber.createTextField(frame,25, 25, 225, 30);
 
-        JButton search = new JButton("Search");
-        search.setBounds(275,25,75,30);
-        frame.add(search);
+        Button search = new Button();
+        search.createButton(frame,"Search", 275,25,75,30);
 
-        JButton nextPage = new JButton("Next Page");
-        nextPage.setBounds(500,500,125,30);
-        frame.add(nextPage);
+        Button nextPage = new Button();
+        nextPage.createButton(frame,"Next Page",500,500,125,30);
 
-        JLabel order1 = new JLabel("Order 1");
-        order1.setBounds(45, 75, 80,20);
-        frame.add(order1);
+        Label order1 = new Label();
+        order1.createLabel(frame,"Order 1", Color.BLACK,45, 75, 100,30);
 
         frame.setLayout(null);
         frame.setVisible(true);
     }
-
 }
