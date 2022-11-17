@@ -29,7 +29,8 @@ public class CustomerService {
     /* 4th question & answer*/
     JButton x =new JButton("How do I know if my order is placed?");
     x.setBounds(50,250,1000,30);
-    x.addActionListener(e -> tf.setText("Once you place an order on the website, you'll shortly "));
+    x.addActionListener(e -> tf.setText("Once you place an order on the website, you'll find the record from " +
+            "Get Order Status shortly"));
 
     /* 5th question & answer*/
     JButton y =new JButton(" How much does it cost to ship items? ");
@@ -38,7 +39,7 @@ public class CustomerService {
             " Generally speaking: Air express > Air freight > sea freight "));
 
     /* 6th question & answer*/
-    JButton z =new JButton(" What items can not be sold in your store? ");
+    JButton z =new JButton(" What items can not be sold in your app? ");
     z.setBounds(50,350,1000,30);
     z.addActionListener(e -> tf.setText("Some products may not be listed as a matter of " +
             "compliance with legal or regulatory restrictions (for example, prescription drugs). "));
