@@ -3,13 +3,13 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
-    public class Label {
+    public class WordLabel {
         JLabel label;
 
         public JLabel getLabel() {
             return label;
         }
-        public void createLabel(JFrame dialogBox, String labelText, Color foregroundColor, int boundX, int boundY,
+        public void createLabel(JPanel dialogBox, String labelText, Color foregroundColor, int boundX, int boundY,
                                 int boundWidth, int boundHeight) {
             label = new JLabel(labelText);
             label.setBounds(boundX, boundY, boundWidth, boundHeight);
