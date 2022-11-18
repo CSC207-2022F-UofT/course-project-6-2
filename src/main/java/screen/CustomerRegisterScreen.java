@@ -1,16 +1,19 @@
 package screen;
 
+import users.User;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CustomerRegisterScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
-    JButton loginButton = new JButton("Login");
-    JButton registerButton = new JButton("Register");
-    JButton resetButton = new JButton("Reset Password");
+    Button loginButton = new Button();
+    Button registerButton = new Button();
+    Button resetButton = new Button();
     JRadioButton registerAsSeller = new JRadioButton("Seller");
     JRadioButton registerAsCustomer = new JRadioButton("Customer");
+    JTextField phoneNumText;
 
     public CustomerRegisterScreen(){
         // Basic setups
@@ -60,16 +63,13 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
         panel.add(birthDatePanel);
 
         // Buttons
-        loginButton.setBounds(250, 400, 150, 40);
-        panel.add(loginButton);
+        loginButton.createButton(panel, "Login", 250, 400, 150, 40);
         loginButton.addActionListener(this);
 
-        registerButton.setBounds(400, 400, 150, 40);
-        panel.add(registerButton);
+        registerButton.createButton(panel, "Register", 400, 400, 150, 40);
         registerButton.addActionListener(this);
 
-        resetButton.setBounds(325, 450, 150, 40);
-        panel.add(resetButton);
+        resetButton.createButton(panel, "Reset Password", 325, 450, 150, 40);
         resetButton.addActionListener(this);
 
         frame.setVisible(true);
@@ -82,15 +82,17 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == loginButton){
+        if(e.getSource() == resetButton.button){
+
+        }
+        if(e.getSource() == loginButton.button){
             new LoginScreen();
         }
         if(e.getSource() == registerAsSeller){
             new SellerRegisterScreen();
         }
-        if(e.getSource() == resetButton) {
+        if(e.getSource() == resetButton.button) {
             new ResetPasswordScreen();
         }
-        frame.setVisible(false);
     }
 }
