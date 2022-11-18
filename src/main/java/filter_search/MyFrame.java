@@ -1,11 +1,11 @@
-package filtersearch;
+package filter_search;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import static filtersearch.Searching.Add_to_Filtered;
+import static filter_search.Searching.Add_to_Filtered;
 
 public class MyFrame extends JFrame{
     public static void main(String args[]){
@@ -20,7 +20,6 @@ public class MyFrame extends JFrame{
         JPanel root = new JPanel();
         this.setContentPane(root);
 
-
         root.add(search_box);
         search_box.setText("Input the keywords of drink");
         JButton button = new JButton("OK");
@@ -29,7 +28,6 @@ public class MyFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Add_to_Filtered(search_box.getText());
-
             }
         });
     }
