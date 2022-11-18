@@ -1,5 +1,7 @@
 package screen;
 
+import users.UserController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +11,13 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
     Button loginButton = new Button();
     Button registerButton = new Button();
     Button resetButton = new Button();
+
+    JTextField accountNameField = new JTextField(15);
+    JTextField phoneNumField = new JTextField(15);
+    JPasswordField passwordField = new JPasswordField(15);
+    JPasswordField confirmPassField = new JPasswordField(15);
+    JTextField addressField = new JTextField(15);
+    JTextField storeNameField = new JTextField(15);
 
     JRadioButton registerAsSeller = new JRadioButton("Seller");
     JRadioButton registerAsCustomer = new JRadioButton("Customer");
@@ -35,27 +44,27 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
         panel.add(registerAsCustomer);
 
         // Info textboxes
-        LabelTextPanel accountNamePanel = new LabelTextPanel(new JLabel("Account Name: "), new JTextField(15));
+        LabelTextPanel accountNamePanel = new LabelTextPanel(new JLabel("Account Name: "), accountNameField);
         accountNamePanel.setBounds(225, 90, 300, 40);
         panel.add(accountNamePanel);
 
-        LabelTextPanel phoneNumPanel = new LabelTextPanel(new JLabel("Phone Number: "), new JTextField(15));
+        LabelTextPanel phoneNumPanel = new LabelTextPanel(new JLabel("Phone Number: "), phoneNumField);
         phoneNumPanel.setBounds(210, 140, 330, 40);
         panel.add(phoneNumPanel);
 
-        LabelTextPanel passwordPanel =  new LabelTextPanel(new JLabel("Password: "), new JTextField(15));
+        LabelTextPanel passwordPanel =  new LabelTextPanel(new JLabel("Password: "), passwordField);
         passwordPanel.setBounds(250, 190, 280, 40);
         panel.add(passwordPanel);
 
-        LabelTextPanel confirmpassPanel =  new LabelTextPanel(new JLabel("Confirm Password: "), new JTextField(15));
+        LabelTextPanel confirmpassPanel =  new LabelTextPanel(new JLabel("Confirm Password: "), confirmPassField);
         confirmpassPanel.setBounds(198, 240, 330, 40);
         panel.add(confirmpassPanel);
 
-        LabelTextPanel addressPanel =  new LabelTextPanel(new JLabel("Address: "), new JTextField(15));
+        LabelTextPanel addressPanel =  new LabelTextPanel(new JLabel("Address: "), addressField);
         addressPanel.setBounds(252, 290, 280, 40);
         panel.add(addressPanel);
 
-        LabelTextPanel storeNameDatePanel =  new LabelTextPanel(new JLabel("Store Name: "), new JTextField(15));
+        LabelTextPanel storeNameDatePanel =  new LabelTextPanel(new JLabel("Store Name: "), storeNameField);
         storeNameDatePanel.setBounds(240, 340, 280, 40);
         panel.add(storeNameDatePanel);
 
@@ -80,6 +89,21 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        String accountName = accountNameField.getText();
+        String phoneNum = phoneNumField.getText();
+        String password = String.valueOf(passwordField.getPassword());
+        String confirmPass = String.valueOf(confirmPassField.getPassword());
+        String storeName = storeNameField.getText();
+
+        if(e.getSource() == registerButton){
+            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, storeName, false);
+            if (registerResult) {
+                JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
+                new LoginScreen();
+            } else {
+                JOptionPane.showMessageDialog(null, "Phone number exists or password doesn't match!");
+            }
+        }
         if(e.getSource() == loginButton.button){
             new LoginScreen();
         }
@@ -87,7 +111,7 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
         if(e.getSource() == registerAsCustomer){
             new CustomerRegisterScreen();
         }
-        if(e.getSource() == resetButton.button) {
+        if(e.getSource() == resetButton.button){
             new ResetPasswordScreen();
         }
         frame.setVisible(false);

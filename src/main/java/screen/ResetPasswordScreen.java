@@ -1,7 +1,6 @@
 package screen;
 
-import users.Seller;
-import users.User;
+import users.UserController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +11,10 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
     Button loginButton = new Button();
     Button registerButton = new Button();
     Button resetButton = new Button();
+
+    JTextField phoneNumField = new JTextField(15);; //The phone number entered
+    JPasswordField passwordField = new JPasswordField(15); //The new password entered
+    JPasswordField comfirmPassField = new JPasswordField(15); //The password entered second time
 
     public ResetPasswordScreen() {
         JPanel panel = new JPanel();
@@ -24,15 +27,15 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
         panel.setLayout(null);
 
         // Phone number and password info
-        LabelTextPanel usernamePanel = new LabelTextPanel(new JLabel("Phone Number: "), new JTextField(15));
+        LabelTextPanel usernamePanel = new LabelTextPanel(new JLabel("Phone Number: "), phoneNumField);
         usernamePanel.setBounds(244, 150, 300, 40);
         panel.add(usernamePanel);
 
-        LabelTextPanel passwordPanel =  new LabelTextPanel(new JLabel("New Password: "), new JTextField(15));
+        LabelTextPanel passwordPanel =  new LabelTextPanel(new JLabel("New Password: "), passwordField);
         passwordPanel.setBounds(230, 200, 330, 40);
         panel.add(passwordPanel);
 
-        LabelTextPanel confirmpassPanel =  new LabelTextPanel(new JLabel("Confirm Password: "), new JTextField(15));
+        LabelTextPanel confirmpassPanel =  new LabelTextPanel(new JLabel("Confirm Password: "), comfirmPassField);
         confirmpassPanel.setBounds(218, 250, 330, 40);
         panel.add(confirmpassPanel);
 
@@ -55,15 +58,25 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == resetButton.button){
+        String phoneNum = phoneNumField.getText();
+        String newPass = String.valueOf(passwordField.getPassword());
+        String confirmPass = String.valueOf(comfirmPassField.getPassword());
 
+        if(e.getSource() == resetButton.button){
+            boolean resetResult = UserController.resetPassword(phoneNum, newPass, confirmPass);
+            if (resetResult) {
+                JOptionPane.showMessageDialog(null, "You have reset your password!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Phone number incorrect or password doesn't match!");
+            }
         }
         if(e.getSource() == loginButton.button){
             new LoginScreen();
+            frame.setVisible(false);
         }
         if(e.getSource() == registerButton.button){
             new CustomerRegisterScreen();
+            frame.setVisible(false);
         }
-        frame.setVisible(false);
     }
 }
