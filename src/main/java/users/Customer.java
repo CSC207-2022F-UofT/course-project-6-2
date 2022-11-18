@@ -2,9 +2,10 @@ package users;
 
 import order.Order;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer extends User{
+public class Customer extends User implements Serializable {
     public int age;
     public ArrayList<Order> orderHistory;
 
