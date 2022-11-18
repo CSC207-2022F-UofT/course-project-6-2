@@ -40,7 +40,7 @@ public class UserController {
      * registerUser: Store user instance to corresponding database
      * @param user A User instance to be stored in the database
      */
-    public static void registerUser(User user) {
+    public static void registerUser(String phoneNumber) {
         if (user instanceof Seller) {
             sellers.put(user.getPhoneNumber(), user);
         } else {
@@ -66,17 +66,19 @@ public class UserController {
     /**
      * resetPassword: Receive newPassword and check if the new password is different from previous password,
      * a user can only reset the password if and only if the new password is different from their previous password
+     * @param phoneNumber User's phone number
      * @param newPassword A String of new password the user wants to reset to
-     * @param user A User instance
-     * @return A boolean indicating whether reset successfully
+     * @return Reset unsuccessful (false) happens when user entered exact same pwd as old pwd
      */
-    public Boolean resetPassword(User user, String newPassword){
-        if (user instanceof Seller){
-            if (sellers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
+    public Boolean resetPassword(String phoneNumber, String newPassword) throws IOException, ClassNotFoundException{
+        if (sellers.get(phoneNumber) != null) {
+            if (sellers.get(phoneNumber).getPassWord().equals(newPassword)){
                 return false;
             }
             return true;
-        } else if(customers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
+        }
+
+        if (customers.get(phoneNumber).getPassWord().equals(newPassword)) {
             return false;
         }
         return true;
