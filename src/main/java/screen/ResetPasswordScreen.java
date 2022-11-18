@@ -1,13 +1,17 @@
 package screen;
 
+import users.Seller;
+import users.User;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ResetPasswordScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
-    JButton loginButton = new JButton("Login");
-    JButton registerButton = new JButton("Register");
+    Button loginButton = new Button();
+    Button registerButton = new Button();
+    Button resetButton = new Button();
 
     public ResetPasswordScreen() {
         JPanel panel = new JPanel();
@@ -33,17 +37,14 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
         panel.add(confirmpassPanel);
 
         // Buttons
-        loginButton.setBounds(250, 400, 150, 40);
-        panel.add(loginButton);
+        loginButton.createButton(panel, "Login", 250, 400, 150, 40);
         loginButton.addActionListener(this);
 
-        registerButton.setBounds(400, 400, 150, 40);
-        panel.add(registerButton);
+        registerButton.createButton(panel, "Register", 400, 400, 150, 40);
         registerButton.addActionListener(this);
 
-        JButton resetButton = new JButton("Reset Password");
-        resetButton.setBounds(325, 450, 150, 40);
-        panel.add(resetButton);
+        resetButton.createButton(panel, "Reset Password", 325, 450, 150, 40);
+        resetButton.addActionListener(this);
 
         frame.setVisible(true);
     }
@@ -54,10 +55,13 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == loginButton){
+        if(e.getSource() == resetButton.button){
+
+        }
+        if(e.getSource() == loginButton.button){
             new LoginScreen();
         }
-        if(e.getSource() == registerButton){
+        if(e.getSource() == registerButton.button){
             new CustomerRegisterScreen();
         }
         frame.setVisible(false);
