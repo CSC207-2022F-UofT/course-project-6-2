@@ -11,8 +11,8 @@ public class LoginScreen extends JFrame implements ActionListener {
     Button registerButton = new Button();
     Button resetButton = new Button();
 
-    JTextField phoneNumText; //The phone number entered
-    JPasswordField passwordText; //The password entered
+    JTextField phoneNumField = new JTextField(15); //The phone number entered
+    JPasswordField passwordField = new JPasswordField(15); //The password entered
 
     public LoginScreen() {
         // Basic setups
@@ -25,15 +25,12 @@ public class LoginScreen extends JFrame implements ActionListener {
         frame.add(panel);
         panel.setLayout(null);
 
-        phoneNumText = new JTextField(15);
-        passwordText = new JPasswordField(15);
-
         // Username and password info
-        LabelTextPanel phoneNumPanel = new LabelTextPanel(new JLabel("Phone Number: "), phoneNumText);
+        LabelTextPanel phoneNumPanel = new LabelTextPanel(new JLabel("Phone Number: "), phoneNumField);
         phoneNumPanel.setBounds(244, 270, 300, 40);
         panel.add(phoneNumPanel);
 
-        LabelTextPanel passwordPanel =  new LabelTextPanel(new JLabel("Password: "), passwordText);
+        LabelTextPanel passwordPanel =  new LabelTextPanel(new JLabel("Password: "), passwordField);
         passwordPanel.setBounds(270, 320, 280, 40);
         panel.add(passwordPanel);
 
@@ -57,8 +54,8 @@ public class LoginScreen extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        String phoneNum = phoneNumText.getText();
-        String password = String.valueOf(passwordText.getPassword());
+        String phoneNum = phoneNumField.getText();
+        String password = String.valueOf(passwordField.getPassword());
 
         if(e.getSource() == loginButton.button){
             boolean loginResult = UserController.login(phoneNum, password);
@@ -70,12 +67,12 @@ public class LoginScreen extends JFrame implements ActionListener {
         }
         if(e.getSource() == registerButton.button){
             new CustomerRegisterScreen();
+            frame.setVisible(false);
 
         }
         if(e.getSource() == resetButton.button) {
             new ResetPasswordScreen();
+            frame.setVisible(false);
         }
-
-        frame.setVisible(false);
     }
 }

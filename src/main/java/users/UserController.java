@@ -70,7 +70,7 @@ public class UserController {
      * @param user A User instance
      * @return A boolean indicating whether reset successfully
      */
-    public Boolean resetPassword(User user, String newPassword){
+    public static boolean resetPassword(User user, String newPassword){
         if (user instanceof Seller){
             if (sellers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
                 return false;
