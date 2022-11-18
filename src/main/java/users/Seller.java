@@ -3,9 +3,10 @@ package users;
 import drink.Drink;
 import order.Order;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Seller extends User {
+public class Seller extends User implements Serializable {
 
     private String storeName;
     public ArrayList<Order> allOrders;
@@ -57,5 +58,18 @@ public class Seller extends User {
 
     public ArrayList<Drink> getItems() {
         return this.items;
+    }
+
+    /**
+     * Seller modify the order status for particular order.
+     * @param order The order that need to be modified.
+     * @param status The changed status of the order.
+     */
+    public void modifyOrderStatus(Order order, String status){
+        for(Order o : this.allOrders){
+            if (o.orderNum == order.orderNum){
+                o.orderStatus = status;
+            }
+        }
     }
 }
