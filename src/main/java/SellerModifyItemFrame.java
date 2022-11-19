@@ -11,11 +11,15 @@ public class SellerModifyItemFrame extends JFrame{
     private JPanel ModifyFrame;
     private JTextField MFIngredient;
     private JTextField MFVolume;
-    private JTextField MFProductionDate;
-    private JTextField MFExpirationDate;
+    private JTextField MFProductionDateYear;
+    private JTextField MFExpirationDateYear;
     private JTextField MFDiscount;
     private JButton saveButton;
+    private JTextField MFProductionDateDay;
+    private JTextField MFExpirationDateMonth;
+    private JTextField MFExpirationDateDay;
     private JButton cancelButton;
+    private JTextField MFProductionDateMonth;
 
     public SellerModifyItemFrame(){
         setContentPane(ModifyFrame);
@@ -32,8 +36,7 @@ public class SellerModifyItemFrame extends JFrame{
                 String description = MFDescription.getText();
                 String ingredient = MFIngredient.getText();
                 int volume = Integer.parseInt(MFVolume.getText());
-                Date productionData = MFProductionDate.getText();
-                Date expirationDate = MFExpirationDate.getText();
+
 
 
             }
@@ -42,5 +45,9 @@ public class SellerModifyItemFrame extends JFrame{
 
     public static void main(String[] args) {
         SellerModifyItemFrame newFrame = new SellerModifyItemFrame();
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
