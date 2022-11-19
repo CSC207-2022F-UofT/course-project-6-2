@@ -1,9 +1,7 @@
 package users;
 
-import drink.Drink;
 import helpers.Deserializer;
 import helpers.Serializer;
-import order.Order;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,7 +57,7 @@ public class UserController {
 
         // if user is a customer
         if (storeName == null) {
-            Customer newCustomer = new Customer(accountName, password, phoneNumber, age, address, new ArrayList<>());
+            Customer newCustomer = new Customer(accountName, phoneNumber, password, age, address, new ArrayList<>());
             customers.put(phoneNumber, newCustomer);
         }
 
