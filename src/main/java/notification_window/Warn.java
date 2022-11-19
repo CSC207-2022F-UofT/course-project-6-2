@@ -16,6 +16,7 @@ public class Warn {
         drinks = (ArrayList<Drink>) searchDeserializer.getObject();
     }
 
+
     public static String warnwhat(HashMap<Drink, String> itemList){
         ArrayList<Drink> cart_items = new ArrayList<>();
         ArrayList<String> dang = new ArrayList<>();
@@ -34,7 +35,7 @@ public class Warn {
             for(String d: dang){
                 if (lowercase_ingredient.contains(d)){
                     if (!ans.contains(d)){
-                        ans += " "+d+",";
+                        ans += " "+d+" ";
                     }
                 }
             }
