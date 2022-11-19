@@ -1,16 +1,20 @@
 import javax.swing.*;
 
 public class SellerModifyItemFrame {
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField descriptionTextField;
+    private JTextField MFDrinkName;
+    private JTextField MFStoreName;
+    private JTextField MFPrice;
+    private JTextField MFDescription;
     private JPanel ModifyFrame;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
+    private JTextField MFIngredient;
+    private JTextField MFVolume;
+    private JTextField MFProductionDate;
+    private JTextField MFExpirationDate;
+    private JTextField MFDiscount;
     private JButton saveButton;
-    private JButton button1;
+    private JButton cancelButton;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
