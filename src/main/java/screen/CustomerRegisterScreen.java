@@ -95,7 +95,7 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
         int age = Integer.parseInt(ageField.getText());
 
         if(e.getSource() == resetButton.button){
-            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, address, age, none);
+            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
             if (registerResult) {
                 JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
                 new LoginScreen();
