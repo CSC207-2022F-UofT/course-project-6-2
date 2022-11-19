@@ -1,20 +1,28 @@
 package OrderHistory;
-
+import Controller.GetCustomerController;
+import UI.*;
 import UI.Button;
-import UI.TextField;
 import UI.ScrollPane;
+import UI.TextField;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class OrderHistoryScreen extends JFrame implements ActionListener {
 
     static JFrame frame = new JFrame();
-    static JPanel panel = new JPanel();
+    JPanel panel = new JPanel();
     TextField orderNumber = new TextField();
     Button search = new Button();
+    JButton reOrder = new JButton();
+    JLabel order = new JLabel();
     ScrollPane scrollPane = new ScrollPane();
+    OrderHistoryGrouping orderGroup = new OrderHistoryGrouping();
+    //orderLabel orders = new orderLabel();
+    GetCustomerController customerController = new GetCustomerController("Sancia","12345","1234567890",
+            19, "123 Happy Street", new ArrayList());
 
     public OrderHistoryScreen() {
 
@@ -23,20 +31,20 @@ public class OrderHistoryScreen extends JFrame implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setTitle("Order History");
-        frame.getContentPane().add(panel);
+        panel.setSize(frame.getSize());
+        scrollPane.createScrollPane(frame, panel);
 
         // adding the components onto the panel
-        orderNumber.createTextField(panel,25, 25, 225, 30);
+        orderNumber.createTextField(panel,25, 25, 300, 30);
 
-        search.createButton(panel,"Search", 275,25,75,30);
+        search.createButton(panel,"Search", 375,25,75,30);
 
-        scrollPane.createScrollPane(frame);
+        orderGroup.grouping(panel, order, reOrder);
 
-        panel.setLayout(null);
-        panel.setVisible(true);
+        //orders.createOrderLabel(panel, order);
+
         frame.setVisible(true);
     }
-
     /**
      * Invoked when action occurs
      *
@@ -45,10 +53,5 @@ public class OrderHistoryScreen extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == search){
-            //if(orderNumber.getTextField().equals(database.getObject())){
-
-            //}
-        }
     }
 }
