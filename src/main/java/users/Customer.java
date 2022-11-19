@@ -18,8 +18,8 @@ public class Customer extends User implements Serializable {
      * @param address The address of the customer.
      * @param orderHistory The order history of the customer.
      */
-    public Customer(String accountName, String passWord, String phoneNumber, int age, String address, ArrayList<Order> orderHistory){
-        super(accountName, passWord, phoneNumber, address);
+    public Customer(String accountName, String phoneNumber, String passWord, int age, String address, ArrayList<Order> orderHistory){
+        super(accountName, phoneNumber, passWord, address);
         this.age = age;
         this.orderHistory = orderHistory;
     }

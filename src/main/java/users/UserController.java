@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class UserController {
     protected static HashMap<String, User> sellers = new HashMap<>();
@@ -39,14 +40,33 @@ public class UserController {
 
     /**
      * registerUser: Store user instance to corresponding database
-     * @param user A User instance to be stored in the database
+     * @param accountName A String of user account name
+     * @param phoneNumber A String of user phone number
+     * @param password A String of user password
+     * @param confirmPass A String of confirmed user password
+     * @param address A String of user address
+     * @param age An int of user age
+     * @param storeName A String of store name
      */
-    public static void registerUser(User user) {
-        if (user instanceof Seller) {
-            sellers.put(user.getPhoneNumber(), user);
-        } else {
-            customers.put(user.getPhoneNumber(), user);
+    public static boolean registerUser(String accountName, String phoneNumber, String password, String confirmPass,
+                                    String address, int age, String storeName) {
+        // determine if password and confirmPass are the same
+        if (!Objects.equals(password, confirmPass)){
+            return false;
         }
+
+        // if user is a customer
+        if (storeName == null) {
+            Customer newCustomer = new Customer(accountName, phoneNumber, password, age, address, new ArrayList<>());
+            customers.put(phoneNumber, newCustomer);
+        }
+
+        // if user is a seller
+        else {
+            Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName, new ArrayList<>(), new ArrayList<>());
+            sellers.put(phoneNumber, newSeller);
+        }
+        return true;
     }
 
     /**
@@ -66,20 +86,25 @@ public class UserController {
 
     /**
      * resetPassword: Receive newPassword and check if the new password is different from previous password,
-     * a user can only reset the password if and only if the new password is different from their previous password
-     * @param newPassword A String of new password the user wants to reset to
-     * @param user A User instance
-     * @return A boolean indicating whether reset successfully
+     * a user can only reset the password if and only if the phone number exists and newPass and confirmPass match
+     * @param phoneNumber User's phone number
+     * @param newPass A String of new password the user wants to reset to
+     * @param confirmPass A String of confirmed new password the user wants to reset to
+     * @return Reset unsuccessful (false) happens when phone number is incorrect or newPass and confirmPass doesn't match
      */
-    public Boolean resetPassword(User user, String newPassword){
-        if (user instanceof Seller){
-            if (sellers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
-                return false;
+    public static Boolean resetPassword(String phoneNumber, String newPass, String confirmPass) throws IOException, ClassNotFoundException {
+        if (sellers.get(phoneNumber) != null) {
+            if (newPass.equals(confirmPass)) {
+                sellers.get(phoneNumber).setPassWord(newPass);
+                return true;
             }
-            return true;
-        } else if(customers.get(user.getPhoneNumber()).getPassWord().equals(newPassword)){
-            return false;
         }
-        return true;
+        else if (customers.get(phoneNumber) != null) {
+            if (newPass.equals(confirmPass)) {
+                customers.get(phoneNumber).setPassWord(newPass);
+                return true;
+            }
+        }
+        return false;
     }
 }
