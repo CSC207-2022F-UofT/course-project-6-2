@@ -91,10 +91,11 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
         String phoneNum = phoneNumField.getText();
         String password = String.valueOf(passwordField.getPassword());
         String confirmPass = String.valueOf(confirmPassField.getPassword());
+        String address = addressField.getText();
         int age = Integer.parseInt(ageField.getText());
 
         if(e.getSource() == resetButton.button){
-            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, age, none);
+            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, address, age, none);
             if (registerResult) {
                 JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
                 new LoginScreen();
