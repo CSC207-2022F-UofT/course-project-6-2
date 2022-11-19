@@ -17,7 +17,7 @@ public class Warn {
     }
 
 
-    public static String warnwhat(HashMap<Drink, String> itemList){
+    public String warnwhat(HashMap<Drink, String> itemList){
         ArrayList<Drink> cart_items = new ArrayList<>();
         ArrayList<String> dang = new ArrayList<>();
         dang.add("egg");
