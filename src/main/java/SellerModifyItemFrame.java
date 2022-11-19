@@ -6,4 +6,11 @@ public class SellerModifyItemFrame {
     private JTextField textField3;
     private JTextField descriptionTextField;
     private JPanel ModifyFrame;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JTextField textField8;
+    private JButton saveButton;
+    private JButton button1;
 }
