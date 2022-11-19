@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class UserController {
     protected static HashMap<String, User> sellers = new HashMap<>();
@@ -50,7 +51,7 @@ public class UserController {
     public static boolean registerUser(String accountName, String phoneNumber, String password, String confirmPass,
                                     String address, int age, String storeName) {
         // determine if password and confirmPass are the same
-        if (password != confirmPass){
+        if (!Objects.equals(password, confirmPass)){
             return false;
         }
 
@@ -91,7 +92,7 @@ public class UserController {
      * @param confirmPass A String of confirmed new password the user wants to reset to
      * @return Reset unsuccessful (false) happens when phone number is incorrect or newPass and confirmPass doesn't match
      */
-    public Boolean resetPassword(String phoneNumber, String newPass, String confirmPass) throws IOException, ClassNotFoundException {
+    public static Boolean resetPassword(String phoneNumber, String newPass, String confirmPass) throws IOException, ClassNotFoundException {
         if (sellers.get(phoneNumber) != null) {
             if (newPass.equals(confirmPass)) {
                 sellers.get(phoneNumber).setPassWord(newPass);
