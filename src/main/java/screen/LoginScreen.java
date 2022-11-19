@@ -61,6 +61,7 @@ public class LoginScreen extends JFrame implements ActionListener {
             boolean loginResult = UserController.login(phoneNum, password);
             if(loginResult){
                 // Go to main page
+                JOptionPane.showMessageDialog(null, "You have successfully logged in!");
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect Phone number or Password!");
             }
