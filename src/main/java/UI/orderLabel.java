@@ -1,6 +1,7 @@
 package UI;
 
 import Controller.GetCustomerController;
+import order.Order;
 import users.Customer;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ public class orderLabel{
     GetCustomerController phoneNum = new GetCustomerController("Sancia","12345","1234567890",
             19, "123 Happy Street", new ArrayList());
     Customer currentCustomer = phoneNum.getCustomer(phoneNum.getPhoneNumber());
-    ArrayList<String> orderHistory = currentCustomer.getOrderHistory();
+    ArrayList<Order> orderHistory = currentCustomer.getOrderHistory();
 
     public void createOrderLabel(JPanel panel, JLabel order){
 
