@@ -93,10 +93,11 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
         String phoneNum = phoneNumField.getText();
         String password = String.valueOf(passwordField.getPassword());
         String confirmPass = String.valueOf(confirmPassField.getPassword());
+        String address = addressField.getText();
         String storeName = storeNameField.getText();
 
         if(e.getSource() == registerButton){
-            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, none, storeName);
+            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, address, none, storeName);
             if (registerResult) {
                 JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
                 new LoginScreen();
