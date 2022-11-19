@@ -12,14 +12,15 @@ public class SaleBoardScreen extends JFrame implements ActionListener {
     public SaleBoardScreen() {
         // Basic setups
         JPanel panel = new JPanel();
-
         scrollPane.createScrollPane(frame, panel);
-
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Sale Board");
         frame.setResizable(false);
+
+
         frame.setVisible(true);
+
     }
     /**
      * Invoked when an action occurs.
