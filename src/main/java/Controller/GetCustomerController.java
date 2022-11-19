@@ -1,5 +1,6 @@
 package Controller;
 
+import order.Order;
 import users.Customer;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class GetCustomerController extends Customer {
      * @param address      The address of the customer.
      * @param orderHistory The order history of the customer.
      */
-    public GetCustomerController(String accountName, String passWord, String phoneNumber, int age, String address, ArrayList<String> orderHistory) {
+    public GetCustomerController(String accountName, String passWord, String phoneNumber, int age, String address, ArrayList<Order> orderHistory) {
         super(accountName, passWord, phoneNumber, age, address, orderHistory);
     }
 
