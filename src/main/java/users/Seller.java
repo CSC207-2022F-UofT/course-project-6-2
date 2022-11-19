@@ -6,6 +6,8 @@ import order.Order;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import java.util.Date;
+
 public class Seller extends User implements Serializable {
 
     private String storeName;
@@ -45,6 +47,21 @@ public class Seller extends User implements Serializable {
         this.items = items;
     }
 
+    public void ModifyDrinkName(Drink item, String name){item.setName(name);}
+
+    public void ModifyDrinkPrice(Drink item, float price){item.setPrice(price);}
+
+    public void ModifyDrinkDescription(Drink item, String description){item.setDescription(description);}
+
+    public void ModifyDrinkIngredient(Drink item, String ingredient){item.setIngredient(ingredient);}
+
+    public void ModifyDrinkVolume(Drink item, int volume){item.setVolume(volume);}
+
+    public void ModifyDrinkProductionData(Drink item, Date productionData){item.setProductionData(productionData);}
+
+    public void ModifyDrinkExpirationDate(Drink item, Date expirationDate){item.setExpirationDate(expirationDate);}
+
+    public void ModifyDrinkDiscount(Drink item, float discount){item.setDiscount(discount);}
     /**
      * The getter methods for the new instance values.
      */

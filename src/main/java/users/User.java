@@ -41,6 +41,7 @@ public abstract class User implements Serializable {
         this.address = address;
     }
 
+
     /**
      * The getter methods of the instance values.
      */
