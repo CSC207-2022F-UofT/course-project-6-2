@@ -96,7 +96,7 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
         String storeName = storeNameField.getText();
 
         if(e.getSource() == registerButton){
-            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, storeName, false);
+            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, none, storeName);
             if (registerResult) {
                 JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
                 new LoginScreen();
