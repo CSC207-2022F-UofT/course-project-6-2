@@ -5,6 +5,7 @@ import users.UserController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class ResetPasswordScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
@@ -12,7 +13,7 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
     Button registerButton = new Button();
     Button resetButton = new Button();
 
-    JTextField phoneNumField = new JTextField(15);; //The phone number entered
+    JTextField phoneNumField = new JTextField(15); //The phone number entered
     JPasswordField passwordField = new JPasswordField(15); //The new password entered
     JPasswordField comfirmPassField = new JPasswordField(15); //The password entered second time
 
@@ -63,7 +64,12 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
         String confirmPass = String.valueOf(comfirmPassField.getPassword());
 
         if(e.getSource() == resetButton.button){
-            boolean resetResult = UserController.resetPassword(phoneNum, newPass, confirmPass);
+            boolean resetResult;
+            try {
+                resetResult = UserController.resetPassword(phoneNum, newPass, confirmPass);
+            } catch (IOException | ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
             if (resetResult) {
                 JOptionPane.showMessageDialog(null, "You have reset your password!");
             } else {
