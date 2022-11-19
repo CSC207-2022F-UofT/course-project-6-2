@@ -94,7 +94,9 @@ public class UserController {
      * @param confirmPass A String of confirmed new password the user wants to reset to
      * @return Reset unsuccessful (false) happens when phone number is incorrect or newPass and confirmPass doesn't match
      */
+
     public static Boolean resetPassword(String phoneNumber, String newPass, String confirmPass) throws IOException, ClassNotFoundException {
+
         if (sellers.get(phoneNumber) != null) {
             if (newPass.equals(confirmPass)) {
                 sellers.get(phoneNumber).setPassWord(newPass);
