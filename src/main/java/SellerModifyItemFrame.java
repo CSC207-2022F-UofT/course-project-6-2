@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class SellerModifyItemFrame {
+public class SellerModifyItemFrame extends JFrame{
     private JTextField MFDrinkName;
     private JTextField MFStoreName;
     private JTextField MFPrice;
@@ -14,7 +14,15 @@ public class SellerModifyItemFrame {
     private JButton saveButton;
     private JButton cancelButton;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public SellerModifyItemFrame(){
+        setContentPane(ModifyFrame);
+        setTitle("Modify the Information of Drink");
+        setSize(400, 900);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SellerModifyItemFrame newFrame = new SellerModifyItemFrame();
     }
 }
