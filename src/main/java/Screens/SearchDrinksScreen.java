@@ -1,21 +1,21 @@
-package filter_search;
+package Screens;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import static filter_search.Searching.Add_to_Filtered;
+import static UseCases.SearchDrinks.Add_to_Filtered;
 
-public class MyFrame extends JFrame{
+public class SearchDrinksScreen extends JFrame{
     public static void main(String args[]){
-        MyFrame frame = new MyFrame();
+        SearchDrinksScreen frame = new SearchDrinksScreen();
         frame.setSize(400,300);
         frame.setVisible(true);
     }
     JTextField search_box = new JTextField(20);
 
-    public MyFrame(){
+    public SearchDrinksScreen(){
         super();
         JPanel root = new JPanel();
         this.setContentPane(root);
