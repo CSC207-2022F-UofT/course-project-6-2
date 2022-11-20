@@ -1,9 +1,11 @@
-package users;
+package Entities.Users;
 
-import order.Order;
+import Entities.Order;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+// Entities Layer
 
 public class Customer extends User implements Serializable {
     public int age;

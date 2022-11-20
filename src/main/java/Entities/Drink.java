@@ -1,6 +1,8 @@
-package drink;
+package Entities;
 
 import java.util.Date;
+
+// Entities Layer
 
 public class Drink {
     private String name;

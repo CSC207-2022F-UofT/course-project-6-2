@@ -1,10 +1,12 @@
-package users;
+package Entities.Users;
 
-import drink.Drink;
-import order.Order;
+import Entities.Drink;
+import Entities.Order;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+// Entities Layer
 
 public class Seller extends User implements Serializable {
 

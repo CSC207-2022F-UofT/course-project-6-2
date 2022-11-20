@@ -1,6 +1,8 @@
-package users;
+package Entities.Users;
 
 import java.io.Serializable;
+
+// Entities Layer
 
 public abstract class User implements Serializable {
     private String accountName;
