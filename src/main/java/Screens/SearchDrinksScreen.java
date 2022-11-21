@@ -10,7 +10,7 @@ import static UseCases.SearchDrinks.Add_to_Filtered;
 public class SearchDrinksScreen extends JFrame{
     public static void main(String args[]){
         SearchDrinksScreen frame = new SearchDrinksScreen();
-        frame.setSize(400,300);
+        frame.setSize(800,600);
         frame.setVisible(true);
     }
     JTextField search_box = new JTextField(20);
