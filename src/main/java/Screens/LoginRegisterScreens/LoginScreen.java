@@ -1,5 +1,7 @@
-package screen;
-import users.UserController;
+package Screens.LoginRegisterScreens;
+import Screens.Button;
+import Screens.LabelTextPanel;
+import UseCases.UserUseCases.LoginUser;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -58,7 +60,7 @@ public class LoginScreen extends JFrame implements ActionListener {
         String password = String.valueOf(passwordField.getPassword());
 
         if(e.getSource() == loginButton.button){
-            boolean loginResult = UserController.login(phoneNum, password);
+            boolean loginResult = LoginUser.login(phoneNum, password);
             if(loginResult){
                 // Go to main page
                 JOptionPane.showMessageDialog(null, "You have successfully logged in!");

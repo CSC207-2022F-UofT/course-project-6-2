@@ -1,7 +1,7 @@
-package order;
+package Entities;
 
-import helpers.Deserializer;
-import users.Seller;
+import Helpers.Deserializer;
+import Entities.Users.Seller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,7 +53,6 @@ public class Order {
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
-
 
     /**
      * The getter method of the instance values.

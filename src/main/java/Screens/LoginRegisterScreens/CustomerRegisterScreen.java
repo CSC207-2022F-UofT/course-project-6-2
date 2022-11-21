@@ -1,6 +1,7 @@
-package screen;
+package Screens.LoginRegisterScreens;
 
-import users.UserController;
+import Screens.*;
+import UseCases.UserUseCases.RegisterUser;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -93,6 +94,7 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
         String confirmPass = String.valueOf(confirmPassField.getPassword());
         String address = addressField.getText();
         String ageText = ageField.getText();
+
         int age = 0;
         try {
             Double.parseDouble(ageText);
@@ -101,7 +103,7 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
 
         }
         if(e.getSource() == registerButton.button){
-            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
+            boolean registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
             if (registerResult) {
                 JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
                 new LoginScreen();

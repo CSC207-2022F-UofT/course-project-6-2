@@ -1,6 +1,10 @@
-package screen;
+package Screens.LoginRegisterScreens;
 
-import users.UserController;
+import Screens.Button;
+import Screens.LabelTextPanel;
+import Screens.LoginRegisterScreens.CustomerRegisterScreen;
+import Screens.LoginRegisterScreens.LoginScreen;
+import UseCases.UserUseCases.ResetUserPassword;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -66,7 +70,7 @@ public class ResetPasswordScreen extends JFrame implements ActionListener {
         if(e.getSource() == resetButton.button){
             boolean resetResult;
             try {
-                resetResult = UserController.resetPassword(phoneNum, newPass, confirmPass);
+                resetResult = ResetUserPassword.resetPassword(phoneNum, newPass, confirmPass);
             } catch (IOException | ClassNotFoundException ex) {
                 throw new RuntimeException(ex);
             }

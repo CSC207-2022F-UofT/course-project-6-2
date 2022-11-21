@@ -1,13 +1,13 @@
-package filter_search;
+package UseCases;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 
-import drink.Drink;
-import helpers.Deserializer;
+import Entities.Drink;
+import Helpers.Deserializer;
 
-public class Searching {
+public class SearchDrinks {
     protected static ArrayList<Drink> drinks = new ArrayList<>();
     private static final Deserializer searchDeserializer = new Deserializer();
     public static void constructDrinkDataBase() throws IOException, ClassNotFoundException {

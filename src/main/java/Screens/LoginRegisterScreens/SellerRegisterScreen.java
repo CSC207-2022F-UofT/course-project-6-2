@@ -1,6 +1,8 @@
-package screen;
+package Screens.LoginRegisterScreens;
 
-import users.UserController;
+import Screens.Button;
+import Screens.LabelTextPanel;
+import UseCases.UserUseCases.RegisterUser;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -97,7 +99,7 @@ public class SellerRegisterScreen extends JFrame implements ActionListener {
         String storeName = storeNameField.getText();
 
         if(e.getSource() == registerButton.button){
-            boolean registerResult = UserController.registerUser(accountName, phoneNum, password, confirmPass, address, -1, storeName);
+            boolean registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, -1, storeName);
             if (registerResult) {
                 JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
                 new LoginScreen();

@@ -1,10 +1,10 @@
-package screen;
+package Screens;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class Button {
-    JButton button;
+    public JButton button;
 
     public JButton getButton() {
         return button;
