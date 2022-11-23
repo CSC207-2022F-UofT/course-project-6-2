@@ -4,16 +4,19 @@ import java.awt.*;
 
 public class ScrollPane extends JFrame{
 
+    JScrollPane scrollPane;
+
+    public JScrollPane getScrollPane(){
+        return scrollPane;
+    }
     public void createScrollPane(JFrame frame, JPanel panel) {
 
-        JScrollPane scrollablePanel = new JScrollPane(panel);
-
-        scrollablePanel.setPreferredSize(new Dimension(780,560));
-        scrollablePanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollablePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setPreferredSize(new Dimension(780,560));
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         panel.setPreferredSize(new Dimension(800,600));
 
-        frame.getContentPane().add(scrollablePanel);
+        frame.getContentPane().add(scrollPane);
     }
 }
