@@ -123,25 +123,6 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
     }
 
     /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerMainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(() -> new CustomerMainScreen().setVisible(true));
-    }
-
-    /**
      * Invoked when an action occurs.
      *
      * @param e the event to be processed
