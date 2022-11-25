@@ -11,7 +11,7 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Drink Application");
+        frame.setTitle("Customer Main Page");
         frame.setResizable(false);
         frame.add(panel);
         panel.setLayout(null);
@@ -151,3 +151,4 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
     }
 }
+
