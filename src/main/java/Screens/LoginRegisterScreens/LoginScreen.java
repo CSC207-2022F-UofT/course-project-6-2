@@ -1,4 +1,5 @@
 package Screens.LoginRegisterScreens;
+import Controller.LoginController;
 import Screens.Button;
 import Screens.LabelTextPanel;
 import UseCases.UserUseCases.LoginUser;
@@ -19,7 +20,6 @@ public class LoginScreen extends JFrame implements ActionListener {
     public LoginScreen() {
         // Basic setups
         JPanel panel = new JPanel();
-
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Drink Application");
@@ -64,6 +64,7 @@ public class LoginScreen extends JFrame implements ActionListener {
             if(loginResult){
                 // Go to main page
                 JOptionPane.showMessageDialog(null, "You have successfully logged in!");
+                new LoginController(phoneNum);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect Phone number or Password!");
             }
