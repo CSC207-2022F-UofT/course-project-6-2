@@ -3,9 +3,12 @@ package Entities.OrderHistory;
 import Screens.ButtonEditor;
 import Screens.ButtonRenderer;
 import UseCases.ExtractUserFromPhoneNum;
+import UseCases.OrderUseCases.OrderActionPerformed;
 import UseCases.OrderUseCases.OrderTable;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 /**
@@ -21,15 +24,16 @@ public class OrderHistoryScreen extends JFrame {
     JTable table = new JTable();
     ExtractUserFromPhoneNum extractedUser = new ExtractUserFromPhoneNum();
     OrderTable orderTable = new OrderTable();
+    OrderActionPerformed actionPerformed = new OrderActionPerformed();
     public OrderHistoryScreen() throws IOException, ClassNotFoundException {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        searchOrderHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchOrderHistoryActionPerformed(evt);
+        searchOrderHistory.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                actionPerformed(evt);
             }
         });
 
@@ -78,10 +82,6 @@ public class OrderHistoryScreen extends JFrame {
         );
 
         pack();
-    }
-
-    private void SearchOrderHistoryActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 }
 
