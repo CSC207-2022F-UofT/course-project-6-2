@@ -3,10 +3,10 @@ package Entities.OrderHistory;
 import Screens.ButtonEditor;
 import Screens.ButtonRenderer;
 import UseCases.ExtractUserFromPhoneNum;
+import UseCases.OrderUseCases.OrderTable;
 
 import javax.swing.*;
 import java.io.IOException;
-
 
 /**
  *
@@ -20,7 +20,8 @@ public class OrderHistoryScreen extends JFrame {
     JScrollPane scrollPane = new JScrollPane();
     JTable table = new JTable();
     ExtractUserFromPhoneNum extractedUser = new ExtractUserFromPhoneNum();
-    public OrderHistoryScreen(){
+    OrderTable orderTable = new OrderTable();
+    public OrderHistoryScreen() throws IOException, ClassNotFoundException {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -33,28 +34,7 @@ public class OrderHistoryScreen extends JFrame {
         });
 
         // Creating the table
-        table.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, "Re-Order"},
-                        {null, null, null, "Re-Order"},
-                        {null, null, null, "Re-Order"},
-                        {null, null, null, "Re-Order"},
-                        {null, null, null, "Re-Order"},
-                        {null, null, null, "Re-Order"},
-                        {null, null, null, "Re-Order"}
-                }, new String [] {
-                        "Order Name", "Order Price", "Order Status", "Re-Order"
-                }
-        ) {
-            // making the columns uneditable
-            final boolean[] canEdit = new boolean [] {
-                    false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        orderTable.createOrderTable(table, extractedUser);
 
         // Setting the settings for the table
         scrollPane.setViewportView(table);

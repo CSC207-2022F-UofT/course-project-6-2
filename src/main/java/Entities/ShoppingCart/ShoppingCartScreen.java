@@ -1,5 +1,7 @@
 package Entities.ShoppingCart;
 
+import UseCases.ExtractUserFromPhoneNum;
+
 import javax.swing.*;
 
 /**
@@ -10,10 +12,14 @@ public class ShoppingCartScreen extends javax.swing.JFrame {
 
     // Variables declaration
     JButton checkoutButton = new JButton("Checkout");
+    // ExtractUserFromPhoneNum extractedUser = new ExtractUserFromPhoneNum();
+    // Seller seller = extractedUser.extractSeller();
+    // Customer customer = extractedUser.extractCustomer();
+    // Order order = new Order(new HashMap<>(), order.getOrderStatus());
     JScrollPane innerScrollPane = new JScrollPane();
     JTable table = new JTable();
     JPanel panel = new JPanel();
-    JLabel totalAmountLabel = new JLabel();
+    JLabel totalAmountLabel = new JLabel();//String.valueOf(order.getTotalOrder()));
     JLabel totalLabel = new JLabel("Total: ");
     public ShoppingCartScreen() {
 
@@ -35,7 +41,7 @@ public class ShoppingCartScreen extends javax.swing.JFrame {
                         "Drink Name", "Drink Price", "Discount", "Quantity"
                 }
         ) {
-            boolean[] canEdit = new boolean [] {
+            final boolean[] canEdit = new boolean [] {
                     false, false, false, false
             };
 
