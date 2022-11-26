@@ -8,7 +8,6 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     public CustomerMainScreen() {
         JPanel panel = new JPanel();
-
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Customer Main Page");
@@ -54,15 +53,19 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
         mainTabbedPanel.addTab("Search Drinks", searchDrinksPanel);
 
+        JScrollPane SaleSectionPanel = new SaleSectionPanel().getPanel();
+
         GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionPanel);
         saleSectionPanel.setLayout(SaleSectionPanelLayout);
         SaleSectionPanelLayout.setHorizontalGroup(
                 SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(SaleSectionPanel)
         );
         SaleSectionPanelLayout.setVerticalGroup(
                 SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(SaleSectionPanel)
         );
 
         mainTabbedPanel.addTab("Sale Section", saleSectionPanel);
@@ -93,15 +96,19 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
         mainTabbedPanel.addTab("Order History", orderHistoryPanel);
 
+        JPanel CustomerServicePanel = new CustomerServicePanel().getPanel();
+
         GroupLayout CustomerServicePanelLayout = new GroupLayout(customerServicePanel);
         customerServicePanel.setLayout(CustomerServicePanelLayout);
         CustomerServicePanelLayout.setHorizontalGroup(
                 CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(CustomerServicePanel)
         );
         CustomerServicePanelLayout.setVerticalGroup(
                 CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(CustomerServicePanel)
         );
 
         mainTabbedPanel.addTab("Customer Service", customerServicePanel);
@@ -120,6 +127,10 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         pack();
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new CustomerMainScreen();
     }
 
     /**

@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+// Frameworks/Drivers layer
+
 public class ResetPasswordScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     Button loginButton = new Button();

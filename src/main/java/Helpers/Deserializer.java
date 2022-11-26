@@ -2,6 +2,8 @@ package Helpers;
 
 import java.io.*;
 
+// Use case layer
+
 public class Deserializer {
     Serializable obj;
 

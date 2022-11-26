@@ -1,23 +1,25 @@
-package Screens;
+package Screens.SellerScreens;
+
+import Screens.Button;
+import Screens.CustomerScreens.CustomerMainScreen;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.util.Vector;
 
 public class SellerMainScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
-    Button modifyDrinkButton = new Button();
-    Button addDrinkButton = new Button();
-    Button onSaleButton = new Button();
-    Button orderHistoryButton = new Button();
+    Screens.Button modifyDrinkButton = new Screens.Button();
+    Screens.Button addDrinkButton = new Screens.Button();
+    Screens.Button onSaleButton = new Screens.Button();
+    Screens.Button orderHistoryButton = new Button();
     Vector headers = new Vector();
     Vector data = new Vector();
 
     public SellerMainScreen() {
-        // Basic setups for the Jtable.
+        // Basic setups for the JTable.
         headers.add("drink name");
         headers.add("price");
         headers.add("description");
@@ -38,22 +40,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         line1.add("1");
         data.add(line1);
 
-        /**
-         //Get the phone number from login and extract the corresponding seller object.
-         String phoneNum = new String();
-         Seller seller = new ExtractUserFromPhoneNum().extractUser(phoneNum);
-         for (int i = 0; i < seller.items.size(); i++){
-         Vector line = new Vector();
-         line.add(seller.items.get(i).getName());
-         line.add(seller.items.get(i).getPrice());
-         line.add(seller.items.get(i).getDescription());
-         line.add(seller.items.get(i).getIngredient());
-         line.add(seller.items.get(i).getVolume());
-         line.add(seller.items.get(i).getProductionData());
-         line.add(seller.items.get(i).getExpirationDate());
-         line.add(seller.items.get(i).getDiscount());
-         data.add(line);
-         }*/
+        System.out.println(line1);
 
         //Basic set up for the frame.
         frame.setSize(800, 600);
@@ -96,7 +83,8 @@ public class SellerMainScreen extends JFrame implements ActionListener {
          }*/
 
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         new SellerMainScreen();
     }
 }

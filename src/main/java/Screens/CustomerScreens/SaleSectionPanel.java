@@ -1,45 +1,40 @@
 package Screens.CustomerScreens;
 
-import Screens.LoginRegisterScreens.LoginScreen;
+import Entities.Drink;
+import UseCases.GetOnSaleDrinks;
 
 import javax.swing.*;
-import java.awt.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class SaleSectionPanel {
-    JFrame frame = new JFrame();
-    Vector headers = new Vector();
-    Vector data = new Vector();
-
+    JScrollPane scrollPane;
     public SaleSectionPanel() {
-        // Basic setups
-        JPanel panel = new JPanel();
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Drink Application");
-        frame.setResizable(false);
-        frame.add(panel);
-        panel.setLayout(null);
+        Vector headers = new Vector();
+        Vector data = new Vector();
+        Vector line = new Vector();
+        ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
+        DecimalFormat df = new DecimalFormat("0.00");
 
-        // Headers of the JTable
         headers.add("Drink name");
         headers.add("Original Price");
         headers.add("Discount");
         headers.add("Current Price");
         headers.add("Add to Shopping Cart");
 
-        Vector line1 = new Vector();
+        for (Drink drink: onSaleDrinks) {
+            line.add(drink.getName());
+            line.add(drink.getPrice());
+            line.add(drink.getDiscount());
+            line.add(df.format(drink.getPrice() * drink.getDiscount()));
+            data.add(line);
+        }
 
         JTable orderTable = new JTable(data, headers);
-        JScrollPane scrollPane = new JScrollPane(orderTable);
-        Container contentPane = frame.getContentPane();
-
-        //Adding the two panels to the contentPane.
-        contentPane.add(panel, BorderLayout.NORTH);
-        contentPane.add(scrollPane, BorderLayout.SOUTH);
-        frame.setVisible(true);
+        scrollPane = new JScrollPane(orderTable);
     }
-    public static void main(String[] args) {
-        new SaleSectionPanel();
+    public JScrollPane getPanel() {
+        return scrollPane;
     }
 }
