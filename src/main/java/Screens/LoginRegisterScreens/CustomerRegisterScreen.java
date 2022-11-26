@@ -2,11 +2,14 @@ package Screens.LoginRegisterScreens;
 
 import Screens.*;
 import UseCases.UserInputBoundary.RegisterInputBoundary;
+import UseCases.UserResponseModels.RegisterResponseModel;
 import UseCases.UserUseCases.RegisterUser;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+// Frameworks/Drivers layer
 
 public class CustomerRegisterScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
@@ -97,13 +100,13 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
         String ageText = ageField.getText();
         int age = new RegisterInputBoundary(ageText).age;
 
+        System.out.println(accountName);
+
         if(e.getSource() == registerButton.button){
-            boolean registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
-            if (registerResult) {
-                JOptionPane.showMessageDialog(null, "You have successfully registered, please log in!");
+            String registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
+            new RegisterResponseModel(registerResult);
+            if (registerResult.equals("Successfully registered")) {
                 new LoginScreen();
-            } else {
-                JOptionPane.showMessageDialog(null, "Phone number exists or password doesn't match!");
             }
         }
         if(e.getSource() == loginButton.button){

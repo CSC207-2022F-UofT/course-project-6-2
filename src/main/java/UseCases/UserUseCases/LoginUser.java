@@ -9,6 +9,7 @@ public class LoginUser {
      * @param passWord A String of user's password
      * @return A boolean indicating whether the login is successful
      */
+
     public static boolean login(String phoneNumber, String passWord) {
         if (UserRuntimeDataBase.sellers.get(phoneNumber) != null &&
                 UserRuntimeDataBase.sellers.get(phoneNumber).getPassWord().equals(passWord)) {
