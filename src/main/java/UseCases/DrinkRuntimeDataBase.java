@@ -1,4 +1,4 @@
-package UseCases.UserUseCases;
+package UseCases;
 
 import Entities.Drink;
 
