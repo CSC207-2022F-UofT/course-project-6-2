@@ -22,5 +22,4 @@ public class GetOnSaleDrinks {
         }
         return onSaleDrinks;
     }
-
 }
