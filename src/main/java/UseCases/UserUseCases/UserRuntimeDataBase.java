@@ -1,5 +1,6 @@
 package UseCases.UserUseCases;
 
+import Entities.Users.Customer;
 import Entities.Users.Seller;
 import Entities.Users.User;
 
@@ -13,5 +14,5 @@ public class UserRuntimeDataBase {
 
     public static Seller currentSeller;
 
-    public static Seller currentCustomer;
+    public static Customer currentCustomer;
 }
