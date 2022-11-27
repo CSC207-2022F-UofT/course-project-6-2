@@ -15,6 +15,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     JPanel panel = new JPanel();
     JTable drinkTable;
+    Drink selectedDrink;
     Button addToCart = new Button();
     public SaleSectionPanel() {
         Vector<String> headers = new Vector<>();
@@ -27,10 +28,6 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         headers.add("Original Price");
         headers.add("Discount");
         headers.add("Current Price");
-
-        drinkTable = new JTable(data, headers);
-        drinkTable.getTableHeader().setReorderingAllowed(false);
-        drinkTable.getTableHeader().setResizingAllowed(false);
 
         for (Drink drink: onSaleDrinks) {
             line.add(drink.getName());
@@ -50,6 +47,10 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
             data.add(line1);
         }
 
+        drinkTable = new JTable(data, headers);
+        drinkTable.getTableHeader().setReorderingAllowed(false);
+        drinkTable.getTableHeader().setResizingAllowed(false);
+
         addToCart.createButton(panel, "Add to Cart", 0, 0, 0, 0);
         addToCart.addActionListener(this);
         scrollPane = new JScrollPane(drinkTable);
@@ -59,7 +60,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                JOptionPane.showMessageDialog(null, "Selected row" + selectedRow);
+                // selectedDrink = onSaleDrinks.get(selectedRow);
             }
         });
     }

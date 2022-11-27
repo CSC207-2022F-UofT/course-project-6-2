@@ -14,12 +14,13 @@ public class GetRandomDrinks {
         drinks = (ArrayList<Drink>) searchDeserializer.getObject();
     }
     public ArrayList<Drink> randomDrinks(){
-        ArrayList randomDrinks = new ArrayList<>();
-        for (Drink drink : drinks){
-            if (drink.getDiscount() != 1) {
-                randomDrinks.add(drink);
+        if (drinks.size() > 25) {
+            ArrayList<Drink> randomDrinks = new ArrayList<>();
+            for (int i = 0; i < 25; i ++) {
+                randomDrinks.add(drinks.get(i));
             }
+            return randomDrinks;
         }
-        return randomDrinks;
+        return drinks;
     }
 }
