@@ -3,6 +3,7 @@ package Screens.CustomerScreens;
 import Entities.Drink;
 import Screens.Button;
 import UseCases.GetRandomDrinks;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -75,6 +76,6 @@ public class DrinkPanel extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        UserRuntimeDataBase.currentCustomer.getShoppingCart().addItem(selectedDrink, 1);
     }
 }
