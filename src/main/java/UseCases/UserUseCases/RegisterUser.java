@@ -2,6 +2,8 @@ package UseCases.UserUseCases;
 
 import Entities.Users.Customer;
 import Entities.Users.Seller;
+import UseCases.DrinkUseCases.DrinkRuntimeDataBase;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -52,6 +54,7 @@ public class RegisterUser {
         else {
             Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName, new ArrayList<>(), new ArrayList<>());
             UserRuntimeDataBase.sellers.put(phoneNumber, newSeller);
+            DrinkRuntimeDataBase.addStore(storeName);
         }
         return "Successfully registered";
     }

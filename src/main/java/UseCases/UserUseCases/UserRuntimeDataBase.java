@@ -12,9 +12,9 @@ public class UserRuntimeDataBase {
     protected static HashMap<String, User> sellers = new HashMap<>();
     protected static HashMap<String, User> customers = new HashMap<>();
 
-    public static Seller currentSeller;
+    protected static Seller currentSeller;
 
-    public static Customer currentCustomer;
+    protected static Customer currentCustomer;
 
     public static void constructCurrentSeller(String phoneNum){
         currentSeller = (Seller) sellers.get(phoneNum);
@@ -24,4 +24,19 @@ public class UserRuntimeDataBase {
         currentCustomer = (Customer) customers.get(phoneNum);
     }
 
+    public static HashMap<String, User> getSellers() {
+        return sellers;
+    }
+
+    public static HashMap<String, User> getCustomers() {
+        return customers;
+    }
+
+    public static Seller getCurrentSeller() {
+        return currentSeller;
+    }
+
+    public static Customer getCurrentCustomer() {
+        return currentCustomer;
+    }
 }

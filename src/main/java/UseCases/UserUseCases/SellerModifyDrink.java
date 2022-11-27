@@ -1,41 +1,49 @@
 package UseCases.UserUseCases;
 
 import Entities.Drink;
-import UseCases.DrinkRuntimeDataBase;
+import UseCases.DrinkUseCases.DrinkRuntimeDataBase;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class SellerModifyDrink {
-    private static String searchedDrinkName;
+    private static Drink searchedDrink;
 
-    public Drink searchDrinkToModify(String name){
-        searchedDrinkName = name;
-        return DrinkRuntimeDataBase.drinks.get(name);
+    public static Drink getSearchedDrink() {
+        return searchedDrink;
     }
 
-    public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName) {
-        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount, storeName);
-        Drink oldDink = DrinkRuntimeDataBase.drinks.get(searchedDrinkName);
+    public Drink searchedDrinkToModify(String name){
+        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.currentSeller.getStoreName());
+        searchedDrink = allDrinks.get(name);
+        return searchedDrink;
+    }
+
+    public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
+        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
+        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.currentSeller.getStoreName());
         // if seller modified the drink name
-        if (name != searchedDrinkName){
-            DrinkRuntimeDataBase.drinks.remove(name);
-            DrinkRuntimeDataBase.drinks.put(name, currentDrink);
+        if (name != searchedDrink.getName()){
+            allDrinks.remove(searchedDrink.getName());
+            allDrinks.put(name, currentDrink);
         } else {
-            DrinkRuntimeDataBase.drinks.replace(name, currentDrink);
+            allDrinks.replace(name, currentDrink);
         }
         // need to modify the items(Arraylist of drink that the seller sell) attribute in Seller
-        UserRuntimeDataBase.currentSeller.modifyDrink(oldDink, currentDrink);
+        UserRuntimeDataBase.currentSeller.modifyDrink(searchedDrink, currentDrink);
     }
 
-    public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName){
-        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount, storeName);
-        DrinkRuntimeDataBase.drinks.put(name, currentDrink);
+    public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
+        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
+        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.currentSeller.getStoreName());
+        allDrinks.put(name, currentDrink);
         UserRuntimeDataBase.currentSeller.modifyDrink(null, currentDrink);
     }
 
-    public void deleteDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName){
-        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount, storeName);
-        DrinkRuntimeDataBase.drinks.remove(name);
+    public void deleteDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
+        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
+        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.currentSeller.getStoreName());
+        allDrinks.remove(name);
         UserRuntimeDataBase.currentSeller.modifyDrink(currentDrink, null);
     }
 

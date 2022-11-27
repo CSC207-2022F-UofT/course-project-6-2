@@ -1,15 +1,20 @@
 package Entities.Users;
 
+import Entities.Drink;
 import Entities.Order;
+import Entities.ShoppingCart;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 // Entities Layer
 
 public class Customer extends User implements Serializable {
     public int age;
     public ArrayList<Order> orderHistory;
+
+    public ShoppingCart shoppingCart;
 
     /**
      * Construct an instance of the entity Customer.
@@ -24,6 +29,7 @@ public class Customer extends User implements Serializable {
         super(accountName, phoneNumber, passWord, address);
         this.age = age;
         this.orderHistory = orderHistory;
+        this.shoppingCart = new ShoppingCart(0, new HashMap<>());
     }
 
     /**
@@ -37,6 +43,10 @@ public class Customer extends User implements Serializable {
         this.orderHistory = orderHistory;
     }
 
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
     /**
      * Getter methods for the new instance values.
      */
@@ -46,6 +56,10 @@ public class Customer extends User implements Serializable {
 
     public ArrayList<Order> getOrderHistory() {
         return this.orderHistory;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
     }
 
     public String getOrderStatus(Order order){
