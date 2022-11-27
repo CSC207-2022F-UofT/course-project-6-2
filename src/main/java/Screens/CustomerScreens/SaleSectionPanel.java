@@ -5,18 +5,21 @@ import Screens.Button;
 import UseCases.GetOnSaleDrinks;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class SaleSectionPanel {
+public class SaleSectionPanel extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     JPanel panel = new JPanel();
+    JTable drinkTable;
     Button addToCart = new Button();
     public SaleSectionPanel() {
-        Vector headers = new Vector();
-        Vector data = new Vector();
-        Vector line = new Vector();
+        Vector<String> headers = new Vector<>();
+        Vector<Vector<String>> data = new Vector<>();
+        Vector<String> line = new Vector<>();
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         DecimalFormat df = new DecimalFormat("0.00");
 
@@ -25,7 +28,7 @@ public class SaleSectionPanel {
         headers.add("Discount");
         headers.add("Current Price");
 
-        JTable drinkTable = new JTable(data, headers);
+        drinkTable = new JTable(data, headers);
         drinkTable.getTableHeader().setReorderingAllowed(false);
         drinkTable.getTableHeader().setResizingAllowed(false);
 
@@ -39,7 +42,7 @@ public class SaleSectionPanel {
 
         // test part
         for (int i = 0; i < 30; i ++) {
-            Vector line1 = new Vector();
+            Vector<String> line1 = new Vector<>();
             line1.add("Strawberry Coconut");
             line1.add("$18.00");
             line1.add("30%");
@@ -47,12 +50,32 @@ public class SaleSectionPanel {
             data.add(line1);
         }
 
-        addToCart.createButton(panel, "Add to Cart", 0, 0, 80, 50);
-
+        addToCart.createButton(panel, "Add to Cart", 0, 0, 0, 0);
+        addToCart.addActionListener(this);
         scrollPane = new JScrollPane(drinkTable);
         panel.add(scrollPane);
+
+        ListSelectionModel model = drinkTable.getSelectionModel();
+        model.addListSelectionListener(e -> {
+            if (! model.isSelectionEmpty()) {
+                int selectedRow = model.getMinSelectionIndex();
+                JOptionPane.showMessageDialog(null, "Selected row" + selectedRow);
+            }
+        });
     }
     public JPanel getPanel() {
         return panel;
+    }
+
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == addToCart.button) {
+            System.out.println("hi");
+        }
     }
 }
