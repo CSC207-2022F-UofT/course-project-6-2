@@ -13,7 +13,9 @@ public class RegisterResponseModel {
             JOptionPane.showMessageDialog(null, "One or more information is missing!");
         } else if (Objects.equals(registerResult, "Phone number exists")){
             JOptionPane.showMessageDialog(null, "Phone number already exists!");
-        }else {
+        } else if (Objects.equals(registerResult, "Store name exists")) {
+            JOptionPane.showMessageDialog(null, "Store name already exists!");
+        } else {
             JOptionPane.showMessageDialog(null, "You have successfully registered, please log in !");
         }
     }
