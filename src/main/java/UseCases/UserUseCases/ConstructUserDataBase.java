@@ -14,13 +14,13 @@ public class ConstructUserDataBase {
     /**
      * constructUserDataBase: Extract data from database and store to users HashMap
      */
-    @SuppressWarnings("unchecked")
+
     public static void constructUserDataBase() throws IOException, ClassNotFoundException {
         userDeserializer.deserialize("./data/users");
         ArrayList<HashMap> data = (ArrayList<HashMap>) userDeserializer.getObject();
         if (data != null) {
-            CreateUserHashMap.sellers = data.get(0);
-            CreateUserHashMap.customers = data.get(1);
+            UserRuntimeDataBase.sellers = data.get(0);
+            UserRuntimeDataBase.customers = data.get(1);
         }
     }
 }

@@ -14,15 +14,15 @@ public class ResetUserPassword {
      * @return Reset unsuccessful (false) happens when phone number is incorrect or newPass and confirmPass doesn't match
      */
     public static Boolean resetPassword(String phoneNumber, String newPass, String confirmPass) throws IOException, ClassNotFoundException {
-        if (CreateUserHashMap.sellers.get(phoneNumber) != null) {
+        if (UserRuntimeDataBase.sellers.get(phoneNumber) != null) {
             if (newPass.equals(confirmPass)) {
-                CreateUserHashMap.sellers.get(phoneNumber).setPassWord(newPass);
+                UserRuntimeDataBase.sellers.get(phoneNumber).setPassWord(newPass);
                 return true;
             }
         }
-        else if (CreateUserHashMap.customers.get(phoneNumber) != null) {
+        else if (UserRuntimeDataBase.customers.get(phoneNumber) != null) {
             if (newPass.equals(confirmPass)) {
-                CreateUserHashMap.customers.get(phoneNumber).setPassWord(newPass);
+                UserRuntimeDataBase.customers.get(phoneNumber).setPassWord(newPass);
                 return true;
             }
         }

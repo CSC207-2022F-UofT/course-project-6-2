@@ -1,19 +1,23 @@
 package Screens.LoginRegisterScreens;
-import Controller.LoginController;
 import Screens.Button;
+import Screens.CustomerScreens.CustomerMainScreen;
 import Screens.LabelTextPanel;
+import Screens.SellerScreens.SellerMainScreen;
+import UseCases.UserResponseModels.LoginResponseModel;
 import UseCases.UserUseCases.LoginUser;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+// Frameworks/Drivers layer
 
 public class LoginScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     Button loginButton = new Button();
     Button registerButton = new Button();
     Button resetButton = new Button();
-
     JTextField phoneNumField = new JTextField(15); //The phone number entered
     JPasswordField passwordField = new JPasswordField(15); //The password entered
 
@@ -48,7 +52,6 @@ public class LoginScreen extends JFrame implements ActionListener {
 
         frame.setVisible(true);
     }
-
     /**
      * Invoked when an action occurs.
      *
@@ -60,19 +63,19 @@ public class LoginScreen extends JFrame implements ActionListener {
         String password = String.valueOf(passwordField.getPassword());
 
         if(e.getSource() == loginButton.button){
-            boolean loginResult = LoginUser.login(phoneNum, password);
-            if(loginResult){
-                // Go to main page
-                JOptionPane.showMessageDialog(null, "You have successfully logged in!");
-                new LoginController(phoneNum);
-            } else {
-                JOptionPane.showMessageDialog(null, "Incorrect Phone number or Password!");
+            String loginResult = LoginUser.login(phoneNum, password);
+            new LoginResponseModel(loginResult);
+            if (loginResult.equals("Seller")) {
+                new SellerMainScreen();
+                new UserRuntimeDataBase().constructCurrentSeller(phoneNum);
+            } else if (loginResult.equals("Customer")) {
+                new CustomerMainScreen();
+                new UserRuntimeDataBase().constructCurrentCustomer(phoneNum);
             }
         }
         if(e.getSource() == registerButton.button){
             new CustomerRegisterScreen();
             frame.setVisible(false);
-
         }
         if(e.getSource() == resetButton.button) {
             new ResetPasswordScreen();
