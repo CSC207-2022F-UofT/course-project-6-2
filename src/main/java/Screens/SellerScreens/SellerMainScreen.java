@@ -35,6 +35,18 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         headers.add("expiration Date");
         headers.add("discount");
 
+        Vector line = new Vector<>();
+        line.add("1");
+        line.add("1");
+        line.add("1");
+        line.add("1");
+        line.add("1");
+        line.add("1");
+        line.add("1");
+        line.add("1");
+        data.add(line);
+
+/**
         //Get the phone number from login and extract the corresponding seller object.
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         for (int i = 0; i < seller.items.size(); i++){
@@ -52,7 +64,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
             line.add(strExpiration);
             line.add(Float.toString(seller.items.get(i).getDiscount()));
             data.add(line);
-         }
+         }*/
 
         //Basic set up for the frame.
         frame.setSize(800, 600);

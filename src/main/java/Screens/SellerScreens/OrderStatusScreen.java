@@ -31,14 +31,19 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
         headers.add("order number");
         headers.add("order status");
 
-         //Get the phone number from login and extract the corresponding seller object.
+        Vector line = new Vector();
+        line.add("1");
+        line.add("1");
+        data.add(line);
+        /**
+        //Get the phone number from login and extract the corresponding seller object.
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         for (int i = 0; i < seller.allOrders.size(); i++){
             Vector line = new Vector();
             line.add(Integer.toString(seller.allOrders.get(i).orderNum));
             line.add(seller.allOrders.get(i).orderStatus);
             data.add(line);
-         }
+         }*/
 
         //Basic set up for the frame.
         frame.setSize(800, 600);

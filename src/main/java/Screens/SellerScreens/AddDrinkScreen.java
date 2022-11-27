@@ -34,7 +34,7 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
 
     public AddDrinkScreen() {
         // Basic setups
-        frame.setSize(400, 425);
+        frame.setSize(450, 450);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("add drink");
         frame.setResizable(false);

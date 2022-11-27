@@ -38,7 +38,7 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
 
     public ModifyDrinkScreen() {
         // Basic setups
-        frame.setSize(400, 425);
+        frame.setSize(450, 450);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("modify drink");
         frame.setResizable(false);
