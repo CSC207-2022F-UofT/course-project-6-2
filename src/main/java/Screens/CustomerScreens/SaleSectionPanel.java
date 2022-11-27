@@ -11,12 +11,12 @@ import java.util.Vector;
 
 public class SaleSectionPanel {
     JScrollPane scrollPane;
-    Button addToCart;
+    JPanel panel = new JPanel();
+    Button addToCart = new Button();
     public SaleSectionPanel() {
         Vector headers = new Vector();
         Vector data = new Vector();
         Vector line = new Vector();
-        JPanel panel = new JPanel();
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         DecimalFormat df = new DecimalFormat("0.00");
 
@@ -47,11 +47,12 @@ public class SaleSectionPanel {
             data.add(line1);
         }
 
-        addToCart.createButton(panel, "Add to Cart", 50, 50, 100, 50);
+        addToCart.createButton(panel, "Add to Cart", 0, 0, 80, 50);
 
         scrollPane = new JScrollPane(drinkTable);
+        panel.add(scrollPane);
     }
-    public JScrollPane getPanel() {
-        return scrollPane;
+    public JPanel getPanel() {
+        return panel;
     }
 }
