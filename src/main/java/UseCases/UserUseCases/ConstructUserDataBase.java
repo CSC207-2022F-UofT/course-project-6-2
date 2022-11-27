@@ -19,8 +19,8 @@ public class ConstructUserDataBase {
         userDeserializer.deserialize("./data/users");
         ArrayList<HashMap> data = (ArrayList<HashMap>) userDeserializer.getObject();
         if (data != null) {
-            CreateUserHashMap.sellers = data.get(0);
-            CreateUserHashMap.customers = data.get(1);
+            UserRuntimeDataBase.sellers = data.get(0);
+            UserRuntimeDataBase.customers = data.get(1);
         }
     }
 }

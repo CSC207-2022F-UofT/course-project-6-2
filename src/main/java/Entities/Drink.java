@@ -14,6 +14,8 @@ public class Drink {
     private Date expirationDate;
     private float discount;
 
+    private String storeName;
+
     /**
      * Construct an instance of the entity drink.
      * @param name The name of the drink.
@@ -25,7 +27,7 @@ public class Drink {
      * @param expirationDate The date of expiration of the drink.
      * @param discount The amount of discount of this drink right now.
      */
-    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
+    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -71,6 +73,9 @@ public class Drink {
         this.discount = discount;
     }
 
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
 
     /**
      * The getter methods of the instance values.
@@ -105,5 +110,9 @@ public class Drink {
 
     public float getDiscount() {
         return this.discount;
+    }
+
+    public String getStoreName() {
+        return storeName;
     }
 }

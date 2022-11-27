@@ -29,13 +29,13 @@ public class RegisterUser {
         // if user is a customer
         if (storeName == null) {
             Customer newCustomer = new Customer(accountName, phoneNumber, password, age, address, new ArrayList<>());
-            CreateUserHashMap.customers.put(phoneNumber, newCustomer);
+            UserRuntimeDataBase.customers.put(phoneNumber, newCustomer);
         }
 
         // if user is a seller
         else {
             Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName, new ArrayList<>(), new ArrayList<>());
-            CreateUserHashMap.sellers.put(phoneNumber, newSeller);
+            UserRuntimeDataBase.sellers.put(phoneNumber, newSeller);
         }
         return true;
     }
