@@ -33,7 +33,7 @@ public class RegisterUser {
         }
 
         // determine if phone number exists
-        if (CreateUserHashMap.sellers.get(phoneNumber) != null || CreateUserHashMap.customers.get(phoneNumber) != null) {
+        if (UserRuntimeDataBase.sellers.get(phoneNumber) != null || UserRuntimeDataBase.customers.get(phoneNumber) != null) {
             return "Phone number exists";
         }
 
