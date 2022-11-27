@@ -8,9 +8,10 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class SaleSectionPanel {
+public class DrinkPanel {
     JScrollPane scrollPane;
-    public SaleSectionPanel() {
+
+    public DrinkPanel() {
         Vector headers = new Vector();
         Vector data = new Vector();
         Vector line = new Vector();
@@ -18,12 +19,9 @@ public class SaleSectionPanel {
         DecimalFormat df = new DecimalFormat("0.00");
 
         headers.add("Drink name");
-        headers.add("Original Price");
-        headers.add("Discount");
-        headers.add("Current Price");
+        headers.add("Store name");
+        headers.add("Price");
         headers.add("Add to Shopping Cart");
-
-        JTable orderTable = new JTable(data, headers);
 
         for (Drink drink: onSaleDrinks) {
             line.add(drink.getName());
@@ -33,18 +31,10 @@ public class SaleSectionPanel {
             data.add(line);
         }
 
-        for (int i = 0; i < 30; i ++) {
-            Vector line1 = new Vector();
-            line1.add("Strawberry Coconut");
-            line1.add("18.00");
-            line1.add("1");
-            line1.add("1");
-            line1.add("0");
-            data.add(line1);
-        }
-
+        JTable orderTable = new JTable(data, headers);
         scrollPane = new JScrollPane(orderTable);
     }
+
     public JScrollPane getPanel() {
         return scrollPane;
     }

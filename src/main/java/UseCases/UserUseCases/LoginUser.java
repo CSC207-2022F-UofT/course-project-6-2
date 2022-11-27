@@ -1,7 +1,6 @@
 package UseCases.UserUseCases;
 
 // Use Cases Layer
-
 public class LoginUser {
     /**
      * login: Receive login info and check if user should be authenticated
