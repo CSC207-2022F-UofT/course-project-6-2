@@ -35,7 +35,7 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         for (int i = 0; i < seller.allOrders.size(); i++){
             Vector line = new Vector();
-            line.add(seller.allOrders.get(i).orderNum);
+            line.add(Integer.toString(seller.allOrders.get(i).orderNum));
             line.add(seller.allOrders.get(i).orderStatus);
             data.add(line);
          }

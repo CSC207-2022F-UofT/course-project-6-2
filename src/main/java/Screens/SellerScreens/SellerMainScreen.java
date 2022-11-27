@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
@@ -36,15 +38,19 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         //Get the phone number from login and extract the corresponding seller object.
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         for (int i = 0; i < seller.items.size(); i++){
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String strProduction = format.format(seller.items.get(i).getProductionData());
+            String strExpiration = format.format(seller.items.get(i).getExpirationDate());
+
             Vector line = new Vector();
             line.add(seller.items.get(i).getName());
-            line.add(seller.items.get(i).getPrice());
+            line.add(Float.toString(seller.items.get(i).getPrice()));
             line.add(seller.items.get(i).getDescription());
             line.add(seller.items.get(i).getIngredient());
-            line.add(seller.items.get(i).getVolume());
-            line.add(seller.items.get(i).getProductionData());
-            line.add(seller.items.get(i).getExpirationDate());
-            line.add(seller.items.get(i).getDiscount());
+            line.add(Integer.toString(seller.items.get(i).getVolume()));
+            line.add(strProduction);
+            line.add(strExpiration);
+            line.add(Float.toString(seller.items.get(i).getDiscount()));
             data.add(line);
          }
 
