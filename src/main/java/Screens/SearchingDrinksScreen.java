@@ -24,7 +24,7 @@ public class SearchingDrinksScreen extends JFrame {
 
     SearchingTable myFrameTable = new SearchingTable();
 
-    public SearchingDrinksScreen(){
+    public SearchDrinksScreen(){
         super("Main page of searching");
         Container contentPane = getContentPane();
         northPanel.add(search_box);
@@ -46,7 +46,7 @@ public class SearchingDrinksScreen extends JFrame {
         setVisible(true);
     }
     public static void main(String[] args) {
-        new SearchingDrinksScreen();
+        new SearchDrinksScreen();
     }
 
     private void layoutCenter(Container contentPane){
