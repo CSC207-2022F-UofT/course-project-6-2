@@ -14,9 +14,9 @@ public class GetRandomDrinks {
         drinks = (ArrayList<Drink>) searchDeserializer.getObject();
     }
     public ArrayList<Drink> randomDrinks(){
-        if (drinks.size() > 25) {
+        if (drinks.size() > 30) {
             ArrayList<Drink> randomDrinks = new ArrayList<>();
-            for (int i = 0; i < 25; i ++) {
+            for (int i = 0; i < 30; i ++) {
                 randomDrinks.add(drinks.get(i));
             }
             return randomDrinks;
