@@ -3,6 +3,7 @@ package Screens.CustomerScreens;
 import Entities.Drink;
 import Screens.Button;
 import UseCases.DrinkUseCases.GetOnSaleDrinks;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -76,7 +77,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToCart.button) {
-            System.out.println("hi");
+            UserRuntimeDataBase.currentCustomer.getShoppingCart().addItem(selectedDrink, 1);
         }
     }
 }
