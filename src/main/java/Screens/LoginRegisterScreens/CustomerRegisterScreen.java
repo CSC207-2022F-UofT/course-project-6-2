@@ -100,8 +100,6 @@ public class CustomerRegisterScreen extends JFrame implements ActionListener {
         String ageText = ageField.getText();
         int age = new RegisterInputBoundary(ageText).age;
 
-        System.out.println(accountName);
-
         if(e.getSource() == registerButton.button){
             String registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
             new RegisterResponseModel(registerResult);
