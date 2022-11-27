@@ -34,7 +34,12 @@ public class ShoppingCart {
     }
 
     public void addItem(Drink drink, int quantity){
-        itemList.put(drink, quantity);
+        if (itemList.containsKey(drink)){
+            itemList.put(drink, itemList.get(drink) + quantity);
+        } else{
+            itemList.put(drink, quantity);
+        }
+
     }
 }
 

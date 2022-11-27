@@ -9,6 +9,10 @@ import java.util.HashMap;
 public class SellerModifyDrink {
     private static Drink searchedDrink;
 
+    public static Drink getSearchedDrink() {
+        return searchedDrink;
+    }
+
     public Drink searchedDrinkToModify(String name){
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.currentSeller.getStoreName());
         searchedDrink = allDrinks.get(name);
