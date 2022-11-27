@@ -5,6 +5,7 @@ import Screens.LabelTextPanel;
 import Screens.SellerScreens.SellerMainScreen;
 import UseCases.UserResponseModels.LoginResponseModel;
 import UseCases.UserUseCases.LoginUser;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -66,8 +67,10 @@ public class LoginScreen extends JFrame implements ActionListener {
             new LoginResponseModel(loginResult);
             if (loginResult.equals("Seller")) {
                 new SellerMainScreen();
+                new UserRuntimeDataBase().constructCurrentSeller(phoneNum);
             } else if (loginResult.equals("Customer")) {
                 new CustomerMainScreen();
+                new UserRuntimeDataBase().constructCurrentCustomer(phoneNum);
             }
         }
         if(e.getSource() == registerButton.button){
