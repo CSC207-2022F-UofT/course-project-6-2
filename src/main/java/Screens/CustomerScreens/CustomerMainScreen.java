@@ -53,7 +53,7 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
         mainTabbedPanel.addTab("Search Drinks", searchDrinksPanel);
 
-        JScrollPane SaleSectionPanel = new SaleSectionPanel().getPanel();
+        JPanel SaleSectionPanel = new SaleSectionPanel().getPanel();
 
         GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionPanel);
         saleSectionPanel.setLayout(SaleSectionPanelLayout);
