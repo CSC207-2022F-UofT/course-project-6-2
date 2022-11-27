@@ -19,11 +19,27 @@ public class RegisterUser {
      * @param age An int of user age
      * @param storeName A String of store name
      */
-    public static boolean registerUser(String accountName, String phoneNumber, String password, String confirmPass,
-                                       String address, int age, String storeName) {
+    public static String registerUser(String accountName, String phoneNumber, String password, String confirmPass,
+                                      String address, int age, String storeName) {
         // determine if password and confirmPass are the same
         if (!Objects.equals(password, confirmPass)){
-            return false;
+            return "Password not match";
+        }
+
+        // determine if any parameter is missing
+        if (Objects.equals(accountName, "") || Objects.equals(phoneNumber, "") || Objects.equals(password, "")
+                || Objects.equals(confirmPass, "") || Objects.equals(address, "") || age == 0 || Objects.equals(storeName, "")) {
+            return "Text field empty";
+        }
+
+        // determine if phone number exists
+        if (UserRuntimeDataBase.sellers.get(phoneNumber) != null || UserRuntimeDataBase.customers.get(phoneNumber) != null) {
+            return "Phone number exists";
+        }
+
+        // determine if store name exists
+        if (UserRuntimeDataBase.sellers.get(storeName) != null) {
+            return "Store name exists";
         }
 
         // if user is a customer
@@ -37,6 +53,6 @@ public class RegisterUser {
             Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName, new ArrayList<>(), new ArrayList<>());
             UserRuntimeDataBase.sellers.put(phoneNumber, newSeller);
         }
-        return true;
+        return "Successfully registered";
     }
 }

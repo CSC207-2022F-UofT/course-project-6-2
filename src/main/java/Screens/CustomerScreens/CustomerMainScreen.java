@@ -8,10 +8,9 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     public CustomerMainScreen() {
         JPanel panel = new JPanel();
-
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Drink Application");
+        frame.setTitle("Customer Main Page");
         frame.setResizable(false);
         frame.add(panel);
         panel.setLayout(null);
@@ -54,15 +53,19 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
         mainTabbedPanel.addTab("Search Drinks", searchDrinksPanel);
 
+        JScrollPane SaleSectionPanel = new SaleSectionPanel().getPanel();
+
         GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionPanel);
         saleSectionPanel.setLayout(SaleSectionPanelLayout);
         SaleSectionPanelLayout.setHorizontalGroup(
                 SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(SaleSectionPanel)
         );
         SaleSectionPanelLayout.setVerticalGroup(
                 SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(SaleSectionPanel)
         );
 
         mainTabbedPanel.addTab("Sale Section", saleSectionPanel);
@@ -93,15 +96,19 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
         mainTabbedPanel.addTab("Order History", orderHistoryPanel);
 
+        JPanel CustomerServicePanel = new CustomerServicePanel().getPanel();
+
         GroupLayout CustomerServicePanelLayout = new GroupLayout(customerServicePanel);
         customerServicePanel.setLayout(CustomerServicePanelLayout);
         CustomerServicePanelLayout.setHorizontalGroup(
                 CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(CustomerServicePanel)
         );
         CustomerServicePanelLayout.setVerticalGroup(
                 CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(CustomerServicePanel)
         );
 
         mainTabbedPanel.addTab("Customer Service", customerServicePanel);
@@ -122,23 +129,8 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerMainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(() -> new CustomerMainScreen().setVisible(true));
+        new CustomerMainScreen();
     }
 
     /**
@@ -151,3 +143,4 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
     }
 }
+

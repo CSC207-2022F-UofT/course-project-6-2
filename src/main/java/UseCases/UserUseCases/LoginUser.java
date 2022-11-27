@@ -9,11 +9,16 @@ public class LoginUser {
      * @param passWord A String of user's password
      * @return A boolean indicating whether the login is successful
      */
-    public static boolean login(String phoneNumber, String passWord) {
+
+
+    public static String login(String phoneNumber, String passWord) {
         if (UserRuntimeDataBase.sellers.get(phoneNumber) != null &&
                 UserRuntimeDataBase.sellers.get(phoneNumber).getPassWord().equals(passWord)) {
-            return true;
-        } else return UserRuntimeDataBase.customers.get(phoneNumber) != null &&
-                UserRuntimeDataBase.customers.get(phoneNumber).getPassWord().equals(passWord);
+            return "Seller";
+        } else if (UserRuntimeDataBase.customers.get(phoneNumber) != null &&
+                UserRuntimeDataBase.customers.get(phoneNumber).getPassWord().equals(passWord)) {
+            return "Customer";
+        }
+        return "No user";
     }
 }

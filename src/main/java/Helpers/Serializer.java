@@ -2,6 +2,8 @@ package Helpers;
 
 import java.io.*;
 
+// Use case layer
+
 public class Serializer {
     /**
      * serialize: Store an object to a given file path

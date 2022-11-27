@@ -1,16 +1,13 @@
-package Screens;
+package Screens.CustomerScreens;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CustomerServiceScreen extends JFrame implements ActionListener {
-    public CustomerServiceScreen() {
-        JFrame frame = new JFrame("Frequently Asked Questions");
-        JPanel panel = new JPanel();
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+public class CustomerServicePanel extends JFrame implements ActionListener {
+
+    JPanel panel = new JPanel();
+    public CustomerServicePanel() {
 
         JTextField ShowAnswerText = new JTextField();
         ShowAnswerText.setBounds(50,50, 700,80);
@@ -56,11 +53,17 @@ public class CustomerServiceScreen extends JFrame implements ActionListener {
         q.addActionListener(e -> ShowAnswerText.setText("Further concerns please contact our customer support. Phone: 416-978-3384." +
                 " Email: ask.6+2@utoronto.ca  | Follow us on Twitter."));
 
-        panel.add(b);frame.add(c);frame.add(d);frame.add(x);frame.add(y);frame.add(z);frame.add(q);
-        frame.add(panel);
-        frame.add(ShowAnswerText);
-        frame.setLayout(null);
-        frame.setVisible(true);
+        panel.add(b);
+        panel.add(c);
+        panel.add(d);
+        panel.add(x);
+        panel.add(y);
+        panel.add(z);
+        panel.add(q);
+    }
+
+    public JPanel getPanel(){
+        return panel;
     }
 
     /**
