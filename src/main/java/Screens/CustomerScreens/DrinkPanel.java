@@ -2,13 +2,11 @@ package Screens.CustomerScreens;
 
 import Entities.Drink;
 import Screens.Button;
-import UseCases.GetOnSaleDrinks;
 import UseCases.GetRandomDrinks;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -20,11 +18,10 @@ public class DrinkPanel extends JFrame implements ActionListener {
     Button addToCart = new Button();
 
     public DrinkPanel() {
-        Vector headers = new Vector();
-        Vector data = new Vector();
-        Vector line = new Vector();
+        Vector<String> headers = new Vector<>();
+        Vector<Vector<String>> data = new Vector<>();
+        Vector<String > line = new Vector<>();
         ArrayList<Drink> randomDrinks = new GetRandomDrinks().randomDrinks();
-        DecimalFormat df = new DecimalFormat("0.00");
 
         headers.add("Drink name");
         headers.add("Store Name");
@@ -35,12 +32,12 @@ public class DrinkPanel extends JFrame implements ActionListener {
             line.add(drink.getName());
             line.add(drink.getStoreName());
             line.add("$" + drink.getPrice());
-            line.add(drink.getVolume());
+            line.add(drink.getVolume() + "ml");
             data.add(line);
         }
 
         // test part
-        for (int i = 0; i < 25; i ++) {
+        for (int i = 0; i < 30; i ++) {
             Vector<String> line1 = new Vector<>();
             line1.add("Apple Juice");
             line1.add("Andy's Drink Store");
@@ -62,7 +59,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                // selectedDrink = onSaleDrinks.get(selectedRow);
+                selectedDrink = randomDrinks.get(selectedRow);
             }
         });
     }
