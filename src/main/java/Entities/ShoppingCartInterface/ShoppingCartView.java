@@ -1,4 +1,4 @@
-package Entities.ShoppingCart;
+package Entities.ShoppingCartInterface;
 
 public class ShoppingCartView {
     public static void main(String[] args){

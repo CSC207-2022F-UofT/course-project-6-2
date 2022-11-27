@@ -1,4 +1,4 @@
-package Entities.ShoppingCart;
+package Entities.ShoppingCartInterface;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

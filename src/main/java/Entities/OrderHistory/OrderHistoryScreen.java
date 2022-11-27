@@ -3,9 +3,6 @@ package Entities.OrderHistory;
 import Controller.LoginController;
 import Entities.Order;
 import Entities.Users.Customer;
-import Screens.ButtonEditor;
-import Screens.ButtonRenderer;
-import UseCases.ExtractUserFromPhoneNum;
 import UseCases.OrderUseCases.OrderActionPerformed;
 import UseCases.OrderUseCases.OrderTable;
 
@@ -25,7 +22,6 @@ public class OrderHistoryScreen extends JFrame {
     JTextField searchOrderHistory = new JTextField();
     JScrollPane scrollPane = new JScrollPane();
     JTable table = new JTable();
-    ExtractUserFromPhoneNum extractedUser = new ExtractUserFromPhoneNum();
     OrderTable orderTable = new OrderTable();
     OrderActionPerformed actionPerformed = new OrderActionPerformed();
     LoginController loginController = new LoginController("904839274");
@@ -73,10 +69,13 @@ public class OrderHistoryScreen extends JFrame {
         table.setFillsViewportHeight(true);
         table.getTableHeader().setReorderingAllowed(false);
 
+        /*
         // adding buttons for the column with "Re-Order" as the column name
         table.getColumn("Re-Order").setCellRenderer(new ButtonRenderer());
         table.getColumn("Re-Order").setCellEditor(
                 new ButtonEditor(new JCheckBox()));
+
+         */
 
         // Setting Columns to be not resizable
         for (int i = 0; i > table.getColumnCount(); i++){

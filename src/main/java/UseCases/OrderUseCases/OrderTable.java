@@ -4,20 +4,17 @@ import Controller.LoginController;
 import Entities.Order;
 import Entities.Users.Customer;
 import Entities.Users.User;
-import UseCases.ExtractUserFromPhoneNum;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class OrderTable {
 
-    public void createOrderTable(JTable table, ExtractUserFromPhoneNum extractedUser, LoginController loginController) {
+    public void createOrderTable(JTable table, LoginController loginController) {
 
-        User user = extractedUser.extractUser(loginController);
+        Customer customer = UserRuntimeDataBase.getCurrentCustomer();
         ArrayList<Order> orders = new ArrayList<>();
-
-        Customer customer = new Customer("Yuan", "6485930948", "HI", 19,
-                "123 happy Street", orders);
 
         for (int i = 0; i < customer.getOrderHistory().size(); i++) {
             for (int j = 0; j < table.getColumnCount(); j++) {
