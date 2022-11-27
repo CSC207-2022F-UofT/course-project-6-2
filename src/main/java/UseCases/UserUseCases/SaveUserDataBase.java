@@ -16,7 +16,7 @@ public class SaveUserDataBase {
      */
     public static void saveUserDataBase() throws IOException {
         ArrayList<HashMap> users = new ArrayList<HashMap>(
-                Arrays.asList(CreateUserHashMap.sellers, CreateUserHashMap.customers)
+                Arrays.asList(UserRuntimeDataBase.sellers, UserRuntimeDataBase.customers)
         );
         userSerializer.serialize("./data/users", users);
     }

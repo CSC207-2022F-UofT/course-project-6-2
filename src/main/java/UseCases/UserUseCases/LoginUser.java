@@ -9,6 +9,7 @@ public class LoginUser {
      * @param passWord A String of user's password
      * @return A boolean indicating whether the login is successful
      */
+     
     public static String login(String phoneNumber, String passWord) {
         if (CreateUserHashMap.sellers.get(phoneNumber) != null &&
                 CreateUserHashMap.sellers.get(phoneNumber).getPassWord().equals(passWord)) {
