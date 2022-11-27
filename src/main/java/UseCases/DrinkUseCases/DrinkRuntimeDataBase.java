@@ -1,6 +1,7 @@
 package UseCases.DrinkUseCases;
 
 import Entities.Drink;
+import Entities.Users.Seller;
 
 import java.util.HashMap;
 
@@ -15,5 +16,9 @@ public class DrinkRuntimeDataBase {
 
     public static HashMap<String, HashMap<String, Drink>> getDrinks() {
         return drinks;
+    }
+
+    public static void addStore(String storeName) {
+        DrinkRuntimeDataBase.drinks.put(storeName, new HashMap<>());
     }
 }

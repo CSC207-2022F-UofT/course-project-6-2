@@ -1,5 +1,6 @@
 package Entities.Users;
 
+import Entities.Drink;
 import Entities.Order;
 import Entities.ShoppingCart;
 
@@ -42,6 +43,10 @@ public class Customer extends User implements Serializable {
         this.orderHistory = orderHistory;
     }
 
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
     /**
      * Getter methods for the new instance values.
      */
@@ -51,6 +56,10 @@ public class Customer extends User implements Serializable {
 
     public ArrayList<Order> getOrderHistory() {
         return this.orderHistory;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
     }
 
     public String getOrderStatus(Order order){

@@ -11,12 +11,15 @@ import java.util.Map;
 
 public class AddToShoppingCart {
 
-    public static void addToShoppingCart(String drinkName, String storeName, String quantity){
-        for (Map.Entry<String, HashMap<String, Drink>> drink: DrinkRuntimeDataBase.getDrinks().entrySet()){
-            if (drinkName == drink.getKey() && storeName == drink.getKey()){
-
-            }
-        }
+    public static void addToShoppingCart(String drinkName, String storeName, int quantity){
+        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(storeName);
+        Drink drink = allDrinks.get(drinkName);
+        float newPrice = drink.getPrice() * quantity + UserRuntimeDataBase.currentCustomer.shoppingCart.totalPrize;
+        HashMap<Drink, Integer> drinkSet = new HashMap<>();
+        drinkSet.put(drink, quantity);
+        ShoppingCart currentShoppingCart = UserRuntimeDataBase.currentCustomer.getShoppingCart();
+        currentShoppingCart.setTotalPrize(newPrice);
+        currentShoppingCart.addItem(drink, quantity);
     }
 
 }
