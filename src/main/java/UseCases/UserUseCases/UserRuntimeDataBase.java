@@ -15,4 +15,13 @@ public class UserRuntimeDataBase {
     public static Seller currentSeller;
 
     public static Customer currentCustomer;
+
+    public static void constructCurrentSeller(String phoneNum){
+        currentSeller = (Seller) sellers.get(phoneNum);
+    }
+
+    public static void constructCurrentCustomer(String phoneNum){
+        currentCustomer = (Customer) customers.get(phoneNum);
+    }
+
 }
