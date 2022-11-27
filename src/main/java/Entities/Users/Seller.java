@@ -74,4 +74,20 @@ public class Seller extends User implements Serializable {
             }
         }
     }
+
+    /**
+     * Seller modify only one drink.
+     * @param oldDrink The drink that need to be modified.
+     * @param newDrink The drink that need to be changed to.
+     */
+    public void modifyDrink(Drink oldDrink, Drink newDrink){
+        ArrayList<Drink> drinks  = this.getItems();
+        if (oldDrink != null) {
+            drinks.remove(oldDrink);
+        }
+        if (newDrink != null){
+            drinks.add(newDrink);
+        }
+    }
+
 }
