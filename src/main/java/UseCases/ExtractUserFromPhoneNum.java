@@ -1,19 +1,16 @@
 package UseCases;
 
+import Controller.LoginController;
 import Entities.Users.User;
 import UseCases.UserUseCases.CreateUserHashMap;
 
-import java.io.IOException;
-
-
-
 public class ExtractUserFromPhoneNum{
 
-    public User extractUser(String phoneNum) throws IOException, ClassNotFoundException {
-        if (CreateUserHashMap.getSellers().get(phoneNum) != null) {
-            return CreateUserHashMap.getSellers().get(phoneNum);
+    public User extractUser(LoginController loginController) {
+        if (CreateUserHashMap.getSellers().get(loginController.getPhoneNumber()) != null) {
+            return CreateUserHashMap.getSellers().get(loginController.getPhoneNumber());
         } else {
-            return CreateUserHashMap.getCustomers().get(phoneNum);
+            return CreateUserHashMap.getCustomers().get(loginController.getPhoneNumber());
         }
     }
 }

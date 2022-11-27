@@ -1,5 +1,8 @@
 package Entities.OrderHistory;
 
+import Controller.LoginController;
+import Entities.Order;
+import Entities.Users.Customer;
 import Screens.ButtonEditor;
 import Screens.ButtonRenderer;
 import UseCases.ExtractUserFromPhoneNum;
@@ -9,7 +12,7 @@ import UseCases.OrderUseCases.OrderTable;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +28,8 @@ public class OrderHistoryScreen extends JFrame {
     ExtractUserFromPhoneNum extractedUser = new ExtractUserFromPhoneNum();
     OrderTable orderTable = new OrderTable();
     OrderActionPerformed actionPerformed = new OrderActionPerformed();
-    public OrderHistoryScreen() throws IOException, ClassNotFoundException {
+    LoginController loginController = new LoginController("904839274");
+    public OrderHistoryScreen() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
@@ -38,8 +42,32 @@ public class OrderHistoryScreen extends JFrame {
         });
 
         // Creating the table
-        orderTable.createOrderTable(table, extractedUser);
+        // orderTable.createOrderTable(table, extractedUser, loginController);
+        ArrayList<Order> orders = new ArrayList<>();
 
+        Customer customer = new Customer("Yuan", "6485930948", "HI", 19,
+                "123 happy Street", orders);
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < table.getColumnCount(); j++) {
+                table.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object[][]{
+                                {String.valueOf(i), customer.getOrderHistory().get(i).getTotalOrder(),
+                                        customer.getOrderHistory().get(i).getOrderStatus(), "Re-Order"}
+                        }, new String[]{
+                        "Order", "Order Price", "Order Status", "Re-Order"
+                }) {
+                    // making the columns uneditable
+                    final boolean[] canEdit = new boolean[]{
+                            false, false, false, false
+                    };
+
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit[columnIndex];
+                    }
+                });
+            }
+        }
         // Setting the settings for the table
         scrollPane.setViewportView(table);
         table.setFillsViewportHeight(true);

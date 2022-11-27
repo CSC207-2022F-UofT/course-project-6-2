@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-import drink.Drink;
-import helpers.Deserializer;
+import Entities.Drink;
+import Helpers.Deserializer;
 
 public class Searching {
     protected static ArrayList<Drink> drinks = new ArrayList<>();
