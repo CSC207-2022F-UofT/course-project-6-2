@@ -5,9 +5,15 @@ import Entities.Drink;
 import java.util.HashMap;
 
 public class DrinkRuntimeDataBase {
-    protected static HashMap<String, Drink> drinks;
+    /**
+     * HashMap of all drinks existed in database.
+     * Key: StoreName
+     * Value: key: DrinkName, value: Drink
+     */
 
-    public static HashMap<String, Drink> getDrinks() {
+    protected static HashMap<String, HashMap<String, Drink>> drinks;
+
+    public static HashMap<String, HashMap<String, Drink>> getDrinks() {
         return drinks;
     }
 }

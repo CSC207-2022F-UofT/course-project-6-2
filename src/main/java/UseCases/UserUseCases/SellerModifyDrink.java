@@ -13,7 +13,7 @@ public class SellerModifyDrink {
         return DrinkRuntimeDataBase.getDrinks().get(name);
     }
 
-    public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName) {
+    public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         Drink oldDink = DrinkRuntimeDataBase.getDrinks().get(searchedDrinkName);
         // if seller modified the drink name
@@ -27,13 +27,13 @@ public class SellerModifyDrink {
         UserRuntimeDataBase.currentSeller.modifyDrink(oldDink, currentDrink);
     }
 
-    public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName){
+    public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         DrinkRuntimeDataBase.getDrinks().put(name, currentDrink);
         UserRuntimeDataBase.currentSeller.modifyDrink(null, currentDrink);
     }
 
-    public void deleteDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName){
+    public void deleteDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         DrinkRuntimeDataBase.getDrinks().remove(name);
         UserRuntimeDataBase.currentSeller.modifyDrink(currentDrink, null);
