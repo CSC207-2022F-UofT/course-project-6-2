@@ -28,9 +28,8 @@ public class Drink {
      * @param productionData The date of production of the drink.
      * @param expirationDate The date of expiration of the drink.
      * @param discount       The amount of discount of this drink right now.
-     * @param storeName
      */
-    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName) {
+    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -39,7 +38,7 @@ public class Drink {
         this.productionData = productionData;
         this.expirationDate = expirationDate;
         this.discount = discount;
-        this.storeName = UserRuntimeDataBase.currentSeller.getStoreName();
+        this.storeName = UserRuntimeDataBase.getCurrentSeller().getStoreName();
     }
 
     /**

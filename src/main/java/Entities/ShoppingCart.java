@@ -36,6 +36,8 @@ public class ShoppingCart {
         return this.itemList;
     }
 
-
+    public void addItem(Drink drink, String quantity){
+        itemList.put(drink, quantity);
+    }
 }
 

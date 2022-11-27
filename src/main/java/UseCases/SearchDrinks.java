@@ -1,15 +1,9 @@
 package UseCases;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
 
 import Entities.Drink;
-import Helpers.Deserializer;
 
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 import java.util.Date;
 
@@ -18,11 +12,7 @@ import javax.xml.crypto.Data;
 
 public class SearchDrinks {
     protected static ArrayList<Drink> drinks = new ArrayList<>();
-    private static final Deserializer searchDeserializer = new Deserializer();
-    public static void constructDrinkDataBase() throws IOException, ClassNotFoundException {
-        searchDeserializer.deserialize("./data/drinks");
-        drinks = (ArrayList<Drink>) searchDeserializer.getObject();
-    }
+
 
     public static Vector<Vector<Drink>> Add_to_Filtered(String keyword){
         Vector<Drink> filtered_items = new Vector();

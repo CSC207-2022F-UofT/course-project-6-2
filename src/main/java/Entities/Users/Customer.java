@@ -1,15 +1,19 @@
 package Entities.Users;
 
 import Entities.Order;
+import Entities.ShoppingCart;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 // Entities Layer
 
 public class Customer extends User implements Serializable {
     public int age;
     public ArrayList<Order> orderHistory;
+
+    public ShoppingCart shoppingCart;
 
     /**
      * Construct an instance of the entity Customer.
@@ -24,6 +28,7 @@ public class Customer extends User implements Serializable {
         super(accountName, phoneNumber, passWord, address);
         this.age = age;
         this.orderHistory = orderHistory;
+        this.shoppingCart = new ShoppingCart(0, new HashMap<>());
     }
 
     /**
