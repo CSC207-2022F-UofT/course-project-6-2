@@ -11,7 +11,7 @@ public class UserRuntimeDataBase {
     protected static HashMap<String, User> sellers = new HashMap<>();
     protected static HashMap<String, User> customers = new HashMap<>();
 
-    protected static Seller currentSeller;
+    public static Seller currentSeller;
 
-    protected static Seller currentCustomer;
+    public static Seller currentCustomer;
 }

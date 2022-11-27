@@ -1,5 +1,7 @@
 package Entities;
 
+import UseCases.UserUseCases.UserRuntimeDataBase;
+
 import java.util.Date;
 
 // Entities Layer
@@ -36,6 +38,7 @@ public class Drink {
         this.productionData = productionData;
         this.expirationDate = expirationDate;
         this.discount = discount;
+        this.storeName = UserRuntimeDataBase.currentSeller.getStoreName();
     }
 
     /**
