@@ -2,7 +2,7 @@ package Screens.CustomerScreens;
 
 import Entities.Drink;
 import Screens.Button;
-import UseCases.GetRandomDrinks;
+import UseCases.DrinkUseCases.GetRandomDrinks;
 import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;

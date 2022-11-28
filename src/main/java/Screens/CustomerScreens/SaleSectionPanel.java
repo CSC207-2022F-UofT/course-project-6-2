@@ -69,7 +69,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                selectedDrink = onSaleDrinks.get(selectedRow);
+                // selectedDrink = onSaleDrinks.get(selectedRow);
             }
         });
     }

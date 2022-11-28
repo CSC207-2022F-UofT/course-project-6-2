@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
 // Use case layer
 
 /**
@@ -15,7 +14,7 @@ public class DetectWindowClose {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.out.println("WindowClosingDemo.windowClosing");
+                System.out.println("WindowClosed");
                 System.exit(0);
             }
         });

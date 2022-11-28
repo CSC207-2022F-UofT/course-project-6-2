@@ -3,15 +3,13 @@ package Screens.CustomerScreens;
 import UseCases.DetectWindowClose;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * The customer main screen containing the drinks, search drinks, sale board,
  * shopping cart, order history and customer service panels and features.
  */
 
-public class CustomerMainScreen extends JFrame implements ActionListener {
+public class CustomerMainScreen extends JFrame {
     JFrame frame = new JFrame();
     public CustomerMainScreen() {
         JPanel panel = new JPanel();
@@ -51,6 +49,8 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         // Search drinks panel
         mainTabbedPanel.addTab("Search Drinks", searchDrinksPanel);
 
+        JPanel SearchingDrinksPanel = new SearchingDrinksPanel().getPanel();
+
         GroupLayout SearchDrinksPanelLayout = new GroupLayout(searchDrinksPanel);
         searchDrinksPanel.setLayout(SearchDrinksPanelLayout);
         SearchDrinksPanelLayout.setHorizontalGroup(
@@ -58,12 +58,14 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
                         .addGroup(SearchDrinksPanelLayout.createSequentialGroup()
                                 .addGap(210, 210, 210)
                                 .addContainerGap(512, Short.MAX_VALUE))
+                        .addComponent(SearchingDrinksPanel)
         );
         SearchDrinksPanelLayout.setVerticalGroup(
                 SearchDrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(SearchDrinksPanelLayout.createSequentialGroup()
                                 .addGap(53, 53, 53)
                                 .addContainerGap(493, Short.MAX_VALUE))
+                        .addComponent(SearchingDrinksPanel)
         );
 
         // Sale section panel
@@ -154,16 +156,6 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         new CustomerMainScreen();
-    }
-
-    /**
-     * Invoked when an action occurs.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }
 

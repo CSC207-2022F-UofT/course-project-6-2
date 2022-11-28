@@ -1,4 +1,4 @@
-package UseCases;
+package UseCases.DrinkUseCases;
 
 import Entities.Drink;
 import Helpers.Deserializer;
