@@ -1,23 +1,20 @@
 package UseCases;
 
 import Entities.Drink;
-import Helpers.Deserializer;
+import UseCases.DrinkUseCases.DrinkRuntimeDataBase;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GetOnSaleDrinks {
-    protected static ArrayList<Drink> drinks = new ArrayList<>();
-    private static final Deserializer searchDeserializer = new Deserializer();
-    public static void constructDrinkDataBase() throws IOException, ClassNotFoundException {
-        searchDeserializer.deserialize("./data/drinks");
-        drinks = (ArrayList<Drink>) searchDeserializer.getObject();
-    }
-    public ArrayList<Drink> onSale(){
+    public ArrayList<Drink> onSale() {
         ArrayList onSaleDrinks = new ArrayList<>();
-        for (Drink drink : drinks){
-            if (drink.getDiscount() != 1) {
-                onSaleDrinks.add(drink);
+        for (Map.Entry<String, HashMap<String, Drink>> drinkSet : DrinkRuntimeDataBase.getDrinks().entrySet()) {
+            for (Map.Entry<String, Drink> drink : drinkSet.getValue().entrySet()) {
+                if (drink.getValue().getDiscount() != 1) {
+                    onSaleDrinks.add(drink);
+                }
             }
         }
         return onSaleDrinks;

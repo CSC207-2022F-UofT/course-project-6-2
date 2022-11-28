@@ -1,28 +1,27 @@
 package UseCases.OrderUseCases;
 
-import Helpers.Deserializer;
+import Entities.Order;
 import Entities.Users.Seller;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class CheckTotalOrder {
-    public int checkTotalOrder() throws IOException, ClassNotFoundException {
-        Deserializer deserializer = new Deserializer();
-        deserializer.deserialize("./data/users");
-        ArrayList<HashMap> data = (ArrayList<HashMap>) deserializer.getObject();
-        if (data != null && data.get(0).size() != 0) {
-            Iterator<Map.Entry<String, Seller>> iterator = data.get(0).entrySet().iterator();
-            Map.Entry<String, Seller> entry = iterator.next();
+    public static int checkTotalOrder() {
+        // Get hashmap of all sellers
+        HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
 
-            if (entry.getValue().getAllOrders().size() != 0) return entry.getValue().getAllOrders().get(0).getTotalOrder();
-            else return 0;
+        // If there are sellers, check an arbitrary order
+        if (sellers != null && sellers.size() != 0) {
+            for(Map.Entry<String, Seller> entry : sellers.entrySet()) {
+                ArrayList<Order> sellerOrders = entry.getValue().getAllOrders();
+                if (sellerOrders.size() != 0) return sellerOrders.get(0).getTotalOrder();
+            }
         }
-        else {
-            return 0;
-        }
+        // If there's no seller or/and there's no order, total order = 0
+        return 0;
     }
 }

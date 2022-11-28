@@ -14,7 +14,7 @@ public class AddToShoppingCart {
     public static void addToShoppingCart(String drinkName, String storeName, int quantity){
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(storeName);
         Drink drink = allDrinks.get(drinkName);
-        float newPrice = drink.getPrice() * quantity + UserRuntimeDataBase.currentCustomer.shoppingCart.totalPrize;
+        float newPrice = drink.getPrice() * quantity + UserRuntimeDataBase.currentCustomer.getShoppingCart().getTotalPrize();
         HashMap<Drink, Integer> drinkSet = new HashMap<>();
         drinkSet.put(drink, quantity);
         ShoppingCart currentShoppingCart = UserRuntimeDataBase.currentCustomer.getShoppingCart();
