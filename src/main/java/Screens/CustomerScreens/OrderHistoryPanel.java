@@ -1,4 +1,4 @@
-package Entities.OrderHistory;
+package Screens.CustomerScreens;
 
 import Controller.LoginController;
 import Entities.Order;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author sanciagao
  */
-public class OrderHistoryScreen extends JFrame {
+public class OrderHistoryPanel extends JFrame {
 
     // Variables declaration
     JButton searchButton = new JButton("Search");
@@ -25,7 +25,7 @@ public class OrderHistoryScreen extends JFrame {
     OrderTable orderTable = new OrderTable();
     OrderActionPerformed actionPerformed = new OrderActionPerformed();
     LoginController loginController = new LoginController("904839274");
-    public OrderHistoryScreen() {
+    public OrderHistoryPanel() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));

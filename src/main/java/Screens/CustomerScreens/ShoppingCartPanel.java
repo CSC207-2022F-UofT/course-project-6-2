@@ -1,6 +1,5 @@
-package Entities.ShoppingCartInterface;
+package Screens.CustomerScreens;
 
-import Screens.ShoppingCartPanel;
 import UseCases.GetSumOfDrinks;
 
 import javax.swing.*;
@@ -13,14 +12,14 @@ import java.util.ArrayList;
  *
  * @author sanciagao
  */
-public class ShoppingCartScreen extends JFrame {
+public class ShoppingCartPanel extends JFrame {
 
     // Variables declaration
     JButton checkoutButton = new JButton("Checkout");
     JButton addQuantity = new JButton("+");
     JButton minusQuantity = new JButton("-");
     JScrollPane innerScrollPane = new JScrollPane();
-    ShoppingCartPanel shoppingCartPanel = new ShoppingCartPanel();
+    Screens.ShoppingCartPanel shoppingCartPanel = new Screens.ShoppingCartPanel();
     JTable table = new JTable();
     JPanel panel = new JPanel();
     JLabel totalAmountLabel = new JLabel();
@@ -33,7 +32,7 @@ public class ShoppingCartScreen extends JFrame {
     Double quantity = 1.0;
     GetSumOfDrinks getSum = new GetSumOfDrinks();
 
-    public ShoppingCartScreen() {
+    public ShoppingCartPanel() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 600));
