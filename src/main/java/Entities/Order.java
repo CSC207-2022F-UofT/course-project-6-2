@@ -69,7 +69,7 @@ public class Order {
         return this.orderStatus;
     }
 
-    public static int getTotalOrder() {
+    public int getTotalOrder() {
         return totalOrder;
     }
 }
