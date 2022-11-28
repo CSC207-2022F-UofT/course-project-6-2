@@ -4,8 +4,8 @@ package Entities;
 import java.util.HashMap;
 
 public class ShoppingCart {
-    public float totalPrize;
-    public HashMap<Drink, Integer> itemList;
+    private float totalPrize;
+    private HashMap<Drink, Integer> itemList;
     public ShoppingCart(float totalPrize, HashMap<Drink, Integer> itemList){
         this.totalPrize = totalPrize;
         this.itemList = itemList;
@@ -39,7 +39,6 @@ public class ShoppingCart {
         } else{
             itemList.put(drink, quantity);
         }
-
     }
 }
 

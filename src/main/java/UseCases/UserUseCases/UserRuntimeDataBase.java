@@ -2,15 +2,14 @@ package UseCases.UserUseCases;
 
 import Entities.Users.Customer;
 import Entities.Users.Seller;
-import Entities.Users.User;
 
 import java.util.HashMap;
 
 // Use Cases Layer
 
 public class UserRuntimeDataBase {
-    protected static HashMap<String, User> sellers = new HashMap<>();
-    protected static HashMap<String, User> customers = new HashMap<>();
+    protected static HashMap<String, Seller> sellers = new HashMap<>();
+    protected static HashMap<String, Customer> customers = new HashMap<>();
 
     protected static Seller currentSeller;
 
@@ -24,11 +23,11 @@ public class UserRuntimeDataBase {
         currentCustomer = (Customer) customers.get(phoneNum);
     }
 
-    public static HashMap<String, User> getSellers() {
+    public static HashMap<String, Seller> getSellers() {
         return sellers;
     }
 
-    public static HashMap<String, User> getCustomers() {
+    public static HashMap<String, Customer> getCustomers() {
         return customers;
     }
 
