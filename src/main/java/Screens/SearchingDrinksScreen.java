@@ -79,5 +79,4 @@ public class SearchingDrinksScreen extends JFrame{
         });
     }
 
-
 }
