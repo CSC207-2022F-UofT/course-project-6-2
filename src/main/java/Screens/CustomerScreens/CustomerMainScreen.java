@@ -1,8 +1,15 @@
 package Screens.CustomerScreens;
 
+import UseCases.DetectWindowClose;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+/**
+ * The customer main screen containing the drinks, search drinks, sale board,
+ * shopping cart, order history and customer service panels and features.
+ */
 
 public class CustomerMainScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
@@ -141,6 +148,8 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         pack();
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
+
+        new DetectWindowClose(frame);
     }
 
     public static void main(String[] args) {

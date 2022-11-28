@@ -11,6 +11,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * The drinks panel that displays random drinks and can be added to shopping cart
+ */
+
 public class DrinkPanel extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     JPanel panel = new JPanel();

@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The customer service panel containing question buttons that would provide answers
+ */
+
 public class CustomerServicePanel extends JFrame implements ActionListener{
     private final JPanel panel = new JPanel();
     Button question1Button = new Button();

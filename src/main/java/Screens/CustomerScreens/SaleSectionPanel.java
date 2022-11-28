@@ -12,6 +12,10 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * The sale section panel that displays on sale drinks and can be added to shopping cart
+ */
+
 public class SaleSectionPanel extends JFrame implements ActionListener {
     private final JPanel panel = new JPanel();
     JScrollPane scrollPane;
