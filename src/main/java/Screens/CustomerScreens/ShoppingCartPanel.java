@@ -1,5 +1,4 @@
 package Screens.CustomerScreens;
-
 import UseCases.GetSumOfDrinks;
 
 import javax.swing.*;
@@ -7,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -15,13 +15,15 @@ import java.util.ArrayList;
 public class ShoppingCartPanel extends JFrame {
 
     // Variables declaration
+    private final JPanel panel = new JPanel();
+    JTable table;
+    JScrollPane scrollPane;
+    Vector headers = new Vector();
+    Vector data = new Vector();
     JButton checkoutButton = new JButton("Checkout");
     JButton addQuantity = new JButton("+");
     JButton minusQuantity = new JButton("-");
-    JScrollPane innerScrollPane = new JScrollPane();
     Screens.ShoppingCartPanel shoppingCartPanel = new Screens.ShoppingCartPanel();
-    JTable table = new JTable();
-    JPanel panel = new JPanel();
     JLabel totalAmountLabel = new JLabel();
     JLabel totalLabel = new JLabel("Total: ");
     ArrayList<Double> totalAmount = new ArrayList<>();
@@ -33,50 +35,59 @@ public class ShoppingCartPanel extends JFrame {
     GetSumOfDrinks getSum = new GetSumOfDrinks();
 
     public ShoppingCartPanel() {
+        panel.setLayout(null);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
+        // setting up JTable
+        headers.add("Drink Name");
+        headers.add("Drink Price");
+        headers.add("Discount");
+        headers.add("Quantity");
+        headers.add("Discounted Price");
+        headers.add("Drink Final Price");
 
-        // scrollPane settings
-        innerScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        Vector col = new Vector<>();
+        for (int i = 0; i < 20; i++) {
+            col.add(0, "Drink1");
+            col.add(1, 19.0);
+            col.add(2, 0.1);
+            col.add(3, 1.0);
+            col.add(4, discountedVal);
+            col.add(5, 0.0);
+            data.add(col);
+        }
 
-        // Creating the Table
-        table.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {"Drink 1", 1.0, 0.5, 1.0, 0.0, 0.0},
-                        {"Drink 2", 19.0, 0.1, 1.0, 0.0, 0.0},
-                        {"Drink 3", 8.5, 1.0, 1.0, 0.0, 0.0},
-                        {"Drink 4", 3.0, 0.9, 1.0, 0.0, 0.0}
-                },
-                new String [] {
-                        "Drink Name", "Drink Price", "Discount", "Quantity", "Discounted Value", "Drink Total"
-                }
-        ) {
-            final boolean[] canEdit = new boolean [] {
-                    false, false, false, false, false, false
-            };
+        table = new JTable(data, headers);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        innerScrollPane.setViewportView(table);
-        table.setFillsViewportHeight(true);
+        // Setting Columns to be not resizable
         table.getTableHeader().setReorderingAllowed(false);
+        table.getTableHeader().setResizingAllowed(false);
+
+        // Creating table and scrollpane
+        table.setFillsViewportHeight(true);
+
+        //Adding the two panels to the contentPane.
+        scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(50, 0, 700, 400);
+        panel.add(scrollPane);
+
+        // adding components on panel
+        addQuantity.setBounds(80, 450, 120, 40);
+        minusQuantity.setBounds(80, 500, 120, 40);
+        checkoutButton.setBounds(600, 475, 120, 40);
+        totalLabel.setBounds(600, 400, 100, 45);
+        totalAmountLabel.setBounds(650, 400, 100, 45);
+
+        panel.add(addQuantity);
+        panel.add(minusQuantity);
+        panel.add(checkoutButton);
+        panel.add(totalLabel);
+        panel.add(totalAmountLabel);
 
         // Getting sum of the drink prices
         total = getSum.getSumOfDrinks(table, discountedVal, newVal, totalAmount, total);
 
         // showing the sum
         totalAmountLabel.setText(df.format(total));
-
-        // Setting Columns to be not resizable
-        for (int i = 0; i < table.getColumnCount(); i++){
-            if (table.getColumnModel().getColumnCount() > 0) {
-                table.getColumnModel().getColumn(i).setResizable(false);
-            }
-        }
 
         // Action Listeners
         checkoutButton.addActionListener(new ActionListener() {
@@ -96,46 +107,12 @@ public class ShoppingCartPanel extends JFrame {
                 minusQuantityActionPerformed(evt);
             }
         });
-
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-
-        shoppingCartPanel.createShoppingCartPanel(panelLayout, innerScrollPane, addQuantity, checkoutButton, minusQuantity,
-                totalLabel, totalAmountLabel);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panel)
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panel)
-        );
-
-        pack();
     }
+
 
     private void checkoutButtonActionPerformed(ActionEvent e) {
         if (e.getSource() == checkoutButton){
-            table.setModel(new javax.swing.table.DefaultTableModel(
-                    new Object [][] {
-                            {0, 0, 0, 0, 0, 0},
-                    },
-                    new String [] {
-                            "Drink Name", "Drink Price", "Discount", "Quantity", "Discounted Value", "Drink Total"
-                    }
-            ) {
-                final boolean[] canEdit = new boolean [] {
-                        false, false, false, false
-                };
-
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit [columnIndex];
-                }
-            });
+            scrollPane.removeAll();
             totalAmountLabel.setText("0");
             JOptionPane.showMessageDialog(null,
                     "You have checked out! You can go to your order history to check your items :)");
@@ -144,12 +121,12 @@ public class ShoppingCartPanel extends JFrame {
 
     private void addQuantityActionPerformed(ActionEvent e) {
 
-        int column = 3;
+        int column = headers.indexOf("Quantity");
         int row = table.getSelectedRow();
 
         if (e.getSource() == addQuantity) {
             quantity = (Double) table.getValueAt(row, column);
-            table.setValueAt(quantity += 1.0, row, 3);
+            table.setValueAt(quantity += 1.0, row, column);
         }
 
         totalAmount.add((Double) table.getValueAt(row, 4));
