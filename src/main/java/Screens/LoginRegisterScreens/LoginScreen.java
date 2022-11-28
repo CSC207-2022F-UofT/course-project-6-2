@@ -2,7 +2,7 @@ package Screens.LoginRegisterScreens;
 import Screens.Button;
 import Screens.CustomerScreens.CustomerMainScreen;
 import Screens.LabelTextPanel;
-import Screens.SellerMainScreen;
+import Screens.SellerScreens.SellerMainScreen;
 import UseCases.UserResponseModels.LoginResponseModel;
 import UseCases.UserUseCases.LoginUser;
 import UseCases.UserUseCases.UserRuntimeDataBase;
