@@ -1,8 +1,6 @@
 package UseCases.UserUseCases;
 
-import Entities.Users.Customer;
-import Entities.Users.Seller;
-import Entities.Users.User;
+import Entities.Users.*;
 
 import java.util.HashMap;
 
