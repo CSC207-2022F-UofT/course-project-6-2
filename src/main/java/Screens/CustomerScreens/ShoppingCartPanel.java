@@ -15,13 +15,13 @@ import java.util.ArrayList;
 public class ShoppingCartPanel extends JFrame {
 
     // Variables declaration
+    private final JPanel panel = new JPanel();
     JButton checkoutButton = new JButton("Checkout");
     JButton addQuantity = new JButton("+");
     JButton minusQuantity = new JButton("-");
     JScrollPane innerScrollPane = new JScrollPane();
     Screens.ShoppingCartPanel shoppingCartPanel = new Screens.ShoppingCartPanel();
     JTable table = new JTable();
-    JPanel panel = new JPanel();
     JLabel totalAmountLabel = new JLabel();
     JLabel totalLabel = new JLabel("Total: ");
     ArrayList<Double> totalAmount = new ArrayList<>();
@@ -33,10 +33,7 @@ public class ShoppingCartPanel extends JFrame {
     GetSumOfDrinks getSum = new GetSumOfDrinks();
 
     public ShoppingCartPanel() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
+        panel.setLayout(null);
 
         // scrollPane settings
         innerScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -62,6 +59,7 @@ public class ShoppingCartPanel extends JFrame {
             }
         });
         innerScrollPane.setViewportView(table);
+        innerScrollPane.setBounds(50,0,700, 400);
         table.setFillsViewportHeight(true);
         table.getTableHeader().setReorderingAllowed(false);
 

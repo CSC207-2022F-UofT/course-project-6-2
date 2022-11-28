@@ -1,6 +1,6 @@
 package Screens.CustomerScreens;
 
-import UseCases.UserResponseModel.QuestionResponseModel;
+import UseCases.UserResponseModels.QuestionResponseModel;
 import Screens.Button;
 
 import javax.swing.*;

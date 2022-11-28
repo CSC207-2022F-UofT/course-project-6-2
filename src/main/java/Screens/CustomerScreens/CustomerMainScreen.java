@@ -26,19 +26,19 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         // Drinks panel
         mainTabbedPanel.addTab("Drinks", drinksPanel);
 
-        JPanel drinkPanel = new DrinkPanel().getPanel();
+        JPanel DrinkPanel = new DrinkPanel().getPanel();
 
         GroupLayout DrinksPanelLayout = new GroupLayout(drinksPanel);
         drinksPanel.setLayout(DrinksPanelLayout);
         DrinksPanelLayout.setHorizontalGroup(
                 DrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
-                        .addComponent(drinkPanel)
+                        .addComponent(DrinkPanel)
         );
         DrinksPanelLayout.setVerticalGroup(
                 DrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
-                        .addComponent(drinkPanel)
+                        .addComponent(DrinkPanel)
         );
 
         // Search drinks panel
@@ -80,15 +80,19 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         // Shopping cart panel
         mainTabbedPanel.addTab("Shopping Cart", shoppingCartPanel);
 
+        JPanel ShoppingCartPanel = new ShoppingCartPanel().getPanel();
+
         GroupLayout ShoppingCartPanelLayout = new GroupLayout(shoppingCartPanel);
         shoppingCartPanel.setLayout(ShoppingCartPanelLayout);
         ShoppingCartPanelLayout.setHorizontalGroup(
                 ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(ShoppingCartPanel)
         );
         ShoppingCartPanelLayout.setVerticalGroup(
                 ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(ShoppingCartPanel)
         );
 
         // Order history panel

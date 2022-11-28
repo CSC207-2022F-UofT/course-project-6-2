@@ -81,7 +81,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToCart.button) {
-            UserRuntimeDataBase.currentCustomer.getShoppingCart().addItem(selectedDrink, 1);
+            UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
         }
     }
 }

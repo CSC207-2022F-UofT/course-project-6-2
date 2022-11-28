@@ -80,6 +80,6 @@ public class DrinkPanel extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        UserRuntimeDataBase.currentCustomer.getShoppingCart().addItem(selectedDrink, 1);
+        UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
     }
 }
