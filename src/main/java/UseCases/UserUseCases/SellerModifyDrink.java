@@ -35,6 +35,7 @@ public class SellerModifyDrink {
 
     public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
+        currentDrink.setStoreName(UserRuntimeDataBase.currentSeller.getStoreName());
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.currentSeller.getStoreName());
         allDrinks.put(name, currentDrink);
         UserRuntimeDataBase.currentSeller.modifyDrink(null, currentDrink);

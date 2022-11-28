@@ -11,10 +11,10 @@ import java.util.HashMap;
 // Entities Layer
 
 public class Customer extends User implements Serializable {
-    public int age;
-    public ArrayList<Order> orderHistory;
+    private int age;
+    private ArrayList<Order> orderHistory;
 
-    public ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCart;
 
     /**
      * Construct an instance of the entity Customer.
@@ -64,8 +64,8 @@ public class Customer extends User implements Serializable {
 
     public String getOrderStatus(Order order){
         for(int i = 0; i < this.orderHistory.size(); i++){
-            if (this.orderHistory.get(i).orderNum == order.orderNum){
-                return this.orderHistory.get(i).orderStatus;
+            if (this.orderHistory.get(i).getOrderNum() == order.getOrderNum()){
+                return this.orderHistory.get(i).getOrderStatus();
             }
         }
         return "Order Not Found";

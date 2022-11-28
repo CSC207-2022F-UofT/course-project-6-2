@@ -69,8 +69,8 @@ public class Seller extends User implements Serializable {
      */
     public void modifyOrderStatus(String orderNum, String status){
         for(Order o : this.allOrders){
-            if (Integer.toString(o.orderNum) == orderNum){
-                o.orderStatus = status;
+            if (Integer.toString(o.getOrderNum()) == orderNum){
+                o.setOrderStatus(status);
             }
         }
     }

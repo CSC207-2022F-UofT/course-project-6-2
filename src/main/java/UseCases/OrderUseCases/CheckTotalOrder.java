@@ -1,24 +1,24 @@
 package UseCases.OrderUseCases;
 
-import Helpers.Deserializer;
+import Entities.Order;
 import Entities.Users.Seller;
+import UseCases.UserUseCases.UserRuntimeDataBase;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class CheckTotalOrder {
-    public int checkTotalOrder() throws IOException, ClassNotFoundException {
-        Deserializer deserializer = new Deserializer();
-        deserializer.deserialize("./data/users");
-        ArrayList<HashMap> data = (ArrayList<HashMap>) deserializer.getObject();
-        if (data != null && data.get(0).size() != 0) {
-            Iterator<Map.Entry<String, Seller>> iterator = data.get(0).entrySet().iterator();
+    public static int checkTotalOrder() {
+        HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
+        if (sellers != null && sellers.size() != 0) {
+            Iterator<Map.Entry<String, Seller>> iterator = sellers.entrySet().iterator();
             Map.Entry<String, Seller> entry = iterator.next();
+            ArrayList<Order> allOrder = entry.getValue().getAllOrders();
 
-            if (entry.getValue().getAllOrders().size() != 0) return entry.getValue().getAllOrders().get(0).getTotalOrder();
+            // If there exist an order, get the stored totalOrder, otherwise 0 as no order
+            if (allOrder.size() != 0) return allOrder.get(0).getTotalOrder();
             else return 0;
         }
         else {
