@@ -1,73 +1,93 @@
-package Screens;
+package Screens.CustomerScreens;
 
-import UseCases.UserUseCases.CustomerButton.*;
+import UseCases.UserResponseModel.QuestionResponseModel;
+import Screens.Button;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CustomerServiceScreen{
-    /* setup frame*/
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Frequently Asked Questions");
-        JPanel panel = new JPanel();
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+public class CustomerServicePanel extends JFrame implements ActionListener{
+    private final JPanel panel = new JPanel();
+    Button question1Button = new Button();
+    Button question2Button = new Button();
+    Button question3Button = new Button();
+    Button question4Button = new Button();
+    Button question5Button = new Button();
+    Button question6Button = new Button();
+    Button question7Button = new Button();
+
+    public CustomerServicePanel() {
+        panel.setLayout(null);
 
         /* first question & answer*/
-        JButton b = new JButton("How can I sell my product in your store?");
-        b.setBounds(50, 150, 700, 30);
-        frame.add(b);
-        ActionListener myButton = new Q0();
-        b.addActionListener(myButton);
+        question1Button.createButton(panel, "How can I sell my product in your store?",
+                50, 100, 700, 30);
+        question1Button.addActionListener(this);
 
         /* 2nd question & answer*/
-        JButton c = new JButton("Where can I collect reward points with my purchase?");
-        c.setBounds(50, 200, 700, 30);
-        frame.add(c);
-        ActionListener myButtonListener = new Q1();
-        c.addActionListener(myButtonListener);
-
+        question2Button.createButton(panel, "Where can I collect reward points with my purchase?",
+                50, 150, 700, 30);
+        question2Button.addActionListener(this);
 
         /* 3rd question & answer*/
-        JButton d = new JButton(" Does your store offer birthday specials? ");
-        d.setBounds(50, 250, 700, 30);
-        frame.add(d);
-        ActionListener myButtonListener2 = new Q2();
-        d.addActionListener(myButtonListener2);
-
+        question3Button.createButton(panel, "Does your store offer birthday specials?",
+                50, 200, 700, 30);
+        question3Button.addActionListener(this);
 
         /* 4th question & answer*/
-        JButton x = new JButton("How do I know if my order is placed?");
-        x.setBounds(50, 300, 700, 30);
-        frame.add(x);
-        ActionListener myButtonListener3 = new Q3();
-        x.addActionListener(myButtonListener3);
+        question4Button.createButton(panel, "How do I know if my order is placed?",
+                50, 250, 700, 30);
+        question4Button.addActionListener(this);
 
         /* 5th question & answer*/
-        JButton y = new JButton(" How much does it cost to ship items? ");
-        y.setBounds(50, 350, 700, 30);
-        frame.add(y);
-        ActionListener myButtonListener4 = new Q4();
-        y.addActionListener(myButtonListener4);
+        question5Button.createButton(panel, "How much does it cost to ship items?",
+                50, 300, 700, 30);
+        question5Button.addActionListener(this);
 
         /* 6th question & answer*/
-        JButton z = new JButton(" What items can not be sold in your app? ");
-        z.setBounds(50, 400, 700, 30);
-        frame.add(z);
-        ActionListener myButtonListener5 = new Q5();
-        z.addActionListener(myButtonListener5);
+        question6Button.createButton(panel, "What items can not be sold in your app?",
+                50, 350, 700, 30);
+        question6Button.addActionListener(this);
 
-        /* 6th question & answer*/
-        JButton q = new JButton(" Need More Help? ");
-        q.setBounds(50, 450, 700, 30);
-        frame.add(q);
-        ActionListener myButtonListener6 = new NeedMoreHelp();
-        q.addActionListener(myButtonListener6);
+        /* 7th question & answer*/
+        question7Button.createButton(panel, "Need More Help?",
+                50, 400, 700, 30);
+        question7Button.addActionListener(this);
+    }
 
-        frame.add(panel);
-        frame.setLayout(null);
-        frame.setVisible(true);
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == question1Button.button) {
+            new QuestionResponseModel(1);
+        }
+        if (e.getSource() == question2Button.button) {
+            new QuestionResponseModel(2);
+        }
+        if (e.getSource() == question3Button.button) {
+            new QuestionResponseModel(3);
+        }
+        if (e.getSource() == question4Button.button) {
+            new QuestionResponseModel(4);
+        }
+        if (e.getSource() == question5Button.button) {
+            new QuestionResponseModel(5);
+        }
+        if (e.getSource() == question6Button.button) {
+            new QuestionResponseModel(6);
+        }
+        if (e.getSource() == question7Button.button) {
+            new QuestionResponseModel(7);
+        }
     }
 }
 
