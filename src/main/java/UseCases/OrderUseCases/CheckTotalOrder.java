@@ -11,18 +11,17 @@ import java.util.Map;
 
 public class CheckTotalOrder {
     public static int checkTotalOrder() {
+        // Get hashmap of all sellers
         HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
-        if (sellers != null && sellers.size() != 0) {
-            Iterator<Map.Entry<String, Seller>> iterator = sellers.entrySet().iterator();
-            Map.Entry<String, Seller> entry = iterator.next();
-            ArrayList<Order> allOrder = entry.getValue().getAllOrders();
 
-            // If there exist an order, get the stored totalOrder, otherwise 0 as no order
-            if (allOrder.size() != 0) return allOrder.get(0).getTotalOrder();
-            else return 0;
+        // If there are sellers, check an arbitrary order
+        if (sellers != null && sellers.size() != 0) {
+            for(Map.Entry<String, Seller> entry : sellers.entrySet()) {
+                ArrayList<Order> sellerOrders = entry.getValue().getAllOrders();
+                if (sellerOrders.size() != 0) return sellerOrders.get(0).getTotalOrder();
+            }
         }
-        else {
-            return 0;
-        }
+        // If there's no seller or/and there's no order, total order = 0
+        return 0;
     }
 }

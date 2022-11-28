@@ -1,18 +1,13 @@
 package Entities;
 
-import Helpers.Deserializer;
-import Entities.Users.Seller;
 import UseCases.OrderUseCases.CheckTotalOrder;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.*;
 
 public class Order {
     public static final int UNSET_TOTAL_ORDER = -88;
     private int orderNum;
-    private HashMap<String, Integer> orderList;
+    private HashMap<Drink, Integer> orderList;
     private String orderStatus;
     private static int totalOrder = UNSET_TOTAL_ORDER;
 
@@ -21,15 +16,9 @@ public class Order {
      * @param orderList       The list that has all the items and the corresponding quantities for this order.
      * @param orderStatus     A string indicating the current status of the order, including [inProgress, ready, pickedUp, delivered].
      */
-    public Order(HashMap<String, Integer> orderList, String orderStatus) {
+    public Order(HashMap<Drink, Integer> orderList, String orderStatus) {
         this.orderList = orderList;
         this.orderStatus = orderStatus;
-        if (totalOrder == UNSET_TOTAL_ORDER) {
-            totalOrder = CheckTotalOrder.checkTotalOrder() + 1;
-        } else {
-            totalOrder += 1;
-        }
-        orderNum = totalOrder;
     }
 
     /**
@@ -39,6 +28,14 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
+    public static void setTotalOrder(int totalOrder) {
+        Order.totalOrder = totalOrder;
+    }
+
+    public void setOrderNum(int orderNum) {
+        this.orderNum = orderNum;
+    }
+
     /**
      * The getter method of the instance values.
      */
@@ -46,7 +43,7 @@ public class Order {
         return orderNum;
     }
 
-    public HashMap<String, Integer> getOrderList() {
+    public HashMap<Drink, Integer> getOrderList() {
         return orderList;
     }
 

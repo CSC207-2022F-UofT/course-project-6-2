@@ -70,4 +70,8 @@ public class Customer extends User implements Serializable {
         }
         return "Order Not Found";
     }
+
+    public void addNewOrder(Order order){
+        orderHistory.add(order);
+    }
 }
