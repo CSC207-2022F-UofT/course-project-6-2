@@ -15,21 +15,21 @@ public class Drink {
     private Date productionData;
     private Date expirationDate;
     private float discount;
+
     private String storeName;
 
     /**
      * Construct an instance of the entity drink.
-     *
-     * @param name           The name of the drink.
-     * @param price          The price of the drink.
-     * @param description    The brief description of the drink.
-     * @param ingredient     The ingredient of the drink.
-     * @param volume         The volume in ml of the drink.
+     * @param name The name of the drink.
+     * @param price The price of the drink.
+     * @param description The brief description of the drink.
+     * @param ingredient The ingredient of the drink.
+     * @param volume The volume in ml of the drink.
      * @param productionData The date of production of the drink.
      * @param expirationDate The date of expiration of the drink.
-     * @param discount       The amount of discount of this drink right now.
+     * @param discount The amount of discount of this drink right now.
      */
-    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
+    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount, String storeName) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -38,7 +38,7 @@ public class Drink {
         this.productionData = productionData;
         this.expirationDate = expirationDate;
         this.discount = discount;
-        this.storeName = UserRuntimeDataBase.getCurrentSeller().getStoreName();
+        this.storeName = storeName;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Drink {
         return this.description;
     }
 
-    public String getIngredient() {
+    public String getIngredient(){
         return this.ingredient;
     }
 
@@ -116,6 +116,6 @@ public class Drink {
     }
 
     public String getStoreName() {
-        return this.storeName;
+        return storeName;
     }
 }
