@@ -61,9 +61,6 @@ public class SearchingDrinksScreen extends JFrame{
 
         JScrollPane jScrollPane = new JScrollPane(myFrameTable);
         contentPane.add(jScrollPane,BorderLayout.CENTER);
-    }
-
-    public void add_and_back(){
         String name = drinkName.getText();
         String store = storeName.getText();
         int quantity = Integer.parseInt(drinkQuantity.getText());
@@ -81,5 +78,6 @@ public class SearchingDrinksScreen extends JFrame{
             }
         });
     }
+
 
 }
