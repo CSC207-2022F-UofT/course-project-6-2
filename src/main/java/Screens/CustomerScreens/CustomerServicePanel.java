@@ -1,68 +1,66 @@
 package Screens.CustomerScreens;
 
+import UseCases.UserResponseModels.QuestionResponseModel;
+import Screens.Button;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CustomerServicePanel extends JFrame implements ActionListener {
+/**
+ * The customer service panel containing question buttons that would provide answers
+ */
 
-    JPanel panel = new JPanel();
+public class CustomerServicePanel extends JFrame implements ActionListener{
+    private final JPanel panel = new JPanel();
+    Button question1Button = new Button();
+    Button question2Button = new Button();
+    Button question3Button = new Button();
+    Button question4Button = new Button();
+    Button question5Button = new Button();
+    Button question6Button = new Button();
+    Button question7Button = new Button();
+
     public CustomerServicePanel() {
-
-        JTextField ShowAnswerText = new JTextField();
-        ShowAnswerText.setBounds(50,50, 700,80);
+        panel.setLayout(null);
 
         /* first question & answer*/
-        JButton b = new JButton("How can I sell my product in your store?");
-        b.setBounds(50,150,700,30);
-        b.addActionListener(e -> ShowAnswerText.setText("Register on our app for the flexibility to sell one item or thousands.\n" +
-                "Fulfill orders quickly when customers make a purchase."));
+        question1Button.createButton(panel, "How can I sell my product in your store?",
+                50, 100, 700, 30);
+        question1Button.addActionListener(this);
 
         /* 2nd question & answer*/
-        JButton c=new JButton("Where can I collect reward points with my purchase?");
-        c.setBounds(50,200,700,30);
-        c.addActionListener(e -> ShowAnswerText.setText("Sorry, currently we do not offer any reward points"));
+        question2Button.createButton(panel, "Where can I collect reward points with my purchase?",
+                50, 150, 700, 30);
+        question2Button.addActionListener(this);
 
         /* 3rd question & answer*/
-        JButton d =new JButton(" Does your store offer birthday specials? ");
-        d.setBounds(50,250,700,30);
-        d.addActionListener(e -> ShowAnswerText.setText("Sorry, currently we do not offer " +
-                "any birthday special or reward programs. "));
+        question3Button.createButton(panel, "Does your store offer birthday specials?",
+                50, 200, 700, 30);
+        question3Button.addActionListener(this);
 
         /* 4th question & answer*/
-        JButton x =new JButton("How do I know if my order is placed?");
-        x.setBounds(50,300,700,30);
-        x.addActionListener(e -> ShowAnswerText.setText("Once you place an order on the website, you'll find the record from " +
-                "Get Order Status shortly"));
+        question4Button.createButton(panel, "How do I know if my order is placed?",
+                50, 250, 700, 30);
+        question4Button.addActionListener(this);
 
         /* 5th question & answer*/
-        JButton y =new JButton(" How much does it cost to ship items? ");
-        y.setBounds(50,350,700,30);
-        y.addActionListener(e -> ShowAnswerText.setText("Shipping fees depend on whether you plan to fulfill orders yourself." +
-                " Generally speaking: Air express > Air freight > sea freight "));
+        question5Button.createButton(panel, "How much does it cost to ship items?",
+                50, 300, 700, 30);
+        question5Button.addActionListener(this);
 
         /* 6th question & answer*/
-        JButton z =new JButton(" What items can not be sold in your app? ");
-        z.setBounds(50,400,700,30);
-        z.addActionListener(e -> ShowAnswerText.setText("Some products may not be listed as a matter of " +
-                "compliance with legal or regulatory restrictions (for example, prescription drugs). "));
+        question6Button.createButton(panel, "What items can not be sold in your app?",
+                50, 350, 700, 30);
+        question6Button.addActionListener(this);
 
-        /* 6th question & answer*/
-        JButton q =new JButton(" Need More Help? ");
-        q.setBounds(50,450,700,30);
-        q.addActionListener(e -> ShowAnswerText.setText("Further concerns please contact our customer support. Phone: 416-978-3384." +
-                " Email: ask.6+2@utoronto.ca  | Follow us on Twitter."));
-
-        panel.add(b);
-        panel.add(c);
-        panel.add(d);
-        panel.add(x);
-        panel.add(y);
-        panel.add(z);
-        panel.add(q);
+        /* 7th question & answer*/
+        question7Button.createButton(panel, "Need More Help?",
+                50, 400, 700, 30);
+        question7Button.addActionListener(this);
     }
 
-    public JPanel getPanel(){
+    public JPanel getPanel() {
         return panel;
     }
 
@@ -73,9 +71,28 @@ public class CustomerServicePanel extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == question1Button.button) {
+            new QuestionResponseModel(1);
+        }
+        if (e.getSource() == question2Button.button) {
+            new QuestionResponseModel(2);
+        }
+        if (e.getSource() == question3Button.button) {
+            new QuestionResponseModel(3);
+        }
+        if (e.getSource() == question4Button.button) {
+            new QuestionResponseModel(4);
+        }
+        if (e.getSource() == question5Button.button) {
+            new QuestionResponseModel(5);
+        }
+        if (e.getSource() == question6Button.button) {
+            new QuestionResponseModel(6);
+        }
+        if (e.getSource() == question7Button.button) {
+            new QuestionResponseModel(7);
+        }
     }
 }
-
 
 

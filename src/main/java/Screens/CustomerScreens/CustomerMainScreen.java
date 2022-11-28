@@ -1,10 +1,15 @@
 package Screens.CustomerScreens;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import UseCases.DetectWindowClose;
 
-public class CustomerMainScreen extends JFrame implements ActionListener {
+import javax.swing.*;
+
+/**
+ * The customer main screen containing the drinks, search drinks, sale board,
+ * shopping cart, order history and customer service panels and features.
+ */
+
+public class CustomerMainScreen extends JFrame {
     JFrame frame = new JFrame();
     public CustomerMainScreen() {
         JPanel panel = new JPanel();
@@ -23,18 +28,28 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         JPanel orderHistoryPanel = new JPanel();
         JPanel customerServicePanel = new JPanel();
 
+        // Drinks panel
+        mainTabbedPanel.addTab("Drinks", drinksPanel);
+
+        JPanel DrinkPanel = new DrinkPanel().getPanel();
+
         GroupLayout DrinksPanelLayout = new GroupLayout(drinksPanel);
         drinksPanel.setLayout(DrinksPanelLayout);
         DrinksPanelLayout.setHorizontalGroup(
                 DrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(DrinkPanel)
         );
         DrinksPanelLayout.setVerticalGroup(
                 DrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(DrinkPanel)
         );
 
-        mainTabbedPanel.addTab("Drinks", drinksPanel);
+        // Search drinks panel
+        mainTabbedPanel.addTab("Search Drinks", searchDrinksPanel);
+
+        JPanel SearchingDrinksPanel = new SearchingDrinksPanel().getPanel();
 
         GroupLayout SearchDrinksPanelLayout = new GroupLayout(searchDrinksPanel);
         searchDrinksPanel.setLayout(SearchDrinksPanelLayout);
@@ -43,17 +58,20 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
                         .addGroup(SearchDrinksPanelLayout.createSequentialGroup()
                                 .addGap(210, 210, 210)
                                 .addContainerGap(512, Short.MAX_VALUE))
+                        .addComponent(SearchingDrinksPanel)
         );
         SearchDrinksPanelLayout.setVerticalGroup(
                 SearchDrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(SearchDrinksPanelLayout.createSequentialGroup()
                                 .addGap(53, 53, 53)
                                 .addContainerGap(493, Short.MAX_VALUE))
+                        .addComponent(SearchingDrinksPanel)
         );
 
-        mainTabbedPanel.addTab("Search Drinks", searchDrinksPanel);
+        // Sale section panel
+        mainTabbedPanel.addTab("Sale Section", saleSectionPanel);
 
-        JScrollPane SaleSectionPanel = new SaleSectionPanel().getPanel();
+        JPanel SaleSectionPanel = new SaleSectionPanel().getPanel();
 
         GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionPanel);
         saleSectionPanel.setLayout(SaleSectionPanelLayout);
@@ -68,20 +86,26 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
                         .addComponent(SaleSectionPanel)
         );
 
-        mainTabbedPanel.addTab("Sale Section", saleSectionPanel);
+        // Shopping cart panel
+        mainTabbedPanel.addTab("Shopping Cart", shoppingCartPanel);
+
+        JPanel ShoppingCartPanel = new ShoppingCartPanel().getPanel();
 
         GroupLayout ShoppingCartPanelLayout = new GroupLayout(shoppingCartPanel);
         shoppingCartPanel.setLayout(ShoppingCartPanelLayout);
         ShoppingCartPanelLayout.setHorizontalGroup(
                 ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(ShoppingCartPanel)
         );
         ShoppingCartPanelLayout.setVerticalGroup(
                 ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(ShoppingCartPanel)
         );
 
-        mainTabbedPanel.addTab("Shopping Cart", shoppingCartPanel);
+        // Order history panel
+        mainTabbedPanel.addTab("Order History", orderHistoryPanel);
 
         GroupLayout OrderHistoryPanelLayout = new GroupLayout(orderHistoryPanel);
         orderHistoryPanel.setLayout(OrderHistoryPanelLayout);
@@ -94,7 +118,8 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
                         .addGap(0, 569, Short.MAX_VALUE)
         );
 
-        mainTabbedPanel.addTab("Order History", orderHistoryPanel);
+        // Customer service panel
+        mainTabbedPanel.addTab("Customer Service", customerServicePanel);
 
         JPanel CustomerServicePanel = new CustomerServicePanel().getPanel();
 
@@ -111,8 +136,6 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
                         .addComponent(CustomerServicePanel)
         );
 
-        mainTabbedPanel.addTab("Customer Service", customerServicePanel);
-
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,20 +150,12 @@ public class CustomerMainScreen extends JFrame implements ActionListener {
         pack();
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
+
+        new DetectWindowClose(frame);
     }
 
     public static void main(String[] args) {
         new CustomerMainScreen();
-    }
-
-    /**
-     * Invoked when an action occurs.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }
 

@@ -2,55 +2,54 @@ package Screens.CustomerScreens;
 
 import Entities.Drink;
 import Screens.Button;
-import UseCases.DrinkUseCases.GetOnSaleDrinks;
+import UseCases.DrinkUseCases.GetRandomDrinks;
 import UseCases.UserUseCases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
 /**
- * The sale section panel that displays on sale drinks and can be added to shopping cart
+ * The drinks panel that displays random drinks and can be added to shopping cart
  */
 
-public class SaleSectionPanel extends JFrame implements ActionListener {
-    private final JPanel panel = new JPanel();
+public class DrinkPanel extends JFrame implements ActionListener {
     JScrollPane scrollPane;
+    JPanel panel = new JPanel();
     JTable drinkTable;
     Drink selectedDrink;
     Button addToCart = new Button();
-    public SaleSectionPanel() {
+
+    public DrinkPanel() {
         panel.setLayout(null);
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
-        Vector<String> line = new Vector<>();
-        ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
-        DecimalFormat df = new DecimalFormat("0.00");
+        Vector<String > line = new Vector<>();
+        ArrayList<Drink> randomDrinks = new GetRandomDrinks().randomDrinks();
 
         headers.add("Drink name");
-        headers.add("Original Price");
-        headers.add("Discount");
-        headers.add("Current Price");
+        headers.add("Store Name");
+        headers.add("Price");
+        headers.add("Volume");
 
-        for (Drink drink: onSaleDrinks) {
+        for (Drink drink: randomDrinks) {
             line.add(drink.getName());
+            line.add(drink.getStoreName());
             line.add("$" + drink.getPrice());
-            line.add((1 - drink.getDiscount()) * 100 + "%");
-            line.add("$" + df.format(drink.getPrice() * drink.getDiscount()));
+            line.add(drink.getVolume() + "ml");
             data.add(line);
         }
 
         // test part
         for (int i = 0; i < 30; i ++) {
             Vector<String> line1 = new Vector<>();
-            line1.add("Strawberry Coconut");
-            line1.add("$18.00");
-            line1.add("30%");
-            line1.add("$12.60");
+            line1.add("Apple Juice");
+            line1.add("Andy's Drink Store");
+            line1.add("$10.00");
+            line1.add("750ml");
             data.add(line1);
         }
 
@@ -69,10 +68,11 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                // selectedDrink = onSaleDrinks.get(selectedRow);
+                selectedDrink = randomDrinks.get(selectedRow);
             }
         });
     }
+
     public JPanel getPanel() {
         return panel;
     }
@@ -84,8 +84,6 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == addToCart.button) {
-            UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
-        }
+        UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
     }
 }
