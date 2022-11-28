@@ -13,12 +13,14 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 public class SaleSectionPanel extends JFrame implements ActionListener {
+    private final JPanel panel = new JPanel();
     JScrollPane scrollPane;
-    JPanel panel = new JPanel();
     JTable drinkTable;
     Drink selectedDrink;
     Button addToCart = new Button();
     public SaleSectionPanel() {
+        panel.setLayout(null);
+
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
         Vector<String> line = new Vector<>();
@@ -52,9 +54,11 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         drinkTable.getTableHeader().setReorderingAllowed(false);
         drinkTable.getTableHeader().setResizingAllowed(false);
 
-        addToCart.createButton(panel, "Add to Cart", 0, 0, 0, 0);
+        addToCart.createButton(panel, "Add to Cart", 330, 440, 120, 40);
         addToCart.addActionListener(this);
+
         scrollPane = new JScrollPane(drinkTable);
+        scrollPane.setBounds(50,0,700, 400);
         panel.add(scrollPane);
 
         ListSelectionModel model = drinkTable.getSelectionModel();
