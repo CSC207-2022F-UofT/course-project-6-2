@@ -64,12 +64,12 @@ public class Seller extends User implements Serializable {
 
     /**
      * Seller modify the order status for particular order.
-     * @param order The order that need to be modified.
+     * @param orderNum The order that need to be modified.
      * @param status The changed status of the order.
      */
-    public void modifyOrderStatus(Order order, String status){
+    public void modifyOrderStatus(String orderNum, String status){
         for(Order o : this.allOrders){
-            if (o.orderNum == order.orderNum){
+            if (Integer.toString(o.orderNum) == orderNum){
                 o.orderStatus = status;
             }
         }

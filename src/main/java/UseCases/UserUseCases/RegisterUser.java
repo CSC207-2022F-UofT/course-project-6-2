@@ -1,7 +1,6 @@
 package UseCases.UserUseCases;
 
-import Entities.Users.Customer;
-import Entities.Users.Seller;
+import Entities.Users.*;
 
 import java.util.ArrayList;
 import java.util.Objects;

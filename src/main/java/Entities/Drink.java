@@ -38,7 +38,7 @@ public class Drink {
         this.productionData = productionData;
         this.expirationDate = expirationDate;
         this.discount = discount;
-        this.storeName = UserRuntimeDataBase.currentSeller.getStoreName();
+        this.storeName = storeName;
     }
 
     /**
