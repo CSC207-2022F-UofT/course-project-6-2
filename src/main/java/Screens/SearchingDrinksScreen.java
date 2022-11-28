@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 import java.util.Vector;
 
-public class SearchingDrinksPanel extends JFrame{
+public class SearchingDrinksScreen extends JFrame{
     JFrame jFrame = new JFrame();
     JPanel northPanel = new JPanel();
     JTextField searchBox = new JTextField(20);
@@ -26,7 +26,7 @@ public class SearchingDrinksPanel extends JFrame{
     JButton preBtn = new JButton("Previous");
     SearchingTable myFrameTable = new SearchingTable();
 
-    public SearchingDrinksPanel(){
+    public SearchingDrinksScreen(){
 
         Container contentPane = getContentPane();
         northPanel.add(searchBox);
