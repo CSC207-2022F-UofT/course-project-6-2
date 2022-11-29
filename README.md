@@ -6,7 +6,7 @@
 * Sancia Gao
 * Xiyuan Jin
 * Donna Qi ([donnaqi](https://github.com/donnaqi))
-* Yuanyuan Qin
+* Yuanyuan Qin ([yyuan-qin](https://github.com/yyuan-qin))
 * Jessica Yuan
 
 ## Documents
