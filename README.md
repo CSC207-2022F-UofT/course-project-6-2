@@ -2,7 +2,7 @@
 
 ## Group members (alphabetical order by last name)
 * Lisa Cheng
-* Roy Fan
+* Roy Fan ([TingmingFan](https://github.com/TingmingFan))
 * Sancia Gao ([sanciag17](https://github.com/sanciag17))
 * Xiyuan Jin ([AdwinTazement](https://github.com/AdwinTazement))
 * Donna Qi ([donnaqi](https://github.com/donnaqi))
