@@ -9,7 +9,7 @@ public class LoginUser {
      * login: Receive login info and check if user should be authenticated
      * @param phoneNumber A String of user's phone number
      * @param passWord A String of user's password
-     * @return A boolean indicating whether the login is successful
+     * @return A String indicating whether the user is a customer, a seller or does not exists in database.
      */
 
 
