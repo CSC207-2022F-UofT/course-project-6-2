@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestGetWarningMessage {
@@ -21,7 +22,7 @@ public class TestGetWarningMessage {
         itemlist1.put(drink3, 3);
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist1);
-        assert T == "Drinks in shopping cart contains milk ";
+        assertEquals(T, "Drinks in shopping cart contains milk ");
     }
     @Test
     /*the drinks have no dangerous ingredients*/
@@ -36,7 +37,7 @@ public class TestGetWarningMessage {
         itemlist2.put(drink3, 3);
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist2);
-        assert T == "Drinks in shopping cart contains milk ";
+        assertEquals(T, "Drinks in shopping cart contains nothing dangerous");
     }
     @Test
     /*the drinks have five dangerous ingredient*/
@@ -51,7 +52,7 @@ public class TestGetWarningMessage {
         itemlist3.put(drink3, 1);
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist3);
-        assert T == "Drinks in shopping cart contains egg milk peanut soybean wheat ";
+        assertEquals(T, "Drinks in shopping cart contains egg milk peanut soybean wheat ");
     }
 
 }
