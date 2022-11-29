@@ -1,4 +1,4 @@
-package usecases;
+package usecases.orderusecases;
 
 import entities.Drink;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-public class Warn {
+public class GetWarningMessage {
     public String getWarningMessage(HashMap<Drink, Integer> itemList){
         ArrayList<String> dang = new ArrayList<>();
         /*The possible harmful ingredients, including five allergens and alcohol.*/

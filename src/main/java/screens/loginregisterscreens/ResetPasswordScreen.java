@@ -2,7 +2,7 @@ package screens.loginregisterscreens;
 
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
-import usecases.userusercases.ResetUserPassword;
+import usecases.loginregisterusecases.ResetUserPassword;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

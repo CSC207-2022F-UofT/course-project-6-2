@@ -1,8 +1,9 @@
-package usecases.userusercases;
+package usecases.loginregisterusecases;
 
 import entities.users.Customer;
 import entities.users.Seller;
 import usecases.drinkusecases.DrinkRuntimeDataBase;
+import usecases.userusercases.UserRuntimeDataBase;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -34,25 +35,25 @@ public class RegisterUser {
         }
 
         // determine if phone number exists
-        if (UserRuntimeDataBase.sellers.get(phoneNumber) != null || UserRuntimeDataBase.customers.get(phoneNumber) != null) {
+        if (UserRuntimeDataBase.getSellers().get(phoneNumber) != null || UserRuntimeDataBase.getCustomers().get(phoneNumber) != null) {
             return "Phone number exists";
         }
 
         // determine if store name exists
-        if (UserRuntimeDataBase.sellers.get(storeName) != null) {
+        if (UserRuntimeDataBase.getSellers().get(storeName) != null) {
             return "Store name exists";
         }
 
         // if user is a customer
         if (storeName == null) {
-            Customer newCustomer = new Customer(accountName, phoneNumber, password, age, address, new ArrayList<>());
-            UserRuntimeDataBase.customers.put(phoneNumber, newCustomer);
+            Customer newCustomer = new Customer(accountName, phoneNumber, password, age, address);
+            UserRuntimeDataBase.getCustomers().put(phoneNumber, newCustomer);
         }
 
         // if user is a seller
         else {
-            Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName, new ArrayList<>(), new ArrayList<>());
-            UserRuntimeDataBase.sellers.put(phoneNumber, newSeller);
+            Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName);
+            UserRuntimeDataBase.getSellers().put(phoneNumber, newSeller);
             DrinkRuntimeDataBase.addStore(storeName);
         }
         return "Successfully registered";

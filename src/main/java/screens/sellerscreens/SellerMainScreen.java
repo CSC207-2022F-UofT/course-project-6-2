@@ -1,7 +1,5 @@
 package screens.sellerscreens;
 
-//import UseCases.ExtractUserFromPhoneNum;
-
 import screens.swingcomponents.Button;
 
 import javax.swing.*;
@@ -11,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class SellerMainScreen extends JFrame implements ActionListener {
-    JFrame frame = new JFrame();
+    private final JFrame frame = new JFrame();
     Button deleteDrinkButton = new Button();
     Button modifyDrinkButton = new Button();
     Button addDrinkButton = new Button();

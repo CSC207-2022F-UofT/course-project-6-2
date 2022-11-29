@@ -21,7 +21,7 @@ public class Drink {
      * @param name           The name of the drink.
      * @param price          The price of the drink.
      * @param description    The brief description of the drink.
-     * @param ingredient     The ingredient of the drink.
+     * @param ingredient    The ingredient of the drink.
      * @param volume         The volume in ml of the drink.
      * @param productionData The date of production of the drink.
      * @param expirationDate The date of expiration of the drink.

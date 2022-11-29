@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import static usecases.SearchDrinks.Add_to_Filtered;
+import static usecases.drinkusecases.SearchDrinks.Add_to_Filtered;
 
 public class SearchDrinkPanel extends JFrame implements ActionListener{
     JTextField search_box = new JTextField(20);

@@ -4,7 +4,7 @@ import screens.swingcomponents.LabelTextPanel;
 import screens.customerscreens.CustomerMainScreen;
 import screens.sellerscreens.SellerMainScreen;
 import usecases.userresponsemodel.LoginResponseModel;
-import usecases.userusercases.LoginUser;
+import usecases.loginregisterusecases.LoginUser;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -82,4 +82,5 @@ public class LoginScreen extends JFrame implements ActionListener {
             frame.setVisible(false);
         }
     }
+    public static void main(String[] args) {new LoginScreen();}
 }

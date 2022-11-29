@@ -1,4 +1,6 @@
-package usecases.userusercases;
+package usecases.loginregisterusecases;
+
+import usecases.userusercases.UserRuntimeDataBase;
 
 import java.io.IOException;
 
@@ -14,15 +16,15 @@ public class ResetUserPassword {
      * @return Reset unsuccessful (false) happens when phone number is incorrect or newPass and confirmPass doesn't match
      */
     public static Boolean resetPassword(String phoneNumber, String newPass, String confirmPass) throws IOException, ClassNotFoundException {
-        if (UserRuntimeDataBase.sellers.get(phoneNumber) != null) {
+        if (UserRuntimeDataBase.getSellers().get(phoneNumber) != null) {
             if (newPass.equals(confirmPass)) {
-                UserRuntimeDataBase.sellers.get(phoneNumber).setPassWord(newPass);
+                UserRuntimeDataBase.getSellers().get(phoneNumber).setPassWord(newPass);
                 return true;
             }
         }
-        else if (UserRuntimeDataBase.customers.get(phoneNumber) != null) {
+        else if (UserRuntimeDataBase.getCustomers().get(phoneNumber) != null) {
             if (newPass.equals(confirmPass)) {
-                UserRuntimeDataBase.customers.get(phoneNumber).setPassWord(newPass);
+                UserRuntimeDataBase.getCustomers().get(phoneNumber).setPassWord(newPass);
                 return true;
             }
         }

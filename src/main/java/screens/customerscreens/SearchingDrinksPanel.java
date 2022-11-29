@@ -2,10 +2,8 @@ package screens.customerscreens;
 
 import entities.Drink;
 import screens.swingcomponents.LabelTextPanel;
-import screens.SearchingTable;
-import screens.SearchingTableModel;
-import usecases.SearchDrinks;
-import usecases.userusercases.AddToShoppingCart;
+import usecases.drinkusecases.SearchDrinks;
+import usecases.customerusecases.AddToShoppingCart;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

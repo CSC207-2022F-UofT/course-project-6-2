@@ -3,7 +3,7 @@ package screens.sellerscreens;
 import entities.users.Seller;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
-import usecases.userusercases.SellerModifyDrink;
+import usecases.sellerusecases.SellerModifyDrink;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -93,7 +93,7 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
         String expirationDate = drinkExpirationField.getText();
         String discount = drinkDiscountField.getText();
 
-        usecases.userusercases.SellerModifyDrink add = new SellerModifyDrink();
+        SellerModifyDrink add = new SellerModifyDrink();
         Seller curSeller = UserRuntimeDataBase.getCurrentSeller();
 
         //Change the format of the two date.

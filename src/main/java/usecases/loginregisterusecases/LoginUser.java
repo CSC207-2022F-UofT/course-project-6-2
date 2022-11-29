@@ -1,6 +1,8 @@
-package usecases.userusercases;
+package usecases.loginregisterusecases;
 
 // Use Cases Layer
+
+import usecases.userusercases.UserRuntimeDataBase;
 
 public class LoginUser {
     /**
@@ -12,11 +14,11 @@ public class LoginUser {
 
 
     public static String login(String phoneNumber, String passWord) {
-        if (UserRuntimeDataBase.sellers.get(phoneNumber) != null &&
-                UserRuntimeDataBase.sellers.get(phoneNumber).getPassWord().equals(passWord)) {
+        if (UserRuntimeDataBase.getSellers().get(phoneNumber) != null &&
+                UserRuntimeDataBase.getSellers().get(phoneNumber).getPassWord().equals(passWord)) {
             return "Seller";
-        } else if (UserRuntimeDataBase.customers.get(phoneNumber) != null &&
-                UserRuntimeDataBase.customers.get(phoneNumber).getPassWord().equals(passWord)) {
+        } else if (UserRuntimeDataBase.getCustomers().get(phoneNumber) != null &&
+                UserRuntimeDataBase.getCustomers().get(phoneNumber).getPassWord().equals(passWord)) {
             return "Customer";
         }
         return "No user";

@@ -1,4 +1,4 @@
-package usecases;
+package usecases.customerusecases;
 
 import entities.Drink;
 import entities.Order;

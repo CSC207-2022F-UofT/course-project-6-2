@@ -8,8 +8,8 @@ import javax.swing.*;
  */
 
 public class CustomerMainScreen extends JFrame {
-    JFrame frame = new JFrame();
     public CustomerMainScreen() {
+        JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,31 +69,37 @@ public class CustomerMainScreen extends JFrame {
         // Sale section panel
         mainTabbedPanel.addTab("Sale Section", saleSectionTabPanel);
 
-        JPanel searchSectionPanel = new SaleSectionPanel().getPanel();
+        JPanel saleSectionPanel = new SaleSectionPanel().getPanel();
 
         GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionTabPanel);
         saleSectionTabPanel.setLayout(SaleSectionPanelLayout);
         SaleSectionPanelLayout.setHorizontalGroup(
                 SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(saleSectionPanel)
         );
         SaleSectionPanelLayout.setVerticalGroup(
                 SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(saleSectionPanel)
         );
 
         // Shopping cart panel
         mainTabbedPanel.addTab("Shopping Cart", shoppingCartTabPanel);
+
+        JPanel shoppingCartPanel = new ShoppingCartPanel().getPanel();
 
         GroupLayout ShoppingCartPanelLayout = new GroupLayout(shoppingCartTabPanel);
         shoppingCartTabPanel.setLayout(ShoppingCartPanelLayout);
         ShoppingCartPanelLayout.setHorizontalGroup(
                 ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(shoppingCartPanel)
         );
         ShoppingCartPanelLayout.setVerticalGroup(
                 ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(shoppingCartPanel)
         );
 
         // Order history panel
@@ -113,15 +119,19 @@ public class CustomerMainScreen extends JFrame {
         // Customer service panel
         mainTabbedPanel.addTab("Customer Service", customerServiceTabPanel);
 
+        JPanel customerServicePanel = new CustomerServicePanel().getPanel();
+
         GroupLayout CustomerServicePanelLayout = new GroupLayout(customerServiceTabPanel);
         customerServiceTabPanel.setLayout(CustomerServicePanelLayout);
         CustomerServicePanelLayout.setHorizontalGroup(
                 CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(customerServicePanel)
         );
         CustomerServicePanelLayout.setVerticalGroup(
                 CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(customerServicePanel)
         );
 
         GroupLayout layout = new GroupLayout(getContentPane());

@@ -20,9 +20,8 @@ public class UserRuntimeDataBase {
     }
 
     public static void constructCurrentCustomer(String phoneNum){
-        currentCustomer = (Customer) customers.get(phoneNum);
+        currentCustomer = customers.get(phoneNum);
     }
-
     public static HashMap<String, Seller> getSellers() {
         return sellers;
     }

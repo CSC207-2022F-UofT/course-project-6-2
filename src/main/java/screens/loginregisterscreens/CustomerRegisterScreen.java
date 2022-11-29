@@ -4,7 +4,7 @@ import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
 import usecases.userinputboundary.RegisterInputBoundary;
 import usecases.userresponsemodel.RegisterResponseModel;
-import usecases.userusercases.RegisterUser;
+import usecases.loginregisterusecases.RegisterUser;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

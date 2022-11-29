@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class Customer extends User implements Serializable {
     private int age;
     private ArrayList<Order> orderHistory;
-
     private ShoppingCart shoppingCart;
 
     /**
@@ -22,12 +21,10 @@ public class Customer extends User implements Serializable {
      * @param phoneNumber The phone number of the customer.
      * @param age The date of birth of the customer.
      * @param address The address of the customer.
-     * @param orderHistory The order history of the customer.
      */
-    public Customer(String accountName, String phoneNumber, String passWord, int age, String address, ArrayList<Order> orderHistory){
+    public Customer(String accountName, String phoneNumber, String passWord, int age, String address){
         super(accountName, phoneNumber, passWord, address);
         this.age = age;
-        this.orderHistory = orderHistory;
         this.shoppingCart = new ShoppingCart(0, new HashMap<>());
     }
 
@@ -59,15 +56,6 @@ public class Customer extends User implements Serializable {
 
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
-    }
-
-    public String getOrderStatus(Order order){
-        for(int i = 0; i < this.orderHistory.size(); i++){
-            if (this.orderHistory.get(i).getOrderNum() == order.getOrderNum()){
-                return this.orderHistory.get(i).getOrderStatus();
-            }
-        }
-        return "Order Not Found";
     }
 
     public void addNewOrder(Order order){

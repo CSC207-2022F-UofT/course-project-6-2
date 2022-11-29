@@ -1,4 +1,4 @@
-package usecases;
+package usecases.drinkusecases;
 
 import javax.swing.*;
 import java.util.ArrayList;

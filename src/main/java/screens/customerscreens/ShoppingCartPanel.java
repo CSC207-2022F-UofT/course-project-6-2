@@ -1,5 +1,5 @@
 package screens.customerscreens;
-import usecases.GetSumOfDrinks;
+import usecases.drinkusecases.GetSumOfDrinks;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,7 +23,6 @@ public class ShoppingCartPanel extends JFrame {
     JButton checkoutButton = new JButton("Checkout");
     JButton addQuantity = new JButton("+");
     JButton minusQuantity = new JButton("-");
-    screens.ShoppingCartPanel shoppingCartPanel = new screens.ShoppingCartPanel();
     JLabel totalAmountLabel = new JLabel();
     JLabel totalLabel = new JLabel("Total: ");
     ArrayList<Double> totalAmount = new ArrayList<>();

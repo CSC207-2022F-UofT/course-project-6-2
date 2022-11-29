@@ -3,7 +3,7 @@ package screens.sellerscreens;
 import entities.Drink;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
-import usecases.userusercases.SellerModifyDrink;
+import usecases.sellerusecases.SellerModifyDrink;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -44,7 +44,7 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
 
         String name = drinkNameField.getText();
-        usecases.userusercases.SellerModifyDrink delete = new SellerModifyDrink();
+        SellerModifyDrink delete = new SellerModifyDrink();
         Drink deleteDrink = delete.searchedDrinkToModify(name);
 
         if(e.getSource() == cancelButton.button){

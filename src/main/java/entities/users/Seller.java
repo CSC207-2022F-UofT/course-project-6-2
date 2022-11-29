@@ -21,14 +21,10 @@ public class Seller extends User implements Serializable {
      * @param passWord The password of the seller.
      * @param address The address of the seller.
      * @param storeName The store name.
-     * @param allOrders The list of orders for the seller.
-     * @param items The list of drink that the seller sell.
      */
-    public Seller(String accountName, String phoneNumber, String passWord, String address, String storeName, ArrayList<Order> allOrders, ArrayList<Drink> items) {
+    public Seller(String accountName, String phoneNumber, String passWord, String address, String storeName) {
         super(accountName, phoneNumber, passWord, address);
         this.storeName = storeName;
-        this.allOrders = allOrders;
-        this.items = items;
     }
 
     /**
@@ -60,34 +56,6 @@ public class Seller extends User implements Serializable {
 
     public ArrayList<Drink> getItems() {
         return this.items;
-    }
-
-    /**
-     * Seller modify the order status for particular order.
-     * @param orderNum The order that need to be modified.
-     * @param status The changed status of the order.
-     */
-    public void modifyOrderStatus(String orderNum, String status){
-        for(Order o : this.allOrders){
-            if (Integer.toString(o.getOrderNum()) == orderNum){
-                o.setOrderStatus(status);
-            }
-        }
-    }
-
-    /**
-     * Seller modify only one drink.
-     * @param oldDrink The drink that need to be modified.
-     * @param newDrink The drink that need to be changed to.
-     */
-    public void modifyDrink(Drink oldDrink, Drink newDrink){
-        ArrayList<Drink> drinks  = this.getItems();
-        if (oldDrink != null) {
-            drinks.remove(oldDrink);
-        }
-        if (newDrink != null){
-            drinks.add(newDrink);
-        }
     }
 
 }

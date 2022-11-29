@@ -4,7 +4,7 @@ import entities.Drink;
 import entities.users.Seller;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
-import usecases.userusercases.SellerModifyDrink;
+import usecases.sellerusecases.SellerModifyDrink;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class ModifyDrinkScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
-    usecases.userusercases.SellerModifyDrink modify = new SellerModifyDrink();
+    SellerModifyDrink modify = new SellerModifyDrink();
     Drink currDrink = modify.getSearchedDrink();
     DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     String strProduction = format.format(currDrink.getProductionData());

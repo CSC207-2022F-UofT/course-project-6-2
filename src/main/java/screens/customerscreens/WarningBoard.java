@@ -1,7 +1,7 @@
-package screens;
+package screens.customerscreens;
 
-import usecases.Warn;
 import entities.ShoppingCart;
+import usecases.orderusecases.GetWarningMessage;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -16,7 +16,7 @@ public class WarningBoard extends JFrame{
     JButton button = new JButton("show warning");
     /*create a button to close the WarningBoard*/
     JButton close = new JButton("I Understand");
-    Warn w = new Warn();
+    GetWarningMessage w = new GetWarningMessage();
     ShoppingCart sc = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart();
     public WarningBoard() {
         super();

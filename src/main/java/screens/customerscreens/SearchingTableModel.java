@@ -1,4 +1,4 @@
-package screens;
+package screens.customerscreens;
 
 import entities.Drink;
 
@@ -22,7 +22,7 @@ public class SearchingTableModel extends DefaultTableModel {
     private SearchingTableModel(){
         super(null,headers);
     }
-    private static SearchingTableModel searchingTableModel = new SearchingTableModel();
+    private static final SearchingTableModel searchingTableModel = new SearchingTableModel();
     public static SearchingTableModel assembleModel(Vector<Vector< Drink >> data){
         searchingTableModel.setDataVector(data,headers);
         return searchingTableModel;

@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Order {
     public static final int UNSET_TOTAL_ORDER = -88;
     private int orderNum;
-    private HashMap<Drink, Integer> orderList;
+    private final HashMap<Drink, Integer> orderList;
     private String orderStatus;
     private static int totalOrder = UNSET_TOTAL_ORDER;
 

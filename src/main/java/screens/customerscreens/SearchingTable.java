@@ -1,5 +1,4 @@
-package screens;
-
+package screens.customerscreens;
 
 import javax.swing.*;
 import java.awt.*;

@@ -5,7 +5,6 @@ import entities.users.Customer;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -13,7 +12,6 @@ import java.util.Vector;
  * @author sanciagao
  */
 public class OrderHistoryPanel extends JFrame {
-
     // Variables declaration
     JFrame frame = new JFrame();
     JTable table;
@@ -23,17 +21,11 @@ public class OrderHistoryPanel extends JFrame {
     // HashMap<String, Integer> orders;
     // Order order = new Order(orders, "hi");
     // ArrayList<Order> aLOrders;
-    Customer currCustomer = new Customer("i", "i", "i",9,"i",
-            new ArrayList<>());
+    Customer currCustomer = new Customer("i", "i", "i",9,"i");
     // Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
     JButton reOrderButton = new JButton("Re-Order");
 
     public OrderHistoryPanel() {
-        /*
-        orders.put("Drink 1", 1);
-        orders.put("Drink 2", 1);
-        aLOrders.add(order);
-         */
 
         //Basic set up for the frame.
         frame.setSize(800, 600);

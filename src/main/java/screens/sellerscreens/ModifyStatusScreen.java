@@ -4,6 +4,8 @@ package screens.sellerscreens;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
 import entities.users.Seller;
+import usecases.sellerusecases.ModifyDrink;
+import usecases.sellerusecases.ModifyOrderStatus;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -70,7 +72,7 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
                 }
             }
             if (inSellerOrder) {
-                seller.modifyOrderStatus(orderNum, newStatus);
+                new ModifyOrderStatus().modifyOrderStatus(orderNum, newStatus);
                 JOptionPane.showMessageDialog(null, "You have changed the order status.");
             } else {
                 JOptionPane.showMessageDialog(null, "The order number does not exist or the order status is the same.");
