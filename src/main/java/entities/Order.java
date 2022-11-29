@@ -19,6 +19,12 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
+    public Order(Order order) {
+        this.orderNum = order.getOrderNum() + 1;
+        this.orderList = order.orderList;
+        this.orderStatus = "inProgress";
+    }
+
     /**
      * The setter method of the instance values.
      */
