@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WarningBoard extends JFrame{
+public class WarningBoard extends JFrame {
     JPanel panel = new JPanel();
     JLabel warning = new JLabel();
     /*create a button to show the warning*/
@@ -18,6 +18,7 @@ public class WarningBoard extends JFrame{
     JButton close = new JButton("I Understand");
     GetWarningMessage w = new GetWarningMessage();
     ShoppingCart sc = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart();
+
     public WarningBoard() {
         super();
         Container contentpane = getContentPane();
@@ -45,7 +46,7 @@ public class WarningBoard extends JFrame{
             @Override
             /*exit.*/
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                dispose();
             }
         });
     }

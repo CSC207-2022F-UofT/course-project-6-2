@@ -33,7 +33,7 @@ public class GetWarningMessage {
                     }
                 }
                 if (no == 0){
-                    ans.append("nothing dangerous");
+                    ans.append(" nothing dangerous");
                 }
             }
         }
