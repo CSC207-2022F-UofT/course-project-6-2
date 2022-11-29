@@ -1,7 +1,7 @@
-package UseCases.DrinkUseCases;
+package usecases.drinkusecases;
 
-import Entities.Drink;
-import Helpers.Deserializer;
+import entities.Drink;
+import helpers.Deserializer;
 
 import java.io.IOException;
 import java.util.ArrayList;
