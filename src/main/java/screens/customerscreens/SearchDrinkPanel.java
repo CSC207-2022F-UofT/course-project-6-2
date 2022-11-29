@@ -5,18 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import static usecases.drinkusecases.SearchDrinks.Add_to_Filtered;
+import static usecases.drinkusecases.SearchDrinks.addToFiltered;
 
 public class SearchDrinkPanel extends JFrame implements ActionListener{
-    JTextField search_box = new JTextField(20);
+    JTextField searchBox = new JTextField(20);
 
     public SearchDrinkPanel(){
         super();
         JPanel root = new JPanel();
         this.setContentPane(root);
 
-        root.add(search_box);
-        search_box.setText("Input the keywords of drink");
+        root.add(searchBox);
+        searchBox.setText("Input the keywords of drink");
         JButton button = new JButton("OK");
         root.add(button);
         button.addActionListener(this);
@@ -29,6 +29,6 @@ public class SearchDrinkPanel extends JFrame implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        Add_to_Filtered(search_box.getText());
+        addToFiltered(searchBox.getText());
     }
 }

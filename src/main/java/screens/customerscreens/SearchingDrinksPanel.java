@@ -18,10 +18,10 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     JButton searchBtn = new JButton("Search");
 
     JPanel southPanel = new JPanel();
-    JTextField drinkName = new JTextField(10);
+    JTextField drinkName = new JTextField(8);
 
-    JTextField storeName = new JTextField(10);
-    JTextField drinkQuantity = new JTextField(10);
+    JTextField storeName = new JTextField(8);
+    JTextField drinkQuantity = new JTextField(8);
     JButton addBtn = new JButton("Add to shopping cart");
     SearchingTable myFrameTable = new SearchingTable();
 
@@ -34,15 +34,12 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
 
         LabelTextPanel drinkNamePanel = new LabelTextPanel(new JLabel("Name:"),drinkName);
         southPanel.add(drinkNamePanel);
-        drinkName.setText("Input a drink name");
 
         LabelTextPanel storeNamePanel = new LabelTextPanel(new JLabel("Store Name:"),storeName);
         southPanel.add(storeNamePanel);
-        storeName.setText("Input the store name of drink");
 
         LabelTextPanel drinkQuantityPanel = new LabelTextPanel(new JLabel("Quantity:"), drinkQuantity);
         southPanel.add(drinkQuantityPanel);
-        drinkQuantity.setText("Input quantity");
 
         southPanel.add(addBtn);
         addBtn.addActionListener(this);
@@ -52,11 +49,11 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         panel.setVisible(true);
     }
     private void layoutCenter(Container contentPane){
-        Vector<Vector<Drink>> data = SearchDrinks.Add_to_Filtered(searchBox.getText().trim());
+        Vector<Vector<Drink>> data = SearchDrinks.addToFiltered(searchBox.getText().trim());
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
+                screens.customerscreens.SearchingTableModel searchingTableModel = screens.customerscreens.SearchingTableModel.assembleModel(data);
                 myFrameTable.setModel(searchingTableModel);
             }
         });

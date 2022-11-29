@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class SearchDrinks {
     protected static ArrayList<Drink> drinks = new ArrayList<>();
-    public static Vector<Vector<Drink>> Add_to_Filtered(String keyword){
+    public static Vector<Vector<Drink>> addToFiltered(String keyword){
         Vector<Drink> filtered_items = new Vector();
         Vector<Vector<Drink>> data = new Vector<>();
         for (Drink drink : drinks){
