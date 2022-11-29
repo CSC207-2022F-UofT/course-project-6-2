@@ -3,7 +3,7 @@
 ## Group members (alphabetical order by last name)
 * Lisa Cheng
 * Roy Fan
-* Sancia Gao
+* Sancia Gao ([sanciag17](https://github.com/sanciag17))
 * Xiyuan Jin
 * Donna Qi ([donnaqi](https://github.com/donnaqi))
 * Yuanyuan Qin ([yyuan-qin](https://github.com/yyuan-qin))
