@@ -27,8 +27,8 @@ public class DrinkPanel extends JFrame implements ActionListener {
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
-        Vector<String > line = new Vector<>();
-        ArrayList<Drink> randomDrinks = new GetRandomDrinks().randomDrinks();
+        // ArrayList<Drink> randomDrinks = new GetRandomDrinks().randomDrinks();
+        ArrayList<Drink> randomDrinks = new DrinkTester().drinkArrayList();
 
         headers.add("Drink name");
         headers.add("Store Name");
@@ -36,21 +36,12 @@ public class DrinkPanel extends JFrame implements ActionListener {
         headers.add("Volume");
 
         for (Drink drink: randomDrinks) {
+            Vector<String > line = new Vector<>();
             line.add(drink.getName());
             line.add(drink.getStoreName());
             line.add("$" + drink.getPrice());
             line.add(drink.getVolume() + "ml");
             data.add(line);
-        }
-
-        // test part
-        for (int i = 0; i < 30; i ++) {
-            Vector<String> line1 = new Vector<>();
-            line1.add("Apple Juice");
-            line1.add("Andy's Drink Store");
-            line1.add("$10.00");
-            line1.add("750ml");
-            data.add(line1);
         }
 
         drinkTable = new JTable(data, headers);
