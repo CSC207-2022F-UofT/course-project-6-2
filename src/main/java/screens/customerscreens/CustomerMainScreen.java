@@ -150,8 +150,8 @@ public class CustomerMainScreen extends JFrame {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new CustomerMainScreen();
-    }
+//    public static void main(String[] args) {
+//        new CustomerMainScreen();
+//    }
 }
 

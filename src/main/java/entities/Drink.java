@@ -1,10 +1,11 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 // Entities Layer
 
-public class Drink {
+public class Drink implements Serializable {
     private String name;
     private float price;
     private String description;

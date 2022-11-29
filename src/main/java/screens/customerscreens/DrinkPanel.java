@@ -2,6 +2,7 @@ package screens.customerscreens;
 
 import entities.Drink;
 import screens.swingcomponents.Button;
+import usecases.drinkusecases.DrinkRuntimeDataBase;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -26,15 +27,13 @@ public class DrinkPanel extends JFrame implements ActionListener {
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
-        // ArrayList<Drink> randomDrinks = new GetRandomDrinks().randomDrinks();
-        ArrayList<Drink> randomDrinks = new DrinkTester().drinkArrayList();
 
         headers.add("Drink name");
         headers.add("Store Name");
         headers.add("Price");
         headers.add("Volume");
 
-        for (Drink drink: randomDrinks) {
+        for (Drink drink: DrinkRuntimeDataBase.getDrinkList()) {
             Vector<String > line = new Vector<>();
             line.add(drink.getName());
             line.add(drink.getStoreName());
@@ -58,7 +57,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                selectedDrink = randomDrinks.get(selectedRow);
+                selectedDrink = DrinkRuntimeDataBase.getDrinkList().get(selectedRow);
             }
         });
     }

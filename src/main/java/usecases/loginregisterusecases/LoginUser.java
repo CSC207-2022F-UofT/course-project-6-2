@@ -14,6 +14,7 @@ public class LoginUser {
 
 
     public static String login(String phoneNumber, String passWord) {
+        System.out.println(UserRuntimeDataBase.getCustomers().toString());
         if (UserRuntimeDataBase.getSellers().get(phoneNumber) != null &&
                 UserRuntimeDataBase.getSellers().get(phoneNumber).getPassWord().equals(passWord)) {
             return "Seller";
