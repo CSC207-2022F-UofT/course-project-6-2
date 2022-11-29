@@ -20,6 +20,7 @@ public class RegisterUser {
      * @param address A String of user address
      * @param age An int of user age
      * @param storeName A String of store name
+     * @return A String indicating whether the user inputs are valid or not.
      */
     public static String registerUser(String accountName, String phoneNumber, String password, String confirmPass,
                                       String address, int age, String storeName) {
