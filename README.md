@@ -1,6 +1,6 @@
 # Group 70 - Drink Delivery Application
 
-## Group members (alphabetical order by last name)
+## Group members
 * Lisa Cheng
 * Roy Fan ([TingmingFan](https://github.com/TingmingFan))
 * Sancia Gao ([sanciag17](https://github.com/sanciag17))
@@ -14,8 +14,8 @@
 [Milestone Documents Google Drive](https://drive.google.com/drive/folders/1LSEvoL295-J-YNdKq5guBFNt9Iiyg4x_)
 
 ## Introduction
-### 1. Entities
-#### 1.1 User
+### 1. [Entities](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/entities)
+#### 1.1 [User](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/users/User.java)
 
 User is an abstract class that will be inheritanced by Customer class and Seller class. 
 
@@ -28,7 +28,7 @@ The user object has the following attributes:
 
 Note: The phone number attribute is an unique identifier for each user object and will be used for login process.
 
-#### 1.2 Customer
+#### 1.2 [Customer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/users/Customer.java)
 
 Customer is the subclass of User, and it is used to store information for each individual customer of our application.
 
@@ -41,7 +41,7 @@ The customer object has the following attributes:
 
 Note: The order history and shopping cart are not constructor parameters, they are initialized as empty and will be set when the customer placed orders and/or add items in the shopping cart.
 
-#### 1.3 Seller
+#### 1.3 [Seller](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/users/Seller.java)
 Seller is the subclass of User, and it is used to store information for each individual seller of our application.
 
 The seller object has the following attributes:
@@ -53,7 +53,7 @@ The seller object has the following attributes:
 
 Note: The all orders and drink items are not constructor parameters, they are initialized as empty and will be set when the seller get orders from customers add/or add drinks.
 
-#### 1.4 Drink
+#### 1.4 [Drink](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/Drink.java)
 Drink is a class that used to store information for each drink sold by sellers on our application.
 
 The drink object has the following attributes:
@@ -69,12 +69,12 @@ The drink object has the following attributes:
 * store name
 
 Notes: 
-- Discount is 1 (meaning the price is now 100%) for drinks with no discount, and drink with discount will have the attribut as a float between 0 and 1 (i.e. 0.8 accounts for a 20% off discount).
-- Store name is not a constructor parameter, and it will be set when the seller add the drink to its store. This attribute can not be modified.
-- Every attributes except store name can be modified when the seller modify drink info. When the seller modify only the drink name, the application will delete this drink object and form a new drink object with the changed name and make other info identical.
+* Discount is 1 (meaning the price is now 100%) for drinks with no discount, and drink with discount will have the attribut as a float between 0 and 1 (i.e. 0.8 accounts for a 20% off discount).
+* Store name is not a constructor parameter, and it will be set when the seller add the drink to its store. This attribute can not be modified.
+* Every attributes except store name can be modified when the seller modify drink info. When the seller modify only the drink name, the application will delete this drink object and form a new drink object with the changed name and make other info identical.
 
 
-#### 1.5 Order
+#### 1.5 [Order](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/Order.java)
 Order is a class that used to store information for each order placed by customers on our application.
 
 The order object has the following attributes:
@@ -84,13 +84,13 @@ The order object has the following attributes:
 * order status
 
 Notes:
-- Order number is an unique identifier for each order and it will be set when the customer placed the order (click on check out buttom in shopping cart).
-- The order number equals to the current total order to make sure the order number is not repetitive in the database.
-- There is an overloading constructor used to reorder in the order history, which will change order number and make the other info identical to the previous order that the user want to reorder.
-- The order list is an Hashmap that use drink object as the key and its coresponding quantity as value.
-- Order status is set as "in progress" when the order placed and will be modified by sellers when the status changes (i.e. ready, pickedUp or delivered).
+* Order number is an unique identifier for each order and it will be set when the customer placed the order (click on check out buttom in shopping cart).
+* The order number equals to the current total order to make sure the order number is not repetitive in the database.
+* There is an overloading constructor used to reorder in the order history, which will change order number and make the other info identical to the previous order that the user want to reorder.
+* The order list is an Hashmap that use drink object as the key and its coresponding quantity as value.
+* Order status is set as "in progress" when the order placed and will be modified by sellers when the status changes (i.e. ready, pickedUp or delivered).
 
-#### 1.6 Shopping Cart
+#### 1.6 [Shopping Cart](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/ShoppingCart.java)
 Shopping Cart is a class that used to store information in customer's shopping cart.
 
 The shopping cart object has the following attributes:
@@ -99,12 +99,23 @@ The shopping cart object has the following attributes:
 * item list (drink and its quantity)
 
 Notes:
-- The total price will be added up as drink quantity * price in the shopping cart.
-- The order list is an Hashmap that use drink object as the key and its coresponding quantity as value.
+* The total price will be added up as drink quantity * price in the shopping cart.
+* The order list is an Hashmap that use drink object as the key and its coresponding quantity as value.
 
 ***Important: We placed Sale Board, Warning Board and Customer Service as Entities in our CRC model by mistake, these three are NOT Entities but major features and we will explain them in detail in the following Use Cases Section.***
 
-### 2. Use Cases
+### 2. [Use Cases](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases)
+
+#### 2.1 [Login Register Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/loginregisterusecases)
+
+* [login()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/loginregisterusecases/LoginUser.java)
+  * Receive login info and check if user should be authenticated.
+  * Return String to indicate whether the user login is a customer, seller or does not exist in database.
+  
+* [register()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/loginregisterusecases/RegisterUser.java)
+  * Store user instance to corresponding database.
+  * Return String to indicate whether the user input for registeration is valid or not.
+
 
 ### 3. Controllers
 
