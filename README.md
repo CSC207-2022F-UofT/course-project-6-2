@@ -4,7 +4,7 @@
 * Lisa Cheng
 * Roy Fan
 * Sancia Gao ([sanciag17](https://github.com/sanciag17))
-* Xiyuan Jin
+* Xiyuan Jin ([AdwinTazement](https://github.com/AdwinTazement))
 * Donna Qi ([donnaqi](https://github.com/donnaqi))
 * Yuanyuan Qin ([yyuan-qin](https://github.com/yyuan-qin))
 * Jessica Yuan
