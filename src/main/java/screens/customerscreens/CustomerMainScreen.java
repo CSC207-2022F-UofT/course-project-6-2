@@ -1,0 +1,147 @@
+package screens.customerscreens;
+
+import javax.swing.*;
+
+/**
+ * The customer main screen containing the drinks, search drinks, sale board,
+ * shopping cart, order history and customer service panels and features.
+ */
+
+public class CustomerMainScreen extends JFrame {
+    JFrame frame = new JFrame();
+    public CustomerMainScreen() {
+        JPanel panel = new JPanel();
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Customer Main Page");
+        frame.setResizable(false);
+        frame.add(panel);
+        panel.setLayout(null);
+
+        JTabbedPane mainTabbedPanel = new JTabbedPane();
+        JPanel drinksTabPanel = new JPanel();
+        JPanel searchDrinkTabPanel = new JPanel();
+        JPanel saleSectionTabPanel = new JPanel();
+        JPanel shoppingCartTabPanel = new JPanel();
+        JPanel orderHistoryTabPanel = new JPanel();
+        JPanel customerServiceTabPanel = new JPanel();
+
+        // Drinks panel
+        mainTabbedPanel.addTab("Drinks", drinksTabPanel);
+
+        JPanel drinksPanel = new DrinkPanel().getPanel();
+
+        GroupLayout DrinksPanelLayout = new GroupLayout(drinksTabPanel);
+        drinksTabPanel.setLayout(DrinksPanelLayout);
+        DrinksPanelLayout.setHorizontalGroup(
+                DrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(drinksPanel)
+        );
+        DrinksPanelLayout.setVerticalGroup(
+                DrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(drinksPanel)
+        );
+
+        // Search drinks panel
+        mainTabbedPanel.addTab("Search Drinks", searchDrinkTabPanel);
+
+        JPanel searchDrinksPanel = new SearchingDrinksPanel().getPanel();
+
+        GroupLayout SearchDrinksPanelLayout = new GroupLayout(searchDrinkTabPanel);
+        searchDrinkTabPanel.setLayout(SearchDrinksPanelLayout);
+        SearchDrinksPanelLayout.setHorizontalGroup(
+                SearchDrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(SearchDrinksPanelLayout.createSequentialGroup()
+                                .addGap(210, 210, 210)
+                                .addContainerGap(512, Short.MAX_VALUE))
+                        .addComponent(searchDrinksPanel)
+        );
+        SearchDrinksPanelLayout.setVerticalGroup(
+                SearchDrinksPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(SearchDrinksPanelLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addContainerGap(493, Short.MAX_VALUE))
+                        .addComponent(searchDrinksPanel)
+        );
+
+        // Sale section panel
+        mainTabbedPanel.addTab("Sale Section", saleSectionTabPanel);
+
+        JPanel searchSectionPanel = new SaleSectionPanel().getPanel();
+
+        GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionTabPanel);
+        saleSectionTabPanel.setLayout(SaleSectionPanelLayout);
+        SaleSectionPanelLayout.setHorizontalGroup(
+                SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 800, Short.MAX_VALUE)
+        );
+        SaleSectionPanelLayout.setVerticalGroup(
+                SaleSectionPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 569, Short.MAX_VALUE)
+        );
+
+        // Shopping cart panel
+        mainTabbedPanel.addTab("Shopping Cart", shoppingCartTabPanel);
+
+        GroupLayout ShoppingCartPanelLayout = new GroupLayout(shoppingCartTabPanel);
+        shoppingCartTabPanel.setLayout(ShoppingCartPanelLayout);
+        ShoppingCartPanelLayout.setHorizontalGroup(
+                ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 800, Short.MAX_VALUE)
+        );
+        ShoppingCartPanelLayout.setVerticalGroup(
+                ShoppingCartPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 569, Short.MAX_VALUE)
+        );
+
+        // Order history panel
+        mainTabbedPanel.addTab("Order History", orderHistoryTabPanel);
+
+        GroupLayout OrderHistoryPanelLayout = new GroupLayout(orderHistoryTabPanel);
+        orderHistoryTabPanel.setLayout(OrderHistoryPanelLayout);
+        OrderHistoryPanelLayout.setHorizontalGroup(
+                OrderHistoryPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 800, Short.MAX_VALUE)
+        );
+        OrderHistoryPanelLayout.setVerticalGroup(
+                OrderHistoryPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 569, Short.MAX_VALUE)
+        );
+
+        // Customer service panel
+        mainTabbedPanel.addTab("Customer Service", customerServiceTabPanel);
+
+        GroupLayout CustomerServicePanelLayout = new GroupLayout(customerServiceTabPanel);
+        customerServiceTabPanel.setLayout(CustomerServicePanelLayout);
+        CustomerServicePanelLayout.setHorizontalGroup(
+                CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 800, Short.MAX_VALUE)
+        );
+        CustomerServicePanelLayout.setVerticalGroup(
+                CustomerServicePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 569, Short.MAX_VALUE)
+        );
+
+        GroupLayout layout = new GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(mainTabbedPanel)
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(mainTabbedPanel, GroupLayout.Alignment.TRAILING)
+        );
+
+        pack();
+        frame.add(mainTabbedPanel);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new CustomerMainScreen();
+    }
+}
+
