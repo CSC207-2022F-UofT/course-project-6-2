@@ -1,6 +1,8 @@
 package screens.customerscreens;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  * The customer main screen containing the drinks, search drinks, sale board,
@@ -105,15 +107,19 @@ public class CustomerMainScreen extends JFrame {
         // Order history panel
         mainTabbedPanel.addTab("Order History", orderHistoryTabPanel);
 
+        JPanel orderHistoryPanel = new OrderHistoryPanel().getPanel();
+
         GroupLayout OrderHistoryPanelLayout = new GroupLayout(orderHistoryTabPanel);
         orderHistoryTabPanel.setLayout(OrderHistoryPanelLayout);
         OrderHistoryPanelLayout.setHorizontalGroup(
                 OrderHistoryPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(orderHistoryPanel)
         );
         OrderHistoryPanelLayout.setVerticalGroup(
                 OrderHistoryPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(orderHistoryPanel)
         );
 
         // Customer service panel
@@ -145,13 +151,26 @@ public class CustomerMainScreen extends JFrame {
                         .addComponent(mainTabbedPanel, GroupLayout.Alignment.TRAILING)
         );
 
+        ChangeListener changeListener = new ChangeListener() {
+            public void stateChanged(ChangeEvent changeEvent) {
+                JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+                int index = sourceTabbedPane.getSelectedIndex();
+                if (sourceTabbedPane.getTitleAt(index) == "Order History") {
+                    // Refresh the order history panel with updated data
+                } else if (sourceTabbedPane.getTitleAt(index) == "Shopping Cart") {
+                    // Refresh the shopping cart panel with updated data
+                }
+            }
+        };
+        mainTabbedPanel.addChangeListener(changeListener);
+
         pack();
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new CustomerMainScreen();
-    }
+//    public static void main(String[] args) {
+//        new CustomerMainScreen();
+//    }
 }
 

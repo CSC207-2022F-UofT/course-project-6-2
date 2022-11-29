@@ -1,8 +1,9 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Order {
+public class Order implements Serializable {
     public static final int UNSET_TOTAL_ORDER = -88;
     private int orderNum;
     private final HashMap<Drink, Integer> orderList;

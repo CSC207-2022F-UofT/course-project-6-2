@@ -1,11 +1,19 @@
 package screens.customerscreens;
+
+import entities.Drink;
+import entities.Order;
+import entities.users.Customer;
+import usecases.customerusecases.AddToOrderHistory;
 import usecases.drinkusecases.GetSumOfDrinks;
+import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 
 /**
@@ -18,25 +26,36 @@ public class ShoppingCartPanel extends JFrame {
     private final JPanel panel = new JPanel();
     JTable table;
     JScrollPane scrollPane;
-    Vector headers = new Vector();
+    private final Vector headers = new Vector();
     Vector data = new Vector();
-    JButton checkoutButton = new JButton("Checkout");
-    JButton addQuantity = new JButton("+");
-    JButton minusQuantity = new JButton("-");
-    JLabel totalAmountLabel = new JLabel();
-    JLabel totalLabel = new JLabel("Total: ");
-    ArrayList<Double> totalAmount = new ArrayList<>();
-    Double total = 0.0;
-    DecimalFormat df = new DecimalFormat("0.00");
-    Double discountedVal = 0.0;
-    Double newVal = 0.0;
-    Double quantity = 1.0;
-    GetSumOfDrinks getSum = new GetSumOfDrinks();
+    private final JButton checkoutButton = new JButton("Checkout");
+    private final JButton addQuantity = new JButton("+");
+    private final JButton minusQuantity = new JButton("-");
+    private final JLabel totalAmountLabel = new JLabel();
+    private final JLabel totalLabel = new JLabel("Total: ");
+    private final ArrayList<Float> totalAmount = new ArrayList<>();
+    float total = 0.0F;
+    private final DecimalFormat df = new DecimalFormat("0.00");
+    float newVal = 0.0F;
+    private final GetSumOfDrinks getSum = new GetSumOfDrinks();
+    private final HashMap<Drink, Integer> drinks = new HashMap<>();
+    private final Date productionDate = new Date();
+    private final Date expirationDate = new Date();
+    private final Drink drink1 = new Drink("i", (float) 19.8, "drink", "water", 90,
+            productionDate, expirationDate, (float) 0.7);
+    private final Drink drink2 = new Drink("d", (float) 9.0, "drink1", "water", 90,
+            productionDate, expirationDate, (float) 0.9);
+    private final Drink drink3 = new Drink("hii", (float) 9.0, "drink2", "water", 90,
+            productionDate, expirationDate, (float) 0.3);
+    float quantity = 1.0F;
 
     public ShoppingCartPanel() {
         panel.setLayout(null);
+        drinks.put(drink1, (int) quantity);
+        drinks.put(drink2, (int) quantity);
+        drinks.put(drink3, (int) quantity);
 
-        // setting up JTable
+        // setting up JTable headers
         headers.add("Drink Name");
         headers.add("Drink Price");
         headers.add("Discount");
@@ -44,46 +63,46 @@ public class ShoppingCartPanel extends JFrame {
         headers.add("Discounted Price");
         headers.add("Drink Final Price");
 
-        Vector col = new Vector<>();
-        for (int i = 0; i < 20; i++) {
-            col.add(0, "Drink1");
-            col.add(1, 19.0);
-            col.add(2, 0.1);
-            col.add(3, 1.0);
-            col.add(4, discountedVal);
-            col.add(5, 0.0);
+        // setting up JTable data
+        for (Drink drink: drinks.keySet()) {
+            Vector col = new Vector<>();
+            col.add(drink.getName());
+            col.add("$" + drink.getPrice());
+            col.add(df.format((1 - drink.getDiscount()) * 100) + "%");
+            col.add(quantity);
+            col.add(df.format(drink.getPrice() * drink.getDiscount()));
+            col.add("$" + total);
             data.add(col);
         }
 
+        // Adding components onto JTable
         table = new JTable(data, headers);
 
-        // Setting Columns to be not resizable
+        // Getting sum of the drink prices
+        total = getSum.getSumOfDrinks(table, totalAmount, total);
+
+        // Setting Columns to be not resizable and not reorderable
         table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
 
-        // Creating table and scrollpane
-        table.setFillsViewportHeight(true);
-
-        //Adding the two panels to the contentPane.
+        // Creating the scrollpane and adding it to the panel
         scrollPane = new JScrollPane(table);
         scrollPane.setBounds(50, 0, 700, 400);
         panel.add(scrollPane);
 
-        // adding components on panel
-        addQuantity.setBounds(80, 450, 120, 40);
-        minusQuantity.setBounds(80, 500, 120, 40);
-        checkoutButton.setBounds(600, 475, 120, 40);
+        // Creating components
+        addQuantity.setBounds(80, 415, 100, 40);
+        minusQuantity.setBounds(80, 465, 100, 40);
+        checkoutButton.setBounds(600, 450, 100, 40);
         totalLabel.setBounds(600, 400, 100, 45);
         totalAmountLabel.setBounds(650, 400, 100, 45);
 
+        // adding components on panel
         panel.add(addQuantity);
         panel.add(minusQuantity);
         panel.add(checkoutButton);
         panel.add(totalLabel);
         panel.add(totalAmountLabel);
-
-        // Getting sum of the drink prices
-        total = getSum.getSumOfDrinks(table, discountedVal, newVal, totalAmount, total);
 
         // showing the sum
         totalAmountLabel.setText(df.format(total));
@@ -109,46 +128,56 @@ public class ShoppingCartPanel extends JFrame {
     }
 
 
+    // Creating checkoutButton Action Event
     private void checkoutButtonActionPerformed(ActionEvent e) {
         if (e.getSource() == checkoutButton){
-            scrollPane.removeAll();
+            Order order = new Order(drinks, "Processing");
+
+            data.removeAllElements();
+            AddToOrderHistory addToOrderHistory = new AddToOrderHistory();
+            addToOrderHistory.addToOrderHistory(drinks);
+
             totalAmountLabel.setText("0");
             JOptionPane.showMessageDialog(null,
                     "You have checked out! You can go to your order history to check your items :)");
         }
     }
 
+    // Creating addQuantityButton Action Event
     private void addQuantityActionPerformed(ActionEvent e) {
 
         int column = headers.indexOf("Quantity");
         int row = table.getSelectedRow();
+        if (row == -1) return;
 
         if (e.getSource() == addQuantity) {
-            quantity = (Double) table.getValueAt(row, column);
-            table.setValueAt(quantity += 1.0, row, column);
+            quantity = Float.parseFloat(table.getValueAt(row, column).toString());
+            table.setValueAt(quantity += 1, row, column);
         }
 
-        totalAmount.add((Double) table.getValueAt(row, 4));
+        totalAmount.add(Float.parseFloat(table.getValueAt(row, 4).toString()));
 
         for (int i = 0; i < totalAmount.size(); i++) {
-            newVal = quantity * (Double) table.getValueAt(row, 4);
+            newVal = quantity * Float.parseFloat(table.getValueAt(row, 4).toString());
             table.setValueAt(df.format(newVal), row, 5);
         }
         total += totalAmount.get(row);
 
         // showing the sum
-        totalAmountLabel.setText(df.format(total));
+        totalAmountLabel.setText("$" + df.format(total));
     }
 
+    // Creating minusQuantity Action Event
     private void minusQuantityActionPerformed(ActionEvent e) {
 
-        int column = 3;
+        int column = headers.indexOf("Quantity");
         int row = table.getSelectedRow();
+        if (row == -1) return;
 
         if (e.getSource() == minusQuantity) {
-            quantity = (Double) table.getValueAt(row, column);
+            quantity = Float.parseFloat(table.getValueAt(row, column).toString());
             if (quantity > 0) {
-                table.setValueAt(quantity -= 1.0, row, 3);
+                table.setValueAt(quantity -= 1, row, column);
                 total -= totalAmount.get(row);
             } else{
                 JOptionPane.showMessageDialog(null,
@@ -156,15 +185,15 @@ public class ShoppingCartPanel extends JFrame {
             }
         }
 
-        totalAmount.add(Double.parseDouble(table.getValueAt(row, 4).toString()));
+        totalAmount.add(Float.parseFloat(table.getValueAt(row, 4).toString()));
 
         for (int i = 0; i < totalAmount.size(); i++) {
-            newVal = quantity * (Double) table.getValueAt(row, 4);
+            newVal = quantity * Float.parseFloat(table.getValueAt(row, 4).toString());
             table.setValueAt(df.format(newVal), row, 5);
         }
 
         // showing the sum
-        totalAmountLabel.setText(df.format(total));
+        totalAmountLabel.setText("$" + df.format(total));
     }
 
     public JPanel getPanel() {

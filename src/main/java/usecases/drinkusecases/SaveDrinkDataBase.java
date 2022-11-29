@@ -12,7 +12,7 @@ public class SaveDrinkDataBase {
      */
     public static void saveDrinkDataBase() throws IOException {
         HashMap<String, HashMap<String, Drink>> drinks = DrinkRuntimeDataBase.getDrinks();
-        drinkSerializer.serialize("./data/users", drinks);
+        drinkSerializer.serialize("./data/drinks", drinks);
     }
 }
 

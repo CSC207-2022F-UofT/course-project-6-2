@@ -39,7 +39,11 @@ public class SellerModifyDrink {
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         currentDrink.setStoreName(UserRuntimeDataBase.getCurrentSeller().getStoreName());
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
-        allDrinks.put(name, currentDrink);
+        if (allDrinks == null) {
+            DrinkRuntimeDataBase.getDrinks().put(UserRuntimeDataBase.getCurrentSeller().getStoreName(), new HashMap<>());
+        }
+
+        DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName()).put(name, currentDrink);
         new ModifyDrink().modifyDrink(null, currentDrink);
     }
 

@@ -1,11 +1,15 @@
 package screens.sellerscreens;
 
+import entities.users.Seller;
 import screens.swingcomponents.Button;
+import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 
 public class SellerMainScreen extends JFrame implements ActionListener {
@@ -28,36 +32,39 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         headers.add("expiration Date");
         headers.add("discount");
 
-        Vector line = new Vector<>();
-        line.add("1");
-        line.add("1");
-        line.add("1");
-        line.add("1");
-        line.add("1");
-        line.add("1");
-        line.add("1");
-        line.add("1");
-        data.add(line);
+//        Vector line = new Vector<>();
+//        line.add("1");
+//        line.add("1");
+//        line.add("1");
+//        line.add("1");
+//        line.add("1");
+//        line.add("1");
+//        line.add("1");
+//        line.add("1");
+//        data.add(line);
 
-/**
+
         //Get the phone number from login and extract the corresponding seller object.
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
-        for (int i = 0; i < seller.items.size(); i++){
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            String strProduction = format.format(seller.items.get(i).getProductionData());
-            String strExpiration = format.format(seller.items.get(i).getExpirationDate());
 
-            Vector line = new Vector();
-            line.add(seller.items.get(i).getName());
-            line.add(Float.toString(seller.items.get(i).getPrice()));
-            line.add(seller.items.get(i).getDescription());
-            line.add(seller.items.get(i).getIngredient());
-            line.add(Integer.toString(seller.items.get(i).getVolume()));
-            line.add(strProduction);
-            line.add(strExpiration);
-            line.add(Float.toString(seller.items.get(i).getDiscount()));
-            data.add(line);
-         }*/
+        if (seller.items != null) {
+            for (int i = 0; i < seller.items.size(); i++) {
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                String strProduction = format.format(seller.items.get(i).getProductionData());
+                String strExpiration = format.format(seller.items.get(i).getExpirationDate());
+
+                Vector line = new Vector();
+                line.add(seller.items.get(i).getName());
+                line.add(Float.toString(seller.items.get(i).getPrice()));
+                line.add(seller.items.get(i).getDescription());
+                line.add(seller.items.get(i).getIngredient());
+                line.add(Integer.toString(seller.items.get(i).getVolume()));
+                line.add(strProduction);
+                line.add(strExpiration);
+                line.add(Float.toString(seller.items.get(i).getDiscount()));
+                data.add(line);
+            }
+        }
 
         //Basic set up for the frame.
         frame.setSize(800, 600);
@@ -90,7 +97,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
-    @Override
+
     public void actionPerformed(ActionEvent e) {
         //Action of the buttons.
         if(e.getSource() == deleteDrinkButton.button){

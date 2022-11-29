@@ -1,9 +1,12 @@
 package entities;
 
 
+import helpers.Serializer;
+
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
     private float totalPrize;
     private HashMap<Drink, Integer> itemList;
     public ShoppingCart(float totalPrize, HashMap<Drink, Integer> itemList){

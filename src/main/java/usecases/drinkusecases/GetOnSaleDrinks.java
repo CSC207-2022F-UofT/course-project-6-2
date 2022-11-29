@@ -12,7 +12,7 @@ public class GetOnSaleDrinks {
         for (Map.Entry<String, HashMap<String, Drink>> drinkSet : DrinkRuntimeDataBase.getDrinks().entrySet()) {
             for (Map.Entry<String, Drink> drink : drinkSet.getValue().entrySet()) {
                 if (drink.getValue().getDiscount() != 1) {
-                    onSaleDrinks.add((Drink) drink);
+                    onSaleDrinks.add(drink.getValue());
                 }
             }
         }

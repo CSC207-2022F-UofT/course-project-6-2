@@ -15,6 +15,10 @@ public class ModifyDrink {
     public void modifyDrink(Drink oldDrink, Drink newDrink){
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         ArrayList<Drink> drinks = seller.getItems();
+        if (drinks == null) {
+            seller.setItems(new ArrayList<>());
+            drinks = seller.getItems();
+        }
         if (oldDrink != null) {
             drinks.remove(oldDrink);
         }

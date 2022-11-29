@@ -27,8 +27,8 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
-        //ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
-        ArrayList<Drink> onSaleDrinks = new DrinkTester().drinkArrayList();
+        ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
+        //ArrayList<Drink> onSaleDrinks = new DrinkTester().drinkArrayList();
         DecimalFormat df = new DecimalFormat("0.00");
 
         headers.add("Drink name");
@@ -60,7 +60,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                // selectedDrink = onSaleDrinks.get(selectedRow);
+                selectedDrink = onSaleDrinks.get(selectedRow);
             }
         });
     }
