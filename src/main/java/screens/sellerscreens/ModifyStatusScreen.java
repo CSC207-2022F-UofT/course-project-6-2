@@ -4,7 +4,6 @@ package screens.sellerscreens;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
 import entities.users.Seller;
-import usecases.sellerusecases.ModifyDrink;
 import usecases.sellerusecases.ModifyOrderStatus;
 import usecases.userusercases.UserRuntimeDataBase;
 

@@ -2,7 +2,6 @@ package screens.customerscreens;
 
 import entities.Drink;
 import screens.swingcomponents.Button;
-import usecases.drinkusecases.GetRandomDrinks;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;

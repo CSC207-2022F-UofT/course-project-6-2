@@ -1,7 +1,7 @@
-package Screens.CustomerScreens;
+package screens.customerscreens;
 
 import Entities.Drink;
-import Screens.Button;
+import screens.Button;
 import UseCases.DrinkUseCases.GetOnSaleDrinks;
 import UseCases.UserUseCases.UserRuntimeDataBase;
 
