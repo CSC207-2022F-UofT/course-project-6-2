@@ -50,7 +50,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         if (seller.items != null) {
             for (int i = 0; i < seller.items.size(); i++) {
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                String strProduction = format.format(seller.items.get(i).getProductionData());
+                String strProduction = format.format(seller.items.get(i).getProductionDate());
                 String strExpiration = format.format(seller.items.get(i).getExpirationDate());
 
                 Vector line = new Vector();

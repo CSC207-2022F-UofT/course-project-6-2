@@ -19,14 +19,14 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
     Button addDrinkButton = new Button();
     Button cancelButton = new Button();
 
-    JTextField drinkNameField = new JTextField(15); //The order number entered
-    JTextField drinkPriceField = new JTextField(15); //The order number entered
-    JTextField drinkDescriptionField = new JTextField(15); //The order number entered
-    JTextField drinkIngredientField = new JTextField(15); //The order number entered
-    JTextField drinkVolumeField = new JTextField(15); //The order number entered
-    JTextField drinkProductionField = new JTextField(15); //The order number entered
-    JTextField drinkExpirationField = new JTextField(15); //The order number entered
-    JTextField drinkDiscountField = new JTextField(15); //The order number entered
+    JTextField drinkNameField = new JTextField(15); //The drink name entered
+    JTextField drinkPriceField = new JTextField(15); //The price entered
+    JTextField drinkDescriptionField = new JTextField(15); //The description entered
+    JTextField drinkIngredientField = new JTextField(15); //The ingredient entered
+    JTextField drinkVolumeField = new JTextField(15); //The volume entered
+    JTextField drinkProductionField = new JTextField(15); //The production date entered
+    JTextField drinkExpirationField = new JTextField(15); //The expiration date entered
+    JTextField drinkDiscountField = new JTextField(15); //The discount entered
 
 
     public AddDrinkScreen() {
@@ -67,7 +67,7 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
         drinkExpirationPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkExpirationPanel);
 
-        LabelTextPanel drinkDiscountPanel = new LabelTextPanel(new JLabel("Discount: "), drinkDiscountField);
+        LabelTextPanel drinkDiscountPanel = new LabelTextPanel(new JLabel("Discount(e.g. 0.8[20% off]): "), drinkDiscountField);
         drinkDiscountPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkDiscountPanel);
 

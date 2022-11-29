@@ -20,20 +20,20 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
     SellerModifyDrink modify = new SellerModifyDrink();
     Drink currDrink = modify.getSearchedDrink();
     DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    String strProduction = format.format(currDrink.getProductionData());
+    String strProduction = format.format(currDrink.getProductionDate());
     String strExpiration = format.format(currDrink.getExpirationDate());
 
     Button modifyDrinkButton = new Button();
     Button cancelButton = new Button();
 
-    JTextField drinkNameField = new JTextField(currDrink.getName(), 15); //The order number entered
-    JTextField drinkPriceField = new JTextField(Float.toString(currDrink.getPrice()), 15); //The order number entered
-    JTextField drinkDescriptionField = new JTextField(currDrink.getDescription(), 15); //The order number entered
-    JTextField drinkIngredientField = new JTextField(currDrink.getIngredient(), 15); //The order number entered
-    JTextField drinkVolumeField = new JTextField(Integer.toString(currDrink.getVolume()), 15); //The order number entered
-    JTextField drinkProductionField = new JTextField(strProduction, 15); //The order number entered
-    JTextField drinkExpirationField = new JTextField(strExpiration, 15); //The order number entered
-    JTextField drinkDiscountField = new JTextField(Float.toString(currDrink.getDiscount()), 15); //The order number entered
+    JTextField drinkNameField = new JTextField(currDrink.getName(), 15); //The drink name entered
+    JTextField drinkPriceField = new JTextField(Float.toString(currDrink.getPrice()), 15); //The price entered
+    JTextField drinkDescriptionField = new JTextField(currDrink.getDescription(), 15); //The description entered
+    JTextField drinkIngredientField = new JTextField(currDrink.getIngredient(), 15); //The ingredient entered
+    JTextField drinkVolumeField = new JTextField(Integer.toString(currDrink.getVolume()), 15); //The volume entered
+    JTextField drinkProductionField = new JTextField(strProduction, 15); //The production date entered
+    JTextField drinkExpirationField = new JTextField(strExpiration, 15); //The expiration date entered
+    JTextField drinkDiscountField = new JTextField(Float.toString(currDrink.getDiscount()), 15); //The discount entered
 
 
     public ModifyDrinkScreen() {
@@ -46,7 +46,7 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
         //Adding the eight textFields and two buttons to the panel.
         JPanel panel = new JPanel();
 
-        LabelTextPanel drinkNamePanel = new LabelTextPanel(new JLabel("Name: "), drinkNameField);
+        LabelTextPanel drinkNamePanel = new LabelTextPanel(new JLabel("Drink Name: "), drinkNameField);
         drinkNamePanel.setBounds(244, 270, 300, 40);
         panel.add(drinkNamePanel);
 

@@ -28,7 +28,7 @@ public class SearchDrinks {
                 String description = d.getDescription();
                 String ingredient = d.getIngredient();
                 int volume = d.getVolume();
-                Date production_date = d.getProductionData();
+                Date production_date = d.getProductionDate();
                 Date expiration_date = d.getExpirationDate();
                 float discount = d.getDiscount();
                 String storeName = d.getStoreName();

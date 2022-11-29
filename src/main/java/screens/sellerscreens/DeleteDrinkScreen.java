@@ -14,7 +14,7 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
     Button deleteDrinkButton = new Button();
     Button cancelButton = new Button();
 
-    JTextField drinkNameField = new JTextField(15); //The order number entered
+    JTextField drinkNameField = new JTextField(15); //The drink name entered
 
     public DeleteDrinkScreen() {
         // Basic setups
@@ -55,7 +55,7 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
         if(e.getSource() == deleteDrinkButton.button){
             if (deleteDrink != null){
                 delete.deleteDrink(name, deleteDrink.getPrice(), deleteDrink.getDescription(), deleteDrink.getIngredient(),
-                        deleteDrink.getVolume(), deleteDrink.getProductionData(), deleteDrink.getExpirationDate(), deleteDrink.getDiscount());
+                        deleteDrink.getVolume(), deleteDrink.getProductionDate(), deleteDrink.getExpirationDate(), deleteDrink.getDiscount());
                 new SellerMainScreen();
                 frame.setVisible(false);
             }else{

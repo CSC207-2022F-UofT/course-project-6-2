@@ -11,7 +11,7 @@ public class Drink implements Serializable {
     private String description;
     private String ingredient;
     private int volume;
-    private Date productionData;
+    private Date productionDate;
     private Date expirationDate;
     private float discount;
     private String storeName;
@@ -24,17 +24,17 @@ public class Drink implements Serializable {
      * @param description    The brief description of the drink.
      * @param ingredient    The ingredient of the drink.
      * @param volume         The volume in ml of the drink.
-     * @param productionData The date of production of the drink.
+     * @param productionDate The date of production of the drink.
      * @param expirationDate The date of expiration of the drink.
      * @param discount       The amount of discount of this drink right now.
      */
-    public Drink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
+    public Drink(String name, float price, String description, String ingredient, int volume, Date productionDate, Date expirationDate, float discount) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.ingredient = ingredient;
         this.volume = volume;
-        this.productionData = productionData;
+        this.productionDate = productionDate;
         this.expirationDate = expirationDate;
         this.discount = discount;
     }
@@ -62,8 +62,8 @@ public class Drink implements Serializable {
         this.volume = volume;
     }
 
-    public void setProductionData(Date productionData) {
-        this.productionData = productionData;
+    public void setProductionDate(Date productionData) {
+        this.productionDate = productionDate;
     }
 
     public void setExpirationDate(Date expirationDate) {
@@ -101,8 +101,8 @@ public class Drink implements Serializable {
         return this.volume;
     }
 
-    public Date getProductionData() {
-        return this.productionData;
+    public Date getProductionDate() {
+        return this.productionDate;
     }
 
     public Date getExpirationDate() {
