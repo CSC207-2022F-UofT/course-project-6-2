@@ -45,8 +45,6 @@ public class OrderHistoryPanel extends JFrame {
                 data.add(row);
             }
         } else{
-            JOptionPane.showMessageDialog(null,
-                    "Sorry, you have not ordered anything in the past so you don't have an order history");
             panel.setLayout(null);
         }
 
@@ -85,6 +83,7 @@ public class OrderHistoryPanel extends JFrame {
             }
         });
     }
+
     public JPanel getPanel() {
         return panel;
     }
