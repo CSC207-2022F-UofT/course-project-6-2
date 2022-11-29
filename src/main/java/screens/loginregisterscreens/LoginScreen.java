@@ -66,11 +66,11 @@ public class LoginScreen extends JFrame implements ActionListener {
             String loginResult = LoginUser.login(phoneNum, password);
             new LoginResponseModel(loginResult);
             if (loginResult.equals("Seller")) {
-                new SellerMainScreen();
                 new UserRuntimeDataBase().constructCurrentSeller(phoneNum);
+                new SellerMainScreen();
             } else if (loginResult.equals("Customer")) {
-                new CustomerMainScreen();
                 new UserRuntimeDataBase().constructCurrentCustomer(phoneNum);
+                new CustomerMainScreen();
             }
         }
         if(e.getSource() == registerButton.button){

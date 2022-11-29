@@ -105,15 +105,19 @@ public class CustomerMainScreen extends JFrame {
         // Order history panel
         mainTabbedPanel.addTab("Order History", orderHistoryTabPanel);
 
+        JPanel orderHistoryPanel = new OrderHistoryPanel().getPanel();
+
         GroupLayout OrderHistoryPanelLayout = new GroupLayout(orderHistoryTabPanel);
         orderHistoryTabPanel.setLayout(OrderHistoryPanelLayout);
         OrderHistoryPanelLayout.setHorizontalGroup(
                 OrderHistoryPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 800, Short.MAX_VALUE)
+                        .addComponent(orderHistoryPanel)
         );
         OrderHistoryPanelLayout.setVerticalGroup(
                 OrderHistoryPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 569, Short.MAX_VALUE)
+                        .addComponent(orderHistoryPanel)
         );
 
         // Customer service panel
