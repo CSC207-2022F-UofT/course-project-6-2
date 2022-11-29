@@ -51,7 +51,10 @@ public class Customer extends User implements Serializable {
     }
 
     public ArrayList<Order> getOrderHistory() {
-        return this.orderHistory;
+        if (orderHistory == null) {
+            return new ArrayList<>();
+        }
+        return orderHistory;
     }
 
     public ShoppingCart getShoppingCart() {
@@ -59,6 +62,9 @@ public class Customer extends User implements Serializable {
     }
 
     public void addNewOrder(Order order){
+        if (orderHistory == null) {
+            orderHistory = new ArrayList<>();
+        }
         orderHistory.add(order);
     }
 }

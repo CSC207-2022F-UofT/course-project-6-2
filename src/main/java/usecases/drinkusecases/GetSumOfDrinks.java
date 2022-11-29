@@ -5,20 +5,17 @@ import java.util.ArrayList;
 
 public class GetSumOfDrinks {
 
-    public Double getSumOfDrinks(JTable table, Double discountedVal, Double newVal, ArrayList<Double> totalAmount,
-                                 Double total){
-
+    public float getSumOfDrinks(JTable table, ArrayList<Float> totalAmount,
+                                float total){
         for (int i = 0; i < table.getRowCount(); i++) {
-            discountedVal = ((Double) table.getValueAt(i, 1) * (Double) table.getValueAt(i, 2));
-            table.setValueAt((discountedVal *100)/100, i, 4);
 
-            newVal = ((Double)table.getValueAt(i, 3) * (Double)table.getValueAt(i, 4));
-            table.setValueAt((newVal*100)/100, i, 5);
+            float newVal = Float.parseFloat(table.getValueAt(i, 3).toString()) *
+                    Float.parseFloat(table.getValueAt(i, 4).toString());
+            table.setValueAt((newVal * 100) / 100, i, 5);
 
-            totalAmount.add((Double)table.getValueAt(i, 5));
+            totalAmount.add((float) table.getValueAt(i, 5));
             total += totalAmount.get(i);
         }
-
         return total;
     }
 }

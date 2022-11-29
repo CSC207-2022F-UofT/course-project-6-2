@@ -1,10 +1,12 @@
 package screens.customerscreens;
 
-import entities.users.Customer;
+import entities.Order;
+import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -21,8 +23,6 @@ public class OrderHistoryPanel extends JFrame {
     // HashMap<String, Integer> orders;
     // Order order = new Order(orders, "hi");
     // ArrayList<Order> aLOrders;
-    Customer currCustomer = new Customer("i", "i", "i",9,"i");
-    // Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
     JButton reOrderButton = new JButton("Re-Order");
 
     public OrderHistoryPanel() {
@@ -38,14 +38,13 @@ public class OrderHistoryPanel extends JFrame {
         headers.add("Total Price");
 
         Vector row = new Vector<>();
-        if (currCustomer.getOrderHistory().size() > 0){
-            for (int i = 0; i < currCustomer.getOrderHistory().size(); i++) {
-                row.add(currCustomer.getOrderHistory().get(i));
+        ArrayList<Order> orderList = UserRuntimeDataBase.getCurrentCustomer().getOrderHistory();
+        if (orderList.size() > 0){
+            for (int i = 0; i < orderList.size(); i++) {
+                row.add(orderList.get(i));
                 data.add(row);
             }
         } else{
-            JOptionPane.showMessageDialog(null,
-                    "Sorry, you have not ordered anything in the past so you don't have an order history");
             panel.setLayout(null);
         }
 
@@ -84,6 +83,7 @@ public class OrderHistoryPanel extends JFrame {
             }
         });
     }
+
     public JPanel getPanel() {
         return panel;
     }

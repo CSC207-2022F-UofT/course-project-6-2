@@ -15,6 +15,7 @@ public class ConstructUserDataBase {
      * constructUserDataBase: Extract data from database and store to users HashMap
      */
 
+    @SuppressWarnings("unchecked")
     public static void constructUserDataBase() throws IOException, ClassNotFoundException {
         userDeserializer.deserialize("./data/users");
         ArrayList<HashMap> data = (ArrayList<HashMap>) userDeserializer.getObject();
