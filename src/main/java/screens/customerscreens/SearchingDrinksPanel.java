@@ -53,7 +53,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                screens.customerscreens.SearchingTableModel searchingTableModel = screens.customerscreens.SearchingTableModel.assembleModel(data);
+                SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
                 myFrameTable.setModel(searchingTableModel);
             }
         });
