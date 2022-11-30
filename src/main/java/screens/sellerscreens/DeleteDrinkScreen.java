@@ -43,23 +43,24 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 
-        String name = drinkNameField.getText();
-        SellerModifyDrink delete = new SellerModifyDrink();
-        Drink deleteDrink = delete.searchedDrinkToModify(name);
-
         if(e.getSource() == cancelButton.button){
             new SellerMainScreen();
             frame.setVisible(false);
+            return;
         }
 
         if(e.getSource() == deleteDrinkButton.button){
-            if (deleteDrink != null){
-                delete.deleteDrink(name, deleteDrink.getPrice(), deleteDrink.getDescription(), deleteDrink.getIngredient(),
-                        deleteDrink.getVolume(), deleteDrink.getProductionData(), deleteDrink.getExpirationDate(), deleteDrink.getDiscount());
+            String name = drinkNameField.getText();
+            SellerModifyDrink delete = new SellerModifyDrink();
+            boolean drinkExist = delete.drinkExist(name);
+
+            if (drinkExist){
+                Drink deleteDrink = delete.searchedDrinkToModify(name);
+                delete.deleteDrink(deleteDrink);
                 new SellerMainScreen();
                 frame.setVisible(false);
             }else{
-                JOptionPane.showMessageDialog(null, "Drink name not match.");
+                JOptionPane.showMessageDialog(null, "No drink named " + name);
             }
         }
     }

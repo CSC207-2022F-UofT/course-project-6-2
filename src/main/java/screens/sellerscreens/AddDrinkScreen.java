@@ -85,6 +85,12 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 
+        if(e.getSource() == cancelButton.button){
+            new SellerMainScreen();
+            frame.setVisible(false);
+            return;
+        }
+
         String name = drinkNameField.getText();
         String price = drinkPriceField.getText();
         String description = drinkDescriptionField.getText();
@@ -121,6 +127,5 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
             new SellerMainScreen();
             frame.setVisible(false);
         }
-
     }
 }
