@@ -1,7 +1,7 @@
 # Group 70 - Drink Delivery Application
 
 ## Group members
-* Lisa Cheng
+* Lisa Cheng ([lisa272](https://github.com/lisa272))([lisacheng12](https://github.com/lisacheng12))
 * Roy Fan ([TingmingFan](https://github.com/TingmingFan))
 * Sancia Gao ([sanciag17](https://github.com/sanciag17))
 * Xiyuan Jin ([AdwinTazement](https://github.com/AdwinTazement))
