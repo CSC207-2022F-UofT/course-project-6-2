@@ -121,9 +121,9 @@ Notes:
   * newPassword does not necessarily need to be different with the previous password.
   * Return Boolean to indicate if the password has been set successfully.
 
-#### 2.2 [Customer Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/customerusecases)
+#### 2.2 Customer Use Case
 
-#### 2.3 [Seller Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/sellerusecases)
+#### 2.3 Seller Use Case
 
 #### 2.4 Order Use Case
 
@@ -142,10 +142,29 @@ Notes:
   * Save current seller and customer who are viewing the application in a Runtime Database
   * We save these data as static variables to make sure every screen and/or use case that access these data will get the 
   same value instead of calling multiple instances of the class which might not be updated properly.
-  * constructCurrentSeller() and constructCurrentCustomer(): When the user login, the login screen will pass his/her phone number 
+  * constructCurrentSeller() and constructCurrentCustomer(): When the user login, the login screen will pass his/her 
+  phone number, and we will find the user object in the runtime database and save it as the static variable, so whenever 
+  a use cases modify the user object attributes (i.e. reset password, customer make a new order, seller add drinks), 
+  other use cases will have the variable updated.
 
 ### 3. Controllers
+TODO
 
-### 4. Screens
+### 4. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
+* Login Register Screens
 
-### 5. Helpers
+* Customer Main Screens
+
+* Seller Main Screens
+
+* Other Swing Components
+
+### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
+* [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)
+  * The lowest level object integrating with file system, converting object input stream to file output stream.
+
+* [Deserializer]()
+  * The reverse process of converting file input stream to object output stream.
+
+Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
+Cart classes all implement the interface.
