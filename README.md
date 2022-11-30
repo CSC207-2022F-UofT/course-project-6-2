@@ -149,7 +149,12 @@ Notes:
 
 #### 2.7 [user response model](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userresponsemodel)
 * [Login Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/LoginResponseModel.java)
+  * Providing the corresponding message to users when login in. Either successfully logged in. Or incorrect  phone number or password.
+
 * [Question Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/QuestionResponseModel.java)
+  * Provide preprogrammed answers to the user when pressing the corresponding button.(common q&a for users)
+  * Provide Store's contact information to user.
+
 * [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
 
 
