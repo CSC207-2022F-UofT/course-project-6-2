@@ -2,7 +2,7 @@ package screens.sellerscreens;
 
 //import UseCases.ExtractUserFromPhoneNum;
 import screens.swingcomponents.Button;
-import screens.swingcomponents.LabelTextPanel;
+import screens.swingcomponents.LabelTextHorizontalPanel;
 import entities.users.Seller;
 import usecases.sellerusecases.ModifyOrderStatus;
 import usecases.userusercases.UserRuntimeDataBase;
@@ -30,11 +30,11 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
         //Adding the two textFields and two buttons to the panel.
         JPanel panel = new JPanel();
 
-        LabelTextPanel orderNumPanel = new LabelTextPanel(new JLabel("Order Number: "), orderNumField);
+        LabelTextHorizontalPanel orderNumPanel = new LabelTextHorizontalPanel(new JLabel("Order Number: "), orderNumField);
         orderNumPanel.setBounds(244, 270, 300, 40);
         panel.add(orderNumPanel);
 
-        LabelTextPanel statusPanel =  new LabelTextPanel(new JLabel("Order Status: "), statusField);
+        LabelTextHorizontalPanel statusPanel =  new LabelTextHorizontalPanel(new JLabel("Order Status: "), statusField);
         statusPanel.setBounds(270, 320, 280, 40);
         panel.add(statusPanel);
 

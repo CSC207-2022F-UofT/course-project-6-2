@@ -1,8 +1,8 @@
 package screens.customerscreens;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.util.Objects;
 
 /**
  * The customer main screen containing the drinks, search drinks, sale board,
@@ -151,15 +151,13 @@ public class CustomerMainScreen extends JFrame {
                         .addComponent(mainTabbedPanel, GroupLayout.Alignment.TRAILING)
         );
 
-        ChangeListener changeListener = new ChangeListener() {
-            public void stateChanged(ChangeEvent changeEvent) {
-                JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
-                int index = sourceTabbedPane.getSelectedIndex();
-                if (sourceTabbedPane.getTitleAt(index) == "Order History") {
-                    // Refresh the order history panel with updated data
-                } else if (sourceTabbedPane.getTitleAt(index) == "Shopping Cart") {
-                    // Refresh the shopping cart panel with updated data
-                }
+        ChangeListener changeListener = changeEvent -> {
+            JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+            int index = sourceTabbedPane.getSelectedIndex();
+            if (Objects.equals(sourceTabbedPane.getTitleAt(index), "Order History")) {
+                // Refresh the order history panel with updated data
+            } else if (Objects.equals(sourceTabbedPane.getTitleAt(index), "Shopping Cart")) {
+                // Refresh the shopping cart panel with updated data
             }
         };
         mainTabbedPanel.addChangeListener(changeListener);
@@ -168,9 +166,5 @@ public class CustomerMainScreen extends JFrame {
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
     }
-
-//    public static void main(String[] args) {
-//        new CustomerMainScreen();
-//    }
 }
 

@@ -2,7 +2,7 @@ package screens.sellerscreens;
 
 import entities.Drink;
 import screens.swingcomponents.Button;
-import screens.swingcomponents.LabelTextPanel;
+import screens.swingcomponents.LabelTextHorizontalPanel;
 import usecases.sellerusecases.SellerModifyDrink;
 
 import javax.swing.*;
@@ -26,7 +26,7 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
         //Adding the eight textFields and two buttons to the panel.
         JPanel panel = new JPanel();
 
-        LabelTextPanel drinkNamePanel = new LabelTextPanel(new JLabel("Name: "), drinkNameField);
+        LabelTextHorizontalPanel drinkNamePanel = new LabelTextHorizontalPanel(new JLabel("Name: "), drinkNameField);
         drinkNamePanel.setBounds(244, 270, 300, 40);
         panel.add(drinkNamePanel);
 

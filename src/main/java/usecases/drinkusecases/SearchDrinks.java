@@ -13,11 +13,9 @@ public class SearchDrinks {
         Vector<Drink> filtered_items = new Vector();
         Vector<Vector<Drink>> data = new Vector<>();
         for (Drink drink : drinks){
-            String lowercase_name = drink.getName().toLowerCase();
-            String lowercase_description = drink.getDescription().toLowerCase();
-            if (lowercase_name.equals(keyword.toLowerCase())){
+            if (drink.getName().equals(keyword)){
                 filtered_items.add(drink);
-            } else if (lowercase_description.contains(keyword.toLowerCase())) {
+            } else if (drink.getDescription().contains(keyword)) {
                 filtered_items.add(drink);
             }
         }
@@ -44,11 +42,8 @@ public class SearchDrinks {
                 line.add(storeName);
                 data.add(line);
             }
-            return data;
         }
-        return null;
 
-
+        return data;
     }
 }
-

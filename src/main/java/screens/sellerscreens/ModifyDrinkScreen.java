@@ -3,7 +3,7 @@ package screens.sellerscreens;
 import entities.Drink;
 import entities.users.Seller;
 import screens.swingcomponents.Button;
-import screens.swingcomponents.LabelTextPanel;
+import screens.swingcomponents.LabelTextHorizontalPanel;
 import usecases.sellerusecases.SellerModifyDrink;
 import usecases.userusercases.UserRuntimeDataBase;
 
@@ -46,35 +46,35 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
         //Adding the eight textFields and two buttons to the panel.
         JPanel panel = new JPanel();
 
-        LabelTextPanel drinkNamePanel = new LabelTextPanel(new JLabel("Name: "), drinkNameField);
+        LabelTextHorizontalPanel drinkNamePanel = new LabelTextHorizontalPanel(new JLabel("Name: "), drinkNameField);
         drinkNamePanel.setBounds(244, 270, 300, 40);
         panel.add(drinkNamePanel);
 
-        LabelTextPanel drinkPricePanel =  new LabelTextPanel(new JLabel("Price: "), drinkPriceField);
+        LabelTextHorizontalPanel drinkPricePanel =  new LabelTextHorizontalPanel(new JLabel("Price: "), drinkPriceField);
         drinkPricePanel.setBounds(270, 320, 280, 40);
         panel.add(drinkPricePanel);
 
-        LabelTextPanel drinkDescriptionPanel = new LabelTextPanel(new JLabel("Description: "), drinkDescriptionField);
+        LabelTextHorizontalPanel drinkDescriptionPanel = new LabelTextHorizontalPanel(new JLabel("Description: "), drinkDescriptionField);
         drinkDescriptionPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkDescriptionPanel);
 
-        LabelTextPanel drinkIngredientPanel = new LabelTextPanel(new JLabel("Ingredient: "), drinkIngredientField);
+        LabelTextHorizontalPanel drinkIngredientPanel = new LabelTextHorizontalPanel(new JLabel("Ingredient: "), drinkIngredientField);
         drinkIngredientPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkIngredientPanel);
 
-        LabelTextPanel drinkVolumePanel = new LabelTextPanel(new JLabel("Volume: "), drinkVolumeField);
+        LabelTextHorizontalPanel drinkVolumePanel = new LabelTextHorizontalPanel(new JLabel("Volume: "), drinkVolumeField);
         drinkVolumePanel.setBounds(244, 270, 300, 40);
         panel.add(drinkVolumePanel);
 
-        LabelTextPanel drinkProductionPanel = new LabelTextPanel(new JLabel("Production Date: "), drinkProductionField);
+        LabelTextHorizontalPanel drinkProductionPanel = new LabelTextHorizontalPanel(new JLabel("Production Date: "), drinkProductionField);
         drinkProductionPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkProductionPanel);
 
-        LabelTextPanel drinkExpirationPanel = new LabelTextPanel(new JLabel("Expiration Date: "), drinkExpirationField);
+        LabelTextHorizontalPanel drinkExpirationPanel = new LabelTextHorizontalPanel(new JLabel("Expiration Date: "), drinkExpirationField);
         drinkExpirationPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkExpirationPanel);
 
-        LabelTextPanel drinkDiscountPanel = new LabelTextPanel(new JLabel("Discount: "), drinkDiscountField);
+        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount: "), drinkDiscountField);
         drinkDiscountPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkDiscountPanel);
 

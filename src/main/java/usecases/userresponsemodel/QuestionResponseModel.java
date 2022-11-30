@@ -1,4 +1,4 @@
-package UseCases.UserResponseModels;
+package usecases.userresponsemodel;
 
 import javax.swing.*;
 

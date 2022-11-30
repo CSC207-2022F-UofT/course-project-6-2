@@ -7,10 +7,13 @@ import java.util.Objects;
 
 public class LoginResponseModel{
     public LoginResponseModel(String loginResult) {
+        String message;
         if(Objects.equals(loginResult, "Seller") || Objects.equals(loginResult, "Customer")){
-            JOptionPane.showMessageDialog(null, "You have successfully logged in!");
+            message = "You have successfully logged in!";
         } else {
-            JOptionPane.showMessageDialog(null, "Incorrect phone number or password!");
+            message = "Incorrect phone number or password!";
         }
+        JOptionPane.showMessageDialog(null, message);
+
     }
 }
