@@ -43,21 +43,23 @@ public class SearchModifyDrinkScreen extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
 
-        String name = drinkNameField.getText();
-        SellerModifyDrink modify = new SellerModifyDrink();
-        Drink modifyDrink = modify.searchedDrinkToModify(name);
-
         if(e.getSource() == cancelButton.button){
             new SellerMainScreen();
             frame.setVisible(false);
+            return;
         }
 
         if(e.getSource() == searchDrinkButton.button){
-            if (modifyDrink != null){
+            String name = drinkNameField.getText();
+            SellerModifyDrink modify = new SellerModifyDrink();
+            boolean drinkExist = modify.drinkExist(name);
+
+            if (drinkExist){
+                modify.searchedDrinkToModify(name);
                 new ModifyDrinkScreen();
                 frame.setVisible(false);
             }else {
-                JOptionPane.showMessageDialog(null, "Drink name not match.");
+                JOptionPane.showMessageDialog(null, "No drink named " + name);
             }
         }
 
