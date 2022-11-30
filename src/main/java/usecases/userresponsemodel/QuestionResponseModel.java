@@ -2,6 +2,7 @@ package usecases.userresponsemodel;
 
 import javax.swing.*;
 
+
 public class QuestionResponseModel {
     public QuestionResponseModel(int questionNumber) {
         if (questionNumber == 1) {
