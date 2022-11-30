@@ -1,6 +1,5 @@
 package screens.sellerscreens;
 
-//import UseCases.ExtractUserFromPhoneNum;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextPanel;
 import entities.users.Seller;
