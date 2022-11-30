@@ -1,7 +1,6 @@
 package screens.customerscreens;
 
 import entities.Drink;
-import entities.Order;
 import usecases.drinkusecases.GetSumOfDrinks;
 import usecases.shoppingcartusecases.AddQuantityButtonActionPerformed;
 import usecases.shoppingcartusecases.CheckoutButtonActionPerformed;
@@ -27,24 +26,23 @@ public class ShoppingCartPanel extends JFrame {
     JTable table;
     JScrollPane scrollPane;
     Float quantity = 1.0F;
-    protected static Float total = 0.0F;
+    ArrayList<Float> totalAmount = new ArrayList<>();
     protected static Vector data = new Vector<>();
-    private JPanel panel = new JPanel();
+    private final JPanel panel = new JPanel();
     private final Vector<String> headers = new Vector<>();
     private final JButton checkoutButton = new JButton("Checkout");
     private final JButton addQuantity = new JButton("+");
     private final JButton minusQuantity = new JButton("-");
-    private JLabel totalAmountLabel = new JLabel();
-    private final ArrayList<Float> totalAmount = new ArrayList<>();
+    public static JLabel totalAmountLabel = new JLabel();
     private final DecimalFormat df = new DecimalFormat("0.00");
-    final HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
+    private final HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
+    private Float total = 0.0f;
 
     public ShoppingCartPanel() {
 
         // setting up local variable
         JLabel totalLabel = new JLabel("Total: ");
         GetSumOfDrinks getSum = new GetSumOfDrinks();
-        total = 0.0f;
 
         //Basic set up for the frame.
         frame.setSize(800, 600);
@@ -79,6 +77,9 @@ public class ShoppingCartPanel extends JFrame {
         // Getting sum of the drink prices
         total = getSum.getSumOfDrinks(table, totalAmount, total);
 
+        // showing the sum
+        totalAmountLabel.setText("$" + df.format(total));
+
         // Setting Columns to be not resizable and not reorderable
         table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
@@ -95,9 +96,6 @@ public class ShoppingCartPanel extends JFrame {
         totalLabel.setBounds(600, 400, 100, 45);
         totalAmountLabel.setBounds(650, 400, 100, 45);
 
-        // showing the sum
-        totalAmountLabel.setText("$" + df.format(total));
-
         // adding components on panel
         panel.add(addQuantity);
         panel.add(minusQuantity);
@@ -109,8 +107,8 @@ public class ShoppingCartPanel extends JFrame {
         // Action Listeners
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                CheckoutButtonActionPerformed.checkoutButtonActionPerformed(evt, checkoutButton, data, drinks, frame,
-                        totalAmountLabel, df);
+                CheckoutButtonActionPerformed.checkoutButtonActionPerformed(evt, checkoutButton, data, drinks,
+                        frame, totalAmount);
             }
         });
 

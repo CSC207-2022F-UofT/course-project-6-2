@@ -3,7 +3,6 @@ package screens.customerscreens;
 import entities.Drink;
 import entities.Order;
 import entities.users.Customer;
-import usecases.customerusecases.AddToShoppingCart;
 import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
@@ -50,7 +49,7 @@ public class OrderHistoryPanel extends JFrame {
                     Vector row = new Vector<>();
                     row.add(drink.getName());
                     row.add(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList().values());
-                    row.add(ShoppingCartPanel.total);
+                    row.add(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getTotalPrize());
                     data.add(row);
                 }
             }
