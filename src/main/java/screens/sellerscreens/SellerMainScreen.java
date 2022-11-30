@@ -32,18 +32,6 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         headers.add("expiration Date");
         headers.add("discount");
 
-//        Vector line = new Vector<>();
-//        line.add("1");
-//        line.add("1");
-//        line.add("1");
-//        line.add("1");
-//        line.add("1");
-//        line.add("1");
-//        line.add("1");
-//        line.add("1");
-//        data.add(line);
-
-
         //Get the phone number from login and extract the corresponding seller object.
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
 
