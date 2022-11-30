@@ -24,17 +24,17 @@ public class GetWarningMessage {
 
         for (Drink drink : cart_items){
             String lowercase_ingredient = drink.getIngredient().toLowerCase();
+            int no = 0;
             for(String d: dang){
-                int no = 0;
                 if (lowercase_ingredient.contains(d)){
                     if (!ans.toString().contains(d)){
                         ans.append(" ").append(d).append(" ");
                         no += 1;
                     }
                 }
-                if (no == 0){
-                    ans.append(" nothing dangerous");
-                }
+            }
+            if (no == 0){
+                ans.append(" no common allergens");
             }
         }
         return ans.toString();
