@@ -147,6 +147,12 @@ Notes:
   a use cases modify the user object attributes (i.e. reset password, customer make a new order, seller add drinks), 
   other use cases will have the variable updated.
 
+#### 2.7 [user response model](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userresponsemodel)
+* [Login Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/LoginResponseModel.java)
+* [Question Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/QuestionResponseModel.java)
+* [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
+
+
 ### 3. Controllers
 TODO
 
