@@ -1,6 +1,8 @@
 package screens.customerscreens;
 
 import entities.Drink;
+import entities.Order;
+import entities.users.Customer;
 import usecases.drinkusecases.GetSumOfDrinks;
 import usecases.shoppingcartusecases.AddQuantityButtonActionPerformed;
 import usecases.shoppingcartusecases.CheckoutButtonActionPerformed;
@@ -25,17 +27,18 @@ public class ShoppingCartPanel extends JFrame {
     JFrame frame = new JFrame();
     JTable table;
     JScrollPane scrollPane;
-    Float quantity = 1.0F;
+    static Float quantity = 1.0f;
     ArrayList<Float> totalAmount = new ArrayList<>();
     protected static Vector data = new Vector<>();
     private final JPanel panel = new JPanel();
     private final Vector<String> headers = new Vector<>();
     private final JButton checkoutButton = new JButton("Checkout");
-    private final JButton addQuantity = new JButton("+");
-    private final JButton minusQuantity = new JButton("-");
+    private final JButton addQuantityButton = new JButton("+");
+    private final JButton minusQuantityButton = new JButton("-");
     public static JLabel totalAmountLabel = new JLabel();
     private final DecimalFormat df = new DecimalFormat("0.00");
     private final HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
+    protected static Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
     private Float total = 0.0f;
 
     public ShoppingCartPanel() {
@@ -90,47 +93,48 @@ public class ShoppingCartPanel extends JFrame {
         panel.add(scrollPane);
 
         // Creating components
-        addQuantity.setBounds(80, 415, 100, 40);
-        minusQuantity.setBounds(80, 465, 100, 40);
+        addQuantityButton.setBounds(80, 415, 100, 40);
+        minusQuantityButton.setBounds(80, 465, 100, 40);
         checkoutButton.setBounds(600, 450, 100, 40);
         totalLabel.setBounds(600, 400, 100, 45);
         totalAmountLabel.setBounds(650, 400, 100, 45);
 
         // adding components on panel
-        panel.add(addQuantity);
-        panel.add(minusQuantity);
+        panel.add(addQuantityButton);
+        panel.add(minusQuantityButton);
         panel.add(checkoutButton);
         panel.add(totalLabel);
         panel.add(totalAmountLabel);
         frame.add(panel);
 
         // Action Listeners
+        addQuantityButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+
+                total = AddQuantityButtonActionPerformed.addQuantityActionPerformed(evt, headers, table, addQuantityButton,
+                        totalAmount, df, total);
+
+                // showing the sum
+                totalAmountLabel.setText("$" + df.format(total));
+            }
+        });
+
+        minusQuantityButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+
+                total = MinusQuantityButtonActionPerformed.minusQuantityActionPerformed(evt,headers, table, minusQuantityButton,
+                        totalAmount, df, total);
+
+                // showing the sum
+                totalAmountLabel.setText("$" + df.format(total));
+            }
+        });
+
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 CheckoutButtonActionPerformed.checkoutButtonActionPerformed(evt, checkoutButton, data, drinks,
-                        frame, totalAmount);
-            }
-        });
-
-        addQuantity.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-
-                total = AddQuantityButtonActionPerformed.addQuantityActionPerformed(evt, headers, table, addQuantity,
-                        totalAmount, df, total);
-
-                // showing the sum
-                totalAmountLabel.setText("$" + df.format(total));
-            }
-        });
-
-        minusQuantity.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-
-                total = MinusQuantityButtonActionPerformed.minusQuantityActionPerformed(evt,headers, table, minusQuantity,
-                        totalAmount, df, total);
-
-                // showing the sum
-                totalAmountLabel.setText("$" + df.format(total));
+                        frame, totalAmount, total);
+                total = 0.0f;
             }
         });
     }

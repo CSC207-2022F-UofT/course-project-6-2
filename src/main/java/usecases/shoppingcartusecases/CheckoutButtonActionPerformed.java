@@ -14,10 +14,10 @@ import java.util.Vector;
 public class CheckoutButtonActionPerformed {
 
     public static void checkoutButtonActionPerformed(ActionEvent e, JButton checkoutButton, Vector data, HashMap<Drink, Integer> drinks,
-                                                      JFrame frame, ArrayList<Float> totalAmount) {
+                                                      JFrame frame, ArrayList<Float> totalAmount, Float total) {
         if (e.getSource() == checkoutButton) {
 
-            AddToOrderHistory.addToOrderHistory(drinks);
+            AddToOrderHistory.addToOrderHistory(drinks, total);
             new CustomerMainScreen();
             frame.setVisible(false);
             data.removeAllElements();

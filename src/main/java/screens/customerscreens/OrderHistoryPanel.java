@@ -8,7 +8,6 @@ import usecases.userusercases.UserRuntimeDataBase;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -17,44 +16,37 @@ import java.util.Vector;
  * @author sanciagao
  */
 public class OrderHistoryPanel extends JFrame {
-    // Variables declaration
-    JFrame frame = new JFrame();
-    JTable table;
-    JPanel panel = new JPanel();
-    Vector headers = new Vector();
-    Vector data = new Vector();
-    JButton reOrderButton = new JButton("Re-Order");
-    Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
-    ArrayList<Order> orderList = currCustomer.getOrderHistory();
-    private final HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
 
+    // Variables declaration
+    private final JTable table;
+    JPanel panel = new JPanel();
+    private final JButton reOrderButton = new JButton("Re-Order");
+    Customer currCustomer = ShoppingCartPanel.currCustomer;
 
     public OrderHistoryPanel() {
 
-        //Basic set up for the frame.
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Customer Order History");
-        frame.setResizable(false);
-        frame.add(panel);
+        // setting up local variables
+        Vector<String> headers = new Vector();
+        Vector data = new Vector();
+        HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
+        Order orders = new Order(drinks, "Processing");
+        panel.setLayout(null);
 
         // setting up JTable
         headers.add("Past Drinks Ordered");
-        headers.add("Quantity");
         headers.add("Total Price");
+        headers.add("Order Status");
 
-        if (orderList.size() > 0){
-            for (int i = 0; i < orderList.size(); i++){
-                for (Drink drink : orderList.get(i).getOrderList().keySet()) {
+        if (orders.getOrderList().size() > 0){
+            for (int i = 0; i < orders.getOrderList().size(); i++){
+                for (Order order : currCustomer.getOrderHistory()) {
                     Vector row = new Vector<>();
-                    row.add(drink.getName());
-                    row.add(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList().values());
-                    row.add(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getTotalPrize());
+                    row.add("Order");
+                    row.add(currCustomer.getShoppingCart().getTotalPrize());
+                    row.add(order.getOrderStatus());
                     data.add(row);
                 }
             }
-        } else{
-            panel.setLayout(null);
         }
 
         table = new JTable(data, headers);
@@ -73,7 +65,7 @@ public class OrderHistoryPanel extends JFrame {
         panel.add(scrollPane);
 
         // adding components on panel
-        reOrderButton.setBounds(80, 450, 120, 40);
+        reOrderButton.setBounds(330, 440, 120, 40);
         panel.add(reOrderButton);
 
         reOrderButton.addActionListener(new ActionListener() {
