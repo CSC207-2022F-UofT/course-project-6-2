@@ -156,6 +156,7 @@ Notes:
   * Provide Store's contact information to user.
 
 * [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
+  * Providing the corresponding message to users when registering. Inform users whether they have successfully registered, or something going wrong, the password doesn't match, provide name already exists etc.
 
 
 ### 3. Controllers
