@@ -8,7 +8,7 @@ import usecases.userusercases.UserRuntimeDataBase;
 import java.util.HashMap;
 
 public class AddToOrderHistory {
-    public void addToOrderHistory(HashMap<Drink, Integer> orderList){
+    public static void addToOrderHistory(HashMap<Drink, Integer> orderList){
         Order newOrder = new Order(orderList, "in progress");
         int totalOrder = newOrder.getTotalOrder();
         if (totalOrder == Order.UNSET_TOTAL_ORDER) {
