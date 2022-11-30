@@ -168,9 +168,5 @@ public class CustomerMainScreen extends JFrame {
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
     }
-
-//    public static void main(String[] args) {
-//        new CustomerMainScreen();
-//    }
 }
 

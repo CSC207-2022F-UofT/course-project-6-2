@@ -75,7 +75,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
-        JOptionPane.showMessageDialog(null, selectedDrink.getName()  + "added to shopping cart!");
+        JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
         new CustomerMainScreen();
     }
 }
