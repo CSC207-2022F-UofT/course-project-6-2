@@ -16,7 +16,7 @@ public class WarningBoard extends JFrame {
     JPanel bottom = new JPanel();
     JLabel warning = new JLabel();
     /*create a button to show the warning*/
-    JButton button = new JButton("show warning");
+    JButton button = new JButton("Show Warning");
     /*create a button to close the WarningBoard*/
     JButton close = new JButton("I Understand");
     GetWarningMessage w = new GetWarningMessage();
