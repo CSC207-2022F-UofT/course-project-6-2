@@ -5,6 +5,7 @@ import usecases.drinkusecases.DrinkRuntimeDataBase;
 import usecases.sellerusecases.ModifyDrink;
 import usecases.userusercases.UserRuntimeDataBase;
 
+import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -13,6 +14,13 @@ public class SellerModifyDrink {
 
     public static Drink getSearchedDrink() {
         return searchedDrink;
+    }
+
+    public Boolean drinkExist(String name) {
+        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
+        if (allDrinks == null) return false;
+        if (allDrinks.get(name) == null) return false;
+        return true;
     }
 
     public Drink searchedDrinkToModify(String name){
@@ -47,13 +55,13 @@ public class SellerModifyDrink {
         new ModifyDrink().modifyDrink(null, currentDrink);
     }
 
-    public void deleteDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
-        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
+    public void deleteDrink(Drink drink){
+        // Delete drink from RTDB
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
-        allDrinks.remove(name);
-        new ModifyDrink().modifyDrink(currentDrink, null);
+        allDrinks.remove(drink.getName());
+
+        // Delete one drink from seller drink items
+        new ModifyDrink().modifyDrink(drink, null);
     }
-
-
 }
 
