@@ -71,7 +71,7 @@ The drink object has the following attributes:
 Notes: 
 * Discount is 1 (meaning the price is now 100%) for drinks with no discount, and drink with discount will have the attribut as a float between 0 and 1 (i.e. 0.8 accounts for a 20% off discount).
 * Store name is not a constructor parameter, and it will be set when the seller add the drink to its store. This attribute can not be modified.
-* Every attributes except store name can be modified when the seller modify drink info. When the seller modify only the drink name, the application will delete this drink object and form a new drink object with the changed name and make other info identical.
+* Every attribute except store name can be modified when the seller modify drink info. When the seller modify only the drink name, the application will delete this drink object and form a new drink object with the changed name and make other info identical.
 
 
 #### 1.5 [Order](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/Order.java)
@@ -114,9 +114,38 @@ Notes:
   
 * [register()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/loginregisterusecases/RegisterUser.java)
   * Store user instance to corresponding database.
-  * Return String to indicate whether the user input for registeration is valid or not.
+  * Return String to indicate whether the user input for registration is valid or not.
 
+* [resetPassword()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/loginregisterusecases/ResetUserPassword.java)
+  * Receive newPassword and check if the new password is different from previous password, a user can only reset the password if and only if the phone number exists and newPass and confirmPass match
+  * newPassword does not necessarily need to be different with the previous password.
+  * Return Boolean to indicate if the password has been set successfully.
+
+#### 2.2 [Customer Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/customerusecases)
+
+#### 2.3 [Seller Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/sellerusecases)
+
+#### 2.4 Order Use Case
+
+#### 2.5 Drink Use Case
+
+#### 2.6 [Database Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userusercases)
+* [constructUserData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/ConstructUserDataBase.java)
+  * Extract User objects from database and store to users in a ArrayList of HashMap.
+  * HashMap at index 0 are seller objects and HashMap at index 1 are customer objects.
+
+* [saveUserData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/SaveUserDataBase.java)
+  * Save User objects into database.
+
+* [User Runtime Database](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/UserRuntimeDataBase.java)
+  * Save all sellers and customers data in the Runtime Database
+  * Save current seller and customer who are viewing the application in a Runtime Database
+  * We save these data as static variables to make sure every screen and/or use case that access these data will get the 
+  same value instead of calling multiple instances of the class which might not be updated properly.
+  * constructCurrentSeller() and constructCurrentCustomer(): When the user login, the login screen will pass his/her phone number 
 
 ### 3. Controllers
 
-### 4. screens
+### 4. Screens
+
+### 5. Helpers
