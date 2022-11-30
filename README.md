@@ -147,6 +147,18 @@ Notes:
   a use cases modify the user object attributes (i.e. reset password, customer make a new order, seller add drinks), 
   other use cases will have the variable updated.
 
+#### 2.7 [user response model](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userresponsemodel)
+* [Login Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/LoginResponseModel.java)
+  * Providing the corresponding message to users when login in. Either successfully logged in. Or incorrect  phone number or password.
+
+* [Question Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/QuestionResponseModel.java)
+  * Provide preprogrammed answers to the user when pressing the corresponding button.(common q&a for users)
+  * Provide Store's contact information to user.
+
+* [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
+  * Providing the corresponding message to users when registering. Inform users whether they have successfully registered, or something going wrong, the password doesn't match, provide name already exists etc.
+
+
 ### 3. Controllers
 TODO
 
