@@ -66,15 +66,15 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
         drinkVolumePanel.setBounds(244, 270, 300, 40);
         panel.add(drinkVolumePanel);
 
-        LabelTextHorizontalPanel drinkProductionPanel = new LabelTextHorizontalPanel(new JLabel("Production Date: "), drinkProductionField);
+        LabelTextHorizontalPanel drinkProductionPanel = new LabelTextHorizontalPanel(new JLabel("Production Date(e.g. 2020-04-11): "), drinkProductionField);
         drinkProductionPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkProductionPanel);
 
-        LabelTextHorizontalPanel drinkExpirationPanel = new LabelTextHorizontalPanel(new JLabel("Expiration Date: "), drinkExpirationField);
+        LabelTextHorizontalPanel drinkExpirationPanel = new LabelTextHorizontalPanel(new JLabel("Expiration Date(e.g. 2021-05-11): "), drinkExpirationField);
         drinkExpirationPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkExpirationPanel);
 
-        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount: "), drinkDiscountField);
+        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount(e.g. 0.8[20% off]): "), drinkDiscountField);
         drinkDiscountPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkDiscountPanel);
 
