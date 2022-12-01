@@ -49,7 +49,7 @@ public class CustomerMainScreen extends JFrame {
         // Search drinks panel
         mainTabbedPanel.addTab("Search Drinks", searchDrinkTabPanel);
 
-        JPanel searchDrinksPanel = new SearchingDrinksPanel().getPanel();
+        JPanel searchDrinksPanel = new SearchingDrinksPanel(frame).getPanel();
 
         GroupLayout SearchDrinksPanelLayout = new GroupLayout(searchDrinkTabPanel);
         searchDrinkTabPanel.setLayout(SearchDrinksPanelLayout);

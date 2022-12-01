@@ -1,6 +1,5 @@
 package screens.sellerscreens;
 
-//import UseCases.ExtractUserFromPhoneNum;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextHorizontalPanel;
 import entities.users.Seller;
@@ -50,31 +49,34 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
-
-        String orderNum = orderNumField.getText();
-        String newStatus = statusField.getText();
-
         if (e.getSource() == backButton.button){
             new OrderStatusScreen();
             frame.setVisible(false);
         }
 
-        Seller seller = UserRuntimeDataBase.getCurrentSeller();
         if (e.getSource() == modifyButton.getButton()){
+            Seller seller = UserRuntimeDataBase.getCurrentSeller();
+            if (seller.allOrders == null) {
+                JOptionPane.showMessageDialog(null, "You do not have a order to modify.");
+                return;
+            }
+
+            String orderNum = orderNumField.getText();
+            String newStatus = statusField.getText();
+
             //Change the order status of the particular order if the order number is included in the seller's orders.
             boolean inSellerOrder = false;
             for (int i = 0; i < seller.allOrders.size(); i++){
-                if (String.valueOf(seller.allOrders.get(i).getOrderNum()) == orderNum){
-                    if (seller.allOrders.get(i).getOrderStatus() != newStatus){
-                        inSellerOrder = true;
-                    }
+                if (String.valueOf(seller.allOrders.get(i).getOrderNum()).equals(orderNum)){
+                    inSellerOrder = true;
                 }
             }
             if (inSellerOrder) {
                 new ModifyOrderStatus().modifyOrderStatus(orderNum, newStatus);
-                JOptionPane.showMessageDialog(null, "You have changed the order status.");
+                JOptionPane.showMessageDialog(null, "You have changed the order status of order number " +
+                        orderNum + " to " + newStatus);
             } else {
-                JOptionPane.showMessageDialog(null, "The order number does not exist or the order status is the same.");
+                JOptionPane.showMessageDialog(null, "The order number " + orderNum + "does not exist");
             }
             //Close the modifyStatusScreen and open the previous order status screen(with changing).
             new OrderStatusScreen();

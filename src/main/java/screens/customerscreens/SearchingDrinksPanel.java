@@ -12,6 +12,7 @@ import java.awt.*;
 import java.util.Vector;
 
 public class SearchingDrinksPanel extends JFrame implements ActionListener {
+    private final JFrame frame;
     private final JPanel panel = new JPanel();
     private final JTextField searchBox = new JTextField(20);
     private final Button searchButton = new Button();
@@ -19,7 +20,8 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final JTable drinkTable = new JTable();
     private Drink selectedDrink;
 
-    public SearchingDrinksPanel(){
+    public SearchingDrinksPanel(JFrame frame){
+        this.frame = frame;
         panel.setLayout(null);
 
         searchButton.createButton(panel, "search", 510, 10, 80, 30);
@@ -59,6 +61,8 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         if (e.getSource() == addToCartButton.button) {
             UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
+            new CustomerMainScreen();
+            frame.setVisible(false);
         }
     }
 

@@ -67,7 +67,7 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
         drinkExpirationPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkExpirationPanel);
 
-        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount: "), drinkDiscountField);
+        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount(e.g. 0.8[20% off]): "), drinkDiscountField);
      
         drinkDiscountPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkDiscountPanel);
@@ -84,6 +84,12 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
+
+        if(e.getSource() == cancelButton.button){
+            new SellerMainScreen();
+            frame.setVisible(false);
+            return;
+        }
 
         String name = drinkNameField.getText();
         String price = drinkPriceField.getText();
@@ -121,6 +127,5 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
             new SellerMainScreen();
             frame.setVisible(false);
         }
-
     }
 }

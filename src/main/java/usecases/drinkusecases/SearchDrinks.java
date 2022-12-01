@@ -35,9 +35,9 @@ public class SearchDrinks {
                 line.add(name);
                 line.add(storeName);
                 line.add(price);
+                line.add(volume);
                 line.add(description);
                 line.add(ingredient);
-                line.add(volume);
                 line.add(productionDate);
                 line.add(expirationDate);
                 line.add(discount);
