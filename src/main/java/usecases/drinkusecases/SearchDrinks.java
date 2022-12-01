@@ -30,8 +30,10 @@ public class SearchDrinks {
                 Date expirationDate = drink.getExpirationDate();
                 float discount = drink.getDiscount();
                 String storeName = drink.getStoreName();
+                @SuppressWarnings("unchecked")
                 Vector line = new Vector<>();
                 line.add(name);
+                line.add(storeName);
                 line.add(price);
                 line.add(description);
                 line.add(ingredient);
@@ -39,7 +41,6 @@ public class SearchDrinks {
                 line.add(productionDate);
                 line.add(expirationDate);
                 line.add(discount);
-                line.add(storeName);
                 data.add(line);
             }
         }
