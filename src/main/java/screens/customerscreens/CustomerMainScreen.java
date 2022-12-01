@@ -158,7 +158,7 @@ public class CustomerMainScreen extends JFrame {
                 if (sourceTabbedPane.getTitleAt(index).equals("Shopping Cart")) {
                     // Refresh the shopping cart panel with updated data
                     WarningBoard warningBoard = new WarningBoard();
-                    sourceTabbedPane.add(warningBoard);
+                    panel.add(warningBoard);
                 }
             }
         };
