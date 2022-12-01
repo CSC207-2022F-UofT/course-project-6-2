@@ -17,10 +17,12 @@ import java.util.Vector;
  */
 
 public class SaleSectionPanel extends JFrame implements ActionListener {
+    private final JFrame frame;
     private final JPanel panel = new JPanel();
     private Drink selectedDrink;
     private final Button addToCartButton = new Button();
-    public SaleSectionPanel() {
+    public SaleSectionPanel(JFrame frame) {
+        this.frame = frame;
         panel.setLayout(null);
 
         Vector<String> headers = new Vector<>();
@@ -75,6 +77,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
         if (e.getSource() == addToCartButton.button) {
             UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
+            frame.setVisible(false);
             new CustomerMainScreen();
         }
     }
