@@ -21,13 +21,23 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
     Button question6Button = new Button();
     Button question7Button = new Button();
 
+    Button question0Button = new Button();
+
+
     public CustomerServicePanel() {
         panel.setLayout(null);
+
+        /* search seller's phone number*/
+        question0Button.createButton(panel, "Search sellers phone number",
+                50, 50, 700, 30);
+        question0Button.addActionListener(this);
+
 
         /* first question & answer*/
         question1Button.createButton(panel, "How can I sell my product in your store?",
                 50, 100, 700, 30);
         question1Button.addActionListener(this);
+
 
         /* 2nd question & answer*/
         question2Button.createButton(panel, "Where can I collect reward points with my purchase?",
@@ -91,6 +101,9 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
         }
         if (e.getSource() == question7Button.button) {
             new QuestionResponseModel(7);
+        }
+        if (e.getSource() == question0Button.button) {
+            new QuestionResponseModel(0);
         }
     }
 }
