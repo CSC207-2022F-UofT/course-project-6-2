@@ -74,8 +74,8 @@ public class TestCustomer {
         orderlist1.put(drink2, 8);
         orderlist2.put(drink3, 8);
 
-        Order order = new Order(orderlist1, "inProgress");
-        Order order2 = new Order(orderlist2, "Order Not Found");
+        Order order = new Order(orderlist1, "inProgress", 10f);
+        Order order2 = new Order(orderlist2, "Order Not Found", 10f);
 
         user1.addNewOrder(order);
         user1.addNewOrder(order2);

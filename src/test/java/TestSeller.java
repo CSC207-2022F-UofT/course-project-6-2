@@ -73,7 +73,7 @@ public class TestSeller {
         drinklist.add(drink1);
         drinklist.add(drink2);
 
-        Order order = new Order(orderlist1, "inProgress");
+        Order order = new Order(orderlist1, "inProgress", 10f);
         order.setOrderNum(314);
 
         orderlist.add(order);
