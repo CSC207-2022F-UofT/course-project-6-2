@@ -67,7 +67,7 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
         drinkExpirationPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkExpirationPanel);
 
-        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount: "), drinkDiscountField);
+        LabelTextHorizontalPanel drinkDiscountPanel = new LabelTextHorizontalPanel(new JLabel("Discount(e.g. 0.8[20% off]): "), drinkDiscountField);
      
         drinkDiscountPanel.setBounds(244, 270, 300, 40);
         panel.add(drinkDiscountPanel);

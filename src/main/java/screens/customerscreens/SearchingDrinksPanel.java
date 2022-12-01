@@ -59,6 +59,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         if (e.getSource() == addToCartButton.button) {
             UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
+            new CustomerMainScreen();
         }
     }
 
