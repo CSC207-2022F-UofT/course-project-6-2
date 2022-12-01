@@ -18,7 +18,7 @@ public class TestOrder {
         orderlist1.put(drink1, 1);
         orderlist1.put(drink2, 8);
         orderlist1.put(drink3, 3);
-        Order order1 = new Order(orderlist1, "I am orderStatus");
+        Order order1 = new Order(orderlist1, "I am orderStatus", 10f);
         /*test getOrderList()*/
         HashMap<Drink, Integer> orderlist2 = order1.getOrderList();
         assertEquals(orderlist2, orderlist1);
