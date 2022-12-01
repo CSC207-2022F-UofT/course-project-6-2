@@ -28,6 +28,7 @@ public class ShoppingCartPanel extends JFrame {
     static Float quantity = 1.0f;
     ArrayList<Float> totalAmount = new ArrayList<>();
     protected static Vector data = new Vector<>();
+    private final JFrame frame;
     private final JPanel panel = new JPanel();
     private final Vector<String> headers = new Vector<>();
     private final JButton checkoutButton = new JButton("Checkout");
@@ -39,7 +40,9 @@ public class ShoppingCartPanel extends JFrame {
     protected static Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
     private Float total = 0.0f;
 
-    public ShoppingCartPanel() {
+    public ShoppingCartPanel(JFrame frame) {
+
+        this.frame = frame;
 
         // setting up local variable
         JLabel totalLabel = new JLabel("Total: ");
@@ -125,7 +128,7 @@ public class ShoppingCartPanel extends JFrame {
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 CheckoutButtonActionPerformed.checkoutButtonActionPerformed(evt, checkoutButton, data, drinks,
-                        totalAmount, total, currCustomer);
+                        totalAmount, total, frame);
                 total = 0.0f;
                 currCustomer.getShoppingCart().getItemList().clear();
                 drinks.clear();

@@ -31,7 +31,7 @@ public class CustomerMainScreen extends JFrame {
         // Drinks panel
         mainTabbedPanel.addTab("Drinks", drinksTabPanel);
 
-        JPanel drinksPanel = new DrinkPanel().getPanel();
+        JPanel drinksPanel = new DrinkPanel(frame).getPanel();
 
         GroupLayout DrinksPanelLayout = new GroupLayout(drinksTabPanel);
         drinksTabPanel.setLayout(DrinksPanelLayout);
@@ -71,7 +71,7 @@ public class CustomerMainScreen extends JFrame {
         // Sale section panel
         mainTabbedPanel.addTab("Sale Section", saleSectionTabPanel);
 
-        JPanel saleSectionPanel = new SaleSectionPanel().getPanel();
+        JPanel saleSectionPanel = new SaleSectionPanel(frame).getPanel();
 
         GroupLayout SaleSectionPanelLayout = new GroupLayout(saleSectionTabPanel);
         saleSectionTabPanel.setLayout(SaleSectionPanelLayout);
@@ -89,7 +89,7 @@ public class CustomerMainScreen extends JFrame {
         // Shopping cart panel
         mainTabbedPanel.addTab("Shopping Cart", shoppingCartTabPanel);
 
-        JPanel shoppingCartPanel = new ShoppingCartPanel().getPanel();
+        JPanel shoppingCartPanel = new ShoppingCartPanel(frame).getPanel();
 
         GroupLayout ShoppingCartPanelLayout = new GroupLayout(shoppingCartTabPanel);
         shoppingCartTabPanel.setLayout(ShoppingCartPanelLayout);
