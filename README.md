@@ -126,6 +126,26 @@ Notes:
   * 
 
 #### 2.3 Seller Use Case
+* [ModifyDrink](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyDrink.java)
+  * 
+* [ModifyOrderStatus](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyOrderStatus.java)
+  * It receives the oreder number and the new order status that the seller wants to change, get the current seller using 
+  the getCurrentSeller method in UserRuntimeDataBase class in userusercases package. Then finds the corresponding order 
+  with order number, and change the order status.
+  
+* [SellerModifyDrink](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/SellerModifyDrink.java)
+  * The class has a private static variable that keep track of the drink that the seller wants to modify.
+  * The searchedDrinkToModify method receives the drink name and get the drink using DrinkRuntimeDataBase and store it in 
+  the static variable searchedDrink.
+  * The modifyDrink method receives the attributes of a modified drink including drink name, drink price, drink description, drink
+  ingredient, volume, production date, expiration date and discount. If the seller modify the drink name, then it remove 
+  the seachedDrink from alldrinks and add the new drink. If the drink name is not changed, then replace the drink in alldrinks
+  with the current modified drink. At last, modify the items(Arraylist of drink that the seller sell) attribute in Seller.
+  * The addDrink method receives the attributes of a new drink including drink name, drink price, drink description, drink 
+  ingredient, volume, production date, expiration date and discount. It checks if the new drink is included in the database,
+  if not, then add it into the database.
+  * The deleteDrink method receives the attributes of a drink including drink name, drink price, drink description, drink
+    ingredient, volume, production date, expiration date and discount, and delete the corresponding drink from the database.
 
 #### 2.4 Order Use Case
 
@@ -176,6 +196,64 @@ TODO
     page.
 
 * Seller Main Screens
+  * [AddDrinkScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/AddDrinkScreen.java)
+    * When the add drink button on the seller main screen is clicked, this screen would be open.
+    * This screen contains text box of all the attributes of the drink class, and it prompts the seller to enter all attributes, 
+    including drink name, drink price, drink description, drink ingredient, volume, production date, expiration date 
+    and discount. (It also prompt the seller for the format of the production date, expiration date and discount)
+    * The screen contains two buttons, add drink button and cancel button. 
+    * When the add drink button is clicked, the project would use the addDrink method in SellerModifyDrink class in sellerusecases package.
+    * When the cancel button is clicked by the seller, the AddDrinkScreen would be closed, and the SellerMainScreen would open.
+    
+  * [DeleteDrinkScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/DeleteDrinkScreen.java)
+    * When the delete drink button on the seller main screen is clicked, this screen would be open.
+    * This screen contains a text box which let the seller to enter the drink name that he/she wants to delete. 
+    * This screen also contains a delete drink button and cancel button. When the delete drink button is clicked, 
+    the project would use the searchedDrinkToModify method in the SellerModifyDrink class in sellerusecases package, if 
+    the drink name that seller entered is not in his/her current drinks, then it would tell the user that drink name not
+    match. If the drink name is in the seller's drinks, then it will use the deleteDrink method in SellerMo
+    * When the cancel button is clicked by the seller, the DeleteDrinkScreen would be closed, and the SellerMainScreen would open.
+    
+  * [SearchModifyDrinkScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/SearchModifyDrinkScreen.java)
+    * When the modify drink button on the seller main screen is clicked, this screen would be open.
+    * This screen contains a text box which let the seller enter the drink name that he/she wants to modify.
+    * This screen also contains a search drink button and cancel button. When the search drink button is clicked,
+      the project would use the searchedDrinkToModify method in the SellerModifyDrink class in sellerusecases package, if
+      the drink name that seller entered is not in his/her current drinks, then it would tell the user that drink name not
+      match. If the drink name is in the seller's drinks, then it will close the SearchModifyDrink Screen and open the ModifyDrinkScreen.
+    * When the cancel button is clicked by the seller, the SearchModifyDrinkScreen would be closed, and the SellerMainScreen would open.
+
+  * [ModifyDrinkScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/ModifyDrinkScreen.java)
+    * When the search drink button on the search modify drink screen is clicked, this screen would be open. 
+    * This screen contains text box of all the attributes of the drink class, and it prompts the seller to enter all attributes,
+    including drink name, drink price, drink description, drink ingredient, volume, production date, expiration date 
+    and discount.
+    * The screen contains two buttons, modify drink button and cancel button. 
+    * When the modify drink button is clicked, the drink that seller entered in the search modify drink screen would be modified
+    using the modifyDrink method in the sellerModifyDrink class in the sellerusecases package.
+    * When the cancel button is clicked by the seller, the ModifyDrinkScreen would be closed, and the SellerMainScreen would open.
+    
+  * [OrderStatusScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/OrderStatusScreen.java)
+    * When the modify status button on the seller main screen is clicked, this screen would be open.
+    * This screen contains all the order that customers has ordered in this login seller's store, and two buttons which are modify button and back button.
+    * When the modify button is clicked, the OrderStatusScreen would be closed, and the ModifyStatusScreen would open.
+    * When the back button is clicked by the seller, the OrderStatusScreen would be closed, and the SellerMainScreen would open.
+
+  * [ModifyStatusScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/ModifyStatusScreen.java)
+    * When the modify button on the order status screen is clicked, this screen would be open.
+    * This screen contains two text box that prompt the seller to enter the order number that he/she wants to modify and the new order status.
+    * This screen also contains two buttons, modify button and back button.
+    * When the modify button is clicked, the project would first check if the order number is included in the seller's 
+    orders, and if it is included, it would then check if the new order status that the seller entered is different from 
+    the previous order status. If it all satisfied, then the project would use the ModifyOrderStatus method in 
+    ModifyOrderStatus class in the sellerusecases packege to modify the seller order status and prompt the seller that 
+    he/she have changed the order status. If any of the condition is not satisfied, it would prompt the seller that the 
+    order number does not exist or the order status is the same.
+    * When the back button is clicked by the seller, the ModifyStatusScreen would be closed, and the SearchedModifyDrinkScreen would open.
+
+  * [SellerMainScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/SellerMainScreen.java)
+    * This screen contains all the drink of the login seller and four buttons which are add drink button, delete drink button, modify drink button and modify order status button.
+    * When each button is clicked by the seller, the seller main screen is closed and open the corresponding function screens.
 
 * Other Swing Components
   * [SearchingTable](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingTable.java)
