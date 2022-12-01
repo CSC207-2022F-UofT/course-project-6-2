@@ -6,7 +6,7 @@ import usecases.drinkusecases.GetSumOfDrinks;
 import usecases.shoppingcartusecases.AddQuantityButtonActionPerformed;
 import usecases.shoppingcartusecases.CheckoutButtonActionPerformed;
 import usecases.shoppingcartusecases.MinusQuantityButtonActionPerformed;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

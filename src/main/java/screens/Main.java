@@ -1,8 +1,8 @@
 package screens;
 
 import screens.loginregisterscreens.FirstMainScreen;
-import usecases.drinkusecases.ConstructDrinkDataBase;
-import usecases.userusercases.ConstructUserDataBase;
+import usecases.databaseusecases.ConstructDrinkDataBase;
+import usecases.databaseusecases.ConstructUserDataBase;
 
 import java.io.IOException;
 

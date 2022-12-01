@@ -2,7 +2,7 @@ package usecases.customerusecases;
 
 import entities.Order;
 import entities.users.Customer;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 public class GetOrderStatus {
     public String getOrderStatus(Order order){

@@ -3,7 +3,7 @@ package screens.customerscreens;
 import entities.Drink;
 import usecases.drinkusecases.SearchDrinks;
 import screens.swingcomponents.Button;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

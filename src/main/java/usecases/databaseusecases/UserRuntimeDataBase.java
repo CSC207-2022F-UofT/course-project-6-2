@@ -1,4 +1,4 @@
-package usecases.userusercases;
+package usecases.databaseusecases;
 
 import entities.users.Customer;
 import entities.users.Seller;

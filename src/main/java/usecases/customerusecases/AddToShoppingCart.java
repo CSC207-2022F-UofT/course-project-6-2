@@ -2,8 +2,8 @@ package usecases.customerusecases;
 
 import entities.Drink;
 import entities.ShoppingCart;
-import usecases.drinkusecases.DrinkRuntimeDataBase;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.DrinkRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.HashMap;
 

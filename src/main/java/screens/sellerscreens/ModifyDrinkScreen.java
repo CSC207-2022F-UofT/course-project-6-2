@@ -5,7 +5,7 @@ import entities.users.Seller;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextHorizontalPanel;
 import usecases.sellerusecases.SellerModifyDrink;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package usecases.drinkusecases;
+package usecases.databaseusecases;
 
 import entities.Drink;
 import helpers.Deserializer;

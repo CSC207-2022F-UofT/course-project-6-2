@@ -2,7 +2,7 @@ package usecases.sellerusecases;
 
 import entities.Order;
 import entities.users.Seller;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 public class ModifyOrderStatus {
     /**

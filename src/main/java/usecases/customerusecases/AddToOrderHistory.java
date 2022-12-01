@@ -3,7 +3,7 @@ package usecases.customerusecases;
 import entities.Drink;
 import entities.Order;
 import usecases.orderusecases.CheckTotalOrder;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.HashMap;
 

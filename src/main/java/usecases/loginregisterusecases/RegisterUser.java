@@ -2,10 +2,9 @@ package usecases.loginregisterusecases;
 
 import entities.users.Customer;
 import entities.users.Seller;
-import usecases.drinkusecases.DrinkRuntimeDataBase;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.DrinkRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 // Use Case Layer

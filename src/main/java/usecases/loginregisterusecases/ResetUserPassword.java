@@ -1,6 +1,6 @@
 package usecases.loginregisterusecases;
 
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.io.IOException;
 

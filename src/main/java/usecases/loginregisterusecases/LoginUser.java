@@ -2,7 +2,7 @@ package usecases.loginregisterusecases;
 
 // Use Cases Layer
 
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 public class LoginUser {
     /**

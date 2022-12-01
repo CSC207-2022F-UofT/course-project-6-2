@@ -1,11 +1,9 @@
 package usecases.sellerusecases;
 
 import entities.Drink;
-import usecases.drinkusecases.DrinkRuntimeDataBase;
-import usecases.sellerusecases.ModifyDrink;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.DrinkRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
-import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.HashMap;
 

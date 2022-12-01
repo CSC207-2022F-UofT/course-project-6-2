@@ -6,7 +6,7 @@ import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextVerticalPanel;
 import usecases.loginregisterusecases.LoginUser;
 import usecases.userresponsemodel.LoginResponseModel;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -2,7 +2,7 @@ package screens.customerscreens;
 
 import entities.ShoppingCart;
 import usecases.orderusecases.GetWarningMessage;
-import usecases.userusercases.UserRuntimeDataBase;
+import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.*;
