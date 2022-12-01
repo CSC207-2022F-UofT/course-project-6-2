@@ -14,7 +14,7 @@ public class SearchModifyDrinkScreen extends JFrame implements ActionListener {
     Button searchDrinkButton = new Button();
     Button cancelButton = new Button();
 
-    JTextField drinkNameField = new JTextField(15); //The order number entered
+    JTextField drinkNameField = new JTextField(15); //The drink name entered
 
     public SearchModifyDrinkScreen() {
         // Basic setups

@@ -151,13 +151,15 @@ public class CustomerMainScreen extends JFrame {
                         .addComponent(mainTabbedPanel, GroupLayout.Alignment.TRAILING)
         );
 
-        ChangeListener changeListener = changeEvent -> {
-            JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
-            int index = sourceTabbedPane.getSelectedIndex();
-            if (Objects.equals(sourceTabbedPane.getTitleAt(index), "Order History")) {
-                // Refresh the order history panel with updated data
-            } else if (Objects.equals(sourceTabbedPane.getTitleAt(index), "Shopping Cart")) {
-                // Refresh the shopping cart panel with updated data
+        ChangeListener changeListener = new ChangeListener() {
+            public void stateChanged(ChangeEvent changeEvent) {
+                JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+                int index = sourceTabbedPane.getSelectedIndex();
+                if (sourceTabbedPane.getTitleAt(index).equals("Shopping Cart")) {
+                    // Refresh the shopping cart panel with updated data
+                    WarningBoard warningBoard = new WarningBoard();
+                    sourceTabbedPane.add(warningBoard);
+                }
             }
         };
         mainTabbedPanel.addChangeListener(changeListener);
