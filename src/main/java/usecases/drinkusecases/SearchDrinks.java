@@ -8,42 +8,45 @@ import java.util.Vector;
 import java.util.Date;
 
 public class SearchDrinks {
-    protected static ArrayList<Drink> drinks = new ArrayList<>();
+    protected static ArrayList<Drink> drinks = new ArrayList<>(DrinkRuntimeDataBase.getDrinkList());
+    static Vector<Drink> filteredItems = new Vector<>();
     public static Vector<Vector<Drink>> addToFiltered(String keyword){
-        Vector<Drink> filtered_items = new Vector();
         Vector<Vector<Drink>> data = new Vector<>();
         for (Drink drink : drinks){
             if (drink.getName().equals(keyword)){
-                filtered_items.add(drink);
+                filteredItems.add(drink);
             } else if (drink.getDescription().contains(keyword)) {
-                filtered_items.add(drink);
+                filteredItems.add(drink);
             }
         }
-        if (filtered_items != null){
-            for (Drink d :filtered_items) {
-                String name = d.getName();
-                float price = d.getPrice();
-                String description = d.getDescription();
-                String ingredient = d.getIngredient();
-                int volume = d.getVolume();
-                Date production_date = d.getProductionData();
-                Date expiration_date = d.getExpirationDate();
-                float discount = d.getDiscount();
-                String storeName = d.getStoreName();
+        if (filteredItems != null){
+            for (Drink drink : filteredItems) {
+                String name = drink.getName();
+                float price = drink.getPrice();
+                String description = drink.getDescription();
+                String ingredient = drink.getIngredient();
+                int volume = drink.getVolume();
+                Date productionDate = drink.getProductionData();
+                Date expirationDate = drink.getExpirationDate();
+                float discount = drink.getDiscount();
+                String storeName = drink.getStoreName();
                 Vector line = new Vector<>();
                 line.add(name);
                 line.add(price);
                 line.add(description);
                 line.add(ingredient);
                 line.add(volume);
-                line.add(production_date);
-                line.add(expiration_date);
+                line.add(productionDate);
+                line.add(expirationDate);
                 line.add(discount);
                 line.add(storeName);
                 data.add(line);
             }
         }
-
         return data;
+    }
+
+    public static Vector<Drink> getDrinks() {
+        return filteredItems;
     }
 }

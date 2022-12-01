@@ -1,9 +1,9 @@
 package screens.customerscreens;
 
 import entities.Drink;
-import screens.swingcomponents.LabelTextHorizontalPanel;
 import usecases.drinkusecases.SearchDrinks;
-import usecases.customerusecases.AddToShoppingCart;
+import screens.swingcomponents.Button;
+import usecases.userusercases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,62 +14,52 @@ import java.util.Vector;
 public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final JPanel panel = new JPanel();
     private final JTextField searchBox = new JTextField(20);
-    private final JButton searchButton = new JButton("Search");
-    private final JTextField drinkName = new JTextField(8);
-    private final JTextField storeName = new JTextField(8);
-    private final JTextField drinkQuantity = new JTextField(8);
-    private final JButton addButton = new JButton("Add to shopping cart");
-    private final SearchingTable myFrameTable = new SearchingTable();
+    private final Button searchButton = new Button();
+    private final Button addToCartButton = new Button();
+    private final JTable drinkTable = new JTable();
+    private Drink selectedDrink;
+
     public SearchingDrinksPanel(){
-        JPanel northPanel = new JPanel();
-        northPanel.add(searchBox);
-        northPanel.add(searchButton);
+        panel.setLayout(null);
 
-        panel.add(northPanel, BorderLayout.NORTH);
+        searchButton.createButton(panel, "search", 510, 10, 80, 30);
+        searchButton.addActionListener(this);
+
+        addToCartButton.createButton(panel, "Add to Cart", 330, 470, 120, 40);
+        addToCartButton.addActionListener(this);
+
+        searchBox.setBounds(200, 10, 300, 30);
+        panel.add(searchBox);
+
         layoutCenter(panel);
-
-        LabelTextHorizontalPanel drinkNamePanel = new LabelTextHorizontalPanel(new JLabel("Name:"),drinkName);
-        JPanel southPanel = new JPanel();
-        southPanel.add(drinkNamePanel);
-
-        LabelTextHorizontalPanel storeNamePanel = new LabelTextHorizontalPanel(new JLabel("Store Name:"),storeName);
-        southPanel.add(storeNamePanel);
-
-        LabelTextHorizontalPanel drinkQuantityPanel = new LabelTextHorizontalPanel(new JLabel("Quantity:"), drinkQuantity);
-        southPanel.add(drinkQuantityPanel);
-
-        southPanel.add(addButton);
-        addButton.addActionListener(this);
-
-        panel.add(southPanel, BorderLayout.SOUTH);
-        panel.setSize(800,600);
         panel.setVisible(true);
     }
     private void layoutCenter(Container contentPane){
         Vector<Vector<Drink>> data = SearchDrinks.addToFiltered(searchBox.getText().trim());
-        searchButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
-                myFrameTable.setModel(searchingTableModel);
-            }
-        });
+        SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
+        searchButton.addActionListener(e -> drinkTable.setModel(searchingTableModel));
 
-
-        JScrollPane jScrollPane = new JScrollPane(myFrameTable);
+        JScrollPane jScrollPane = new JScrollPane(drinkTable);
+        jScrollPane.setBounds(50,50,700, 400);
         contentPane.add(jScrollPane,BorderLayout.CENTER);
 
+        ListSelectionModel model = drinkTable.getSelectionModel();
+        model.addListSelectionListener(e -> {
+            if (! model.isSelectionEmpty()) {
+                int selectedRow = model.getMinSelectionIndex();
+                selectedDrink = SearchDrinks.getDrinks().get(selectedRow);
+            }
+        });
     }
     public JPanel getPanel(){
         return panel;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        String name = drinkName.getText();
-        String store = storeName.getText();
-        Integer quantity = Integer.parseInt(drinkQuantity.getText());
-        if (e.getSource() == addButton){
-            AddToShoppingCart.addToShoppingCart(name, store, quantity);
+        if (e.getSource() == addToCartButton.button) {
+            UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
+            JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
         }
     }
+
 }
