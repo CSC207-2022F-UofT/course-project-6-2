@@ -21,10 +21,9 @@ public class GetWarningMessage {
         /*extract all drinks in HashMap*/
         ArrayList<Drink> cart_items = new ArrayList<>(itemList.keySet());
         /*return the harmful ingredients in drinks in HashMap*/
-
+        int no = 0;
         for (Drink drink : cart_items){
             String lowercase_ingredient = drink.getIngredient().toLowerCase();
-            int no = 0;
             for(String d: dang){
                 if (lowercase_ingredient.contains(d)){
                     if (!ans.toString().contains(d)){
@@ -33,9 +32,9 @@ public class GetWarningMessage {
                     }
                 }
             }
-            if (no == 0){
-                ans.append(" no common allergens");
-            }
+        }
+        if (no == 0){
+            ans.append(" no common allergens");
         }
         return ans.toString();
     }
