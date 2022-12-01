@@ -42,12 +42,12 @@ public class TestCustomer {
 
     @Test
     @DisplayName("Get address test")
-    void name() {
+    void getAddressTest() {
         assertEquals(customer1.getAddress(), "College St.");
     }
 
     @Test
-    public void Customer() {
+    public void CustomerTest() {
         //create the Input Data
         //Check that the Output Data passed to the Presenter is correct
         Date date1 = new Date();

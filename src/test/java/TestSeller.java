@@ -20,31 +20,31 @@ public class TestSeller {
 
     @Test
     @DisplayName("get StoreName test")
-    void getStoreName() {
+    void getStoreNameTest() {
         assertEquals(Seller1.getStoreName(), "Teashop168");
     }
 
     @Test
     @DisplayName("get PhoneNumber test")
-    void getPhoneNumber() {
+    void getPhoneNumberTest() {
         assertEquals(Seller1.getPhoneNumber(), "4165552704");
     }
 
     @Test
     @DisplayName("get Address test")
-    void getAddress() {
+    void getAddressTest() {
         assertEquals(Seller1.getAddress(), "200Elm");
     }
 
     @Test
     @DisplayName("get PassWord test")
-    void getPassWord() {
+    void getPassWordTest() {
         assertEquals(Seller1.getPassWord(), "abcd");
     }
 
     @Test
     @DisplayName("get AccountName test")
-    void getAccountName() {
+    void getAccountNameTest() {
         assertEquals(Seller1.getAccountName(), "May");
     }
 
