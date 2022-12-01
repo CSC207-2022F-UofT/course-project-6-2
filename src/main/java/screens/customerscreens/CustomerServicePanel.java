@@ -1,7 +1,7 @@
 package screens.customerscreens;
 
-import UseCases.UserResponseModels.QuestionResponseModel;
 import screens.swingcomponents.Button;
+import usecases.userresponsemodel.QuestionResponseModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
