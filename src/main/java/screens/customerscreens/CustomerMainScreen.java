@@ -155,10 +155,10 @@ public class CustomerMainScreen extends JFrame {
             public void stateChanged(ChangeEvent changeEvent) {
                 JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
                 int index = sourceTabbedPane.getSelectedIndex();
-                if (sourceTabbedPane.getTitleAt(index) == "Order History") {
-                    // Refresh the order history panel with updated data
-                } else if (sourceTabbedPane.getTitleAt(index) == "Shopping Cart") {
+                if (sourceTabbedPane.getTitleAt(index).equals("Shopping Cart")) {
                     // Refresh the shopping cart panel with updated data
+                    WarningBoard warningBoard = new WarningBoard();
+                    sourceTabbedPane.add(warningBoard);
                 }
             }
         };
@@ -168,9 +168,5 @@ public class CustomerMainScreen extends JFrame {
         frame.add(mainTabbedPanel);
         frame.setVisible(true);
     }
-
-//    public static void main(String[] args) {
-//        new CustomerMainScreen();
-//    }
 }
 
