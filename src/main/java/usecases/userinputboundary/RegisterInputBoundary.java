@@ -1,7 +1,7 @@
 package usecases.userinputboundary;
 
 public class RegisterInputBoundary {
-    public int age = 0;
+    public int age = -2;
     public RegisterInputBoundary(String ageText) {
         try {
             Double.parseDouble(ageText);

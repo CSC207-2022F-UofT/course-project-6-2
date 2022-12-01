@@ -18,17 +18,14 @@ import java.util.Vector;
 
 public class SaleSectionPanel extends JFrame implements ActionListener {
     private final JPanel panel = new JPanel();
-    JScrollPane scrollPane;
-    JTable drinkTable;
-    Drink selectedDrink;
-    Button addToCart = new Button();
+    private Drink selectedDrink;
+    private final Button addToCartButton = new Button();
     public SaleSectionPanel() {
         panel.setLayout(null);
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
-        //ArrayList<Drink> onSaleDrinks = new DrinkTester().drinkArrayList();
         DecimalFormat df = new DecimalFormat("0.00");
 
         headers.add("Drink name");
@@ -45,15 +42,15 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
             data.add(line);
         }
 
-        drinkTable = new JTable(data, headers);
+        JTable drinkTable = new JTable(data, headers);
         drinkTable.getTableHeader().setReorderingAllowed(false);
         drinkTable.getTableHeader().setResizingAllowed(false);
 
-        addToCart.createButton(panel, "Add to Cart", 330, 440, 120, 40);
-        addToCart.addActionListener(this);
+        addToCartButton.createButton(panel, "Add to Cart", 330, 440, 120, 40);
+        addToCartButton.addActionListener(this);
 
-        scrollPane = new JScrollPane(drinkTable);
-        scrollPane.setBounds(50,0,700, 400);
+        JScrollPane scrollPane = new JScrollPane(drinkTable);
+        scrollPane.setBounds(50,20,700, 400);
         panel.add(scrollPane);
 
         ListSelectionModel model = drinkTable.getSelectionModel();
@@ -75,9 +72,9 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == addToCart.button) {
+        if (e.getSource() == addToCartButton.button) {
             UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
-            JOptionPane.showMessageDialog(null, selectedDrink.getName()  + "added to shopping cart!");
+            JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
             new CustomerMainScreen();
         }
     }

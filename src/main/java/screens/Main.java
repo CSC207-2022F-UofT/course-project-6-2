@@ -1,7 +1,6 @@
 package screens;
 
-import screens.customerscreens.CustomerMainScreen;
-import screens.loginregisterscreens.LoginScreen;
+import screens.loginregisterscreens.FirstMainScreen;
 import usecases.drinkusecases.ConstructDrinkDataBase;
 import usecases.userusercases.ConstructUserDataBase;
 
@@ -11,6 +10,6 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         ConstructUserDataBase.constructUserDataBase();
         ConstructDrinkDataBase.constructDrinkDataBase();
-        new LoginScreen();
+        new FirstMainScreen();
     }
 }

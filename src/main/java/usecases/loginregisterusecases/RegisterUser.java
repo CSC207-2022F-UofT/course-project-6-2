@@ -35,6 +35,11 @@ public class RegisterUser {
             return "Text field empty";
         }
 
+        // determine if age is not a integer
+        if (age == -2) {
+            return "Age not integer";
+        }
+
         // determine if phone number exists
         if (UserRuntimeDataBase.getSellers().get(phoneNumber) != null || UserRuntimeDataBase.getCustomers().get(phoneNumber) != null) {
             return "Phone number exists";
