@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestGetWarningMessage {
     @Test
     /*the drinks have one dangerous ingredient*/
-    public void oneDangerousIngredient() {
+    public void oneDangerousIngredientTest() {
         Date date1 = new Date();
         Drink drink1 = new Drink("1", 1.0f, "I am description", "beef milk pig", 10, date1, date1, 1);
         Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken milk pig", 1, date1, date1, 1);
@@ -26,7 +26,7 @@ public class TestGetWarningMessage {
     }
     @Test
     /*the drinks have no dangerous ingredients*/
-    public void noDangerousIngredient() {
+    public void noDangerousIngredientTest() {
         Date date1 = new Date();
         Drink drink1 = new Drink("1", 1.0f, "I am description", "beef pig", 10, date1, date1, 1);
         Drink drink2 = new Drink("2", 2.0f, "I am description", "air", 1, date1, date1, 1);
