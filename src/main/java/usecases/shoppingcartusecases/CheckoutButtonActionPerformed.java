@@ -1,6 +1,7 @@
 package usecases.shoppingcartusecases;
 
 import entities.Drink;
+import entities.users.Customer;
 import screens.customerscreens.CustomerMainScreen;
 import screens.customerscreens.ShoppingCartPanel;
 import usecases.customerusecases.AddToOrderHistory;
@@ -14,12 +15,11 @@ import java.util.Vector;
 public class CheckoutButtonActionPerformed {
 
     public static void checkoutButtonActionPerformed(ActionEvent e, JButton checkoutButton, Vector data, HashMap<Drink, Integer> drinks,
-                                                      JFrame frame, ArrayList<Float> totalAmount, Float total) {
+                                                      ArrayList<Float> totalAmount, Float total, Customer currCustomer) {
         if (e.getSource() == checkoutButton) {
 
             AddToOrderHistory.addToOrderHistory(drinks, total);
             new CustomerMainScreen();
-            frame.setVisible(false);
             data.removeAllElements();
             totalAmount.clear();
             ShoppingCartPanel.totalAmountLabel.setText("$0.00");

@@ -1,7 +1,6 @@
 package screens.customerscreens;
 
 import entities.Drink;
-import entities.Order;
 import entities.users.Customer;
 import usecases.drinkusecases.GetSumOfDrinks;
 import usecases.shoppingcartusecases.AddQuantityButtonActionPerformed;
@@ -24,7 +23,6 @@ import java.util.Vector;
 public class ShoppingCartPanel extends JFrame {
 
     // Variables declaration
-    JFrame frame = new JFrame();
     JTable table;
     JScrollPane scrollPane;
     static Float quantity = 1.0f;
@@ -47,11 +45,6 @@ public class ShoppingCartPanel extends JFrame {
         JLabel totalLabel = new JLabel("Total: ");
         GetSumOfDrinks getSum = new GetSumOfDrinks();
 
-        //Basic set up for the frame.
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Customer Order History");
-        frame.setResizable(false);
         panel.setLayout(null);
 
         // setting up JTable headers
@@ -105,7 +98,6 @@ public class ShoppingCartPanel extends JFrame {
         panel.add(checkoutButton);
         panel.add(totalLabel);
         panel.add(totalAmountLabel);
-        frame.add(panel);
 
         // Action Listeners
         addQuantityButton.addActionListener(new ActionListener() {
@@ -133,8 +125,10 @@ public class ShoppingCartPanel extends JFrame {
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 CheckoutButtonActionPerformed.checkoutButtonActionPerformed(evt, checkoutButton, data, drinks,
-                        frame, totalAmount, total);
+                        totalAmount, total, currCustomer);
                 total = 0.0f;
+                currCustomer.getShoppingCart().getItemList().clear();
+                drinks.clear();
             }
         });
     }

@@ -9,15 +9,14 @@ import java.util.HashMap;
 
 public class AddToOrderHistory {
     public static void addToOrderHistory(HashMap<Drink, Integer> orderList, Float totalPrice){
-        Order newOrder = new Order(orderList, "in progress");
+        Order newOrder = new Order(orderList, "in progress", totalPrice);
         int totalOrder = newOrder.getTotalOrder();
         if (totalOrder == Order.UNSET_TOTAL_ORDER) {
             Order.setTotalOrder(CheckTotalOrder.checkTotalOrder() + 1);
         } else {
             Order.setTotalOrder(newOrder.getTotalOrder() + 1);
         }
-        newOrder.setOrderNum(newOrder.getTotalOrder());
-        UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().setTotalPrize(totalPrice);
+        newOrder.setTotalPrice(totalPrice);
         UserRuntimeDataBase.getCurrentCustomer().addNewOrder(newOrder);
     }
 }
