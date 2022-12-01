@@ -7,7 +7,7 @@
 * Xiyuan Jin ([AdwinTazement](https://github.com/AdwinTazement))
 * Donna Qi ([donnaqi](https://github.com/donnaqi))
 * Yuanyuan Qin ([yyuan-qin](https://github.com/yyuan-qin))
-* Jessica Yuan
+* Jessica Yuan([yuanjiat](https://github.com/yuanjiat))
 
 ## Documents
 
@@ -122,12 +122,16 @@ Notes:
   * Return Boolean to indicate if the password has been set successfully.
 
 #### 2.2 Customer Use Case
+* [AddToShoppingCart](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/customerusecases/AddToShoppingCart.java)
+  * 
 
 #### 2.3 Seller Use Case
 
 #### 2.4 Order Use Case
 
 #### 2.5 Drink Use Case
+* [SearchDrinks()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/drinkusecases/SearchDrinks.java)
+  * Get all drinks by the searching keyword,return the vector form of drinks which can be used in JTable.
 
 #### 2.6 [Database Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userusercases)
 * [constructUserData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/ConstructUserDataBase.java)
@@ -154,11 +158,20 @@ TODO
 * Login Register Screens
 
 * Customer Main Screens
+  * [SearchingDrinksPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingDrinksPanel.java)
+    * This class is a panel in customer main page. This class is a feature which allowed customer searching drinks' 
+    keyword and drinks will be presented as a table. Also allowed customers adding drinks to shopping cart in the same 
+    page.
 
 * Seller Main Screens
 
 * Other Swing Components
-
+  * [SearchingTable](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingTable.java)
+    * This class is a JTable of swing and this table is used in searching drinks panel. Set the table grid line colour 
+    as black so that each lines of drinks and variables of drinks can be seperated clearly.
+  * [SearchingTableModel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingTableModel.java)
+    * This class is a table model of the JTable. In this class, set the default model of table which includes headers 
+    and initialize the table.
 ### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
 * [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)
   * The lowest level object integrating with file system, converting object input stream to file output stream.
