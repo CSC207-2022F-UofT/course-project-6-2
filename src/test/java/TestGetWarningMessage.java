@@ -44,8 +44,8 @@ public class TestGetWarningMessage {
     public void moreDangerousIngredients() {
         Date date1 = new Date();
         Drink drink1 = new Drink("1", 1.0f, "I am description", "egg milk peanut", 10, date1, date1, 1);
-        Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken milk soybean", 1, date1, date1, 1);
-        Drink drink3 = new Drink("3", 1.5f, "I am description", "wheat egg", 100, date1, date1, 1);
+        Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken soybean", 1, date1, date1, 1);
+        Drink drink3 = new Drink("3", 1.5f, "I am description", "wheat", 100, date1, date1, 1);
         HashMap<Drink, Integer> itemlist3 = new HashMap<>();
         itemlist3.put(drink1, 6);
         itemlist3.put(drink2, 1);
