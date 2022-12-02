@@ -52,6 +52,6 @@ public class TestGetWarningMessage {
         itemlist3.put(drink3, 1);
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist3);
-        assertEquals(T, "Drinks in shopping cart contains egg, milk, peanut, soybean, wheat ");
+        assertEquals(T, "Drinks in shopping cart contains soybean, wheat, egg, milk, peanut ");
     }
 }
