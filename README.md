@@ -188,7 +188,11 @@ TODO
 
 ### 4. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
 * Login Register Screens
-
+  * [FirstMainScreen ()]
+    * This is the main screen that contains the login, register and reset password panel features.
+  * [LoginScreenPanel] 
+    * This class 
+  
 * Customer Main Screens
   * [SearchingDrinksPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingDrinksPanel.java)
     * This class is a panel in customer main page. This class is a feature which allowed customer searching drinks' 
