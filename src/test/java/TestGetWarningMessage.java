@@ -39,4 +39,19 @@ public class TestGetWarningMessage {
         String T = w.getWarningMessage(itemlist2);
         assertEquals(T, "Drinks in shopping cart contains no common allergens ");
     }
+    @Test
+    /*the drinks have five dangerous ingredient*/
+    public void moreDangerousIngredients() {
+        Date date1 = new Date();
+        Drink drink1 = new Drink("1", 1.0f, "I am description", "egg milk peanut", 10, date1, date1, 1);
+        Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken milk soybean", 1, date1, date1, 1);
+        Drink drink3 = new Drink("3", 1.5f, "I am description", "wheat egg", 100, date1, date1, 1);
+        HashMap<Drink, Integer> itemlist3 = new HashMap<>();
+        itemlist3.put(drink1, 6);
+        itemlist3.put(drink2, 1);
+        itemlist3.put(drink3, 1);
+        GetWarningMessage w = new GetWarningMessage();
+        String T = w.getWarningMessage(itemlist3);
+        assertEquals(T, "Drinks in shopping cart contains egg, milk, peanut, soybean, wheat ");
+    }
 }
