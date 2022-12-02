@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WarningBoard extends JFrame {
+public class WarningBoard extends JPanel {
 
     // defining variables
     private final JLabel warning = new JLabel();
@@ -19,18 +19,18 @@ public class WarningBoard extends JFrame {
     public WarningBoard() {
 
         // defining local variables
-        Container contentpane = getContentPane();
+        JFrame jf = new JFrame();
         JPanel top = new JPanel();
         JPanel bottom = new JPanel();
         JButton showWarning = new JButton("Show Warning");
         JButton closeButton = new JButton("I Understand");
 
         //setting up frame
-        setTitle("Warning Board");
-        setBounds(460, 300, 500, 120);
-        setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
+        jf.setTitle("Warning Board");
+        jf.setBounds(460, 300, 500, 120);
+        jf.setResizable(false);
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.setVisible(true);
 
         // set up panels
         top.add(warning);
@@ -39,8 +39,8 @@ public class WarningBoard extends JFrame {
         bottom.add(closeButton);
 
         //set up contentpane
-        contentpane.add(bottom, BorderLayout.SOUTH);
-        contentpane.add(top, BorderLayout.NORTH);
+        jf.add(bottom, BorderLayout.SOUTH);
+        jf.add(top, BorderLayout.NORTH);
 
         showWarning.addActionListener(new ActionListener() {
             @Override
@@ -53,7 +53,7 @@ public class WarningBoard extends JFrame {
             @Override
             /*exit.*/
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                jf.dispose();
             }
         });
     }
