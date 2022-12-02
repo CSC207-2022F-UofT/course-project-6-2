@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -20,10 +21,12 @@ import java.util.Vector;
  */
 public class ShoppingCartPanel extends JFrame {
     // Variables declaration
+
     private final JTable table;
     static Float quantity = 1.0f;
+
     ArrayList<Float> totalAmount = new ArrayList<>();
-    protected static Vector data = new Vector<>();
+    protected Vector data = new Vector<>();
     private final JFrame frame;
     private final JPanel panel = new JPanel();
     private final Vector<String> headers = new Vector<>();
@@ -54,12 +57,13 @@ public class ShoppingCartPanel extends JFrame {
         headers.add("Drink Final Price");
 
         // setting up JTable data
-        for (Drink drink: drinks.keySet()) {
+        for (Map.Entry<Drink, Integer> drinkSet: drinks.entrySet()) {
+            Drink drink = drinkSet.getKey();
             Vector col = new Vector<>();
             col.add(drink.getName());
             col.add("$" + drink.getPrice());
             col.add(df.format((1 - drink.getDiscount()) * 100) + "%");
-            col.add(quantity);
+            col.add(drinkSet.getValue());
             col.add(df.format(drink.getPrice() * drink.getDiscount()));
             col.add(total);
             data.add(col);
