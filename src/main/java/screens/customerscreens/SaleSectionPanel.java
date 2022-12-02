@@ -32,7 +32,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
 
         headers.add("Drink name");
         headers.add("Original Price");
-        headers.add("Discount");
+        headers.add("Discount(% off)");
         headers.add("Current Price");
 
         for (Drink drink: onSaleDrinks) {
@@ -40,6 +40,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
             line.add(drink.getName());
             line.add("$" + drink.getPrice());
             line.add(df.format((1 - drink.getDiscount()) * 100) + "%");
+            System.out.println(drink.getDiscount());
             line.add("$" + df.format(drink.getPrice() * drink.getDiscount()));
             data.add(line);
         }

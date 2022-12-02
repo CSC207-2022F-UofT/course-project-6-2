@@ -37,7 +37,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
             Vector<String > line = new Vector<>();
             line.add(drink.getName());
             line.add(drink.getStoreName());
-            line.add("$" + drink.getPrice());
+            line.add("$" + drink.getPrice() * drink.getDiscount());
             line.add(drink.getVolume() + "ml");
             data.add(line);
         }
