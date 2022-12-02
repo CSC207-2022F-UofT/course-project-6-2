@@ -51,7 +51,8 @@ public class QuestionResponseModel {
                 // if give value is equal to value from entry
                 // return the corresponding key
                 if (Objects.equals(entry.getValue().getAccountName(), personName)) {
-                    System.out.println("The key for value " + personName + " is " + entry.getKey());
+                    JOptionPane.showMessageDialog(null,
+                            "The phone number for seller " + personName + " is " + entry.getKey());
                     break;
                 }
                 else {
