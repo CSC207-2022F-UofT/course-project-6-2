@@ -123,11 +123,15 @@ Notes:
 
 #### 2.2 Customer Use Case
 * [AddToShoppingCart](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/customerusecases/AddToShoppingCart.java)
-  * 
+  * Receive Drink and its respective quantity that needs to be added into current customer's shopping cart.
+  * If the Drink (with same name and same store name) already exists in the shopping cart, it will be combined and quantity adds up.
 
 #### 2.3 Seller Use Case
 * [ModifyDrink](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyDrink.java)
-  * 
+  * Receive two Drink objects, one is the drink that need to be modified (old drink), and the other is the drink that need to be changed to (new drink).
+  * If old drink is null, then add the new drink directly; if new drink is null, then remove the old drink directly.
+  * Use this single one function to replace three replicate functions - modify, add and remove.
+  
 * [ModifyOrderStatus](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyOrderStatus.java)
   * It receives the oreder number and the new order status that the seller wants to change, get the current seller using 
   the getCurrentSeller method in UserRuntimeDataBase class in userusercases package. Then finds the corresponding order 
@@ -183,14 +187,11 @@ Notes:
   * Providing the corresponding message to users when registering. Inform users whether they have successfully registered, or something going wrong, the password doesn't match, provide name already exists etc.
 
 
-### 3. Controllers
-TODO
-
-### 4. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
+### 3. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
 * Login Register Screens
-  * [FirstMainScreen ()]
+  * [FirstMainScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/FirstMainScreen.java)
     * This is the main screen that contains the login, register and reset password panel features.
-  * [LoginScreenPanel] 
+  * [LoginScreenPanel] (https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/LoginScreenPanel.java)
     * This class 
   
 * Customer Main Screens
@@ -266,11 +267,12 @@ TODO
   * [SearchingTableModel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingTableModel.java)
     * This class is a table model of the JTable. In this class, set the default model of table which includes headers 
     and initialize the table.
+    
 ### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
 * [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)
   * The lowest level object integrating with file system, converting object input stream to file output stream.
 
-* [Deserializer]()
+* [Deserializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Deserializer.java)
   * The reverse process of converting file input stream to object output stream.
 
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
