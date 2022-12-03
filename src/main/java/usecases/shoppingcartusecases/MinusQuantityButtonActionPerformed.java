@@ -22,7 +22,7 @@ public class MinusQuantityButtonActionPerformed {
                 total -= totalAmount.get(row);
             } else {
                 JOptionPane.showMessageDialog(null,
-                        "Sorry, You can not delete anymore drinks");
+                        "Sorry, you can not delete anymore drinks");
             }
 
             totalAmount.add(Float.parseFloat(table.getValueAt(row, 4).toString()));

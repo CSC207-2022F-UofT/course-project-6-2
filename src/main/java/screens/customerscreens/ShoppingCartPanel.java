@@ -23,8 +23,6 @@ public class ShoppingCartPanel extends JFrame {
     // Variables declaration
 
     private final JTable table;
-    static Float quantity = 1.0f;
-
     ArrayList<Float> totalAmount = new ArrayList<>();
     protected Vector data = new Vector<>();
     private final JFrame frame;
@@ -125,7 +123,7 @@ public class ShoppingCartPanel extends JFrame {
                     totalAmount, total, frame);
             total = 0.0f;
             currCustomer.getShoppingCart().getItemList().clear();
-            drinks.clear();
+            new CustomerMainScreen();
         });
     }
 

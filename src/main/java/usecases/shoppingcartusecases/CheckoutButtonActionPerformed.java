@@ -19,7 +19,7 @@ public class CheckoutButtonActionPerformed {
 
             AddToOrderHistory.addToOrderHistory(drinks, total);
             frame.setVisible(false);
-            new CustomerMainScreen();
+            drinks.clear();
             data.removeAllElements();
             totalAmount.clear();
             ShoppingCartPanel.totalAmountLabel.setText("$0.00");
