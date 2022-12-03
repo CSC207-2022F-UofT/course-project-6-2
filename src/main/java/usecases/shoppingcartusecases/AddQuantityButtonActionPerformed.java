@@ -19,8 +19,8 @@ public class AddQuantityButtonActionPerformed {
             table.setValueAt(quantity += 1, row, column);
 
             for (int i = 0; i < totalAmount.size(); i++) {
-                float newVal = quantity * Float.parseFloat(table.getValueAt(row, 4).toString());
-                table.setValueAt(df.format(newVal), row, 5);
+                float newVal = quantity * Float.parseFloat(table.getValueAt(row, 5).toString());
+                table.setValueAt(df.format(newVal), row, 6);
             }
             total += totalAmount.get(row);
         }

@@ -35,7 +35,7 @@ public class ShoppingCartPanel extends JFrame {
     private final DecimalFormat df = new DecimalFormat("0.00");
     private final HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
     protected static Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
-    private Float total = 0.0f;
+    private Float total = 0.00f;
 
     public ShoppingCartPanel(JFrame frame) {
         this.frame = frame;
@@ -51,6 +51,7 @@ public class ShoppingCartPanel extends JFrame {
         headers.add("Drink Price");
         headers.add("Discount");
         headers.add("Quantity");
+        headers.add("Store Name");
         headers.add("Discounted Price");
         headers.add("Drink Final Price");
 
@@ -62,6 +63,7 @@ public class ShoppingCartPanel extends JFrame {
             col.add("$" + drink.getPrice());
             col.add(df.format((1 - drink.getDiscount()) * 100) + "%");
             col.add(drinkSet.getValue());
+            col.add(drink.getStoreName());
             col.add(df.format(drink.getPrice() * drink.getDiscount()));
             col.add(total);
             data.add(col);
@@ -121,7 +123,7 @@ public class ShoppingCartPanel extends JFrame {
         checkoutButton.addActionListener(evt -> {
             CheckoutButtonActionPerformed.checkoutButtonActionPerformed(evt, checkoutButton, data, drinks,
                     totalAmount, total, frame);
-            total = 0.0f;
+            total = 0.00f;
             currCustomer.getShoppingCart().getItemList().clear();
             new CustomerMainScreen();
         });

@@ -8,6 +8,7 @@ import usecases.customerusecases.AddToShoppingCart;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 /**
@@ -27,6 +28,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
+        DecimalFormat df = new DecimalFormat("0.00");
 
         headers.add("Drink name");
         headers.add("Store Name");
@@ -37,7 +39,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
             Vector<String > line = new Vector<>();
             line.add(drink.getName());
             line.add(drink.getStoreName());
-            line.add("$" + drink.getPrice() * drink.getDiscount());
+            line.add("$" + df.format(drink.getPrice() * drink.getDiscount()));
             line.add(drink.getVolume() + "ml");
             data.add(line);
         }
