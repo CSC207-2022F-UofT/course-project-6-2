@@ -9,59 +9,59 @@
   - Store Name: Soda Treat
   - Drink:
     - Drink1
-      - Drink name:
-      - Price:
-      - Description:
-      - Ingredient:
-      - Volume:
-      - Production Date:
-      - Expiration Date:
+      - Drink name: Cherry Vanilla Soda
+      - Price: 8.12
+      - Description: soda juice
+      - Ingredient: cherry juice, sugar, vanilla, soda
+      - Volume: 125
+      - Production Date: 2022-09-31
+      - Expiration Date: 2023-09-31
       - Discount: 1
     - Drink2
-        - Drink name:
-        - Price:
-        - Description:
-        - Ingredient:
-        - Volume:
-        - Production Date:
-        - Expiration Date:
-        - Discount:
+        - Drink name: Lemon Soda
+        - Price: 6.99
+        - Description: lemon soda
+        - Ingredient: lemon, soda, salt, sugar, water
+        - Volume: 125
+        - Production Date: 2022-12-01
+        - Expiration Date: 2023-12-01
+        - Discount: 0.7
     - Drink3
-        - Drink name:
-        - Price:
-        - Description:
-        - Ingredient:
-        - Volume:
-        - Production Date:
-        - Expiration Date:
-        - Discount:
+        - Drink name: Orange Juice Soda
+        - Price: 6.34
+        - Description: orange soda
+        - Ingredient: orange juice, sugar, soda, ginger
+        - Volume: 125
+        - Production Date: 2022-08-03
+        - Expiration Date: 2023-11-03
+        - Discount: 1
     - Drink4
-        - Drink name:
-        - Price:
-        - Description:
-        - Ingredient:
-        - Volume:
-        - Production Date:
-        - Expiration Date:
-        - Discount:
+        - Drink name: Masala Soda
+        - Price: 15.99
+        - Description: masala soda
+        - Ingredient: mint leaves, ginger, lime juice, sugar, masala, water
+        - Volume: 375
+        - Production Date: 2022-09-01
+        - Expiration Date: 2023-02-01
+        - Discount: 1
     - Drink5
-        - Drink name:
-        - Price:
-        - Description:
-        - Ingredient:
-        - Volume:
-        - Production Date:
-        - Expiration Date:
-        - Discount:
+        - Drink name: Cream Soda
+        - Price: 7.1
+        - Description: cream soda
+        - Ingredient: sugar, water, vanilla, soda
+        - Volume: 125
+        - Production Date: 2022-02-18
+        - Expiration Date: 2022-08-18
+        - Discount: 0.9
     - Drink6
-        - Drink name:
-        - Price:
-        - Description:
-        - Ingredient:
-        - Volume:
-        - Production Date:
-        - Expiration Date:
-        - Discount:
+        - Drink name: Pineapple Soda
+        - Price: 4.8
+        - Description: pineapple soda
+        - Ingredient: pineapple, water, sugar, lemon juice, soda
+        - Volume: 125
+        - Production Date: 2022-11-17
+        - Expiration Date: 2023-11-17
+        - Discount: 0.8
     - Drink7
         - Drink name:
         - Price:
@@ -70,7 +70,7 @@
         - Volume:
         - Production Date:
         - Expiration Date:
-        - Discount:
+        - Discount: 1
     - Drink8
         - Drink name:
         - Price:
@@ -79,7 +79,7 @@
         - Volume:
         - Production Date:
         - Expiration Date:
-        - Discount:
+        - Discount: 1
     - Drink9
         - Drink name:
         - Price:
@@ -88,7 +88,7 @@
         - Volume:
         - Production Date:
         - Expiration Date:
-        - Discount:
+        - Discount: 1
     - Drink10
         - Drink name:
         - Price:
@@ -97,7 +97,7 @@
         - Volume:
         - Production Date:
         - Expiration Date:
-        - Discount:
+        - Discount: 0.7
 - Seller2
     - Account Name: Lucas Liu
     - Phone Number: 4899277216
@@ -106,50 +106,50 @@
     - Store Name: Cocktail Bazaar (alcohol)
     - Drink:
       - Drink1
-          - Drink name:
-          - Price:
-          - Description:
-          - Ingredient:
-          - Volume:
-          - Production Date:
-          - Expiration Date:
+          - Drink name: Aqua Velva
+          - Price: 14.5
+          - Description: alcoholic
+          - Ingredient: vodka, gin, blue curacao, syrup, lemon juice, soda water
+          - Volume: 50
+          - Production Date: 2022-03-11
+          - Expiration Date: 2023-03-11
           - Discount: 1
       - Drink2
-          - Drink name:
-          - Price:
-          - Description:
-          - Ingredient:
-          - Volume:
-          - Production Date:
-          - Expiration Date:
-          - Discount:
+          - Drink name: Dirty Martini
+          - Price: 45.25
+          - Description: 29.88
+          - Ingredient: gin, dry vermouth, olive brine
+          - Volume: 375
+          - Production Date: 2022-08-01
+          - Expiration Date: 2023-02-01
+          - Discount: 0.9
       - Drink3
-          - Drink name:
-          - Price:
-          - Description:
-          - Ingredient:
-          - Volume:
-          - Production Date:
-          - Expiration Date:
-          - Discount:
+          - Drink name: Lillet Cocktail
+          - Price: 28.88
+          - Description: alcoholic
+          - Ingredient: lillet blanc, gin, tonic water
+          - Volume: 375
+          - Production Date: 2022-11-12
+          - Expiration Date: 2023-05-12
+          - Discount: 0.9
       - Drink4
-          - Drink name:
-          - Price:
-          - Description:
-          - Ingredient:
-          - Volume:
-          - Production Date:
-          - Expiration Date:
-          - Discount:
+          - Drink name: Salty Dog Cocktail
+          - Price: 65.99
+          - Description: alcoholic
+          - Ingredient: 500
+          - Volume: gin, grapefruit juice, salt, syrup, lime
+          - Production Date: 2022-11-01
+          - Expiration Date: 2023-11-01
+          - Discount: 1
       - Drink5
-          - Drink name:
-          - Price:
-          - Description:
-          - Ingredient:
-          - Volume:
-          - Production Date:
-          - Expiration Date:
-          - Discount:
+          - Drink name: Blue Lagoon Cocktail
+          - Price: 49.28
+          - Description: alcoholic
+          - Ingredient: vodka, blue curacao, lemon juice, syrup
+          - Volume: 500
+          - Production Date: 2022-10-10
+          - Expiration Date: 2023-07-10
+          - Discount: 0.8
 - Seller3
     - Account Name: Allen
     - Phone Number: 6478916276
