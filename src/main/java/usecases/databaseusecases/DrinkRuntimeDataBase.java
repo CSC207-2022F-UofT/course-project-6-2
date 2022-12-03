@@ -16,7 +16,11 @@ public class DrinkRuntimeDataBase {
     protected static HashMap<String, HashMap<String, Drink>> drinks;
 
     public static HashMap<String, HashMap<String, Drink>> getDrinks() {
-        return drinks;
+        if (drinks != null) {
+            return drinks;
+        } else{
+            return new HashMap<>();
+        }
     }
 
     public static ArrayList<Drink> getDrinkList() {
@@ -35,6 +39,9 @@ public class DrinkRuntimeDataBase {
     }
 
     public static void addStore(String storeName) {
+        if (drinks == null) {
+            drinks = new HashMap<>();
+        }
         DrinkRuntimeDataBase.drinks.put(storeName, new HashMap<>());
+        }
     }
-}

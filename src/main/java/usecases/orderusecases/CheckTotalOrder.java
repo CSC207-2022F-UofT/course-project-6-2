@@ -17,9 +17,12 @@ public class CheckTotalOrder {
         if (sellers != null && sellers.size() != 0) {
             for(Map.Entry<String, Seller> entry : sellers.entrySet()) {
                 ArrayList<Order> sellerOrders = entry.getValue().getAllOrders();
-                if (sellerOrders != null && sellerOrders.size() != 0) return sellerOrders.get(0).getTotalOrder();
+                if (sellerOrders != null && sellerOrders.size() != 0){
+                    return sellerOrders.get(sellerOrders.size() - 1).getTotalOrder();
+                }
             }
         }
+
         // If there's no seller or/and there's no order, total order = 0
         return 0;
     }

@@ -2,6 +2,7 @@ package screens.customerscreens;
 
 import entities.Drink;
 import screens.swingcomponents.Button;
+import usecases.customerusecases.AddToShoppingCart;
 import usecases.drinkusecases.GetOnSaleDrinks;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
@@ -40,7 +41,6 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
             line.add(drink.getName());
             line.add("$" + drink.getPrice());
             line.add(df.format((1 - drink.getDiscount()) * 100) + "%");
-            System.out.println(drink.getDiscount());
             line.add("$" + df.format(drink.getPrice() * drink.getDiscount()));
             data.add(line);
         }
@@ -76,7 +76,7 @@ public class SaleSectionPanel extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToCartButton.button) {
-            UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
+            AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
             new CustomerMainScreen();
             frame.setVisible(false);
