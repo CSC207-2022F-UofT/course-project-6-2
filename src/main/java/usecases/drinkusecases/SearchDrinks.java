@@ -6,7 +6,6 @@ import entities.Drink;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 
 import java.util.Vector;
-import java.util.Date;
 
 public class SearchDrinks {
     protected static ArrayList<Drink> drinks = new ArrayList<>(DrinkRuntimeDataBase.getDrinkList());
@@ -24,24 +23,13 @@ public class SearchDrinks {
             for (Drink drink : filteredItems) {
                 String name = drink.getName();
                 float price = drink.getPrice();
-                String description = drink.getDescription();
-                String ingredient = drink.getIngredient();
                 int volume = drink.getVolume();
-                Date productionDate = drink.getProductionData();
-                Date expirationDate = drink.getExpirationDate();
-                float discount = drink.getDiscount();
                 String storeName = drink.getStoreName();
-                @SuppressWarnings("unchecked")
                 Vector<String> line = new Vector<>();
                 line.add(name);
                 line.add(storeName);
-                line.add(String.valueOf(price));
-                line.add(String.valueOf(volume));
-                line.add(description);
-                line.add(ingredient);
-                line.add(String.valueOf(productionDate));
-                line.add(String.valueOf(expirationDate));
-                line.add(String.valueOf(discount));
+                line.add("$" + price);
+                line.add(volume + "ml");
                 data.add(line);
             }
         }
