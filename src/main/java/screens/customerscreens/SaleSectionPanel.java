@@ -19,8 +19,8 @@ import java.util.Vector;
 public class SaleSectionPanel extends JFrame implements ActionListener {
     private final JFrame frame;
     private final JPanel panel = new JPanel();
-    private Drink selectedDrink;
     private final Button addToCartButton = new Button();
+    private Drink selectedDrink;
     public SaleSectionPanel(JFrame frame) {
         this.frame = frame;
         panel.setLayout(null);

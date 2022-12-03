@@ -13,16 +13,14 @@ import java.awt.event.ActionListener;
 
 public class CustomerServicePanel extends JFrame implements ActionListener{
     private final JPanel panel = new JPanel();
-    Button question1Button = new Button();
-    Button question2Button = new Button();
-    Button question3Button = new Button();
-    Button question4Button = new Button();
-    Button question5Button = new Button();
-    Button question6Button = new Button();
-    Button question7Button = new Button();
-
-    Button question0Button = new Button();
-
+    private final Button question1Button = new Button();
+    private final Button question2Button = new Button();
+    private final Button question3Button = new Button();
+    private final Button question4Button = new Button();
+    private final Button question5Button = new Button();
+    private final Button question6Button = new Button();
+    private final Button question7Button = new Button();
+    private final Button question0Button = new Button();
 
     public CustomerServicePanel() {
         panel.setLayout(null);
@@ -69,7 +67,6 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
                 50, 400, 700, 30);
         question7Button.addActionListener(this);
     }
-
     public JPanel getPanel() {
         return panel;
     }

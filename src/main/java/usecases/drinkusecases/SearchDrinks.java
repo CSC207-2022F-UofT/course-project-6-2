@@ -10,9 +10,9 @@ import java.util.Date;
 
 public class SearchDrinks {
     protected static ArrayList<Drink> drinks = new ArrayList<>(DrinkRuntimeDataBase.getDrinkList());
-    static Vector<Drink> filteredItems = new Vector<>();
-    public static Vector<Vector<Drink>> addToFiltered(String keyword){
-        Vector<Vector<Drink>> data = new Vector<>();
+    private static final Vector<Drink> filteredItems = new Vector<>();
+    public static Vector<Vector<String>> addToFiltered(String keyword){
+        Vector<Vector<String>> data = new Vector<>();
         for (Drink drink : drinks){
             if (drink.getName().equals(keyword)){
                 filteredItems.add(drink);
@@ -20,7 +20,7 @@ public class SearchDrinks {
                 filteredItems.add(drink);
             }
         }
-        if (filteredItems != null){
+        if (!filteredItems.isEmpty()){
             for (Drink drink : filteredItems) {
                 String name = drink.getName();
                 float price = drink.getPrice();
@@ -32,20 +32,24 @@ public class SearchDrinks {
                 float discount = drink.getDiscount();
                 String storeName = drink.getStoreName();
                 @SuppressWarnings("unchecked")
-                Vector line = new Vector<>();
+                Vector<String> line = new Vector<>();
                 line.add(name);
                 line.add(storeName);
-                line.add(price);
-                line.add(volume);
+                line.add(String.valueOf(price));
+                line.add(String.valueOf(volume));
                 line.add(description);
                 line.add(ingredient);
-                line.add(productionDate);
-                line.add(expirationDate);
-                line.add(discount);
+                line.add(String.valueOf(productionDate));
+                line.add(String.valueOf(expirationDate));
+                line.add(String.valueOf(discount));
                 data.add(line);
             }
         }
         return data;
+    }
+
+    public void clearFilteredItems() {
+        filteredItems.clear();
     }
 
     public static Vector<Drink> getDrinks() {
