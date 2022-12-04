@@ -15,7 +15,6 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     public Button modifyButton = new Button();
     public Button backButton = new Button();
-    public Button deleteButton = new Button();
 
     Vector headers = new Vector();
     Vector data = new Vector();
@@ -53,8 +52,7 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
         modifyButton.addActionListener(this);
         backButton.createButton(panel, "Previous Page", 400, 400, 150, 40);
         backButton.addActionListener(this);
-        deleteButton.createButton(panel, "Delete Order", 400, 400, 150, 40);
-        deleteButton.addActionListener(this);
+
 
         //Adding the two panels to the contentPane.
         contentPane.add(panel, BorderLayout.NORTH);
@@ -72,9 +70,6 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
             new SellerMainScreen();
             frame.setVisible(false);
         }
-        if(e.getSource() == deleteButton.getButton()){
-            new ResetOrderNumScreen();
-            frame.setVisible(false);
-        }
+
     }
 }
