@@ -68,6 +68,9 @@ public class ResetPasswordPanel extends JFrame implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Phone number incorrect or password doesn't match!");
             }
+            phoneNumField.setText("");
+            passwordField.setText("");
+            confirmPassField.setText("");
         }
     }
 }

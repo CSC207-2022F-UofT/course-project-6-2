@@ -11,12 +11,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ModifyStatusScreen extends JFrame implements ActionListener {
-    JFrame frame = new JFrame();
-    Button modifyButton = new Button();
-    Button backButton = new Button();
-
-    JTextField orderNumField = new JTextField(15); //The order number entered
-    JTextField statusField = new JTextField(15); //The new order status entered
+    private final JFrame frame = new JFrame();
+    private final Button modifyButton = new Button();
+    private final Button backButton = new Button();
+    private final JTextField orderNumField = new JTextField(15); //The order number entered
+    private final JTextField statusField = new JTextField(15); //The new order status entered
 
     public ModifyStatusScreen() {
         // Basic setups
@@ -67,8 +66,9 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
             //Change the order status of the particular order if the order number is included in the seller's orders.
             boolean inSellerOrder = false;
             for (int i = 0; i < seller.allOrders.size(); i++){
-                if (String.valueOf(seller.allOrders.get(i).getOrderNum()).equals(orderNum)){
+                if (String.valueOf(seller.allOrders.get(i).getOrderNum()).equals(orderNum)) {
                     inSellerOrder = true;
+                    break;
                 }
             }
             if (inSellerOrder) {

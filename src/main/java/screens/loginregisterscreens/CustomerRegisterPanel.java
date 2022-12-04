@@ -72,7 +72,7 @@ public class CustomerRegisterPanel extends JFrame implements ActionListener {
         String confirmPass = String.valueOf(confirmPassField.getPassword());
         String address = addressField.getText();
         String ageText = ageField.getText();
-        int age = new RegisterInputBoundary(ageText).age;
+        int age = new RegisterInputBoundary(ageText).getAge();
 
         if(e.getSource() == registerButton.button){
             String registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);

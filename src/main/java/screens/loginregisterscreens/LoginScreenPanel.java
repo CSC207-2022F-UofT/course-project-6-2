@@ -66,6 +66,8 @@ public class LoginScreenPanel extends JFrame implements ActionListener {
                 frame.setVisible(false);
                 new CustomerMainScreen();
             }
+            phoneNumField.setText("");
+            passwordField.setText("");
         }
     }
 }
