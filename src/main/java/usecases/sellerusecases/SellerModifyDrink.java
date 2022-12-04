@@ -30,8 +30,9 @@ public class SellerModifyDrink {
     public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
+
         // if seller modified the drink name
-        if (!Objects.equals(name, searchedDrink.getName())){
+        if (!name.equals(searchedDrink.getName())){
             allDrinks.remove(searchedDrink.getName());
             allDrinks.put(name, currentDrink);
         } else {
