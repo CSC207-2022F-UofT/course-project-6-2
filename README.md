@@ -181,6 +181,7 @@ Notes:
 
 * [Question Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/QuestionResponseModel.java)
   * Provide preprogrammed answers to the user when pressing the corresponding button.(common q&a for users)
+  * Provide Seller's phone number when customer enter Seller's account name.
   * Provide Store's contact information to user.
 
 * [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
