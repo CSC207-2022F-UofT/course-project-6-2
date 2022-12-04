@@ -43,7 +43,7 @@ public class SearchDrinks {
         return data;
     }
 
-    public void clearFilteredItems() {
+    public static void clearFilteredItems() {
         filteredItems.clear();
     }
 
