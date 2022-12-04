@@ -30,7 +30,6 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
                 50, 50, 700, 30);
         question0Button.addActionListener(this);
 
-
         /* first question & answer*/
         question1Button.createButton(panel, "How can I sell my product in your store?",
                 50, 100, 700, 30);

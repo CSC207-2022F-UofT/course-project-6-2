@@ -38,8 +38,9 @@ public class QuestionResponseModel {
             JOptionPane.showMessageDialog(null, "Further concerns please contact our " +
                     "customer support. Phone: 416-978-3384." + " Email: ask.6+2@utoronto.ca");
         }
+
         if (questionNumber == 0) {
-            String personName = JOptionPane.showInputDialog(null, "Enter seller name to search for:");
+            String personName = JOptionPane.showInputDialog(null, "Enter seller's store name to search for:");
 
             // value whose key is to be searched
             HashMap<String, Seller> SearchField = UserRuntimeDataBase.getSellers();
@@ -48,11 +49,11 @@ public class QuestionResponseModel {
             // iterate each entry of hashmap
             for (Map.Entry<String, Seller> entry : SearchField.entrySet()) {
 
-                SearchField2.put(entry.getValue().getAccountName(), entry.getKey());
+                SearchField2.put(entry.getValue().getStoreName(), entry.getKey());
             }
             if (SearchField2.containsKey(personName)){
                 JOptionPane.showMessageDialog(null,
-                        "The phone number for seller " +
+                        "The phone number for store " +
                                 personName + " is " + SearchField2.get(personName));
             }
             else {
