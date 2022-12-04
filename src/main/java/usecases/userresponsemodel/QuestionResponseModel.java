@@ -1,11 +1,8 @@
 package usecases.userresponsemodel;
 
-import entities.users.Seller;
-import usecases.databaseusecases.UserRuntimeDataBase;
+import usecases.customerusecases.SearchForSeller;
 
 import javax.swing.*;
-import java.util.*;
-
 
 public class QuestionResponseModel {
 
@@ -40,25 +37,14 @@ public class QuestionResponseModel {
         }
 
         if (questionNumber == 0) {
-            String personName = JOptionPane.showInputDialog(null, "Enter seller's store name to search for:");
-
-            // value whose key is to be searched
-            HashMap<String, Seller> SearchField = UserRuntimeDataBase.getSellers();
-            HashMap<String, String> SearchField2 = new HashMap<>();
-
-            // iterate each entry of hashmap
-            for (Map.Entry<String, Seller> entry : SearchField.entrySet()) {
-
-                SearchField2.put(entry.getValue().getStoreName(), entry.getKey());
-            }
-            if (SearchField2.containsKey(personName)){
+            String storeName = JOptionPane.showInputDialog(null, "Enter seller's store name to search for:");
+            if (SearchForSeller.sellerExists(storeName)) {
                 JOptionPane.showMessageDialog(null,
                         "The phone number for store " +
-                                personName + " is " + SearchField2.get(personName));
-            }
-            else {
+                                storeName + " is " + SearchForSeller.getPhoneNumber());
+            } else {
                 JOptionPane.showMessageDialog(null,
-                        "Could not find the Seller " + personName);
+                        "Could not find the Seller " + storeName);
             }
             }
         }
