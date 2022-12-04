@@ -29,7 +29,7 @@ public class OrderHistoryPanel extends JFrame {
         panel.setLayout(null);
 
         // setting up JTable components
-        headers.add("Past Orders");
+        headers.add("Order Number");
         headers.add("Total Price");
         headers.add("Order Status");
 
@@ -37,7 +37,7 @@ public class OrderHistoryPanel extends JFrame {
         if (orders.size() > 0){
             for (Order order : currCustomer.getOrderHistory()) {
                 Vector row = new Vector<>();
-                row.add("Order");
+                row.add(order.getOrderNum());
                 row.add("$" + df.format(order.getTotalPrice()));
                 row.add(order.getOrderStatus());
                 data.add(row);

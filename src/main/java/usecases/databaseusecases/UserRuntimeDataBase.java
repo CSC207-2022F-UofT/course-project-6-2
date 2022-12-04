@@ -26,6 +26,14 @@ public class UserRuntimeDataBase {
         return sellers;
     }
 
+    public static void setSellers(HashMap<String, Seller> sellers) {
+        UserRuntimeDataBase.sellers = sellers;
+    }
+
+    public static void setCustomers(HashMap<String, Customer> customers) {
+        UserRuntimeDataBase.customers = customers;
+    }
+
     public static HashMap<String, Customer> getCustomers() {
         return customers;
     }
