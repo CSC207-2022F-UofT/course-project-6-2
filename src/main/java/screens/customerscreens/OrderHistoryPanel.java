@@ -14,10 +14,7 @@ import java.util.Vector;
  */
 public class OrderHistoryPanel extends JFrame {
 
-    // Variables declaration
-    private final JTable table;
-    private final JButton reOrderButton = new JButton("Re-Order");
-    private final DecimalFormat df = new DecimalFormat("0.00");
+    // setting up variables
     JPanel panel = new JPanel();
     Customer currCustomer = ShoppingCartPanel.currCustomer;
 
@@ -27,10 +24,11 @@ public class OrderHistoryPanel extends JFrame {
         Vector<String> headers = new Vector();
         Vector data = new Vector();
         ArrayList<Order> orders = currCustomer.getOrderHistory();
+        DecimalFormat df = new DecimalFormat("0.00");
 
         panel.setLayout(null);
 
-        // setting up JTable
+        // setting up JTable components
         headers.add("Past Orders");
         headers.add("Total Price");
         headers.add("Order Status");
@@ -46,7 +44,8 @@ public class OrderHistoryPanel extends JFrame {
             }
         }
 
-        table = new JTable(data, headers);
+        // Initializing and constructing table
+        JTable table = new JTable(data, headers);
 
         // Setting Columns to be not resizable
         table.getTableHeader().setReorderingAllowed(false);
@@ -60,9 +59,6 @@ public class OrderHistoryPanel extends JFrame {
         scrollPane = new JScrollPane(table);
         scrollPane.setBounds(50, 0, 700, 400);
         panel.add(scrollPane);
-
-        // adding components on panel
-        panel.add(reOrderButton);
     }
 
     public JPanel getPanel() {
