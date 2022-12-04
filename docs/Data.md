@@ -101,8 +101,8 @@
           - Drink name: Salty Dog Cocktail
           - Price: 65.99
           - Description:  A classic alcoholic cocktail that can be made with vodka or gin
-          - Ingredient: 500
-          - Volume: wheat, alcohol, gin, grapefruit juice, salt, syrup, lime
+          - Ingredient: wheat, alcohol, gin, grapefruit juice, salt, syrup, lime
+          - Volume: 500
           - Production Date: 2022-11-01
           - Expiration Date: 2023-11-01
           - Discount: 1
