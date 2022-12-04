@@ -4,12 +4,11 @@ import entities.users.Seller;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Objects;
+import java.util.*;
 
 
 public class QuestionResponseModel {
+
     public QuestionResponseModel(int questionNumber) {
 
         if (questionNumber == 1) {
@@ -44,21 +43,23 @@ public class QuestionResponseModel {
 
             // value whose key is to be searched
             HashMap<String, Seller> SearchField = UserRuntimeDataBase.getSellers();
+            HashMap<String, String> SearchField2 = new HashMap<>();
 
             // iterate each entry of hashmap
-            for (Entry<String, Seller> entry : SearchField.entrySet()) {
+            for (Map.Entry<String, Seller> entry : SearchField.entrySet()) {
 
-                // if give value is equal to value from entry
-                // return the corresponding key
-                if (Objects.equals(entry.getValue().getAccountName(), personName)) {
-                    JOptionPane.showMessageDialog(null,
-                            "The phone number for seller " + personName + " is " + entry.getKey());
-                    break;
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Could not find the Seller " + personName);
-                }
+                SearchField2.put(entry.getValue().getAccountName(), entry.getKey());
+            }
+            if (SearchField2.containsKey(personName)){
+                JOptionPane.showMessageDialog(null,
+                        "The phone number for seller " +
+                                personName + " is " + SearchField2.get(personName));
+            }
+            else {
+                JOptionPane.showMessageDialog(null,
+                        "Could not find the Seller " + personName);
+            }
             }
         }
     }
-}
+
