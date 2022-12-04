@@ -152,6 +152,9 @@ Notes:
     ingredient, volume, production date, expiration date and discount, and delete the corresponding drink from the database.
 
 #### 2.4 Order Use Case
+* [GetWarningMessage()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/orderusecases/GetWarningMessage.java)
+  * Return a string showing the common allergens contained in the drinks in a HashMap.
+  * If the drinks in HashMap contains no common allergens, return a string showing the drinks contain no common allergens.
 
 #### 2.5 Drink Use Case
 * [SearchDrinks()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/drinkusecases/SearchDrinks.java)
@@ -181,6 +184,7 @@ Notes:
 
 * [Question Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/QuestionResponseModel.java)
   * Provide preprogrammed answers to the user when pressing the corresponding button.(common q&a for users)
+  * Provide Seller's phone number when customer enter Seller's account name.
   * Provide Store's contact information to user.
 
 * [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
@@ -267,6 +271,10 @@ Notes:
   * [SearchingTableModel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingTableModel.java)
     * This class is a table model of the JTable. In this class, set the default model of table which includes headers 
     and initialize the table.
+  
+  * [WarningBoard](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/customerscreens/WarningBoard.java)
+    * When the ShoppingCart is entered, this screen would be open.
+    * This screen contains a JLabel which shows the warning message and a I Understand button to close.
     
 ### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
 * [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)

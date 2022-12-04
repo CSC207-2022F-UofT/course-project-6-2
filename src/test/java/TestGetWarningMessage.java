@@ -37,7 +37,6 @@ public class TestGetWarningMessage {
         itemlist2.put(drink3, 3);
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist2);
-        assertEquals(T, "Drinks in shopping cart contains no common allergens");
+        assertEquals(T, "Drinks in shopping cart contains no common allergens ");
     }
-
 }
