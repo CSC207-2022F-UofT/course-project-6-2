@@ -14,6 +14,7 @@ public class AddToOrderHistory {
     public static void addToOrderHistory(HashMap<Drink, Integer> orderList, Float totalPrice){
         Order newOrder = new Order(orderList, "in progress", totalPrice);
         int totalOrder = newOrder.getTotalOrder();
+
         if (totalOrder == Order.UNSET_TOTAL_ORDER) {
             Order.setTotalOrder(CheckTotalOrder.checkTotalOrder() + 1);
         } else {
