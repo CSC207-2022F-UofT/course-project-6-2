@@ -73,7 +73,7 @@
       - Drink1
           - Drink name: Aqua Velva
           - Price: 14.5
-          - Description: An alcoholic cocktail known as America's first after shave
+          - Description: An alcoholic cocktail known as American first after shave
           - Ingredient: wheat, alcohol, vodka, gin, blue curacao, syrup, lemon juice, soda water
           - Volume: 50
           - Production Date: 2022-03-11
@@ -179,7 +179,7 @@
         - Drink name: Peanut Milk
         - Price: 5.79
         - Description: A milk drink with peanut flavour
-        - Ingredient: peanut, milk sugar
+        - Ingredient: peanut, milk, sugar
         - Volume: 1540
         - Production Date: 2022-07-01
         - Expiration Date: 2024-01-01
@@ -230,8 +230,8 @@
       - Drink1
         - Drink name: Amber Moon
         - Price: 9.29
-        - Description: An acoholic cocktail consumed for the purpose of relieving a hangover
-        - Ingredient: tabasco sauce, wheat, alcohol, egg, 
+        - Description: An alcoholic cocktail consumed for the purpose of relieving a hangover
+        - Ingredient: tabasco sauce, wheat, alcohol, egg
         - Volume: 125
         - Production Date: 2022-12-02
         - Expiration Date: 2023-02-02
@@ -270,51 +270,8 @@
       - Ingredient: water, black tea, sugar
       - Volume: 960
       - Production Date: 2022-04-09
-      - Expiration Date: 2022-04-09
+      - Expiration Date: 2023-04-09
       - Discount: 1
-
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
-- Seller
-    - Account Name:
-    - Phone Number:
-    - Password:
-    - Address:
-    - Store Name:
 
 
 ## Customers
