@@ -27,15 +27,16 @@ public class GetWarningMessage {
             for(String d: allergens){
                 if (lowercase_ingredient.contains(d)){
                     if (!ans.toString().contains(d)){
-                        ans.append(" ").append(d).append(" ");
+                        ans.append(" ").append(d).append(",");
                         numOfAllergens += 1;
                     }
                 }
             }
         }
         if (numOfAllergens == 0){
-            ans.append(" no common allergens");
+            ans.append(" no common allergens,");
         }
+        ans.setCharAt(ans.length() - 1, ' ');
         return ans.toString();
     }
 }
