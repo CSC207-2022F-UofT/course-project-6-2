@@ -19,6 +19,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final Button addToCartButton = new Button();
     private final JTable drinkTable = new JTable();
     private Drink selectedDrink;
+    private Vector<Drink> drinks = null;
 
     public SearchingDrinksPanel(JFrame frame){
         this.frame = frame;
@@ -37,18 +38,21 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         panel.setVisible(true);
     }
     private void layoutCenter(Container contentPane){
-
         JScrollPane jScrollPane = new JScrollPane(drinkTable);
         jScrollPane.setBounds(50,50,700, 400);
         contentPane.add(jScrollPane,BorderLayout.CENTER);
+
+        System.out.println(drinks);
 
         ListSelectionModel model = drinkTable.getSelectionModel();
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                selectedDrink = SearchDrinks.getDrinks().get(selectedRow);
+                selectedDrink = drinks.get(selectedRow);
             }
         });
+
+        SearchDrinks.clearFilteredItems();
     }
     public JPanel getPanel(){
         return panel;
@@ -63,10 +67,9 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         }
         if (e.getSource() == searchButton.button) {
             Vector<Vector<String>> data = SearchDrinks.addToFiltered(searchBox.getText().trim());
-            System.out.println(data);
+            drinks = SearchDrinks.getDrinks();
             SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
             drinkTable.setModel(searchingTableModel);
         }
-        new SearchDrinks().clearFilteredItems();
     }
 }
