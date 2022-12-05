@@ -1,6 +1,5 @@
 
 import entities.Drink;
-import entities.Order;
 import entities.users.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,11 +7,8 @@ import org.junit.jupiter.api.Test;
 import usecases.customerusecases.AddToShoppingCart;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.databaseusecases.UserRuntimeDataBase;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,8 +27,8 @@ public class TestAddtoShoppingCart {
         Drink drink2 = new Drink("milk", 2.0f, "great", "milk", 1, new Date(), new Date(), 1f);
         drink1.setStoreName("XX");
         drink2.setStoreName("XX");
-        HashMap<String, Drink> searchField = new HashMap<String, Drink>();
-        HashMap<String, HashMap<String, Drink>> searchField2 = new HashMap<String, HashMap<String, Drink>>();
+        HashMap<String, Drink> searchField = new HashMap<>();
+        HashMap<String, HashMap<String, Drink>> searchField2 = new HashMap<>();
         searchField.put(drink1.getName(),drink1);
         searchField.put(drink2.getName(),drink2);
         searchField2.put(drink1.getStoreName(),searchField);
@@ -51,7 +47,6 @@ public class TestAddtoShoppingCart {
     @Test
     @DisplayName("Test total prize")
     public void testItemList(){
-        HashMap<Drink, Integer> itemlist1 = new HashMap<>();
-        assertTrue(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList().containsValue(20));
+       assertTrue(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList().containsValue(20));
     }
 }
