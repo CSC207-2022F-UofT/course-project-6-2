@@ -6,6 +6,7 @@ import usecases.userresponsemodel.QuestionResponseModel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * The customer service panel containing question buttons that would provide answers
@@ -26,6 +27,7 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
 
     public CustomerServicePanel() {
         panel.setLayout(null);
+
 
         /* search seller's phone number*/
         question0Button.createButton(panel, "Search sellers phone number",

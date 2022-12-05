@@ -12,6 +12,7 @@ import java.util.Objects;
 public class QuestionResponseModel {
     public QuestionResponseModel(int questionNumber) {
 
+
         if (questionNumber == 1) {
             JOptionPane.showMessageDialog(null, "Register on our app for the flexibility to sell one item or thousands.\n" +
                     "Fulfill orders quickly when customers make a purchase.");
