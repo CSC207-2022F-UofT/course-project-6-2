@@ -30,7 +30,7 @@ public class TestLoginUser {
         /*test customer login*/
         assertEquals(LoginUser.login("1234", "abcd"), "Customer");
         /*test seller login*/
-        assertEquals(LoginUser.login("4321", "123"), "Seller");
+        assertEquals(LoginUser.login("4321", "dcba"), "Seller");
         /*test other login*/
         assertEquals(LoginUser.login("9327486349", "123"), "No user");
     }
