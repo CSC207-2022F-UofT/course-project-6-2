@@ -1,5 +1,10 @@
+import entities.users.Seller;
 import org.junit.jupiter.api.Test;
 import usecases.loginregisterusecases.RegisterUser;
+import usecases.databaseusecases.UserRuntimeDataBase;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,11 +24,11 @@ public class TestRegisterUser {
                 "address3", 38, "storeName3");
         assertEquals(register3, "Phone number exists");
         /*test when store name exists*/
-        /*HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
+        HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
         ArrayList<Seller> sellers1 = new ArrayList<>(sellers.values());
         String storename1 = sellers1.get(0).getStoreName();
         String register4 = RegisterUser.registerUser("accountName4", "phoneNumber4", "password4", "password4",
                 "address4", 48, storename1);
         assertEquals(register4, "Store name exists");
     }
-}*/}}
+}
