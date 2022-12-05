@@ -1,14 +1,25 @@
+import entities.users.Customer;
 import entities.users.Seller;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.loginregisterusecases.RegisterUser;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRegisterUser {
+    @Test
+    @BeforeEach
+    public void testLoginUserSetup() {
+        Customer customer1 = new Customer("Sara", "1234", "abcd", 18, "Bay");
+        Seller seller1 = new Seller("Aras", "4321", "dcba", "Bay", "Super Pig");
+        UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
+        UserRuntimeDataBase.getSellers().put(seller1.getPhoneNumber(), seller1);
+    }
     @Test
     public void testRegisterUser(){
         /*test when password and confirmPass are the same*/
@@ -20,15 +31,26 @@ public class TestRegisterUser {
                 "address2", 0, "");
         assertEquals(register2, "Text field empty");
         /*test when phone number exists*/
-        String register3 = RegisterUser.registerUser("accountName3", "604", "password3", "password3",
+        String register3 = RegisterUser.registerUser("accountName3", "1234", "password3", "password3",
                 "address3", 38, "storeName3");
         assertEquals(register3, "Phone number exists");
         /*test when store name exists*/
-        HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
-        ArrayList<Seller> sellers1 = new ArrayList<>(sellers.values());
-        String storename1 = sellers1.get(0).getStoreName();
-        String register4 = RegisterUser.registerUser("accountName4", "phoneNumber4", "password4", "password4",
-                "address4", 48, storename1);
+        /*String register4 = RegisterUser.registerUser("accountName4", "phoneNumber4", "password4", "password4",
+                "address4", 48, "Super Pig");
         assertEquals(register4, "Store name exists");
+        /*test customer register*/
+        String register5 = RegisterUser.registerUser("accountName5", "phoneNumber5", "password5", "password5",
+                "address5", 58, null);
+        assertEquals(register5, "Successfully registered");
+        assertEquals(UserRuntimeDataBase.getCustomers().get("phoneNumber5").getAge(), 58);
+        /*test seller register*/
+        /*String register6 = RegisterUser.registerUser("accountName6", "phoneNumber6", "password6", "password6",
+                "address6", 68, "storeName6");
+        assertEquals(register6, "Successfully registered");
+        /*test age not int*/
+        String register7 = RegisterUser.registerUser("accountName7", "phoneNumber7", "password7", "password7",
+                "address7", -2, "storeName7");
+        assertEquals(register7, "Age not integer");
+
     }
 }

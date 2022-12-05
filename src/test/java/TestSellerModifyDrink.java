@@ -1,12 +1,13 @@
 
 import entities.Drink;
 import entities.Order;
-import entities.users.Customer;
+import entities.users.Seller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import usecases.customerusecases.AddToOrderHistory;
 import usecases.databaseusecases.UserRuntimeDataBase;
+import usecases.sellerusecases.ModifyDrink;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,9 +25,9 @@ public class TestSellerModifyDrink {
     @Test
     @BeforeEach
     public void testOrderHistorySetup() {
-        Customer customer1 = new Customer("Sara", "6041231234", "abcd", 18, "Bay");
-        UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
-        UserRuntimeDataBase.constructCurrentCustomer("6041231234");
+        Seller seller1 = new Seller("Sara", "6041231234",
+                "abcd", "Bay","Sarecoffee");
+        UserRuntimeDataBase.constructCurrentSeller("6041231234");
         Drink drink1 = new Drink("apple", 5.4f, "good", "apple", 100, new Date(), new Date(), 0.8f);
         Drink drink2 = new Drink("milk", 2.0f, "great", "milk", 1, new Date(), new Date(), 1f);
 
@@ -39,6 +40,7 @@ public class TestSellerModifyDrink {
         AddToOrderHistory.addToOrderHistory(orderList, totalPrice);
         orderHistory = new ArrayList<>();
         orderHistory.add(order);
+        ModifyDrink.modifyDrink(drink1,drink2);
     }
 
     @Test

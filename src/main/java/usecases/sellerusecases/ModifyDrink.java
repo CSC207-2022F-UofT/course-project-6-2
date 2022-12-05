@@ -12,7 +12,7 @@ public class ModifyDrink {
      * @param oldDrink The drink that need to be modified.
      * @param newDrink The drink that need to be changed to.
      */
-    public void modifyDrink(Drink oldDrink, Drink newDrink){
+    public static void modifyDrink(Drink oldDrink, Drink newDrink){
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         ArrayList<Drink> drinks = seller.getItems();
         if (drinks == null) {
