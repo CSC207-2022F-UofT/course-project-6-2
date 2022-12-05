@@ -11,10 +11,11 @@ import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestGetOrderStatus {
+
+public class TestCheckTotalOrder {
     @Test
     @BeforeEach
-    public void testOrderstatusSetUp() {
+    public void testChecktotalorderSetUp() {
         Customer customer1 = new Customer("Sara", "6041231234", "abcd", 18, "Bay");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
         UserRuntimeDataBase.constructCurrentCustomer("6041231234");
@@ -31,11 +32,11 @@ public class TestGetOrderStatus {
     @Test
     @DisplayName("Test order status")
     public void testStatus(){
-        assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getOrderStatus(),
-                "in progress");}
+        assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getTotalOrder(),
+                2);}
     @Test
     @DisplayName("Test order status2")
     public void testStatus2()
-    {assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(1).getOrderStatus(),
-                "in progress");}
+    {assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(1).getTotalOrder(),
+            8);}
 }
