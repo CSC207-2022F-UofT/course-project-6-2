@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class TestOrder {
     @Test
-    public void OrderTest(){
+    public void testOrder(){
         Date date1 = new Date();
         Drink drink1 = new Drink("1", 1.0f, "I am description", "beef milk pig", 10, date1, date1, 1);
         Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken milk pig", 1, date1, date1, 1);

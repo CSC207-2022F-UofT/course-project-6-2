@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TestResetUserPassword {
     @Test
     @BeforeEach
-    public void testLoginUserSetup() {
+    public void testResetUserPasswordSetup() {
         Customer customer1 = new Customer("Sara", "1234", "abcd", 18, "Bay");
         Seller seller1 = new Seller("Aras", "4321", "dcba", "Bay", "Super Pig");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);

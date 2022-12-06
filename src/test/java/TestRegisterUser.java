@@ -5,16 +5,12 @@ import org.junit.jupiter.api.Test;
 import usecases.loginregisterusecases.RegisterUser;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRegisterUser {
     @Test
     @BeforeEach
-    public void testLoginUserSetup() {
+    public void testRegisterUserSetup() {
         Customer customer1 = new Customer("Sara", "1234", "abcd", 18, "Bay");
         Seller seller1 = new Seller("Aras", "4321", "dcba", "Bay", "Super Pig");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
