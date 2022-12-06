@@ -39,6 +39,8 @@ public class TestGetWarningMessage {
         String T = w.getWarningMessage(itemlist2);
         assertEquals(T, "Drinks in shopping cart contains no common allergens ");
 
+
+
     }
     @Test
     /*the drinks have five dangerous ingredient*/
@@ -55,5 +57,7 @@ public class TestGetWarningMessage {
         String T = w.getWarningMessage(itemlist3);
         assertEquals(T, "Drinks in shopping cart contains egg, wheat, milk, soybean, peanut ");
     }
+
 }
+
 
