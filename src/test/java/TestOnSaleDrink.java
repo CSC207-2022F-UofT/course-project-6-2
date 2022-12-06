@@ -3,6 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.drinkusecases.GetOnSaleDrinks;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -10,7 +12,7 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestOnSaleDrink {
-//set up input data
+
     @Test
     @BeforeEach
     public void testOnSaleDrinksSetup() {
@@ -34,7 +36,6 @@ public class TestOnSaleDrink {
     }
 
     @Test
-    // call the use case to return sale drink's size
     public void testOnSaleDrinksSize() {
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         assertEquals(1, onSaleDrinks.size());
@@ -42,29 +43,8 @@ public class TestOnSaleDrink {
     }
 
     @Test
-    // call the use case to return sale drink's name
     public void testOnSaleDrinksName(){
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         assertEquals("testName1", onSaleDrinks.get(0).getName());
-    }
-
-    @Test
-    public void testOnSaleDrinksPrize(){
-        // call the use case to return sale drink's prize
-        ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
-        assertEquals(5.400000095367432, onSaleDrinks.get(0).getPrice());
-    }
-
-    @Test
-    // call the use case to return sale drink's description
-    public void testOnSaleDrinksDescription(){
-        ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
-        assertEquals("testDiscription1", onSaleDrinks.get(0).getDescription());
-    }
-    @Test
-    // call the use case to return sale drink's ingredient
-    public void testOnSaleDrinksIngredient(){
-        ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
-        assertEquals("apple", onSaleDrinks.get(0).getIngredient());
     }
 }
