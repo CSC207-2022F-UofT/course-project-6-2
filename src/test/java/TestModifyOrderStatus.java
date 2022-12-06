@@ -1,10 +1,8 @@
 import entities.Drink;
 import entities.Order;
 import entities.users.Seller;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.databaseusecases.UserRuntimeDataBase;
-import usecases.sellerusecases.ModifyDrink;
 import usecases.sellerusecases.ModifyOrderStatus;
 
 import java.util.ArrayList;
@@ -16,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestModifyOrderStatus {
     @Test
     public void testModifyOrderStatus() {
+        // set up input Data
         Seller seller1 = new Seller("Sara", "6041231234",
                 "abcd", "Bay","Sarecoffee");
         UserRuntimeDataBase.getSellers().put(seller1.getPhoneNumber(), seller1);
@@ -24,8 +23,6 @@ public class TestModifyOrderStatus {
                 "apple", 100, new Date(), new Date(), 0.8f);
         Drink drink2 = new Drink("Coffee", 5.4f, "good",
                 "Coffee", 100, new Date(), new Date(), 0.8f);
-
-        // call the usecase to modify the drink
         HashMap<Drink, Integer> orderList = new HashMap<>();
         orderList.put(drink1, 2);
         orderList.put(drink2, 5);
@@ -35,6 +32,8 @@ public class TestModifyOrderStatus {
         Orderlist.add(order);
         seller1.setAllOrders(Orderlist);
         String Ordernumber = Integer.toString(order.getOrderNum());
-        ModifyOrderStatus.modifyOrderStatus("ww","uu");
+        // call the usecase to modify the order status
+        ModifyOrderStatus.modifyOrderStatus(Ordernumber,"modified status");
+        assertEquals("modified status", order.getOrderStatus());
     }
 }
