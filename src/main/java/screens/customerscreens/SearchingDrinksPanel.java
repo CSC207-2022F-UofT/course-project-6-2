@@ -1,9 +1,9 @@
 package screens.customerscreens;
 
 import entities.Drink;
+import usecases.customerusecases.AddToShoppingCart;
 import usecases.drinkusecases.SearchDrinks;
 import screens.swingcomponents.Button;
-import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +19,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final Button addToCartButton = new Button();
     private final JTable drinkTable = new JTable();
     private Drink selectedDrink;
+    private Vector<Drink> drinks = null;
 
     public SearchingDrinksPanel(JFrame frame){
         this.frame = frame;
@@ -37,21 +38,21 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         panel.setVisible(true);
     }
     private void layoutCenter(Container contentPane){
-        Vector<Vector<Drink>> data = SearchDrinks.addToFiltered(searchBox.getText().trim());
-        SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
-        searchButton.addActionListener(e -> drinkTable.setModel(searchingTableModel));
-
         JScrollPane jScrollPane = new JScrollPane(drinkTable);
         jScrollPane.setBounds(50,50,700, 400);
         contentPane.add(jScrollPane,BorderLayout.CENTER);
+
+        System.out.println(drinks);
 
         ListSelectionModel model = drinkTable.getSelectionModel();
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
-                selectedDrink = SearchDrinks.getDrinks().get(selectedRow);
+                selectedDrink = drinks.get(selectedRow);
             }
         });
+
+        SearchDrinks.clearFilteredItems();
     }
     public JPanel getPanel(){
         return panel;
@@ -59,11 +60,16 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToCartButton.button) {
-            UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
+            AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
             new CustomerMainScreen();
             frame.setVisible(false);
         }
+        if (e.getSource() == searchButton.button) {
+            Vector<Vector<String>> data = SearchDrinks.addToFiltered(searchBox.getText().trim());
+            drinks = SearchDrinks.getDrinks();
+            SearchingTableModel searchingTableModel = SearchingTableModel.assembleModel(data);
+            drinkTable.setModel(searchingTableModel);
+        }
     }
-
 }

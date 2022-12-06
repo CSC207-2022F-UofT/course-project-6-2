@@ -5,16 +5,12 @@ import org.junit.jupiter.api.Test;
 import usecases.loginregisterusecases.RegisterUser;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRegisterUser {
     @Test
     @BeforeEach
-    public void testLoginUserSetup() {
+    public void testRegisterUserSetup() {
         Customer customer1 = new Customer("Sara", "1234", "abcd", 18, "Bay");
         Seller seller1 = new Seller("Aras", "4321", "dcba", "Bay", "Super Pig");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
@@ -35,6 +31,7 @@ public class TestRegisterUser {
                 "address3", 38, "storeName3");
         assertEquals(register3, "Phone number exists");
         /*test when store name exists*/
+
         String register4 = RegisterUser.registerUser("accountName4", "phoneNumber4", "password4", "password4",
                 "address4", 48, "Super Pig");
         assertEquals(register4, "Store name exists");
@@ -44,7 +41,9 @@ public class TestRegisterUser {
         assertEquals(register5, "Successfully registered");
         assertEquals(UserRuntimeDataBase.getCustomers().get("phoneNumber5").getAge(), 58);
         /*test seller register*/
+
         String register6 = RegisterUser.registerUser("accountName6", "phoneNumber6", "password6", "password6",
+
                 "address6", 68, "storeName6");
         assertEquals(register6, "Successfully registered");
         assertEquals(UserRuntimeDataBase.getSellers().get("phoneNumber6").getStoreName(), "storeName6");

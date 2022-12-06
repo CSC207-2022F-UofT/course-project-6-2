@@ -5,6 +5,7 @@ import helpers.Serializer;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCart implements Serializable {
     private float totalPrize;
@@ -37,10 +38,13 @@ public class ShoppingCart implements Serializable {
     }
 
     public void addItem(Drink drink, Integer quantity){
-        if (itemList.containsKey(drink)){
-            itemList.put(drink, itemList.get(drink) + quantity);
-        } else{
-            itemList.put(drink, quantity);
+        for (Map.Entry<Drink, Integer> entry: itemList.entrySet()){
+            if (entry.getKey().getName() == drink.getName() &&
+                    entry.getKey().getStoreName() == drink.getStoreName()){
+                itemList.replace(entry.getKey(), entry.getValue() + quantity);
+                return;
+            }
         }
+        itemList.put(drink, quantity);
     }
 }

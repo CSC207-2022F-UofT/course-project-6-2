@@ -12,15 +12,21 @@ public class CheckTotalOrder {
     public static int checkTotalOrder() {
         // Get hashmap of all sellers
         HashMap<String, Seller> sellers = UserRuntimeDataBase.getSellers();
+        int totalOrder = Order.UNSET_TOTAL_ORDER;
 
         // If there are sellers, check an arbitrary order
         if (sellers != null && sellers.size() != 0) {
             for(Map.Entry<String, Seller> entry : sellers.entrySet()) {
                 ArrayList<Order> sellerOrders = entry.getValue().getAllOrders();
-                if (sellerOrders != null && sellerOrders.size() != 0) return sellerOrders.get(0).getTotalOrder();
+                if (sellerOrders != null) {
+                    for (Order order : sellerOrders) {
+                        if (order.getOrderNum() > totalOrder) totalOrder = order.getOrderNum();
+                    }
+                }
             }
         }
-        // If there's no seller or/and there's no order, total order = 0
+
+        if (totalOrder != Order.UNSET_TOTAL_ORDER) return totalOrder;
         return 0;
     }
 }

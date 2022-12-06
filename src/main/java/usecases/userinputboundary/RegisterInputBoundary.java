@@ -1,11 +1,12 @@
 package usecases.userinputboundary;
 
 public class RegisterInputBoundary {
-    public int age = -2;
-    public RegisterInputBoundary(String ageText) {
+    private int age = -2;
+    public int getAge(String ageText) {
         try {
             Double.parseDouble(ageText);
             this.age = Integer.parseInt(ageText);
         } catch(Exception ignored){}
+        return age;
     }
 }

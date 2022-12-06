@@ -1,7 +1,8 @@
 package screens.customerscreens;
 
+import usecases.databaseusecases.UserRuntimeDataBase;
+
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
@@ -151,12 +152,12 @@ public class CustomerMainScreen extends JFrame {
                         .addComponent(mainTabbedPanel, GroupLayout.Alignment.TRAILING)
         );
 
-        ChangeListener changeListener = new ChangeListener() {
-            public void stateChanged(ChangeEvent changeEvent) {
-                JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
-                int index = sourceTabbedPane.getSelectedIndex();
-                if (sourceTabbedPane.getTitleAt(index).equals("Shopping Cart")) {
-                    // Refresh the shopping cart panel with updated data
+        ChangeListener changeListener = changeEvent -> {
+            JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+            int index = sourceTabbedPane.getSelectedIndex();
+            if (sourceTabbedPane.getTitleAt(index).equals("Shopping Cart")) {
+                // Refresh the shopping cart panel with updated data
+                if (! UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList().isEmpty()) {
                     WarningBoard warningBoard = new WarningBoard();
                     panel.add(warningBoard);
                 }

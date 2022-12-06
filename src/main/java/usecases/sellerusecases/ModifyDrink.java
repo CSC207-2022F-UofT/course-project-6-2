@@ -20,7 +20,11 @@ public class ModifyDrink {
             drinks = seller.getItems();
         }
         if (oldDrink != null) {
-            drinks.remove(oldDrink);
+            for(int idx = 0; idx < drinks.size(); idx ++) {
+                if (drinks.get(idx).getName().equals(oldDrink.getName())) {
+                    drinks.remove(idx);
+                }
+            }
         }
         if (newDrink != null){
             drinks.add(newDrink);

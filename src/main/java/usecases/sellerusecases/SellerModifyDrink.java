@@ -6,6 +6,7 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class SellerModifyDrink {
     private static Drink searchedDrink;
@@ -17,8 +18,7 @@ public class SellerModifyDrink {
     public Boolean drinkExist(String name) {
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
         if (allDrinks == null) return false;
-        if (allDrinks.get(name) == null) return false;
-        return true;
+        return allDrinks.get(name) != null;
     }
 
     public Drink searchedDrinkToModify(String name){
@@ -30,8 +30,9 @@ public class SellerModifyDrink {
     public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
+
         // if seller modified the drink name
-        if (name != searchedDrink.getName()){
+        if (!name.equals(searchedDrink.getName())){
             allDrinks.remove(searchedDrink.getName());
             allDrinks.put(name, currentDrink);
         } else {
@@ -44,10 +45,7 @@ public class SellerModifyDrink {
     public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         currentDrink.setStoreName(UserRuntimeDataBase.getCurrentSeller().getStoreName());
-        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
-        if (allDrinks == null) {
-            DrinkRuntimeDataBase.getDrinks().put(UserRuntimeDataBase.getCurrentSeller().getStoreName(), new HashMap<>());
-        }
+        DrinkRuntimeDataBase.getDrinks().computeIfAbsent(UserRuntimeDataBase.getCurrentSeller().getStoreName(), k -> new HashMap<>());
 
         DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName()).put(name, currentDrink);
         new ModifyDrink().modifyDrink(null, currentDrink);

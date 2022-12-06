@@ -123,11 +123,15 @@ Notes:
 
 #### 2.2 Customer Use Case
 * [AddToShoppingCart](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/customerusecases/AddToShoppingCart.java)
-  * 
+  * Receive Drink and its respective quantity that needs to be added into current customer's shopping cart.
+  * If the Drink (with same name and same store name) already exists in the shopping cart, it will be combined and quantity adds up.
 
 #### 2.3 Seller Use Case
 * [ModifyDrink](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyDrink.java)
-  * 
+  * Receive two Drink objects, one is the drink that need to be modified (old drink), and the other is the drink that need to be changed to (new drink).
+  * If old drink is null, then add the new drink directly; if new drink is null, then remove the old drink directly.
+  * Use this single one function to replace three replicate functions - modify, add and remove.
+  
 * [ModifyOrderStatus](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyOrderStatus.java)
   * It receives the oreder number and the new order status that the seller wants to change, get the current seller using 
   the getCurrentSeller method in UserRuntimeDataBase class in userusercases package. Then finds the corresponding order 
@@ -148,6 +152,9 @@ Notes:
     ingredient, volume, production date, expiration date and discount, and delete the corresponding drink from the database.
 
 #### 2.4 Order Use Case
+* [GetWarningMessage()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/orderusecases/GetWarningMessage.java)
+  * Return a string showing the common allergens contained in the drinks in a HashMap.
+  * If the drinks in HashMap contains no common allergens, return a string showing the drinks contain no common allergens.
 
 #### 2.5 Drink Use Case
 * [SearchDrinks()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/drinkusecases/SearchDrinks.java)
@@ -177,18 +184,20 @@ Notes:
 
 * [Question Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/QuestionResponseModel.java)
   * Provide preprogrammed answers to the user when pressing the corresponding button.(common q&a for users)
+  * Provide Seller's phone number when customer enter Seller's account name.
   * Provide Store's contact information to user.
 
 * [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
   * Providing the corresponding message to users when registering. Inform users whether they have successfully registered, or something going wrong, the password doesn't match, provide name already exists etc.
 
 
-### 3. Controllers
-TODO
-
-### 4. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
+### 3. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
 * Login Register Screens
-
+  * [FirstMainScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/FirstMainScreen.java)
+    * This is the main screen that contains the login, register and reset password panel features.
+  * [LoginScreenPanel] (https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/LoginScreenPanel.java)
+    * This class 
+  
 * Customer Main Screens
   * [SearchingDrinksPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingDrinksPanel.java)
     * This class is a panel in customer main page. This class is a feature which allowed customer searching drinks' 
@@ -262,11 +271,16 @@ TODO
   * [SearchingTableModel](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens/customerscreens/SearchingTableModel.java)
     * This class is a table model of the JTable. In this class, set the default model of table which includes headers 
     and initialize the table.
+  
+  * [WarningBoard](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/customerscreens/WarningBoard.java)
+    * When the ShoppingCart is entered, this screen would be open.
+    * This screen contains a JLabel which shows the warning message and a I Understand button to close.
+    
 ### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
 * [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)
   * The lowest level object integrating with file system, converting object input stream to file output stream.
 
-* [Deserializer]()
+* [Deserializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Deserializer.java)
   * The reverse process of converting file input stream to object output stream.
 
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 

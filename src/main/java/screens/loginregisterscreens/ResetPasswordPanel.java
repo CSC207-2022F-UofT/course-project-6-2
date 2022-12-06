@@ -33,7 +33,7 @@ public class ResetPasswordPanel extends JFrame implements ActionListener {
                 250, 160, 300, 30);
 
         LabelTextVerticalPanel confirmPassPanel = new LabelTextVerticalPanel();
-        passwordPanel.createLabelTextPanel(panel, new JLabel("Password :"), confirmPassField,
+        passwordPanel.createLabelTextPanel(panel, new JLabel("Confirm Password :"), confirmPassField,
                 250, 220, 300, 30);
 
         // Create reset button and add action listener
@@ -68,6 +68,9 @@ public class ResetPasswordPanel extends JFrame implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Phone number incorrect or password doesn't match!");
             }
+            phoneNumField.setText("");
+            passwordField.setText("");
+            confirmPassField.setText("");
         }
     }
 }

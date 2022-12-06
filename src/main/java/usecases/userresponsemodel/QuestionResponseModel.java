@@ -1,15 +1,11 @@
 package usecases.userresponsemodel;
 
-import entities.users.Seller;
-import usecases.databaseusecases.UserRuntimeDataBase;
+import usecases.customerusecases.SearchForSeller;
 
 import javax.swing.*;
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Objects;
-
 
 public class QuestionResponseModel {
+
     public QuestionResponseModel(int questionNumber) {
 
 
@@ -40,25 +36,18 @@ public class QuestionResponseModel {
             JOptionPane.showMessageDialog(null, "Further concerns please contact our " +
                     "customer support. Phone: 416-978-3384." + " Email: ask.6+2@utoronto.ca");
         }
+
         if (questionNumber == 0) {
-            String personName = JOptionPane.showInputDialog(null, "Enter seller name to search for:");
-
-            // value whose key is to be searched
-            HashMap<String, Seller> SearchField = UserRuntimeDataBase.getSellers();
-
-            // iterate each entry of hashmap
-            for (Entry<String, Seller> entry : SearchField.entrySet()) {
-
-                // if give value is equal to value from entry
-                // return the corresponding key
-                if (Objects.equals(entry.getValue().getAccountName(), personName)) {
-                    System.out.println("The key for value " + personName + " is " + entry.getKey());
-                    break;
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Could not find the Seller " + personName);
-                }
+            String storeName = JOptionPane.showInputDialog(null, "Enter seller's store name to search for:");
+            if (SearchForSeller.sellerExists(storeName)) {
+                JOptionPane.showMessageDialog(null,
+                        "The phone number for store " +
+                                storeName + " is " + SearchForSeller.getPhoneNumber());
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Could not find the Seller " + storeName);
+            }
             }
         }
     }
-}
+

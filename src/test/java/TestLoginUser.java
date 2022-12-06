@@ -1,16 +1,9 @@
-import entities.Drink;
-import entities.Order;
 import entities.users.Customer;
 import entities.users.Seller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import usecases.customerusecases.AddToOrderHistory;
 import usecases.databaseusecases.UserRuntimeDataBase;
 import usecases.loginregisterusecases.LoginUser;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

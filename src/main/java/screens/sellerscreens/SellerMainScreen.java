@@ -55,7 +55,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
         }
 
         //Basic set up for the frame.
-        frame.setSize(800, 600);
+        frame.setSize(1000, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Seller main page");
         frame.setResizable(false);
@@ -108,8 +108,5 @@ public class SellerMainScreen extends JFrame implements ActionListener {
             frame.setVisible(false);
         }
 
-    }
-    public static void main(String[] args){
-        new SellerMainScreen();
     }
 }

@@ -3,11 +3,12 @@ package screens.customerscreens;
 import entities.Drink;
 import screens.swingcomponents.Button;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
-import usecases.databaseusecases.UserRuntimeDataBase;
+import usecases.customerusecases.AddToShoppingCart;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 /**
@@ -17,8 +18,8 @@ import java.util.Vector;
 public class DrinkPanel extends JFrame implements ActionListener {
     private final JFrame frame;
     private final JPanel panel = new JPanel();
-    private Drink selectedDrink;
     private final Button addToCartButton = new Button();
+    private Drink selectedDrink;
 
     public DrinkPanel(JFrame frame) {
 
@@ -27,6 +28,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
 
         Vector<String> headers = new Vector<>();
         Vector<Vector<String>> data = new Vector<>();
+        DecimalFormat df = new DecimalFormat("0.00");
 
         headers.add("Drink name");
         headers.add("Store Name");
@@ -37,7 +39,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
             Vector<String > line = new Vector<>();
             line.add(drink.getName());
             line.add(drink.getStoreName());
-            line.add("$" + drink.getPrice());
+            line.add("$" + df.format(drink.getPrice() * drink.getDiscount()));
             line.add(drink.getVolume() + "ml");
             data.add(line);
         }
@@ -74,7 +76,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToCartButton.button) {
-            UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().addItem(selectedDrink, 1);
+            AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
             new CustomerMainScreen();
             frame.setVisible(false);

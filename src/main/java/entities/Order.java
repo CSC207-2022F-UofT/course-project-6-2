@@ -26,7 +26,7 @@ public class Order implements Serializable {
     public Order(Order order) {
         this.orderNum = order.getOrderNum() + 1;
         this.orderList = order.orderList;
-        this.orderStatus = "inProgress";
+        this.orderStatus = "in progress";
         this.totalPrice = order.getTotalPrice();
     }
 

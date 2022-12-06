@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import usecases.customerusecases.AddToOrderHistory;
+import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class TestAddToOrderHistory {
     @Test
     @BeforeEach
     public void testOrderHistorySetup() {
+        DrinkRuntimeDataBase.setDrinks(new HashMap<>());
         Customer customer1 = new Customer("Sara", "6041231234", "abcd", 18, "Bay");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
         UserRuntimeDataBase.constructCurrentCustomer("6041231234");
@@ -48,8 +50,10 @@ public class TestAddToOrderHistory {
 
     @Test
     @DisplayName("Test order number")
+    /** Order Num for the order just checked out (placed into the Order History) should always equal the total order num.
+     */
     public void testOrderNumber(){
-        assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getOrderNum(), orderHistory.get(0).getOrderNum());
+        assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getOrderNum(), orderHistory.get(0).getTotalOrder());
     }
 
     @Test
