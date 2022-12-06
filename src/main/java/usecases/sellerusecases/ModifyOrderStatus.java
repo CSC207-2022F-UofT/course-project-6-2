@@ -10,7 +10,7 @@ public class ModifyOrderStatus {
      * @param orderNum The order that need to be modified.
      * @param status The changed status of the order.
      */
-    public void modifyOrderStatus(String orderNum, String status){
+    public static void modifyOrderStatus(String orderNum, String status){
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         for(Order order : seller.allOrders){
             if (Integer.toString(order.getOrderNum()).equals(orderNum)){
