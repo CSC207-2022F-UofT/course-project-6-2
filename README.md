@@ -203,6 +203,23 @@ Notes:
     * This class is a panel in customer main page. This class is a feature which allowed customer searching drinks' 
     keyword and drinks will be presented as a table. Also allowed customers adding drinks to shopping cart in the same 
     page.
+  * [ShoppingCartPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/customerscreens/ShoppingCartPanel.java)
+    * When the customer adds a drink to their cart they can come to this screen to view their drinks. The customer can see
+    the drinks name, price, discount percentage, the drinks quantity, store name, discounted price, final price and total price
+    of the order. The customer will also be able to modify the quantity of the selected drink.
+    * The screen contains three buttons, an add button ("+"), a minus button ("-"), and a checkout button.
+    * When the customer selects the drink that they want to modify the quantity of, they can press the add button to add to
+    the quantity and minus button to lessen the quantity. If the quantity is 0 and the customer presses the minus button again,
+    a pop-up message will appear saying that they can not lessen anymore of the quantity.
+    * When the customer presses the checkout button, the data of the order will be passed to order history, the shopping
+    cart screen will clear and a pop-up message will appear informing the customer that they have successfully placed their
+    order, and can check their order in their order history.
+
+  * [OrderHistoryPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/customerscreens/OrderHistoryPanel.java)
+    * When the customer checks out, their order data will be passed here, and the customer can see their order number (which
+    is generated randomly), the total price of that corresponding order and the status of that order (which the seller can
+    modify).
+
 
 * Seller Main Screens
   * [AddDrinkScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/sellerscreens/AddDrinkScreen.java)
