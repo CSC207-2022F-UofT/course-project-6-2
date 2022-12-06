@@ -1,14 +1,9 @@
 import entities.Drink;
-import entities.Order;
-import entities.users.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import usecases.customerusecases.AddToOrderHistory;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
-import usecases.databaseusecases.UserRuntimeDataBase;
 import usecases.drinkusecases.SearchDrinks;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
@@ -19,7 +14,7 @@ public class TestSearchDrinks {
     private HashMap<String, HashMap<String, Drink>> drinks;
     @Test
     @BeforeEach
-    public void testOrderHistorySetup() {
+    public void testSearchDrinksSetup() {
         DrinkRuntimeDataBase.addStore("store1");
         DrinkRuntimeDataBase.addStore("store2");
         Drink drink1 = new Drink("testName1", 5.4f, "testDiscription1", "apple", 100, new Date(), new Date(), 0.8f);
