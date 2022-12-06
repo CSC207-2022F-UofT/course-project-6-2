@@ -32,10 +32,20 @@ public class TestSearchDrinks {
     public void testSearchDrinks() {
         /*search for drink's name*/
         Vector data1 = SearchDrinks.addToFiltered("testName1");
-        assert data1.contains("testDiscription1");
+        Vector<String> line1 = new Vector<>();
+        line1.add("testName1");
+        line1.add("store1");
+        line1.add("$" + 5.4f);
+        line1.add(100 + "ml");
+        assert data1.contains(line1);
         /*search for drink's discription*/
         Vector data2 = SearchDrinks.addToFiltered("testDiscription2");
-        assert data2.contains("testName2");
+        Vector<String> line2 = new Vector<>();
+        line2.add("testName2");
+        line2.add("store2");
+        line2.add("$" + 2.0f);
+        line2.add(1 + "ml");
+        assert data2.contains(line2);
         /*search for drink does not exist*/
         Vector data3 = new Vector();
         Vector data4 = SearchDrinks.addToFiltered("testDiscription3");
