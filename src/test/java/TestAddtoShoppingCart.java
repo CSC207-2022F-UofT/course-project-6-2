@@ -25,16 +25,15 @@ public class TestAddtoShoppingCart {
         UserRuntimeDataBase.constructCurrentCustomer("6041231234");
         Drink drink1 = new Drink("apple", 5.4f, "good", "apple", 100, new Date(), new Date(), 0.8f);
         Drink drink2 = new Drink("milk", 2.0f, "great", "milk", 1, new Date(), new Date(), 1f);
-        drink1.setStoreName("XX");
-        drink2.setStoreName("XX");
         HashMap<String, Drink> searchField = new HashMap<>();
         HashMap<String, HashMap<String, Drink>> searchField2 = new HashMap<>();
         searchField.put(drink1.getName(),drink1);
         searchField.put(drink2.getName(),drink2);
         searchField2.put(drink1.getStoreName(),searchField);
         DrinkRuntimeDataBase.setDrinks(searchField2);
-        AddToShoppingCart.addToShoppingCart(drink1.getName(), drink1.getStoreName(), 20);
-        AddToShoppingCart.addToShoppingCart(drink2.getName(), drink2.getStoreName(), 10);
+        AddToShoppingCart.addToShoppingCart(drink1, 20);
+        AddToShoppingCart.addToShoppingCart(drink2, 10);
+        System.out.println(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList());
     }
 
     @Test
