@@ -1,56 +1,73 @@
 import entities.Drink;
-import entities.Order;
 import entities.users.Seller;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import usecases.customerusecases.AddToOrderHistory;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.databaseusecases.UserRuntimeDataBase;
-import usecases.sellerusecases.ModifyDrink;
 import usecases.sellerusecases.SellerModifyDrink;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class TestSellerModifyDrink {
 
-    /** Test AddToOrderHistory use case to make sure order can be added into current customer's order history when
-     checkout in the shopping cart.
+    /** Setup input cases
      */
 
     @Test
     @BeforeEach
-    public void testOrderHistorySetup() {
+    public void SellerModifydrinkSetup() {
         Seller seller1 = new Seller("Sara", "6041231234",
-                "abcd", "Bay","Sarecoffee");
-        UserRuntimeDataBase.getSellers().put(seller1.getPhoneNumber(), seller1);
+                "abcd", "Bay", "Sarecoffee");
+        Seller seller2 = new Seller("Sara2", "6041231234",
+                "abcd", "Bay", "Sarecoffee");
+        Seller seller3 = new Seller("Sara3", "6041231234",
+                "abcd", "Bay", "Sarecoffee");
+        HashMap<String, Seller> sellerlist = new HashMap<>();
+        sellerlist.put(seller1.getPhoneNumber(), seller1);
+        sellerlist.put(seller2.getPhoneNumber(), seller2);
+        sellerlist.put(seller3.getPhoneNumber(), seller3);
+        UserRuntimeDataBase.setSellers(sellerlist);
+        HashMap<String, HashMap<String, Drink>> drinks = new HashMap<>();
+        DrinkRuntimeDataBase.addStore("store1");
+        DrinkRuntimeDataBase.addStore("store2");
+        DrinkRuntimeDataBase.addStore("store3");
+        Drink drink1 = new Drink("testName1", 5.4f, "testDiscription1", "apple", 100, new Date(), new Date(), 0.8f);
+        Drink drink2 = new Drink("testName2", 2.0f, "testDiscription2", "milk", 1, new Date(), new Date(), 1f);
+        Drink drink3 = new Drink("testName3", 9.0f, "testDiscription3", "soybean", 200, new Date(), new Date(), 1f);
+        Drink drink4 = new Drink("testName4", 8.0f, "testDiscription4", "soybean", 200, new Date(), new Date(), 1f);
+        HashMap<String, Drink> list1 = new HashMap<>();
+        HashMap<String, Drink> list2 = new HashMap<>();
+        HashMap<String, Drink> list3 = new HashMap<>();
+        list1.put("testName1", drink1);
+        list2.put("testName2", drink2);
+        list3.put("testName3", drink3);
+        drinks.put("store1", list1);
+        drinks.put("store2", list2);
+        drinks.put("store3", list3);
+        DrinkRuntimeDataBase.setDrinks(drinks);
         UserRuntimeDataBase.constructCurrentSeller("6041231234");
-        Drink drink1 = new Drink("apple", 5.4f, "good",
-                "apple", 100, new Date(), new Date(), 0.8f);
-        Drink drink2 = new Drink("Coffee", 5.4f, "good",
-                "Coffee", 100, new Date(), new Date(), 0.8f);
-        Drink drink3 = new Drink("QQ milk tea", 6f, "good",
-                "black tea and milk", 100, new Date(), new Date(), 0.8f);
-        HashMap<Drink, Integer> orderList = new HashMap<>();
-        orderList.put(drink1, 2);
-        orderList.put(drink2, 5);
-        orderList.put(drink3, 1);
-        float totalPrice = drink1.getPrice() * 2 + drink2.getPrice() * 5 + drink3.getPrice();
-        Order order = new Order(orderList, "in progress", totalPrice);
-        ArrayList<Order> Orderlist = new ArrayList<>();
-        Orderlist.add(order);
-        seller1.setAllOrders(Orderlist);
-        String Ordernumber = Integer.toString(order.getOrderNum());
-
+        UserRuntimeDataBase.getCurrentSeller().setStoreName("store1");
+        // call the use case to add new drink
+        DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName()).put("testName4", drink4);
         SellerModifyDrink.addDrink("apple2.0", 5.4f, "good",
                 "apple", 100, new Date(), new Date(), 0.8f);
+        // call the use case to delete drink
         SellerModifyDrink.deleteDrink(drink1);
-        SellerModifyDrink.modifyDrink(drink3.getName(),7f, "good",
-                "green tea and milk", 100, new Date(), new Date(), 0.9f);
+        System.out.println(DrinkRuntimeDataBase.getDrinks());
 
+    }
+    @Test
+    // test if the drink has been added
+    public void testSellerAdddrink() {
+        assertEquals("apple2.0", DrinkRuntimeDataBase.getDrinks().get("store1").get("apple2.0").getName());
+    }
+    @Test
+    // test if the drink is deleted
+    public void testOnSellerDeleteDrink() {
+        assertNull(DrinkRuntimeDataBase.getDrinks().get("store1").get("testName1"));
     }
 }
