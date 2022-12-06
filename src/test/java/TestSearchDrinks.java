@@ -38,7 +38,7 @@ public class TestSearchDrinks {
         line1.add("$" + 5.4f);
         line1.add(100 + "ml");
         assert data1.contains(line1);
-        /*search for drink's discription*/
+        /*search for drink's description*/
         Vector data2 = SearchDrinks.addToFiltered("testDiscription2");
         Vector<String> line2 = new Vector<>();
         line2.add("testName2");
