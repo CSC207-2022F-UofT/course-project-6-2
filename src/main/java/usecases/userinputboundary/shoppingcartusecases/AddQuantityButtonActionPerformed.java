@@ -1,4 +1,4 @@
-package usecases.shoppingcartusecases;
+package usecases.userinputboundary.shoppingcartusecases;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

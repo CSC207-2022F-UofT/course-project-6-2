@@ -1,4 +1,4 @@
-package usecases.shoppingcartusecases;
+package usecases.userinputboundary.shoppingcartusecases;
 
 import entities.Drink;
 import screens.customerscreens.CustomerMainScreen;

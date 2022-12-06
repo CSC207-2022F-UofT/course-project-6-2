@@ -3,9 +3,9 @@ package screens.customerscreens;
 import entities.Drink;
 import entities.users.Customer;
 import usecases.drinkusecases.GetSumOfDrinks;
-import usecases.shoppingcartusecases.AddQuantityButtonActionPerformed;
-import usecases.shoppingcartusecases.CheckoutButtonActionPerformed;
-import usecases.shoppingcartusecases.MinusQuantityButtonActionPerformed;
+import usecases.userinputboundary.shoppingcartusecases.AddQuantityButtonActionPerformed;
+import usecases.userinputboundary.shoppingcartusecases.CheckoutButtonActionPerformed;
+import usecases.userinputboundary.shoppingcartusecases.MinusQuantityButtonActionPerformed;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
