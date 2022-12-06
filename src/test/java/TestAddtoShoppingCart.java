@@ -33,7 +33,8 @@ public class TestAddtoShoppingCart {
         DrinkRuntimeDataBase.setDrinks(searchField2);
         AddToShoppingCart.addToShoppingCart(drink1, 20);
         AddToShoppingCart.addToShoppingCart(drink2, 10);
-        System.out.println(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList());
+        float Totalprize= drink1.getPrice()*20+drink2.getPrice()*10;
+        UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().setTotalPrize(Totalprize);
     }
 
     @Test
