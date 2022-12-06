@@ -11,7 +11,7 @@ import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestSearchDrinks {
-    private HashMap<String, HashMap<String, Drink>> drinks;
+    private HashMap<String, HashMap<String, Drink>> drinks = new HashMap<>();
     @Test
     @BeforeEach
     public void testSearchDrinksSetup() {

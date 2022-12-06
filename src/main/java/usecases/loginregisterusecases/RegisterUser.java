@@ -5,6 +5,9 @@ import entities.users.Seller;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 // Use Case Layer
@@ -45,8 +48,10 @@ public class RegisterUser {
         }
 
         // determine if store name exists
-        if (UserRuntimeDataBase.getSellers().get(storeName) != null) {
-            return "Store name exists";
+        for (Map.Entry<String, Seller> sellerSet : UserRuntimeDataBase.getSellers().entrySet()){
+            if(sellerSet.getValue().getStoreName() == storeName){
+                return "Store name exists";
+            }
         }
 
         // if user is a customer
