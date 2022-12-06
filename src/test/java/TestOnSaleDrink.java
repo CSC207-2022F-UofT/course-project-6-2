@@ -3,8 +3,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.drinkusecases.GetOnSaleDrinks;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,6 +10,8 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestOnSaleDrink {
+    /** Setup input cases
+     */
 
     @Test
     @BeforeEach
@@ -36,6 +36,7 @@ public class TestOnSaleDrink {
     }
 
     @Test
+    // test if the on sale drink has been added by testing it size
     public void testOnSaleDrinksSize() {
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         assertEquals(1, onSaleDrinks.size());
@@ -43,6 +44,7 @@ public class TestOnSaleDrink {
     }
 
     @Test
+    // test if the on sale drink has been added by testing it's name
     public void testOnSaleDrinksName(){
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         assertEquals("testName1", onSaleDrinks.get(0).getName());
