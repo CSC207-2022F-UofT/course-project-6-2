@@ -48,6 +48,8 @@ public class TestSearchDrinks {
         assert data2.contains(line2);
         /*search for drink does not exist*/
         Vector data3 = new Vector();
+        data3.add(line1);
+        data3.add(line2);
         Vector data4 = SearchDrinks.addToFiltered("testDiscription3");
         assertEquals(data3, data4);
 
