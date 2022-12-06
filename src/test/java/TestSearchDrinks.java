@@ -26,13 +26,14 @@ public class TestSearchDrinks {
         String s4 = "s4";
         Drink drink1 = new Drink("testName1", 5.4f, "testDiscription1", "apple", 100, new Date(), new Date(), 0.8f);
         Drink drink2 = new Drink("testName2", 2.0f, "testDiscription2", "milk", 1, new Date(), new Date(), 1f);
-        DrinkRuntimeDataBase.setDrinks(drinks);
+
         HashMap<String, Drink> list1 = new HashMap<>();
         HashMap<String, Drink> list2 = new HashMap<>();
         list1.put(s1, drink1);
         list2.put(s2, drink2);
         drinks.put(s3, list1);
         drinks.put(s4, list2);
+        DrinkRuntimeDataBase.setDrinks(drinks);
     }
     @Test
     public void testSearchDrinks() {
