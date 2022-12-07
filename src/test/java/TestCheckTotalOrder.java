@@ -35,9 +35,4 @@ public class TestCheckTotalOrder {
     public void testStatus(){
         assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getTotalOrder(),
                 2);}
-    @Test
-    @DisplayName("Test order status2")
-    public void testStatus2()
-    {assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(1).getTotalOrder(),
-            8);}
 }
