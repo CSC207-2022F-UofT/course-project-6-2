@@ -32,8 +32,10 @@ public class TestModifyOrderStatus {
         Orderlist.add(order);
         seller1.setAllOrders(Orderlist);
         String Ordernumber = Integer.toString(order.getOrderNum());
+
         // call the usecase to modify the order status
-        ModifyOrderStatus.modifyOrderStatus(Ordernumber,"modified status");
+        ModifyOrderStatus modifier = new ModifyOrderStatus();
+        modifier.modifyOrderStatus(Ordernumber,"modified status");
         assertEquals("modified status", order.getOrderStatus());
     }
 }

@@ -27,7 +27,7 @@ public class SellerModifyDrink {
         return searchedDrink;
     }
 
-    public static void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
+    public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
 
@@ -42,7 +42,7 @@ public class SellerModifyDrink {
         new ModifyDrink().modifyDrink(searchedDrink, currentDrink);
     }
 
-    public static void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
+    public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
         Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
         currentDrink.setStoreName(UserRuntimeDataBase.getCurrentSeller().getStoreName());
         DrinkRuntimeDataBase.getDrinks().computeIfAbsent(UserRuntimeDataBase.getCurrentSeller().getStoreName(), k -> new HashMap<>());
@@ -51,7 +51,7 @@ public class SellerModifyDrink {
         new ModifyDrink().modifyDrink(null, currentDrink);
     }
 
-    public static void deleteDrink(Drink drink){
+    public void deleteDrink(Drink drink){
         // Delete drink from RTDB
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
         allDrinks.remove(drink.getName());

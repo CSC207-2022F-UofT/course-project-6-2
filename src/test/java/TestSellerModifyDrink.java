@@ -53,11 +53,13 @@ public class TestSellerModifyDrink {
         UserRuntimeDataBase.getCurrentSeller().setStoreName("store1");
         // call the use case to add new drink
         DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName()).put("testName4", drink4);
-        SellerModifyDrink.addDrink("apple2.0", 5.4f, "good",
+        SellerModifyDrink modifier = new SellerModifyDrink();
+        modifier.addDrink("apple2.0", 5.4f, "good",
                 "apple", 100, new Date(), new Date(), 0.8f);
         // call the use case to delete drink
-        SellerModifyDrink.deleteDrink(drink1);
-        System.out.println(DrinkRuntimeDataBase.getDrinks());
+        modifier.deleteDrink(drink1);
+        modifier.searchedDrinkToModify("testName1");
+        System.out.println(modifier.drinkExist("testName1"));
 
     }
     @Test
@@ -68,6 +70,11 @@ public class TestSellerModifyDrink {
     @Test
     // test if the drink is deleted
     public void testOnSellerDeleteDrink() {
+        assertNull(DrinkRuntimeDataBase.getDrinks().get("store1").get("testName1"));
+    }
+    @Test
+    // test if the drink is exist
+    public void testExistDrink() {
         assertNull(DrinkRuntimeDataBase.getDrinks().get("store1").get("testName1"));
     }
 }
