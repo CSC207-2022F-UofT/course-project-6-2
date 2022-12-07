@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
- *
+ * The shopping cart panel include the items that the customer add into the shopping cart and the total amount.
  * @author sanciagao
  */
 public class ShoppingCartPanel extends JFrame {

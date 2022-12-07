@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 import java.util.Vector;
 
+/**
+ * The search drink panel that let the customer search for particular drink by entering the keyword in the textbox.
+ */
 public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final JFrame frame;
     private final JPanel panel = new JPanel();
@@ -22,6 +25,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private Vector<Drink> drinks = null;
 
     public SearchingDrinksPanel(JFrame frame){
+        // Set up the base interface with two buttons and one text box.
         this.frame = frame;
         panel.setLayout(null);
 
@@ -59,6 +63,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        // The corresponding button actions.
         if (e.getSource() == addToCartButton.button) {
             AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
             JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");

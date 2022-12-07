@@ -5,6 +5,9 @@ import usecases.databaseusecases.*;
 
 import java.io.IOException;
 
+/**
+ * This main method is used to run the project can generate the first screen of the project.
+ */
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         ConstructUserDataBase.constructUserDataBase();

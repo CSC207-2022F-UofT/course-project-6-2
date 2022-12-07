@@ -12,6 +12,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
+/**
+ * This screen display all the drinks in the current seller's store and all the info related to the drink.
+ * This screen also include four buttons to let the seller accomplish the add drink, modify drink, delete drink, and check
+ * the order history features.
+ */
 public class SellerMainScreen extends JFrame implements ActionListener {
     private final JFrame frame = new JFrame();
     Button deleteDrinkButton = new Button();

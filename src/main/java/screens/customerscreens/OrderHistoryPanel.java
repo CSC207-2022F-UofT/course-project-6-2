@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 /**
- *
+ * The order history panel that include all the orders that the login customer has checked out.
  * @author sanciagao
  */
 public class OrderHistoryPanel extends JFrame {

@@ -195,7 +195,7 @@ Notes:
 * Login Register Screens
   * [FirstMainScreen](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/FirstMainScreen.java)
     * This is the main screen that contains the login, register and reset password panel features.
-  * [LoginScreenPanel] (https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/LoginScreenPanel.java)
+  * [LoginScreenPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/loginregisterscreens/LoginScreenPanel.java)
     * This class 
   
 * Customer Main Screens
@@ -292,7 +292,10 @@ Notes:
   * [WarningBoard](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/customerscreens/WarningBoard.java)
     * When the ShoppingCart is entered, this screen would be open.
     * This screen contains a JLabel which shows the warning message and a I Understand button to close.
-    
+
+* [Main](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/Main.java)
+  * To run this project, you can just run this main class, and the interface of our project would be displayed.
+
 ### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
 * [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)
   * The lowest level object integrating with file system, converting object input stream to file output stream.
@@ -300,5 +303,16 @@ Notes:
 * [Deserializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Deserializer.java)
   * The reverse process of converting file input stream to object output stream.
 
+* [InitData](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/InitData.java)
+  * It cantians the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
+  * method to initiate the data in the project.
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
+
+## Code Style and Documentation
+* Naming convention
+  * For all the packages, we named it with all lowercase.
+  * All of our class name has follow the Pascal Case which for a single word we only capitalize the first letter, but 
+  for compound letter we also use the capital letter to make the different parts of the word easy to read.
+* Javadoc
+  * 

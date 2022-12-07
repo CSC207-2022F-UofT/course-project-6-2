@@ -12,8 +12,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The login screen panel is for the user to login, and it indicates the user to login using his phone number and
+ * password.
+ */
 // Frameworks/Drivers layer
-
 public class LoginScreenPanel extends JFrame implements ActionListener {
     // Swing components declaration
     private final JFrame frame;

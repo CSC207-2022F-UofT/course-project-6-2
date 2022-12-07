@@ -10,8 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * The reset password panel prompter the user to reset their password using their previous registered phone number.
+ */
 // Frameworks/Drivers layer
-
 public class ResetPasswordPanel extends JFrame implements ActionListener {
     // Swing components declaration
     private final JPanel panel = new JPanel();

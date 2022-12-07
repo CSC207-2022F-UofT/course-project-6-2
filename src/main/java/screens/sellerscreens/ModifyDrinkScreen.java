@@ -14,6 +14,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * The modify drink screen display the current info for the drink that the seller has searched to modified, and the seller
+ * can modify any attribute that he/she wants.
+ */
 public class ModifyDrinkScreen extends JFrame implements ActionListener {
     private final JFrame frame = new JFrame();
     private final SellerModifyDrink modify = new SellerModifyDrink();

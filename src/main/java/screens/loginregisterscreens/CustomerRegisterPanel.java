@@ -10,8 +10,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The customer register panel display all the info that the customer need to enter when registers.
+ */
 // Frameworks/Drivers layer
-
 public class CustomerRegisterPanel extends JFrame implements ActionListener {
     // Swing components declaration
     private final JPanel panel = new JPanel();

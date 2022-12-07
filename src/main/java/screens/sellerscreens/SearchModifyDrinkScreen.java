@@ -9,6 +9,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Tis screen indicate the seller to enter the drink name that he/she wants to modify, and search if the drink name is
+ * included in his/her drink list.
+ */
 public class SearchModifyDrinkScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     Button searchDrinkButton = new Button();

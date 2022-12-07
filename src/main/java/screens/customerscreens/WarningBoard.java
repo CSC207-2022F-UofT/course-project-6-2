@@ -7,6 +7,9 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The warning board is the interface to remind the warning ingredient when the customer wants to check out.
+ */
 public class WarningBoard extends JPanel {
     public WarningBoard() {
 

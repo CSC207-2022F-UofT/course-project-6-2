@@ -11,6 +11,10 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 import java.util.Vector;
 
+/**
+ * The order status screen display all the order that customer has checked out from this store.
+ * This screen also has the button to let seller modify the order status of particular order.
+ */
 public class OrderStatusScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     public Button modifyButton = new Button();
