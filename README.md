@@ -309,6 +309,8 @@ Notes:
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
 
+### 5. [Tests](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
+
 ## Code Style and Documentation
 * Naming convention
   * For all the packages, we named it with all lowercase.
