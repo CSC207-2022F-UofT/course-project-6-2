@@ -28,11 +28,10 @@ public class TestCheckTotalOrder {
         orderList.put(drink2, 5);
         float totalPrice = drink1.getPrice() * 2 + drink2.getPrice() * 5;
         AddToOrderHistory.addToOrderHistory(orderList, totalPrice);
-        AddToOrderHistory.addToOrderHistory(orderList2, totalPrice);
     }
     @Test
-    @DisplayName("Test order status")
-    public void testStatus(){
+    @DisplayName("Test Total order")
+    public void testTotalOrder(){
         assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getTotalOrder(),
-                2);}
+                1);}
 }
