@@ -353,6 +353,24 @@ Cart classes all implement the interface.
    * TestResetUserPassword: Set up a customer and a seller to test functionality for reset password.
    * TestSearchDrinks: Set up some drinks to test the functionality of searching.
 
+### [SOLID](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
+* Single Responsibility Principle (SRP)
+  * We ensured that our code follow the SRP by separating our code into different use cases with each class only having
+    one responsibility, thus only having one reason to change.
+* Open/Closed Principle (OCP)
+  * We designed our code in a way that we can add new features and modules without needing to modify old one. One example is
+    in our user, seller, and customer class. Where the seller and customer class inherits from the user class.
+* Liskov Substitution Principle (LSP)
+  * We implemented the LSP in our User class. Where the customer and seller class implement the user class. So since they are
+    the subtypes, we seperated the user into either customer or seller where we could.
+* Interface Segregation Principle (ISP)
+  * We tried to implement this principle by making sure to not have bulky interfaces and only contain methods and objects
+    that the user will use. For example, we created a separate use case for every possible case, and re-call functions if
+    their functions overlap.
+* Dependency Inversion Principle (DIP)
+  * We implemented this principle through the many interfaces and input boundaries we have. We make sure the interfaces
+    implement the input boundaries, so we can control the flow of the code without violating the principle.
+
 ## Code Style and Documentation
 * Naming convention
   * For all the packages, we named it with all lowercase.
