@@ -121,19 +121,28 @@ Notes:
   * newPassword does not necessarily need to be different with the previous password.
   * Return Boolean to indicate if the password has been set successfully.
 
-#### 2.2 Customer Use Case
+#### 2.2 [Customer Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/customerusecases)
 * [AddToShoppingCart](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/customerusecases/AddToShoppingCart.java)
   * Receive Drink and its respective quantity that needs to be added into current customer's shopping cart.
   * If the Drink (with same name and same store name) already exists in the shopping cart, it will be combined and quantity adds up.
 
-#### 2.3 Seller Use Case
+* [AddToOrderHistory](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/customerusecases/AddToOrderHistory.java)
+  * Receive orderList and total price that the customer just checked out.
+  * Add order to current customer's order history.
+  * Loop over the seller stores that involved in this order, and add order to the sellers' order history.
+
+* [sellerExists()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/customerusecases/SearchForSeller.java#L11-L22)
+  * Receive Seller store name that the customer wants to get the phone number.
+  * Return Boolean to indicate if the Seller store phone number exists in database
+
+#### 2.3 [Seller Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/sellerusecases)
 * [ModifyDrink](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyDrink.java)
   * Receive two Drink objects, one is the drink that need to be modified (old drink), and the other is the drink that need to be changed to (new drink).
   * If old drink is null, then add the new drink directly; if new drink is null, then remove the old drink directly.
   * Use this single one function to replace three replicate functions - modify, add and remove.
   
 * [ModifyOrderStatus](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/sellerusecases/ModifyOrderStatus.java)
-  * It receives the oreder number and the new order status that the seller wants to change, get the current seller using 
+  * It receives the order number and the new order status that the seller wants to change, get the current seller using 
   the getCurrentSeller method in UserRuntimeDataBase class in userusercases package. Then finds the corresponding order 
   with order number, and change the order status.
   
@@ -151,25 +160,35 @@ Notes:
   * The deleteDrink method receives the attributes of a drink including drink name, drink price, drink description, drink
     ingredient, volume, production date, expiration date and discount, and delete the corresponding drink from the database.
 
-#### 2.4 Order Use Case
+#### 2.4 [Order Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/orderusecases)
 * [GetWarningMessage()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/orderusecases/GetWarningMessage.java)
   * Return a string showing the common allergens contained in the drinks in a HashMap.
   * If the drinks in HashMap contains no common allergens, return a string showing the drinks contain no common allergens.
 
-#### 2.5 Drink Use Case
+#### 2.5 [Drink Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/drinkusecases)
 * [SearchDrinks()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/drinkusecases/SearchDrinks.java)
-  * Get all drinks by the searching keyword,return the vector form of drinks which can be used in JTable.
+  * Get all drinks by the searching keyword, return the vector form of drinks which can be used in JTable.
+  
+* [onSale()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/drinkusecases/GetOnSaleDrinks.java)
+  * Return all drinks that has discount not equal to 1 (has discount)
 
 #### 2.6 [Database Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userusercases)
 * [constructUserData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/ConstructUserDataBase.java)
-  * Extract User objects from database and store to users in a ArrayList of HashMap.
+  * Extract User objects from database and store users in a ArrayList of HashMap.
   * HashMap at index 0 are seller objects and HashMap at index 1 are customer objects.
 
+* [constructDrinkData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/databaseusecases/ConstructDrinkDataBase.java)
+  * Extract Drink objects from database and store drink in a Hashmap of Hashmap.
+  * Key of first Hashmap is store name, Value of first Hashmap is Hashmap of drink name and Drink object.
+
 * [saveUserData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/SaveUserDataBase.java)
-  * Save User objects into database.
+and [saveDrinkData()](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/databaseusecases/SaveDrinkDataBase.java)
+  * Save User and Drink objects into database.
 
 * [User Runtime Database](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userusercases/UserRuntimeDataBase.java)
+and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/databaseusecases/DrinkRuntimeDataBase.java)
   * Save all sellers and customers data in the Runtime Database
+  * Save all drink data into Runtime Database
   * Save current seller and customer who are viewing the application in a Runtime Database
   * We save these data as static variables to make sure every screen and/or use case that access these data will get the 
   same value instead of calling multiple instances of the class which might not be updated properly.
@@ -178,7 +197,8 @@ Notes:
   a use cases modify the user object attributes (i.e. reset password, customer make a new order, seller add drinks), 
   other use cases will have the variable updated.
 
-#### 2.7 [user response model](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userresponsemodel)
+
+#### 2.7 [User Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userresponsemodel)
 * [Login Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/LoginResponseModel.java)
   * Providing the corresponding message to users when login in. Either successfully logged in. Or incorrect  phone number or password.
 
@@ -304,7 +324,7 @@ Notes:
   * The reverse process of converting file input stream to object output stream.
 
 * [InitData](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/InitData.java)
-  * It cantians the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
+  * It contains the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
   * method to initiate the data in the project.
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
@@ -312,21 +332,19 @@ Cart classes all implement the interface.
 ### 5. [Tests](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
 * This test calls each callable(not related to java swing)
  method at least once.And test the behaviour of the method with different circumstances.
- * [Test of Entities].
+ * Test of Entities.
    * Customer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
    * Seller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName()etc).
    * Drinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
- * [Test of Usecases].
+ * Test of Usecases.
    * TestModifyDrink: Test the functionality of modifying the attributes of the drink.
    * ModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
-   * SellerModifyDrink: Setup seller object to addDrink, deletedrink, and modify the attributes of drink.
-   * TestAddToOrderHistory: Created a customer object to add orders to orderhistory, and see if the functionality is working.
+   * SellerModifyDrink: Setup seller object to add drink, delete drink, and modify the attributes of drink.
+   * TestAddToOrderHistory: Created a customer object to add orders to order history, and see if the functionality is working.
    * TestAddToShoppingCart: Created a customer object to add orders to the shopping cart, and see if the functionality is working.
    * TestGetOrderStatus: Created a customer object to test if customers are able to get the order status for the drinks they want.
    * TestCheckTotalOrder: Set up some orders, add them to the order history, and test if the sum of the order is equivalent to our expectation.
-   * TestGetOnsaleDrink: Setup input cases, and test if the on-sale drink has been added in to our on-sale drink list. 
-
-
+   * TestGetOnsaleDrink: Setup input cases, and test if the on-sale drink has been added in to our on-sale drink list.
 
 ## Code Style and Documentation
 * Naming convention
@@ -338,3 +356,28 @@ Cart classes all implement the interface.
   * We have also add the description for the constructor of all the entities to indicate what each parameter means.
   * The method also have javadoc to describe what the method main does, and what the parameter indicates.
   * For some parts that hard to understand, we have added the explanation javadoc beside it.
+
+## Design Pattern
+* Singleton
+  * Helper Serializer, Deserializer and Runtime Database follows Singleton Design because these classes 
+  has only one instance and provide a global access point to that instance
+* Observer
+  * MainInterface observe the output of each Screen and show on the screen when application opens
+* Command
+  * Add to Cart buttons in Drink screen, Sale Board screen and Search Drink screen use the same command 
+  AddToShoppingCart and make the buttons execute that command on a click
+* Template Method
+  * User is the abstract super class and lets subclasses Customer and Seller override specific steps of 
+  the algorithm without changing its structure
+
+## Accessibility
+* Equitable Use
+  * Customer Service to address questions and provide help
+* Flexibility in Use
+  * Sale Section and General Drink Layout provide customers choices in choosing drinks
+* Simple and Intuitive Use
+  * Seller Add/Modify drink provides hints for input
+* Tolerance for Error 
+  * Warning Board minimizes hazards and the adverse consequences of accidental or unintended actions
+* Low Physical Effort
+  * Customers can add drink quantities in Shopping Cart to minimize repetitive actions of go to drink layout and add drinks again
