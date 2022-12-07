@@ -19,6 +19,7 @@ public class TestAddtoShoppingCart {
 
     @Test
     @BeforeEach
+    //set up input
     public void testOrderHistorySetup() {
         Customer customer1 = new Customer("Sara", "6041231234", "abcd", 18, "Bay");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
@@ -39,13 +40,15 @@ public class TestAddtoShoppingCart {
 
     @Test
     @DisplayName("Test total prize")
+    //check total prize
     public void testTotalOrder(){
         assertEquals(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getTotalPrize(),
                 128);
     }
 
     @Test
-    @DisplayName("Test total prize")
+    @DisplayName("Test Item list")
+    //check if item list contains our input objects
     public void testItemList(){
        assertTrue(UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList().containsValue(20));
     }

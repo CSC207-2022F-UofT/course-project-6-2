@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestCheckTotalOrder {
+    // set up input
     @Test
     @BeforeEach
     public void testChecktotalorderSetUp() {
