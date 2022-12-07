@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestGetWarningMessage {
+    /** This test is used for testing if the warning message part can return the right warning ingredient that the items
+     * in shopping cart include.
+     */
     @Test
     /*the drinks have one dangerous ingredient*/
     public void oneDangerousIngredientTest() {

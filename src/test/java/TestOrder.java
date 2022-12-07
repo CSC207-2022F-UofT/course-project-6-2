@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class TestOrder {
+    /** This test is used for testing when adding new drink to the order, the order's number and order status can correctly
+     * get the right data. Also, for testing if the total order get updated.
+     *
+     */
     @Test
     public void OrderTest(){
         Date date1 = new Date();
