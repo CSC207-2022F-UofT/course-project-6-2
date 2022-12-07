@@ -312,10 +312,10 @@ Cart classes all implement the interface.
 ### 5. [Tests](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
 * This test calls each callable(not related to java swing)
  method at least once.And test the behaviour of the method with different circumstances.
- * [Test of Entities]
-  * Customer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
-  * Seller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName()etc).
-  * Driclassnk: Called every drink attribute, and methods.(Name, Price, ingredients etc)
+ * [Test of Entities].
+   * Customer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
+   * Seller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName()etc).
+   * Driclassnk: Called every drink attribute, and methods.(Name, Price, ingredients etc)
 
 
 
