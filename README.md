@@ -315,4 +315,7 @@ Cart classes all implement the interface.
   * All of our class name has follow the Pascal Case which for a single word we only capitalize the first letter, but 
   for compound letter we also use the capital letter to make the different parts of the word easy to read.
 * Javadoc
-  * 
+  * We have added the javadoc in front of every java class to describe what these codes mainly do.
+  * We have also add the description for the constructor of all the entities to indicate what each parameter means.
+  * The method also have javadoc to describe what the method main does, and what the parameter indicates.
+  * For some parts that hard to understand, we have added the explanation javadoc beside it.
