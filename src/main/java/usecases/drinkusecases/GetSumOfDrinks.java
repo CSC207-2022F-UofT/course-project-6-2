@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class GetSumOfDrinks {
-    public static float getSumOfDrinks(JTable table, ArrayList<Float> totalAmount, float total){
+    public float getSumOfDrinks(JTable table, ArrayList<Float> totalAmount, float total){
         for (int i = 0; i < table.getRowCount(); i++) {
 
             float newVal = Float.parseFloat(table.getValueAt(i, 3).toString()) *
