@@ -39,8 +39,8 @@ public class TestCheckTotalOrder {
         Drink drink2 = new Drink("milk", 2.0f, "great", "milk", 1, new Date(), new Date(), 1f);
         HashMap<Drink, Integer> orderList = new HashMap<>();
         HashMap<Drink, Integer> orderList2 = new HashMap<>();
-        orderList.put(drink1, 2);
-        float totalPrice = drink1.getPrice() * 2 + drink2.getPrice() * 5;
+        orderList.put(drink1, 1);
+        float totalPrice = drink1.getPrice() * 1;
         AddToOrderHistory.addToOrderHistory(orderList, totalPrice);
         assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getTotalOrder(),
                 2);}
