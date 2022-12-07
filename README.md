@@ -315,7 +315,7 @@ Cart classes all implement the interface.
  * [Test of Entities].
    * Customer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
    * Seller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName()etc).
-   * Driclassnk: Called every drink attribute, and methods.(Name, Price, ingredients etc)
+   * Drinks: Called every drink attribute, and methods.(Name, Price, ingredients etc)
 
 
 
