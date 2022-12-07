@@ -316,7 +316,7 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
 * [Main](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/Main.java)
   * To run this project, you can just run this main class, and the interface of our project would be displayed.
 
-### 5. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
+### 4. [Helpers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
 * [Serializer](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/Serializer.java)
   * The lowest level object integrating with file system, converting object input stream to file output stream.
 
@@ -324,7 +324,7 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
   * The reverse process of converting file input stream to object output stream.
 
 * [InitData](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/InitData.java)
-  * It contains the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
+  * It cantians the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
   * method to initiate the data in the project.
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
@@ -332,19 +332,26 @@ Cart classes all implement the interface.
 ### 5. [Tests](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
 * This test calls each callable(not related to java swing)
  method at least once.And test the behaviour of the method with different circumstances.
- * Test of Entities.
-   * Customer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
-   * Seller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName()etc).
-   * Drinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
- * Test of Usecases.
+ * [Test of Entities].
+   * TestCustomer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
+   * TestSeller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName() etc).
+   * TestDrinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
+   * TestOrder: Called every order attribute (orderNum, orderStatus etc) and methods ( getOrderList(), setOrderNum etc).
+   * TestShoppingCart: Called every ShoppingCart attribute (itemList, totalPrize etc) and methods ( getItemList(), setTotalPrize() etc).
+ * [Test of Usecases].
    * TestModifyDrink: Test the functionality of modifying the attributes of the drink.
-   * ModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
-   * SellerModifyDrink: Setup seller object to add drink, delete drink, and modify the attributes of drink.
-   * TestAddToOrderHistory: Created a customer object to add orders to order history, and see if the functionality is working.
+   * TestModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
+   * TestSellerModifyDrink: Setup seller object to addDrink, deletedrink, and modify the attributes of drink.
+   * TestAddToOrderHistory: Created a customer object to add orders to orderhistory, and see if the functionality is working.
    * TestAddToShoppingCart: Created a customer object to add orders to the shopping cart, and see if the functionality is working.
    * TestGetOrderStatus: Created a customer object to test if customers are able to get the order status for the drinks they want.
    * TestCheckTotalOrder: Set up some orders, add them to the order history, and test if the sum of the order is equivalent to our expectation.
-   * TestGetOnsaleDrink: Setup input cases, and test if the on-sale drink has been added in to our on-sale drink list.
+   * TestGetOnsaleDrink: Set up input cases, and test if the on-sale drink has been added in to our on-sale drink list. 
+   * TestGetWarningMessage: Test the functionality of finding common allergens and alcohol in the ingredients of drinks.
+   * TestLoginUser: Created a customer and a seller to test functionality for login.
+   * TestRegisterUser: Set up a customer and a seller to test functionality for register.
+   * TestResetUserPassword: Set up a customer and a seller to test functionality for reset password.
+   * TestSearchDrinks: Set up some drinks to test the functionality of searching.
 
 ## Code Style and Documentation
 * Naming convention
