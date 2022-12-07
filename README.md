@@ -315,7 +315,16 @@ Cart classes all implement the interface.
  * [Test of Entities].
    * Customer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
    * Seller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName()etc).
-   * Drinks: Called every drink attribute, and methods.(Name, Price, ingredients etc)
+   * Drinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
+ * [Test of Usecases].
+   * TestModifyDrink: Test the functionality of modifying the attributes of the drink.
+   * ModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
+   * SellerModifyDrink: Setup seller object to addDrink, deletedrink, and modify the attributes of drink.
+   * TestAddToOrderHistory: Created a customer object to add orders to orderhistory, and see if the functionality is working.
+   * TestAddToShoppingCart: Created a customer object to add orders to the shopping cart, and see if the functionality is working.
+   * TestGetOrderStatus: Created a customer object to test if customers are able to get the order status for the drinks they want.
+   * TestCheckTotalOrder: Set up some orders, add them to the order history, and test if the sum of the order is equivalent to our expectation.
+   * TestGetOnsaleDrink: Setup input cases, and test if the on-sale drink has been added in to our on-sale drink list. 
 
 
 
