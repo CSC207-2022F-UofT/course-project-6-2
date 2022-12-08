@@ -12,7 +12,7 @@ public class OrderHistoryPanel extends JFrame {
 
     // setting up variables
     private final JPanel panel = new JPanel();
-
+    @SuppressWarnings("unchecked")
     public OrderHistoryPanel() {
 
         // setting up local variables
@@ -56,7 +56,7 @@ public class OrderHistoryPanel extends JFrame {
         scrollPane.setBounds(50, 0, 700, 400);
         panel.add(scrollPane);
     }
-
+    @SuppressWarnings("unchecked")
     public JPanel getPanel() {
         return panel;
     }

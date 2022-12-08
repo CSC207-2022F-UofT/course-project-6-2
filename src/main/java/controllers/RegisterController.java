@@ -39,8 +39,6 @@ public class RegisterController {
     public String registerUser() {
         String registerResult = RegisterUser.registerUser(accountName, phoneNumber, password,
                 confirmPass, address, age, storeName);
-        System.out.println(password);
-        System.out.println(confirmPass);
         new ResponsePresenter(UserResponseModel.registerResponse(registerResult)).messagePresenter();
         return registerResult;
     }
