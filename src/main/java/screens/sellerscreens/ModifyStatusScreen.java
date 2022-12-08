@@ -11,6 +11,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The modify status screen indicate the seller to enter the order number of the order that he/she wants to modify and
+ * the new order status.
+ */
 public class ModifyStatusScreen extends JFrame implements ActionListener {
     private final JFrame frame = new JFrame();
     private final Button modifyButton = new Button();
@@ -20,7 +24,6 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
 
     public ModifyStatusScreen() {
         // Basic setups
-
         frame.setSize(400, 150);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("modify order status");

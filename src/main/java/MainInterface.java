@@ -1,11 +1,12 @@
-package screens;
-
 import screens.loginregisterscreens.FirstMainScreen;
 import usecases.databaseusecases.*;
 
 import java.io.IOException;
 
-public class Main {
+/**
+ * This main method is used to run the project can generate the first screen of the project.
+ */
+public class MainInterface {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         ConstructUserDataBase.constructUserDataBase();
         ConstructDrinkDataBase.constructDrinkDataBase();

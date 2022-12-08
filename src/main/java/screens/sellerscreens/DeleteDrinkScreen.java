@@ -10,6 +10,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The delete drink screen that prompt the seller to enter the drink name that he wants to delete.
+ */
 public class DeleteDrinkScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     Button deleteDrinkButton = new Button();

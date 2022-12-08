@@ -9,8 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+/**
+ *  * The seller register panel display all the info that the seller need to enter when registers.
+ */
 // Frameworks/Drivers layer
-
 public class SellerRegisterPanel extends JFrame implements ActionListener {
     // Swing components declaration
     private final JPanel panel = new JPanel();

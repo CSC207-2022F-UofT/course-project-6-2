@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+/**
+ * The add drink screen that prompt the seller to enter all the attribute of the new drink.
+ */
 public class AddDrinkScreen extends JFrame implements ActionListener {
     private final JFrame frame = new JFrame();
     private final Button addDrinkButton = new Button();

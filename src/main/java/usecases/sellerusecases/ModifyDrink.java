@@ -6,6 +6,9 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.ArrayList;
 
+/**
+ * The use case is used to modify drink when the seller changes the attribute for a particular drink.
+ */
 public class ModifyDrink {
     /**
      * Seller modify only one drink.

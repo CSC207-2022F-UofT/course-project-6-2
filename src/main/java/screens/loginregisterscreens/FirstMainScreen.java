@@ -2,6 +2,9 @@ package screens.loginregisterscreens;
 
 import javax.swing.*;
 
+/**
+ * This is the first screen when user open this project, it set up the interface including all the panels.
+ */
 public class FirstMainScreen extends JFrame {
     public FirstMainScreen() {
         JFrame frame = new JFrame();

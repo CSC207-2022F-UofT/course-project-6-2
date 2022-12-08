@@ -15,13 +15,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class InitData {
+    /**
+     * This is used to initialize all the database for this project including 5 seller data, 26 drink data, and 12 customer data.
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
+        // Create 5 new sellers.
         Seller seller1 = new Seller("Jason Wang", "3652768777", "1357", "210 spadina ave", "Soda Treat");
         Seller seller2 = new Seller("Lucas Liu", "4899277216", "9999", "15 Yonge st", "Cocktail Bazaar (alcohol)");
         Seller seller3 = new Seller("Allen", "6478916276", "0411", "100 Spadina ave", "Fountain Drinks");
         Seller seller4 = new Seller("William Liu", "6473222922", "250250", "25 Wellesley st W", "Drinksify");
         Seller seller5 = new Seller("Amanda", "5257688765", "289987", "957 Bay st", "Junction Fizzy");
 
+        // Create 12 new customers.
         Customer customer1 = new Customer("Jack", "6742629786", "1398", 28, "11 Wellesley st W");
         Customer customer2 = new Customer("Lucy", "4287988172", "2208", 31, "832 Bay st");
         Customer customer3 = new Customer("Peter", "358268510", "240211", 75, "70 Forest Manor st");
@@ -35,6 +41,7 @@ public class InitData {
         Customer customer11 = new Customer("Andrew", "8273904000", "000111", 18, "1537 Avenue Rd");
         Customer customer12 = new Customer("Joshua", "6273802219", "159260", 15, "158 Sterling Rd");
 
+        // Create 26 new drinks.
         Drink drink1a = new Drink("Cherry Vanilla Soda", 8.12f, "A soda juice with cherry vanilla flavour",
                 "cherry juice, sugar, vanilla, soda", 125, new DrinkInputBoundary().getDate("2022-09-31"), new DrinkInputBoundary().getDate("2023-09-31"), 1);
         Drink drink1b = new Drink("Lemon Soda", 6.99f, "A soda drink with lemon flavour", "lemon, soda, salt, sugar, water",
@@ -90,7 +97,7 @@ public class InitData {
         Drink drink5e = new Drink("Iced Tea", 2.88f, "A form of cold tea drink", "water, black tea, sugar",
                 960, new DrinkInputBoundary().getDate("2022-04-09"), new DrinkInputBoundary().getDate("2023-04-09"), 1f);
 
-        // For saveToUserDataBase
+        // For saveToUserDataBase, add the 26 drinks to the corresponding seller.
         ArrayList<Drink> seller1Drinks = new ArrayList<>(
                 Arrays.asList(drink1a, drink1b, drink1c, drink1d, drink1e, drink1f)
         );

@@ -7,6 +7,9 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class TestShoppingCart {
+    /** This test is used for testing if the shopping cart entity can correctly get the right data, when new drink add
+     * into the shopping cart.
+     */
     @Test
     public void ShoppingCartTest(){
         Date date1 = new Date();

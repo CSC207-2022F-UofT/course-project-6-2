@@ -3,6 +3,9 @@ package screens.customerscreens;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
 
+/**
+ * The searching table model is used to set up the headers and data in the jtable for the searched drink.
+ */
 public class SearchingTableModel extends DefaultTableModel {
     private static final Vector<String> headers = new Vector<>();
     static {

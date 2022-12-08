@@ -4,6 +4,9 @@ import entities.Order;
 import entities.users.Seller;
 import usecases.databaseusecases.UserRuntimeDataBase;
 
+/**
+ * This use case is used to update the order status when the seller modify it.
+ */
 public class ModifyOrderStatus {
     /**
      * Seller modify the order status for particular order.
