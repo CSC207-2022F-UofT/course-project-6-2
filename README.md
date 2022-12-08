@@ -401,7 +401,7 @@ And test the behaviour of the method with different circumstances.
    * TestSeller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName() etc).
    * TestDrinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
    * TestOrder: Called every order attribute (orderNum, orderStatus etc) and methods ( getOrderList(), setOrderNum etc).
-   * TestShoppingCart: Called every ShoppingCart attribute (itemList, totalPrize etc) and methods ( getItemList(), setTotalPrize() etc).
+   * TestShoppingCart: Called every ShoppingCart attribute (itemList, totalPrize etc) and methods ( setTotalPrize() etc).
  * Test of Usecases
    * TestModifyDrink: Test the functionality of modifying the attributes of the drink.
    * TestModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
@@ -409,7 +409,6 @@ And test the behaviour of the method with different circumstances.
    * TestAddToOrderHistory: Created a customer object to add orders to orderhistory, and see if the functionality is working.
    * TestAddToShoppingCart: Created a customer object to add orders to the shopping cart, and see if the functionality is working.
    * TestGetOrderStatus: Created a customer object to test if customers are able to get the order status for the drinks they want.
-   * TestCheckTotalOrder: Set up some orders, add them to the order history, and test if the sum of the order is equivalent to our expectation.
    * TestGetOnsaleDrink: Set up input cases, and test if the on-sale drink has been added in to our on-sale drink list. 
    * TestGetWarningMessage: Test the functionality of finding common allergens and alcohol in the ingredients of drinks.
    * TestLoginUser: Created a customer and a seller to test functionality for login.
