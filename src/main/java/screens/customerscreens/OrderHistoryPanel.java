@@ -8,21 +8,17 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
-/**
- * The order history panel that include all the orders that the login customer has checked out.
- * @author sanciagao
- */
 public class OrderHistoryPanel extends JFrame {
 
     // setting up variables
-    JPanel panel = new JPanel();
-    Customer currCustomer = ShoppingCartPanel.currCustomer;
-
+    private final JPanel panel = new JPanel();
+    @SuppressWarnings("unchecked")
     public OrderHistoryPanel() {
 
         // setting up local variables
-        Vector<String> headers = new Vector();
+        Vector<String> headers = new Vector<>();
         Vector data = new Vector();
+        Customer currCustomer = ShoppingCartPanel.currCustomer;
         ArrayList<Order> orders = currCustomer.getOrderHistory();
         DecimalFormat df = new DecimalFormat("0.00");
 
@@ -60,7 +56,7 @@ public class OrderHistoryPanel extends JFrame {
         scrollPane.setBounds(50, 0, 700, 400);
         panel.add(scrollPane);
     }
-
+    @SuppressWarnings("unchecked")
     public JPanel getPanel() {
         return panel;
     }

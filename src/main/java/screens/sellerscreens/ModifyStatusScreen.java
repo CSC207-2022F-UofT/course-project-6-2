@@ -1,5 +1,6 @@
 package screens.sellerscreens;
 
+import presentor.ResponsePresenter;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextHorizontalPanel;
 import entities.users.Seller;
@@ -24,7 +25,7 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
     public ModifyStatusScreen() {
         // Basic setups
         frame.setSize(400, 150);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("modify order status");
         frame.setResizable(false);
 
@@ -59,7 +60,7 @@ public class ModifyStatusScreen extends JFrame implements ActionListener {
         if (e.getSource() == modifyButton.getButton()){
             Seller seller = UserRuntimeDataBase.getCurrentSeller();
             if (seller.allOrders == null) {
-                JOptionPane.showMessageDialog(null, "You do not have a order to modify.");
+                new ResponsePresenter("You do not have a order to modify.").messagePresenter();
                 return;
             }
 

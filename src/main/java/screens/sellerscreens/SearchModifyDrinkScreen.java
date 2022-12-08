@@ -1,6 +1,5 @@
 package screens.sellerscreens;
 
-import entities.Drink;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextHorizontalPanel;
 import usecases.sellerusecases.SellerModifyDrink;
@@ -17,13 +16,12 @@ public class SearchModifyDrinkScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     Button searchDrinkButton = new Button();
     Button cancelButton = new Button();
-
     JTextField drinkNameField = new JTextField(15); //The drink name entered
 
     public SearchModifyDrinkScreen() {
         // Basic setups
         frame.setSize(400, 125);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("search drink to modify");
         frame.setResizable(false);
 

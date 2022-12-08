@@ -1,6 +1,7 @@
 package screens.customerscreens;
 
 import entities.Drink;
+import presentor.ResponsePresenter;
 import usecases.customerusecases.AddToShoppingCart;
 import usecases.drinkusecases.SearchDrinks;
 import screens.swingcomponents.Button;
@@ -12,7 +13,8 @@ import java.awt.*;
 import java.util.Vector;
 
 /**
- * The search drink panel that let the customer search for particular drink by entering the keyword in the textbox.
+ * The search drink panel that let the customer search for particular drink by
+ * entering the keyword in the textbox.
  */
 public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final JFrame frame;
@@ -24,7 +26,7 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private Drink selectedDrink;
     private Vector<Drink> drinks = null;
 
-    public SearchingDrinksPanel(JFrame frame){
+    public SearchingDrinksPanel(JFrame frame) {
         // Set up the base interface with two buttons and one text box.
         this.frame = frame;
         panel.setLayout(null);
@@ -41,14 +43,15 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         layoutCenter(panel);
         panel.setVisible(true);
     }
-    private void layoutCenter(Container contentPane){
+
+    private void layoutCenter(Container contentPane) {
         JScrollPane jScrollPane = new JScrollPane(drinkTable);
-        jScrollPane.setBounds(50,50,700, 400);
-        contentPane.add(jScrollPane,BorderLayout.CENTER);
+        jScrollPane.setBounds(50, 50, 700, 400);
+        contentPane.add(jScrollPane, BorderLayout.CENTER);
 
         ListSelectionModel model = drinkTable.getSelectionModel();
         model.addListSelectionListener(e -> {
-            if (! model.isSelectionEmpty()) {
+            if (!model.isSelectionEmpty()) {
                 int selectedRow = model.getMinSelectionIndex();
                 selectedDrink = drinks.get(selectedRow);
             }
@@ -56,15 +59,17 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
 
         SearchDrinks.clearFilteredItems();
     }
-    public JPanel getPanel(){
+
+    public JPanel getPanel() {
         return panel;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // The corresponding button actions.
         if (e.getSource() == addToCartButton.button) {
             AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
-            JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
+            new ResponsePresenter(" added to shopping cart!").drinkMessagePresenter(selectedDrink.getName());
             new CustomerMainScreen();
             frame.setVisible(false);
         }

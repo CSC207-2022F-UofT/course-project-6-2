@@ -1,14 +1,12 @@
 package screens.loginregisterscreens;
 
+import controllers.ResetPasswordController;
 import screens.swingcomponents.Button;
-import screens.swingcomponents.LabelTextHorizontalPanel;
 import screens.swingcomponents.LabelTextVerticalPanel;
-import usecases.loginregisterusecases.ResetUserPassword;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 /**
  * The reset password panel prompter the user to reset their password using their previous registered phone number.
@@ -35,7 +33,7 @@ public class ResetPasswordPanel extends JFrame implements ActionListener {
                 250, 160, 300, 30);
 
         LabelTextVerticalPanel confirmPassPanel = new LabelTextVerticalPanel();
-        passwordPanel.createLabelTextPanel(panel, new JLabel("Confirm Password :"), confirmPassField,
+        confirmPassPanel.createLabelTextPanel(panel, new JLabel("Confirm Password :"), confirmPassField,
                 250, 220, 300, 30);
 
         // Create reset button and add action listener
@@ -59,20 +57,12 @@ public class ResetPasswordPanel extends JFrame implements ActionListener {
         String confirmPass = String.valueOf(confirmPassField.getPassword());
 
         if(e.getSource() == resetButton.button){
-            boolean resetResult;
-            try {
-                resetResult = ResetUserPassword.resetPassword(phoneNum, newPass, confirmPass);
-            } catch (IOException | ClassNotFoundException ex) {
-                throw new RuntimeException(ex);
-            }
+            boolean resetResult = new ResetPasswordController(phoneNum, newPass, confirmPass).resetPassword();
             if (resetResult) {
-                JOptionPane.showMessageDialog(null, "You have reset your password!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Phone number incorrect or password doesn't match!");
+                phoneNumField.setText("");
+                passwordField.setText("");
+                confirmPassField.setText("");
             }
-            phoneNumField.setText("");
-            passwordField.setText("");
-            confirmPassField.setText("");
         }
     }
 }

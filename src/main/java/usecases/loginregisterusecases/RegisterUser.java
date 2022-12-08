@@ -7,7 +7,7 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.Objects;
 
-// Use Case Layer
+// Use case Layer
 
 public class RegisterUser {
     /**
@@ -34,6 +34,16 @@ public class RegisterUser {
             return "Text field empty";
         }
 
+        // determine if phone number is integer
+        if (Objects.equals(phoneNumber, "0")) {
+            return "Phone number not integer";
+        }
+
+        // determine if phone number is not a valid length
+        if (Objects.equals(phoneNumber, "-1")) {
+            return "Phone number not valid length";
+        }
+
         // determine if age is not a integer
         if (age == -2) {
             return "Age not integer";
@@ -54,7 +64,6 @@ public class RegisterUser {
             Customer newCustomer = new Customer(accountName, phoneNumber, password, age, address);
             UserRuntimeDataBase.getCustomers().put(phoneNumber, newCustomer);
         }
-
         // if user is a seller
         else {
             Seller newSeller = new Seller(accountName, phoneNumber, password, address, storeName);

@@ -1,18 +1,17 @@
 package screens.sellerscreens;
 
+import controllers.AddModifyDrinkController;
 import entities.Drink;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextVerticalPanel;
 import usecases.sellerusecases.SellerModifyDrink;
-import usecases.userinputboundary.DrinkInputBoundary;
-import usecases.userresponsemodel.DrinkResponseModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Objects;
 
 /**
  * The modify drink screen display the current info for the drink that the seller has searched to modified, and the seller
@@ -20,8 +19,7 @@ import java.util.Date;
  */
 public class ModifyDrinkScreen extends JFrame implements ActionListener {
     private final JFrame frame = new JFrame();
-    private final SellerModifyDrink modify = new SellerModifyDrink();
-    private final Drink currDrink = modify.getSearchedDrink();
+    private final Drink currDrink = SellerModifyDrink.getSearchedDrink();
     private final DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private final String strProduction = format.format(currDrink.getProductionData());
     private final String strExpiration = format.format(currDrink.getExpirationDate());
@@ -38,7 +36,7 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
     public ModifyDrinkScreen() {
         // Basic setups
         frame.setSize(500, 520);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("modify drink");
         frame.setResizable(false);
 
@@ -96,19 +94,18 @@ public class ModifyDrinkScreen extends JFrame implements ActionListener {
         }
 
         String name = drinkNameField.getText();
-        Float price = new DrinkInputBoundary().getPrice(drinkPriceField.getText());
+        String price = drinkPriceField.getText();
         String description = drinkDescriptionField.getText();
         String ingredient = drinkIngredientField.getText();
-        Integer volume = new DrinkInputBoundary().getVolume(drinkVolumeField.getText());
-        Date productionDate = new DrinkInputBoundary().getDate(drinkProductionField.getText());
-        Date expirationDate = new DrinkInputBoundary().getDate(drinkExpirationField.getText());
-        Float discount =  new DrinkInputBoundary().getDiscount(drinkDiscountField.getText());
+        String volume =drinkVolumeField.getText();
+        String productionDate = drinkProductionField.getText();
+        String expirationDate = drinkExpirationField.getText();
+        String discount = drinkDiscountField.getText();
 
         if (e.getSource() == modifyDrinkButton.button){
-            new DrinkResponseModel(price, volume, productionDate, expirationDate, discount);
-            if (price != -1.0f && volume != -1 && productionDate != null && expirationDate != null
-                    && discount != -1.0f) {
-                modify.modifyDrink(name, price, description, ingredient, volume, productionDate, expirationDate, discount);
+            String modifyDrinkResult = new AddModifyDrinkController(name, price, description, ingredient,
+                    volume, productionDate, expirationDate, discount).modifyDrink();
+            if (Objects.equals(modifyDrinkResult, "Success")) {
                 new SellerMainScreen();
                 frame.setVisible(false);
             }

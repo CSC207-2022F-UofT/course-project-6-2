@@ -1,15 +1,13 @@
 package screens.sellerscreens;
 
+import controllers.AddModifyDrinkController;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextVerticalPanel;
-import usecases.sellerusecases.SellerModifyDrink;
-import usecases.userinputboundary.DrinkInputBoundary;
-import usecases.userresponsemodel.DrinkResponseModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.util.Objects;
 
 /**
  * The add drink screen that prompt the seller to enter all the attribute of the new drink.
@@ -30,7 +28,7 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
     public AddDrinkScreen() {
         // Basic setups
         frame.setSize(500, 520);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("add drink");
         frame.setResizable(false);
 
@@ -89,24 +87,22 @@ public class AddDrinkScreen extends JFrame implements ActionListener {
         }
 
         String name = drinkNameField.getText();
-        Float price = new DrinkInputBoundary().getPrice(drinkPriceField.getText());
+        String price = drinkPriceField.getText();
         String description = drinkDescriptionField.getText();
         String ingredient = drinkIngredientField.getText();
-        Integer volume = new DrinkInputBoundary().getVolume(drinkVolumeField.getText());
-        Date productionDate = new DrinkInputBoundary().getDate(drinkProductionField.getText());
-        Date expirationDate = new DrinkInputBoundary().getDate(drinkExpirationField.getText());
-        Float discount =  new DrinkInputBoundary().getDiscount(drinkDiscountField.getText());
-        SellerModifyDrink add = new SellerModifyDrink();
+        String volume =drinkVolumeField.getText();
+        String productionDate = drinkProductionField.getText();
+        String expirationDate = drinkExpirationField.getText();
+        String discount = drinkDiscountField.getText();
 
         if(e.getSource() == cancelButton.button){
             new SellerMainScreen();
             frame.setVisible(false);
         }
         if(e.getSource() == addDrinkButton.button){
-            new DrinkResponseModel(price, volume, productionDate, expirationDate, discount);
-            if (price != -1.0f && volume != -1 && productionDate != null && expirationDate != null
-                    && discount != -1.0f) {
-                add.addDrink(name, price, description, ingredient, volume, productionDate, expirationDate, discount);
+            String addDrinkResult = new AddModifyDrinkController(name, price, description, ingredient,
+                    volume, productionDate, expirationDate, discount).addDrink();
+            if (Objects.equals(addDrinkResult, "Success")) {
                 new SellerMainScreen();
                 frame.setVisible(false);
             }

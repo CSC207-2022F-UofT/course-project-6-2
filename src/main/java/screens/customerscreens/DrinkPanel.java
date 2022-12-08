@@ -1,6 +1,7 @@
 package screens.customerscreens;
 
 import entities.Drink;
+import presentor.ResponsePresenter;
 import screens.swingcomponents.Button;
 import usecases.databaseusecases.DrinkRuntimeDataBase;
 import usecases.customerusecases.AddToShoppingCart;
@@ -77,7 +78,7 @@ public class DrinkPanel extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToCartButton.button) {
             AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
-            JOptionPane.showMessageDialog(null, selectedDrink.getName()  + " added to shopping cart!");
+            new ResponsePresenter(" added to shopping cart!").drinkMessagePresenter(selectedDrink.getName());
             new CustomerMainScreen();
             frame.setVisible(false);
         }

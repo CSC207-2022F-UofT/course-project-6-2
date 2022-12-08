@@ -19,9 +19,8 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     public Button modifyButton = new Button();
     public Button backButton = new Button();
-
-    Vector headers = new Vector();
-    Vector data = new Vector();
+    Vector<String> headers = new Vector<>();
+    Vector<Vector<String>> data = new Vector<>();
 
     public OrderStatusScreen() {
         // Basic setups for the Jtable.
@@ -32,7 +31,7 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
         Seller seller = UserRuntimeDataBase.getCurrentSeller();
         if (seller.allOrders != null) {
             for (int i = 0; i < seller.allOrders.size(); i++) {
-                Vector line = new Vector();
+                Vector<String> line = new Vector<>();
                 line.add(Integer.toString(seller.allOrders.get(i).getOrderNum()));
                 line.add(seller.allOrders.get(i).getOrderStatus());
                 data.add(line);
@@ -41,7 +40,7 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
 
         //Basic set up for the frame.
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("order history");
         frame.setResizable(false);
 
@@ -56,7 +55,6 @@ public class OrderStatusScreen extends JFrame implements ActionListener {
         modifyButton.addActionListener(this);
         backButton.createButton(panel, "Previous Page", 400, 400, 150, 40);
         backButton.addActionListener(this);
-
 
         //Adding the two panels to the contentPane.
         contentPane.add(panel, BorderLayout.NORTH);
