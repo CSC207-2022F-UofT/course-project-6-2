@@ -13,7 +13,69 @@
 
 [Milestone Documents Google Drive](https://drive.google.com/drive/folders/1LSEvoL295-J-YNdKq5guBFNt9Iiyg4x_)
 
-## Introduction
+## Clean Architecture
+* Outer layers always depends on only one layer inside 
+  * User interface, Database &rarr; Controller, Presenter &rarr; Use Case &rarr; Entity
+  * All import statement follow clean architecture
+  * Input boundary between Controller and Use Case
+  * Entities and Use Case can be easily tested without interacting with outer layer
+
+
+## SOLID
+* Single Responsibility Principle (SRP)
+  * We ensured that our code follow the SRP by separating our code into different use cases with each class only having
+    one responsibility, thus only having one reason to change.
+* Open/Closed Principle (OCP)
+  * We designed our code in a way that we can add new features and modules without needing to modify old one. One example is
+    in our user, seller, and customer class. Where the seller and customer class inherits from the user class.
+* Liskov Substitution Principle (LSP)
+  * We implemented the LSP in our User class. Where the customer and seller class implement the user class. So since they are
+    the subtypes, we seperated the user into either customer or seller where we could.
+* Interface Segregation Principle (ISP)
+  * We tried to implement this principle by making sure to not have bulky interfaces and only contain methods and objects
+    that the user will use. For example, we created a separate use case for every possible case, and re-call functions if
+    their functions overlap.
+* Dependency Inversion Principle (DIP)
+  * We implemented this principle through the many interfaces and input boundaries we have. We make sure the interfaces
+    implement the input boundaries, so we can control the flow of the code without violating the principle.
+
+## Code Style and Documentation
+* Naming convention
+  * For all the packages, we named it with all lowercase.
+  * All of our class name has follow the Pascal Case which for a single word we only capitalize the first letter, but
+    for compound letter we also use the capital letter to make the different parts of the word easy to read.
+* Javadoc
+  * We have added the javadoc in front of every java class to describe what these codes mainly do.
+  * We have also add the description for the constructor of all the entities to indicate what each parameter means.
+  * The method also have javadoc to describe what the method main does, and what the parameter indicates.
+  * For some parts that hard to understand, we have added the explanation javadoc beside it.
+
+## Design Pattern
+* Singleton
+  * Helper Serializer, Deserializer and Runtime Database follows Singleton Design because these classes
+    has only one instance and provide a global access point to that instance
+* Observer
+  * MainInterface observe the output of each Screen and show on the screen when application opens
+* Command
+  * Add to Cart buttons in Drink screen, Sale Board screen and Search Drink screen use the same command
+    AddToShoppingCart and make the buttons execute that command on a click
+* Template Method
+  * User is the abstract super class and lets subclasses Customer and Seller override specific steps of
+    the algorithm without changing its structure
+
+## Accessibility
+* Equitable Use
+  * Customer Service to address questions and provide help
+* Flexibility in Use
+  * Sale Section and General Drink Layout provide customers choices in choosing drinks
+* Simple and Intuitive Use
+  * Seller Add/Modify drink provides hints for input
+* Tolerance for Error
+  * Warning Board minimizes hazards and the adverse consequences of accidental or unintended actions
+* Low Physical Effort
+  * Customers can add drink quantities in Shopping Cart to minimize repetitive actions of go to drink layout and add drinks again
+
+## Functionality
 ### 1. [Entities](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/entities)
 #### 1.1 [User](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/entities/users/User.java)
 
@@ -329,16 +391,16 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
 
-### 5. [Tests](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
-* This test calls each callable(not related to java swing)
- method at least once.And test the behaviour of the method with different circumstances.
- * [Test of Entities].
+## [Testing](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
+* Each test calls each callable(not related to java swing) method at least once. 
+And test the behaviour of the method with different circumstances.
+ * Test of Entities
    * TestCustomer: Called all the common attributes inherited from the user. (Name, age, address etc), And Its own method like (get shoppingcart(),get orderhistory()).
    * TestSeller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName() etc).
    * TestDrinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
    * TestOrder: Called every order attribute (orderNum, orderStatus etc) and methods ( getOrderList(), setOrderNum etc).
    * TestShoppingCart: Called every ShoppingCart attribute (itemList, totalPrize etc) and methods ( getItemList(), setTotalPrize() etc).
- * [Test of Usecases].
+ * Test of Usecases
    * TestModifyDrink: Test the functionality of modifying the attributes of the drink.
    * TestModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
    * TestSellerModifyDrink: Setup seller object to addDrink, deletedrink, and modify the attributes of drink.
@@ -352,57 +414,3 @@ Cart classes all implement the interface.
    * TestRegisterUser: Set up a customer and a seller to test functionality for register.
    * TestResetUserPassword: Set up a customer and a seller to test functionality for reset password.
    * TestSearchDrinks: Set up some drinks to test the functionality of searching.
-
-### [SOLID](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/helpers)
-* Single Responsibility Principle (SRP)
-  * We ensured that our code follow the SRP by separating our code into different use cases with each class only having
-    one responsibility, thus only having one reason to change.
-* Open/Closed Principle (OCP)
-  * We designed our code in a way that we can add new features and modules without needing to modify old one. One example is
-    in our user, seller, and customer class. Where the seller and customer class inherits from the user class.
-* Liskov Substitution Principle (LSP)
-  * We implemented the LSP in our User class. Where the customer and seller class implement the user class. So since they are
-    the subtypes, we seperated the user into either customer or seller where we could.
-* Interface Segregation Principle (ISP)
-  * We tried to implement this principle by making sure to not have bulky interfaces and only contain methods and objects
-    that the user will use. For example, we created a separate use case for every possible case, and re-call functions if
-    their functions overlap.
-* Dependency Inversion Principle (DIP)
-  * We implemented this principle through the many interfaces and input boundaries we have. We make sure the interfaces
-    implement the input boundaries, so we can control the flow of the code without violating the principle.
-
-## Code Style and Documentation
-* Naming convention
-  * For all the packages, we named it with all lowercase.
-  * All of our class name has follow the Pascal Case which for a single word we only capitalize the first letter, but 
-  for compound letter we also use the capital letter to make the different parts of the word easy to read.
-* Javadoc
-  * We have added the javadoc in front of every java class to describe what these codes mainly do.
-  * We have also add the description for the constructor of all the entities to indicate what each parameter means.
-  * The method also have javadoc to describe what the method main does, and what the parameter indicates.
-  * For some parts that hard to understand, we have added the explanation javadoc beside it.
-
-## Design Pattern
-* Singleton
-  * Helper Serializer, Deserializer and Runtime Database follows Singleton Design because these classes 
-  has only one instance and provide a global access point to that instance
-* Observer
-  * MainInterface observe the output of each Screen and show on the screen when application opens
-* Command
-  * Add to Cart buttons in Drink screen, Sale Board screen and Search Drink screen use the same command 
-  AddToShoppingCart and make the buttons execute that command on a click
-* Template Method
-  * User is the abstract super class and lets subclasses Customer and Seller override specific steps of 
-  the algorithm without changing its structure
-
-## Accessibility
-* Equitable Use
-  * Customer Service to address questions and provide help
-* Flexibility in Use
-  * Sale Section and General Drink Layout provide customers choices in choosing drinks
-* Simple and Intuitive Use
-  * Seller Add/Modify drink provides hints for input
-* Tolerance for Error 
-  * Warning Board minimizes hazards and the adverse consequences of accidental or unintended actions
-* Low Physical Effort
-  * Customers can add drink quantities in Shopping Cart to minimize repetitive actions of go to drink layout and add drinks again
