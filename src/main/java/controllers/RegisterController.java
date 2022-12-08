@@ -39,7 +39,7 @@ public class RegisterController {
     public String registerUser() {
         String registerResult = RegisterUser.registerUser(accountName, phoneNumber, password,
                 confirmPass, address, age, storeName);
-        new ResponsePresenter(UserResponseModel.registerResponse(registerResult)).messagePresenter();
+        new ResponsePresenter(new UserResponseModel().registerResponse(registerResult)).messagePresenter();
         return registerResult;
     }
 }
