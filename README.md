@@ -16,9 +16,11 @@
 ## Clean Architecture
 * Outer layers always depends on only one layer inside 
   * User interface, Database &rarr; Controller, Presenter &rarr; Use Case &rarr; Entity
-  * All import statement follow clean architecture
-  * Input boundary between Controller and Use Case
-  * Entities and Use Case can be easily tested without interacting with outer layer
+* All import statement follow clean architecture
+  * package &rarr; import entity &rarr; import use case &rarr; import java package
+* Input boundary between Controller and Use Case
+  * User Input Boundary
+* Entities and Use Case can be easily tested without interacting with outer layer
 
 
 ## SOLID
