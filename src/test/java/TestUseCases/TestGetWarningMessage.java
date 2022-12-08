@@ -1,3 +1,5 @@
+package TestUseCases;
+
 import entities.Drink;
 import usecases.orderusecases.GetWarningMessage;
 
@@ -9,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestGetWarningMessage {
-    /** This test is used for testing if the warning message part can return the right warning ingredient that the items
-     * in shopping cart include.
-     */
     @Test
     /*the drinks have one dangerous ingredient*/
     public void oneDangerousIngredientTest() {
@@ -41,5 +40,12 @@ public class TestGetWarningMessage {
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist2);
         assertEquals(T, "Drinks in shopping cart contains no common allergens ");
+
+
+
     }
+
+
 }
+
+

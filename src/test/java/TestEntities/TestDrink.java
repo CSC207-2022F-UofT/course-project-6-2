@@ -1,3 +1,5 @@
+package TestEntities;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import entities.Drink;
@@ -44,5 +46,26 @@ public class TestDrink {
     @Test
     @DisplayName("Get Ingredient test")
     void getIngredientTest(){assertEquals(drink1.getIngredient(),"sodium chloride and sodium citrate");
+    }
+
+    @Test
+    @DisplayName("Set up test")
+    void SetupTest(){
+        Drink drinkX = new Drink(null, 4,
+                null,
+                null, 750,
+                date1,date2,9);
+        drinkX.setName("matcha green tea");
+        drinkX.setStoreName("TeaShop180");
+        drinkX.setIngredient("green tea");
+        drinkX.setPrice(5);
+        drinkX.setVolume(750);
+        drinkX.setProductionData(new Date());
+        drinkX.setExpirationDate(new Date());
+        drinkX.setDiscount(1);
+        assertEquals(drinkX.getIngredient(),"green tea");
+        assertEquals(drinkX.getName(),"matcha green tea");
+        assertEquals(drinkX.getPrice(), 5);
+
     }
 }

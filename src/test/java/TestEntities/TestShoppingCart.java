@@ -1,3 +1,5 @@
+package TestEntities;
+
 import entities.Drink;
 import entities.ShoppingCart;
 import org.junit.jupiter.api.Test;
@@ -7,11 +9,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class TestShoppingCart {
-    /** This test is used for testing if the shopping cart entity can correctly get the right data, when new drink add
-     * into the shopping cart.
-     */
     @Test
-    public void ShoppingCartTest(){
+    public void testShoppingCart(){
         Date date1 = new Date();
         Drink drink1 = new Drink("1", 1.0f, "I am description", "beef milk pig", 10, date1, date1, 1);
         Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken milk pig", 1, date1, date1, 1);
