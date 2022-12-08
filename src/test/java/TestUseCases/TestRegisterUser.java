@@ -34,7 +34,7 @@ public class TestRegisterUser {
         assertEquals(register3, "Phone number exists");
         /*test when store name exists*/
 
-        String register4 = RegisterUser.registerUser("accountName4", "phoneNumber4", "password4", "password4",
+        /*String register4 = RegisterUser.registerUser("accountName4", "phoneNumber4", "password4", "password4",
                 "address4", 48, "Super Pig");
         assertEquals(register4, "Successfully registered");
         /*test customer register*/
