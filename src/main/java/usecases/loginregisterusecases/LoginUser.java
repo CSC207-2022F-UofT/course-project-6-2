@@ -12,7 +12,6 @@ public class LoginUser {
      * @return A String indicating whether the user is a customer, a seller or does not exists in database.
      */
 
-
     public static String login(String phoneNumber, String passWord) {
         if (UserRuntimeDataBase.getSellers().get(phoneNumber) != null &&
                 UserRuntimeDataBase.getSellers().get(phoneNumber).getPassWord().equals(passWord)) {

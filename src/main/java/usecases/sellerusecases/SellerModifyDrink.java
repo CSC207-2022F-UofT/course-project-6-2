@@ -6,8 +6,6 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Objects;
-
 public class SellerModifyDrink {
     private static Drink searchedDrink;
 
@@ -27,28 +25,54 @@ public class SellerModifyDrink {
         return searchedDrink;
     }
 
-    public void modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount) {
-        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
-        HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
-
-        // if seller modified the drink name
-        if (!name.equals(searchedDrink.getName())){
-            allDrinks.remove(searchedDrink.getName());
-            allDrinks.put(name, currentDrink);
+    public String modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionDate, Date expirationDate, float discount) {
+        if (price == -1.0f) {
+            return "Price not float";
+        } else if (volume == -1) {
+            return "Volume not integer";
+        } else if (productionDate == null) {
+            return "Production not Date";
+        } else if (expirationDate == null) {
+            return "Expiration not Date";
+        } else if (discount == -1.0f) {
+            return "Discount not float";
         } else {
-            allDrinks.replace(name, currentDrink);
+            Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionDate, expirationDate, discount);
+            HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
+
+            // if seller modified the drink name
+            if (!name.equals(searchedDrink.getName())){
+                allDrinks.remove(searchedDrink.getName());
+                allDrinks.put(name, currentDrink);
+            } else {
+                allDrinks.replace(name, currentDrink);
+            }
+            // need to modify the items(Arraylist of drink that the seller sell) attribute in Seller
+            new ModifyDrink().modifyDrink(searchedDrink, currentDrink);
+            return "Success";
         }
-        // need to modify the items(Arraylist of drink that the seller sell) attribute in Seller
-        new ModifyDrink().modifyDrink(searchedDrink, currentDrink);
     }
 
-    public void addDrink(String name, float price, String description, String ingredient, int volume, Date productionData, Date expirationDate, float discount){
-        Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionData, expirationDate, discount);
-        currentDrink.setStoreName(UserRuntimeDataBase.getCurrentSeller().getStoreName());
-        DrinkRuntimeDataBase.getDrinks().computeIfAbsent(UserRuntimeDataBase.getCurrentSeller().getStoreName(), k -> new HashMap<>());
+    public String addDrink(String name, float price, String description, String ingredient, int volume, Date productionDate, Date expirationDate, float discount){
+        if (price == -1.0f) {
+            return "Price not float";
+        } else if (volume == -1) {
+           return "Volume not integer";
+        } else if (productionDate == null) {
+            return "Production not Date";
+        } else if (expirationDate == null) {
+            return "Expiration not Date";
+        } else if (discount == -1.0f) {
+            return "Discount not float";
+        } else {
+            Drink currentDrink = new Drink(name, price, description, ingredient, volume, productionDate, expirationDate, discount);
+            currentDrink.setStoreName(UserRuntimeDataBase.getCurrentSeller().getStoreName());
+            DrinkRuntimeDataBase.getDrinks().computeIfAbsent(UserRuntimeDataBase.getCurrentSeller().getStoreName(), k -> new HashMap<>());
 
-        DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName()).put(name, currentDrink);
-        new ModifyDrink().modifyDrink(null, currentDrink);
+            DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName()).put(name, currentDrink);
+            new ModifyDrink().modifyDrink(null, currentDrink);
+            return "Success";
+        }
     }
 
     public void deleteDrink(Drink drink){

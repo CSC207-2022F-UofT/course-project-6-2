@@ -1,14 +1,13 @@
 package screens.loginregisterscreens;
 
+import controllers.RegisterController;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextVerticalPanel;
-import usecases.loginregisterusecases.RegisterUser;
-import usecases.userinputboundary.RegisterInputBoundary;
-import usecases.userresponsemodel.RegisterResponseModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 // Frameworks/Drivers layer
 
@@ -71,17 +70,20 @@ public class CustomerRegisterPanel extends JFrame implements ActionListener {
         String password = String.valueOf(passwordField.getPassword());
         String confirmPass = String.valueOf(confirmPassField.getPassword());
         String address = addressField.getText();
-        int age = new RegisterInputBoundary().getAge(ageField.getText());
+        String age = ageField.getText();
 
         if(e.getSource() == registerButton.button){
-            String registerResult = RegisterUser.registerUser(accountName, phoneNum, password, confirmPass, address, age, null);
-            new RegisterResponseModel(registerResult);
-            accountNameField.setText("");
-            phoneNumField.setText("");
-            passwordField.setText("");
-            confirmPassField.setText("");
-            addressField.setText("");
-            ageField.setText("");
+            String registerResult = new RegisterController(accountName, phoneNum, password, confirmPass,
+                    address, age, null).registerUser();
+            // Clear the text-boxes when the user successfully registered
+            if (Objects.equals(registerResult, "Successfully registered")) {
+                accountNameField.setText("");
+                phoneNumField.setText("");
+                passwordField.setText("");
+                confirmPassField.setText("");
+                addressField.setText("");
+                ageField.setText("");
+            }
         }
     }
 }

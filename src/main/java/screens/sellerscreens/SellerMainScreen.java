@@ -18,8 +18,8 @@ public class SellerMainScreen extends JFrame implements ActionListener {
     Button modifyDrinkButton = new Button();
     Button addDrinkButton = new Button();
     Button orderHistoryButton = new Button();
-    Vector headers = new Vector();
-    Vector data = new Vector();
+    Vector<String> headers = new Vector<>();
+    Vector<Vector<String>> data = new Vector<>();
 
     public SellerMainScreen() {
         // Basic setups for the Jtable.
@@ -41,7 +41,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
                 String strProduction = format.format(seller.items.get(i).getProductionData());
                 String strExpiration = format.format(seller.items.get(i).getExpirationDate());
 
-                Vector line = new Vector();
+                Vector<String> line = new Vector<>();
                 line.add(seller.items.get(i).getName());
                 line.add(Float.toString(seller.items.get(i).getPrice()));
                 line.add(seller.items.get(i).getDescription());
@@ -56,7 +56,7 @@ public class SellerMainScreen extends JFrame implements ActionListener {
 
         //Basic set up for the frame.
         frame.setSize(1000, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("Seller main page");
         frame.setResizable(false);
 

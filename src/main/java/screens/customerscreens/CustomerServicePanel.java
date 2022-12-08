@@ -1,7 +1,8 @@
 package screens.customerscreens;
 
+import presentor.ResponsePresenter;
 import screens.swingcomponents.Button;
-import usecases.userresponsemodel.QuestionResponseModel;
+import usecases.userresponsemodel.UserResponseModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -78,28 +79,28 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == question1Button.button) {
-            new QuestionResponseModel(1);
+            new ResponsePresenter(UserResponseModel.questionResponse(1)).messagePresenter();
         }
         if (e.getSource() == question2Button.button) {
-            new QuestionResponseModel(2);
+            new ResponsePresenter(UserResponseModel.questionResponse(2)).messagePresenter();
         }
         if (e.getSource() == question3Button.button) {
-            new QuestionResponseModel(3);
+            new ResponsePresenter(UserResponseModel.questionResponse(3)).messagePresenter();
         }
         if (e.getSource() == question4Button.button) {
-            new QuestionResponseModel(4);
+            new ResponsePresenter(UserResponseModel.questionResponse(4)).messagePresenter();
         }
         if (e.getSource() == question5Button.button) {
-            new QuestionResponseModel(5);
+            new ResponsePresenter(UserResponseModel.questionResponse(5)).messagePresenter();
         }
         if (e.getSource() == question6Button.button) {
-            new QuestionResponseModel(6);
+            new ResponsePresenter(UserResponseModel.questionResponse(6)).messagePresenter();
         }
         if (e.getSource() == question7Button.button) {
-            new QuestionResponseModel(7);
+            new ResponsePresenter(UserResponseModel.questionResponse(7)).messagePresenter();
         }
         if (e.getSource() == question0Button.button) {
-            new QuestionResponseModel(0);
+            new ResponsePresenter(UserResponseModel.questionResponse(8)).messagePresenter();
         }
     }
 }

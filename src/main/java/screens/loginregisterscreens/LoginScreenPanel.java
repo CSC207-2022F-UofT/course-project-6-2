@@ -1,12 +1,10 @@
 package screens.loginregisterscreens;
 
+import controllers.LoginController;
 import screens.customerscreens.CustomerMainScreen;
 import screens.sellerscreens.SellerMainScreen;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextVerticalPanel;
-import usecases.loginregisterusecases.LoginUser;
-import usecases.userresponsemodel.LoginResponseModel;
-import usecases.databaseusecases.UserRuntimeDataBase;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -54,17 +52,13 @@ public class LoginScreenPanel extends JFrame implements ActionListener {
         String password = String.valueOf(passwordField.getPassword());
 
         if(e.getSource() == loginButton.button){
-            String loginResult = LoginUser.login(phoneNum, password);
-            new LoginResponseModel(loginResult);
-            if (loginResult.equals("Seller")) {
-                UserRuntimeDataBase.constructCurrentSeller(phoneNum);
-                frame.setVisible(false);
+            String result = new LoginController(phoneNum, password).loginUser();
+            if(result.equals("Seller")) {
                 new SellerMainScreen();
-
-            } else if (loginResult.equals("Customer")) {
-                UserRuntimeDataBase.constructCurrentCustomer(phoneNum);
                 frame.setVisible(false);
+            } else if (result.equals("Customer")) {
                 new CustomerMainScreen();
+                frame.setVisible(false);
             }
             phoneNumField.setText("");
             passwordField.setText("");

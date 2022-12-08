@@ -5,10 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DrinkInputBoundary {
-    private Float price = -1.0f;
-    private Integer volume = -1;
-    private Date date = null;
-    private Float discount = -1.0f;
+    private Float price = -1.0f; //Default setting that price is not a float
+    private Integer volume = -1; //Default setting that volume is not an integer
+    private Date date = null; //Default setting tha date is not in the format "yyyy-MM-dd"
+    private Float discount = -1.0f; //Default setting that discount is not a float
 
     public Float getPrice(String priceText) {
         try {

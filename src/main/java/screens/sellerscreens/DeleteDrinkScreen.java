@@ -1,6 +1,7 @@
 package screens.sellerscreens;
 
 import entities.Drink;
+import presentor.ResponsePresenter;
 import screens.swingcomponents.Button;
 import screens.swingcomponents.LabelTextHorizontalPanel;
 import usecases.sellerusecases.SellerModifyDrink;
@@ -19,7 +20,7 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
     public DeleteDrinkScreen() {
         // Basic setups
         frame.setSize(400, 125);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("delete drink");
         frame.setResizable(false);
 
@@ -59,8 +60,8 @@ public class DeleteDrinkScreen extends JFrame implements ActionListener {
                 delete.deleteDrink(deleteDrink);
                 new SellerMainScreen();
                 frame.setVisible(false);
-            }else{
-                JOptionPane.showMessageDialog(null, "No drink named " + name);
+            } else {
+                new ResponsePresenter("No drink named").drinkMessagePresenter(name);
             }
         }
     }

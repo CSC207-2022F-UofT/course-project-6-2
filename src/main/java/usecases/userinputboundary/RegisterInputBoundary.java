@@ -1,12 +1,38 @@
 package usecases.userinputboundary;
 
+// Application business rules
+
 public class RegisterInputBoundary {
-    private int age = -2;
-    public int getAge(String ageText) {
+    private int age = -2; //Default setting that age is not an integer
+    private String phoneNumber = "0"; //Default setting that phoneNumber is not an integer
+    private String password = "1"; //Default setting that the password is too short
+    public int getAge(String age) {
         try {
-            Double.parseDouble(ageText);
-            this.age = Integer.parseInt(ageText);
+            Double.parseDouble(age);
+            this.age = Integer.parseInt(age);
         } catch(Exception ignored){}
-        return age;
+        return this.age;
+    }
+
+    public String getPhoneNumber(String phoneNumber) {
+        try {
+            Double.parseDouble(phoneNumber);
+            this.phoneNumber = phoneNumber;
+            int size = phoneNumber.length();
+            if(!(size==10)){
+                this.phoneNumber = "-1"; //Not a valid length for phone number;
+            }
+        } catch(Exception ignored){}
+        return this.phoneNumber;
+    }
+
+    public String getPassword(String password) {
+        try {
+            int size = password.length();
+            if (size >= 6) { // password is valid length
+                this.password = password;
+            }
+        } catch(Exception ignored){}
+        return this.password;
     }
 }

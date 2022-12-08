@@ -8,21 +8,17 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
-/**
- *
- * @author sanciagao
- */
 public class OrderHistoryPanel extends JFrame {
 
     // setting up variables
-    JPanel panel = new JPanel();
-    Customer currCustomer = ShoppingCartPanel.currCustomer;
+    private final JPanel panel = new JPanel();
 
     public OrderHistoryPanel() {
 
         // setting up local variables
-        Vector<String> headers = new Vector();
+        Vector<String> headers = new Vector<>();
         Vector data = new Vector();
+        Customer currCustomer = ShoppingCartPanel.currCustomer;
         ArrayList<Order> orders = currCustomer.getOrderHistory();
         DecimalFormat df = new DecimalFormat("0.00");
 
