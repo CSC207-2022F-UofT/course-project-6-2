@@ -29,20 +29,5 @@ public class TestShoppingCart {
         shoppingCart1.setTotalPrize(4.0f);
         float totalprize1 = shoppingCart1.getTotalPrize();
         assertEquals(totalprize1, 4.0f);
-        /*test addItem() when shoppingcart contains drink*/
-        HashMap<Drink, Integer> itemlist4 = new HashMap<>();
-        itemlist4.put(drink2, 8);
-        itemlist4.put(drink3, 9);
-        shoppingCart1.addItem(drink3, 6);
-        HashMap<Drink, Integer> itemlist5 = shoppingCart1.getItemList();
-        assertEquals(itemlist5, itemlist4);
-        /*test addItem() when shoppingcart does not contain drink*/
-        shoppingCart1.setItemList(itemlist1);
-        HashMap<Drink, Integer> itemlist6 = new HashMap<>();
-        itemlist6.put(drink1, 1);
-        itemlist6.put(drink3, 9);
-        shoppingCart1.addItem(drink3, 9);
-        HashMap<Drink, Integer> itemlist7 = shoppingCart1.getItemList();
-        assertEquals(itemlist7, itemlist6);
     }
 }
