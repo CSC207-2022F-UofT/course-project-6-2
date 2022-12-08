@@ -408,6 +408,41 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
 
+
+### 5. [Controllers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/controllers)
+* [AddModifyDrinkController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/AddModifyDrinkController.java)
+  * Controller for seller to be able to add or modify drink
+  * has two functions addDrink and modifyDrink functions, which calls the SellerModifyDrink use case, then creates a new response presenter that presents the
+    response from the responses from the UserResponseModel, addModifyDrinkResponse function.
+* [LoginController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/LoginController.java)
+  * Controller for the user, either seller or customer to login
+  * Creates a string from calling the LoginUser use case, which determines whether the user is a customer or seller
+  * Returns a string, that is the response from the UserResponseModel (loginResponse) and displayed through the newly created
+    ResponsePresenter.
+* [RegisterController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/RegisterController.java)
+  * Controller for the user, either seller or customer to register
+  * Creates a string from calling the RegisterUser use case, which determines whether the user is a customer or seller
+  * Returns a string, that is the response from the UserResponseModel (registerResponse) and displayed through the newly created
+    ResponsePresenter.
+* [ResetPasswordController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/ResetPasswordController.java)
+  * Controller for the user to reset their password
+  * Creates a boolean value from calling the ResetUserPassword use case, which returns whether the password was
+    successfully reset.
+  * Returns a boolean, and displays the response from UserResponseModel (ResetResponse) through the newly created
+    ResponsePresenter
+* [ShoppingCartController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/ShoppingCartController.java)
+  * Controller for the shopping cart
+  * addItem function returns a float by returning the value from calling the AddQuantityButtonActionPerformed use case
+  * minusItem function returns a float by returning the value from calling the MinusQuantityButtonActionPerformed use case
+  * checkOut function returns a void and calls the CheckoutButtonActionPerformed use case
+
+### 6. [Presenter](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/presentor)
+* [ResponsePresenter](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/presentor)
+  * Two functions, messagePresenter and drinkMessagePresenter
+  * messagePresenter creates a JOptionpane that displays the message passed in when creating the presenter object
+  * drinkMessagePresenter creates a JOptionpane that displays the concatenated message of the message passed in when
+    creating the presenter object and the drink string passed in when calling the function
+
 ## [Testing](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
 * Each test calls each callable(not related to java swing) method at least once. 
 And test the behaviour of the method with different circumstances.
@@ -430,38 +465,3 @@ And test the behaviour of the method with different circumstances.
    * TestRegisterUser: Set up a customer and a seller to test functionality for register.
    * TestResetUserPassword: Set up a customer and a seller to test functionality for reset password.
    * TestSearchDrinks: Set up some drinks to test the functionality of searching.
-
-### 5. [Controllers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/controllers)
-* [AddModifyDrinkController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/AddModifyDrinkController.java)
-  * Controller for seller to be able to add or modify drink
-  * has two functions addDrink and modifyDrink functions, which calls the SellerModifyDrink use case, then creates a new response presenter that presents the
-  response from the responses from the UserResponseModel, addModifyDrinkResponse function.
-* [LoginController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/LoginController.java)
-  * Controller for the user, either seller or customer to login
-  * Creates a string from calling the LoginUser use case, which determines whether the user is a customer or seller
-  * Returns a string, that is the response from the UserResponseModel (loginResponse) and displayed through the newly created 
-  ResponsePresenter.
-* [RegisterController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/RegisterController.java)
-  * Controller for the user, either seller or customer to register
-  * Creates a string from calling the RegisterUser use case, which determines whether the user is a customer or seller
-  * Returns a string, that is the response from the UserResponseModel (registerResponse) and displayed through the newly created
-    ResponsePresenter.
-* [ResetPasswordController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/ResetPasswordController.java)
-  * Controller for the user to reset their password
-  * Creates a boolean value from calling the ResetUserPassword use case, which returns whether the password was 
-  successfully reset.
-  * Returns a boolean, and displays the response from UserResponseModel (ResetResponse) through the newly created
-  ResponsePresenter
-* [ShoppingCartController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/ShoppingCartController.java)
-  * Controller for the shopping cart
-  * addItem function returns a float by returning the value from calling the AddQuantityButtonActionPerformed use case
-  * minusItem function returns a float by returning the value from calling the MinusQuantityButtonActionPerformed use case
-  * checkOut function returns a void and calls the CheckoutButtonActionPerformed use case
-
-### 6. [Presenter](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/presentor)
-* [ResponsePresenter](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/presentor)
-  * Two functions, messagePresenter and drinkMessagePresenter
-  * messagePresenter creates a JOptionpane that displays the message passed in when creating the presenter object
-  * drinkMessagePresenter creates a JOptionpane that displays the concatenated message of the message passed in when 
-  creating the presenter object and the drink string passed in when calling the function 
-
