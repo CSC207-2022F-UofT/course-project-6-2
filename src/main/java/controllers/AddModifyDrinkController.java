@@ -47,7 +47,7 @@ public class AddModifyDrinkController {
         SellerModifyDrink sellerModifyDrink = new SellerModifyDrink();
         String addDrinkResult = sellerModifyDrink.addDrink(name, price, description, ingredient, volume,
                 productionDate, expirationDate, discount);
-        new ResponsePresenter(UserResponseModel.addModifyDrinkResponse(addDrinkResult)).messagePresenter();
+        new ResponsePresenter(new UserResponseModel().addModifyDrinkResponse(addDrinkResult)).messagePresenter();
         return addDrinkResult;
     }
 
@@ -55,7 +55,7 @@ public class AddModifyDrinkController {
         SellerModifyDrink sellerModifyDrink = new SellerModifyDrink();
         String modifyDrinkResult = sellerModifyDrink.modifyDrink(name, price, description, ingredient, volume,
                 productionDate, expirationDate, discount);
-        new ResponsePresenter(UserResponseModel.addModifyDrinkResponse(modifyDrinkResult)).messagePresenter();
+        new ResponsePresenter(new UserResponseModel().addModifyDrinkResponse(modifyDrinkResult)).messagePresenter();
         return modifyDrinkResult;
     }
 }

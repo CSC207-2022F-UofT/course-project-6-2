@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.util.Objects;
 
 public class UserResponseModel {
-    private static String message;
-    public static String loginResponse(String loginResult) {
+    private String message;
+    public String loginResponse(String loginResult) {
         if(Objects.equals(loginResult, "Seller") || Objects.equals(loginResult, "Customer")){
             message = "You have successfully logged in!";
         } else {
@@ -16,7 +16,7 @@ public class UserResponseModel {
         return message;
     }
 
-    public static String registerResponse(String registerResult) {
+    public String registerResponse(String registerResult) {
         if (Objects.equals(registerResult, "Password not match")) {
             message = "Password does not match!";
         } else if (Objects.equals(registerResult, "Text field empty")) {
@@ -37,7 +37,7 @@ public class UserResponseModel {
         return message;
     }
 
-    public static String resetResponse(boolean resetResult) {
+    public String resetResponse(boolean resetResult) {
         String message;
         if (resetResult) {
             message = "You have reset your password!";
@@ -47,7 +47,7 @@ public class UserResponseModel {
         return message;
     }
 
-    public static String addModifyDrinkResponse(String addModifyResult) {
+    public String addModifyDrinkResponse(String addModifyResult) {
         if (Objects.equals(addModifyResult, "Price not float")) {
             message = "Price must be a float!";
         } else if (Objects.equals(addModifyResult, "Volume not integer")) {
@@ -64,25 +64,24 @@ public class UserResponseModel {
         return message;
     }
 
-    public static String questionResponse(int questionNumber) {
+    public String questionResponse(int questionNumber) {
         if (questionNumber == 1) {
-            JOptionPane.showMessageDialog(null, "Register on our app for the flexibility to sell one item or thousands.\n" +
-                    "Fulfill orders quickly when customers make a purchase.");
+            message = "Register on our app for the flexibility to sell one item or thousands. " +
+                    "Fulfill orders quickly when customers make a purchase.";
         }
         if (questionNumber == 2) {
-            JOptionPane.showMessageDialog(null, "Sorry, currently we do not offer any reward points");
+            message = "Sorry, currently we do not offer any reward points";
         }
         if (questionNumber == 3) {
-            JOptionPane.showMessageDialog(null, "Sorry, currently we do not offer " +
-                    "any birthday special or reward programs.");
+            message = "Sorry, currently we do not offer any birthday special or reward programs.";
         }
         if (questionNumber == 4) {
-            JOptionPane.showMessageDialog(null, "Once you place an order on the website, " +
-                    "you'll find the record from Get Order Status shortly");
+            message = "Once you place an order on the website, " +
+                    "you'll find the record from Get Order Status shortly";
         }
         if (questionNumber == 5) {
-            JOptionPane.showMessageDialog(null, "Shipping fees depend on whether you plan to fulfill orders yourself." +
-                    " Generally speaking: Air express > Air freight > sea freight ");
+            message = "Shipping fees depend on whether you plan to fulfill orders yourself. " +
+                    "Generally speaking: Air express > Air freight > sea freight ";
         }
         if (questionNumber == 6) {
             JOptionPane.showMessageDialog(null, "Some products may not be listed as a matter of " +
@@ -97,13 +96,11 @@ public class UserResponseModel {
             String storeName = JOptionPane.showInputDialog(null, "Enter seller's store name to search for:");
             if (SearchForSeller.sellerExists(storeName)) {
                 message = "The phone number for store " + storeName + " is " + SearchForSeller.getPhoneNumber();
-                JOptionPane.showMessageDialog(null,
-                        "The phone number for store " +
-                                storeName + " is " + SearchForSeller.getPhoneNumber());
             } else {
                 message = "Could not find the Seller " + storeName;
             }
         }
+
         return message;
     }
 }

@@ -79,28 +79,28 @@ public class CustomerServicePanel extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == question1Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(1)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(1)).messagePresenter();
         }
         if (e.getSource() == question2Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(2)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(2)).messagePresenter();
         }
         if (e.getSource() == question3Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(3)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(3)).messagePresenter();
         }
         if (e.getSource() == question4Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(4)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(4)).messagePresenter();
         }
         if (e.getSource() == question5Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(5)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(5)).messagePresenter();
         }
         if (e.getSource() == question6Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(6)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(6)).messagePresenter();
         }
         if (e.getSource() == question7Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(7)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(7)).messagePresenter();
         }
         if (e.getSource() == question0Button.button) {
-            new ResponsePresenter(UserResponseModel.questionResponse(8)).messagePresenter();
+            new ResponsePresenter(new UserResponseModel().questionResponse(0)).messagePresenter();
         }
     }
 }

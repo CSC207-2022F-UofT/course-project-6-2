@@ -25,7 +25,7 @@ public class ResetPasswordController {
 
     public boolean resetPassword(){
         boolean resultResult = ResetUserPassword.resetPassword(phoneNumber, newPassword, confirmNewPassword);
-        new ResponsePresenter(UserResponseModel.resetResponse(resultResult)).messagePresenter();
+        new ResponsePresenter(new UserResponseModel().resetResponse(resultResult)).messagePresenter();
         return resultResult;
     }
 }

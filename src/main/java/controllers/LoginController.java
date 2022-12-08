@@ -23,7 +23,7 @@ public class LoginController {
 
     public String loginUser() {
         String loginResult = LoginUser.login(phoneNumber, password);
-        new ResponsePresenter(UserResponseModel.loginResponse(loginResult)).messagePresenter();
+        new ResponsePresenter(new UserResponseModel().loginResponse(loginResult)).messagePresenter();
 
         if (loginResult.equals("Seller")) {
             UserRuntimeDataBase.constructCurrentSeller(phoneNumber);
