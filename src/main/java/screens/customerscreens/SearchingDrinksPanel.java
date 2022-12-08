@@ -46,8 +46,6 @@ public class SearchingDrinksPanel extends JFrame implements ActionListener {
         jScrollPane.setBounds(50,50,700, 400);
         contentPane.add(jScrollPane,BorderLayout.CENTER);
 
-        System.out.println(drinks);
-
         ListSelectionModel model = drinkTable.getSelectionModel();
         model.addListSelectionListener(e -> {
             if (! model.isSelectionEmpty()) {
