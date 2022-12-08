@@ -22,7 +22,6 @@
   * User Input Boundary
 * Entities and Use Case can be easily tested without interacting with outer layer
 
-
 ## SOLID
 * Single Responsibility Principle (SRP)
   * We ensured that our code follow the SRP by separating our code into different use cases with each class only having
@@ -261,7 +260,6 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
   a use cases modify the user object attributes (i.e. reset password, customer make a new order, seller add drinks), 
   other use cases will have the variable updated.
 
-
 #### 2.7 [User Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userresponsemodel)
 * [Login Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/LoginResponseModel.java)
   * Providing the corresponding message to users when login in. Either successfully logged in. Or incorrect  phone number or password.
@@ -274,6 +272,24 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
 * [Register Response Model](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userresponsemodel/RegisterResponseModel.java)
   * Providing the corresponding message to users when registering. Inform users whether they have successfully registered, or something going wrong, the password doesn't match, provide name already exists etc.
 
+#### 2.8 [Shopping Cart Use Case](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/shoppingcartusecases)
+* [AddQuantityButtonActionPerformed](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/shoppingcartusecases/AddQuantityButtonActionPerformed.java)
+  * Adds to the selected drinks quantity when add quantity button is pressed
+  * returns a float and updates quantity
+
+* [CheckoutButtonActionPerformed](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/shoppingcartusecases/CheckoutButtonActionPerformed.java)
+  * Clears all the data from shopping cart when the checkout button is pressed
+
+* [MinusQuantityButtonActionPerformed](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/shoppingcartusecases/MinusQuantityButtonActionPerformed.java)
+  * Minuses the selected drinks quantity when the minus quantity button is pressed
+  * returns a float and updates quantity
+
+#### 2.9 [User Input Boundary](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/usecases/userinputboundary)
+* [DrinkInputBoundary](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userinputboundary/DrinkInputBoundary.java)
+  * Make sure that the input from the user is in the correct format we require, to successfully create the drink
+
+* [RegisterInputBoundary](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/usecases/userinputboundary/RegisterInputBoundary.java)
+  * Make sure that the input from the user is in the correct format we require, to successfully allow the user to register
 
 ### 3. [Screens](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/screens)
 * Login Register Screens
@@ -298,7 +314,6 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
     * When the customer presses the checkout button, the data of the order will be passed to order history, the shopping
     cart screen will clear and a pop-up message will appear informing the customer that they have successfully placed their
     order, and can check their order in their order history.
-
   * [OrderHistoryPanel](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/screens/customerscreens/OrderHistoryPanel.java)
     * When the customer checks out, their order data will be passed here, and the customer can see their order number (which
     is generated randomly), the total price of that corresponding order and the status of that order (which the seller can
@@ -388,10 +403,45 @@ and [Drink Runtime Database](https://github.com/CSC207-2022F-UofT/course-project
   * The reverse process of converting file input stream to object output stream.
 
 * [InitData](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/helpers/InitData.java)
-  * It cantians the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
+  * It contains the five seller database with 5 drinks database each seller, and also 12 customer database. Run this helper
   * method to initiate the data in the project.
 Note: Since only the objects implement the Serializable interface can be serialized, User, Drink, Order and Shopping 
 Cart classes all implement the interface.
+
+
+### 5. [Controllers](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/controllers)
+* [AddModifyDrinkController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/AddModifyDrinkController.java)
+  * Controller for seller to be able to add or modify drink
+  * has two functions addDrink and modifyDrink functions, which calls the SellerModifyDrink use case, then creates a new response presenter that presents the
+    response from the responses from the UserResponseModel, addModifyDrinkResponse function.
+* [LoginController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/LoginController.java)
+  * Controller for the user, either seller or customer to login
+  * Creates a string from calling the LoginUser use case, which determines whether the user is a customer or seller
+  * Returns a string, that is the response from the UserResponseModel (loginResponse) and displayed through the newly created
+    ResponsePresenter.
+* [RegisterController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/RegisterController.java)
+  * Controller for the user, either seller or customer to register
+  * Creates a string from calling the RegisterUser use case, which determines whether the user is a customer or seller
+  * Returns a string, that is the response from the UserResponseModel (registerResponse) and displayed through the newly created
+    ResponsePresenter.
+* [ResetPasswordController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/ResetPasswordController.java)
+  * Controller for the user to reset their password
+  * Creates a boolean value from calling the ResetUserPassword use case, which returns whether the password was
+    successfully reset.
+  * Returns a boolean, and displays the response from UserResponseModel (ResetResponse) through the newly created
+    ResponsePresenter
+* [ShoppingCartController](https://github.com/CSC207-2022F-UofT/course-project-6-2/blob/main/src/main/java/controllers/ShoppingCartController.java)
+  * Controller for the shopping cart
+  * addItem function returns a float by returning the value from calling the AddQuantityButtonActionPerformed use case
+  * minusItem function returns a float by returning the value from calling the MinusQuantityButtonActionPerformed use case
+  * checkOut function returns a void and calls the CheckoutButtonActionPerformed use case
+
+### 6. [Presenter](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/presentor)
+* [ResponsePresenter](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/main/java/presentor)
+  * Two functions, messagePresenter and drinkMessagePresenter
+  * messagePresenter creates a JOptionpane that displays the message passed in when creating the presenter object
+  * drinkMessagePresenter creates a JOptionpane that displays the concatenated message of the message passed in when
+    creating the presenter object and the drink string passed in when calling the function
 
 ## [Testing](https://github.com/CSC207-2022F-UofT/course-project-6-2/tree/main/src/test/java)
 * Each test calls each callable(not related to java swing) method at least once. 
@@ -401,7 +451,7 @@ And test the behaviour of the method with different circumstances.
    * TestSeller: Called all the common attributes inherited from the user. (Name, age, address etc). And Its own method like (setAllOrders(), getAllOrders(),SetStoreName(), GetStoreName() etc).
    * TestDrinks: Called every drink attribute, and methods.(Name, Price, ingredients etc).
    * TestOrder: Called every order attribute (orderNum, orderStatus etc) and methods ( getOrderList(), setOrderNum etc).
-   * TestShoppingCart: Called every ShoppingCart attribute (itemList, totalPrize etc) and methods ( getItemList(), setTotalPrize() etc).
+   * TestShoppingCart: Called every ShoppingCart attribute (itemList, totalPrize etc) and methods ( setTotalPrize() etc).
  * Test of Usecases
    * TestModifyDrink: Test the functionality of modifying the attributes of the drink.
    * TestModifyOrderStatus: Test the functionality of modifying the status of orders added to the order history.
@@ -409,7 +459,6 @@ And test the behaviour of the method with different circumstances.
    * TestAddToOrderHistory: Created a customer object to add orders to orderhistory, and see if the functionality is working.
    * TestAddToShoppingCart: Created a customer object to add orders to the shopping cart, and see if the functionality is working.
    * TestGetOrderStatus: Created a customer object to test if customers are able to get the order status for the drinks they want.
-   * TestCheckTotalOrder: Set up some orders, add them to the order history, and test if the sum of the order is equivalent to our expectation.
    * TestGetOnsaleDrink: Set up input cases, and test if the on-sale drink has been added in to our on-sale drink list. 
    * TestGetWarningMessage: Test the functionality of finding common allergens and alcohol in the ingredients of drinks.
    * TestLoginUser: Created a customer and a seller to test functionality for login.
