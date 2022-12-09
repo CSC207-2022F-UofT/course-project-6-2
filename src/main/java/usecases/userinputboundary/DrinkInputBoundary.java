@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * The drink input boundary use case is used to check the correct format of the drink attribute.
+ */
 public class DrinkInputBoundary {
     private Float price = -1.0f; //Default setting that price is not a float
     private Integer volume = -1; //Default setting that volume is not an integer

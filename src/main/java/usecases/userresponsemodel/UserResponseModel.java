@@ -5,6 +5,10 @@ import usecases.customerusecases.SearchForSeller;
 import javax.swing.*;
 import java.util.Objects;
 
+/**
+ * The user response model is used to output the corresponding message when user login, register, reset password, ask
+ * question on the customer service, and seller modify drinks.
+ */
 public class UserResponseModel {
     private String message;
     public String loginResponse(String loginResult) {

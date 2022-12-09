@@ -2,6 +2,9 @@ package usecases.userinputboundary;
 
 // Application business rules
 
+/**
+ * The register input boundary is used to check the correct format of age, phone number and password when user register.
+ */
 public class RegisterInputBoundary {
     private int age = -2; //Default setting that age is not an integer
     private String phoneNumber = "0"; //Default setting that phoneNumber is not an integer
