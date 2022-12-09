@@ -9,6 +9,9 @@ import usecases.loginregisterusecases.LoginUser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test the login user use case to make sure the user can login with the correct phone number and password.
+ */
 public class TestLoginUser {
     @Test
     @BeforeEach

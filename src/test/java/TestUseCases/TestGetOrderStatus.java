@@ -13,10 +13,14 @@ import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test order status use case to make sure when adding new order to the order history, the order status is correctly
+ * assigned.
+ */
 public class TestGetOrderStatus {
     @Test
     @BeforeEach
-    public void testOrderstatusSetUp() {
+    public void testOrderStatusSetUp() {
         Customer customer1 = new Customer("Sara", "6041231234", "abcd", 18, "Bay");
         UserRuntimeDataBase.getCustomers().put(customer1.getPhoneNumber(), customer1);
         UserRuntimeDataBase.constructCurrentCustomer("6041231234");

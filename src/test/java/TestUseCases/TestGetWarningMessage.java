@@ -9,7 +9,10 @@ import java.util.HashMap;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+/**
+ * Test warning message use case to make sure when the customer wants to check out, he/she can get the correct warning
+ * message according to the ingredient in drinks.
+ */
 public class TestGetWarningMessage {
     @Test
     /*the drinks have one dangerous ingredient*/
@@ -40,12 +43,7 @@ public class TestGetWarningMessage {
         GetWarningMessage w = new GetWarningMessage();
         String T = w.getWarningMessage(itemlist2);
         assertEquals(T, "Drinks in shopping cart contains no common allergens ");
-
-
-
     }
-
-
 }
 
 

@@ -11,6 +11,10 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test the reset user password use case, when the user reset the password, the different cases would be distinguished
+ * and reset the password successfully or unsuccessfully for different cases.
+ */
 public class TestResetUserPassword {
     @Test
     @BeforeEach

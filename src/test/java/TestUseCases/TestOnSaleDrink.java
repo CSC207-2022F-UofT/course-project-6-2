@@ -11,10 +11,12 @@ import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test the on sale drink use case, when a new on sale drink is added in, the drink can be added into the on sale list.
+ */
 public class TestOnSaleDrink {
     /** Setup input cases
      */
-
     @Test
     @BeforeEach
     public void testOnSaleDrinksSetup() {
@@ -42,7 +44,6 @@ public class TestOnSaleDrink {
     public void testOnSaleDrinksSize() {
         ArrayList<Drink> onSaleDrinks = new GetOnSaleDrinks().onSale();
         assertEquals(1, onSaleDrinks.size());
-
     }
 
     @Test

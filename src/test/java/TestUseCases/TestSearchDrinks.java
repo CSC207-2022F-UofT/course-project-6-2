@@ -12,6 +12,10 @@ import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test the search drinks use case to make sure when the customer search for drinks by keyword, the satisfied drink
+ * can be output.
+ */
 public class TestSearchDrinks {
     private final HashMap<String, HashMap<String, Drink>> drinks = new HashMap<>();
 
@@ -54,6 +58,5 @@ public class TestSearchDrinks {
         data3.add(line2);
         Vector data4 = SearchDrinks.addToFiltered("testDiscription3");
         assertEquals(data3, data4);
-
     }
 }

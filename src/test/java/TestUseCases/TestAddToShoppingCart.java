@@ -13,9 +13,9 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestAddtoShoppingCart {
+public class TestAddToShoppingCart {
 
-    /** Test AddToShoppingCart use case to make sure order can be added into current customer's shopping cart.
+    /** Test AddToShoppingCart use case to make sure order can be added into current customer's order history.
      */
 
     @Test

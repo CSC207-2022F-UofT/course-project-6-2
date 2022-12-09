@@ -14,14 +14,16 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+/**
+ * Test the seller modify drink use case to make sure when the seller modify drink attribute, the changed drink can be
+ * updated correctly.
+ */
 public class TestSellerModifyDrink {
-
     /** Setup input cases
      */
-
     @Test
     @BeforeEach
-    public void SellerModifydrinkSetup() {
+    public void SellerModifyDrinkSetup() {
         Seller seller1 = new Seller("Sara", "6041231234",
                 "abcd", "Bay", "Sarecoffee");
         Seller seller2 = new Seller("Sara2", "6041231234",
@@ -62,11 +64,11 @@ public class TestSellerModifyDrink {
         modifier.deleteDrink(drink1);
         modifier.searchedDrinkToModify("testName1");
         System.out.println(modifier.drinkExist("testName1"));
-
     }
+
     @Test
     // test if the drink has been added
-    public void testSellerAdddrink() {
+    public void testSellerAddDrink() {
         assertEquals("apple2.0", DrinkRuntimeDataBase.getDrinks().get("store1").get("apple2.0").getName());
     }
     @Test

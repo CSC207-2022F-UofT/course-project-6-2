@@ -13,6 +13,9 @@ import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test modify order status use case for the order status can be changed when the seller modify it.
+ */
 public class TestModifyOrderStatus {
     @Test
     public void testModifyOrderStatus() {

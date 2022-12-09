@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * Test the modify drink use case to make sure the seller can modify the drink attribute correctly.
+ */
 public class TestModifyDrink {
     @Test
     //create the Input Data
@@ -30,4 +34,5 @@ public class TestModifyDrink {
         ModifyDrink modifyDrink = new ModifyDrink();
         modifyDrink.modifyDrink(drink1,drink2);
         assertEquals("milk", drinklist.get(0).getName());
-    }}
+    }
+}
