@@ -1,6 +1,8 @@
 package controllers;
 
 import entities.Drink;
+import usecases.customerusecases.AddToShoppingCart;
+import usecases.customerusecases.MinusFromShoppingCart;
 import usecases.shoppingcartusecases.AddQuantityButtonActionPerformed;
 import usecases.shoppingcartusecases.CheckoutButtonActionPerformed;
 import usecases.shoppingcartusecases.MinusQuantityButtonActionPerformed;
@@ -14,6 +16,7 @@ public class ShoppingCartController {
     private final Vector<Vector<String >> data;
     private final Vector<String> headers;
     private final HashMap<Drink, Integer> drinks;
+    private final Drink selectedDrink;
     private final ArrayList<Float> totalAmount;
     private final Float total;
     private final JFrame frame;
@@ -29,11 +32,12 @@ public class ShoppingCartController {
      * @param table The JTable
      */
 
-    public ShoppingCartController(Vector<Vector<String>> data, Vector<String> headers, HashMap<Drink, Integer> drinks,
+    public ShoppingCartController(Vector<Vector<String>> data, Vector<String> headers, HashMap<Drink, Integer> drinks, Drink selectedDrink,
                                   ArrayList<Float> totalAmount, Float total, JFrame frame, JTable table) {
         this.data = data;
         this.headers = headers;
         this.drinks = drinks;
+        this.selectedDrink = selectedDrink;
         this.totalAmount = totalAmount;
         this.total = total;
         this.frame = frame;
@@ -41,9 +45,11 @@ public class ShoppingCartController {
     }
 
     public float addItem() {
+        AddToShoppingCart.addToShoppingCart(selectedDrink, 1);
         return AddQuantityButtonActionPerformed.addQuantityActionPerformed(headers, table, totalAmount, total);
     }
     public float minusItem() {
+        MinusFromShoppingCart.minusFromShoppingCart(selectedDrink, 1);
         return MinusQuantityButtonActionPerformed.minusQuantityActionPerformed(headers ,table, totalAmount, total);
     }
     public void checkOut() {

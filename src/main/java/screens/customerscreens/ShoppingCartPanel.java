@@ -10,10 +10,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * The shopping cart panel displays the items that the customer has added into the shopping cart, and the total price of
@@ -32,6 +29,7 @@ public class ShoppingCartPanel extends JFrame implements ActionListener {
     private final JButton minusQuantityButton = new JButton("-");
     public static JLabel totalAmountLabel = new JLabel();
     private final HashMap<Drink, Integer> drinks = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart().getItemList();
+    private Drink selectedDrink;
     protected static Customer currCustomer = UserRuntimeDataBase.getCurrentCustomer();
     private final DecimalFormat df = new DecimalFormat("0.00");
     private Float total = 0.00f;
@@ -77,6 +75,16 @@ public class ShoppingCartPanel extends JFrame implements ActionListener {
         // showing the sum
         totalAmountLabel.setText("$" + df.format(total));
 
+        // get selected drink
+        ListSelectionModel model = table.getSelectionModel();
+        model.addListSelectionListener(e -> {
+            if (! model.isSelectionEmpty()) {
+                int selectedRow = model.getMinSelectionIndex();
+                List<Drink> drinkList = new ArrayList<>(drinks.keySet());
+                selectedDrink = drinkList.get(selectedRow);
+            }
+        });
+
         // Setting Columns to be not resizable and not reorderable
         table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
@@ -115,8 +123,8 @@ public class ShoppingCartPanel extends JFrame implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        ShoppingCartController shoppingCartController = new ShoppingCartController(data, headers, drinks, totalAmount,
-                total, frame, table);
+        ShoppingCartController shoppingCartController = new ShoppingCartController(data, headers, drinks, selectedDrink,
+                totalAmount, total, frame, table);
         if (e.getSource() == addQuantityButton) {
             total = shoppingCartController.addItem();
 
