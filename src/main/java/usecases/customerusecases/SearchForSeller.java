@@ -6,6 +6,9 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The search for seller use case is used when the customer search for the seller in the customer service.
+ */
 public class SearchForSeller {
     static String phoneNumber;
     public static boolean sellerExists(String storeName) {

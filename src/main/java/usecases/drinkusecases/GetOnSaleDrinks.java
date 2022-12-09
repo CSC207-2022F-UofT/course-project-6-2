@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The get on sale drinks use case is used to get all the drinks that are on sale.
+ */
 public class GetOnSaleDrinks {
     public ArrayList<Drink> onSale() {
         ArrayList<Drink> onSaleDrinks = new ArrayList<>();

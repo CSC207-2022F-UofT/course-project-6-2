@@ -7,6 +7,10 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * The add to shopping cart use case is used when customer add an item to the shopping cart, the item would be added
+ * into the current shopping cart's item list.
+ */
 public class AddToShoppingCart {
     public static void addToShoppingCart(Drink drink, Integer quantity){
        ShoppingCart currentShoppingCart = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart();

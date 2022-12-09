@@ -8,6 +8,9 @@ import usecases.databaseusecases.DrinkRuntimeDataBase;
 import java.util.Objects;
 import java.util.Vector;
 
+/**
+ * The search drink use case is used to output the drinks that related to the keyword that customer wants to search for.
+ */
 public class SearchDrinks {
     protected static ArrayList<Drink> drinks = new ArrayList<>(DrinkRuntimeDataBase.getDrinkList());
     private static Vector<Drink> filteredItems = new Vector<>();

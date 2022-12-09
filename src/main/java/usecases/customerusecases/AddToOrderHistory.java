@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The add to order history use case is used for when customer checks out, the order would be added into customer's
+ * order history.
+ */
 public class AddToOrderHistory {
     public static void addToOrderHistory(HashMap<Drink, Integer> orderList, Float totalPrice){
         Order newOrder = new Order(orderList, "in progress", totalPrice);

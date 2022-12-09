@@ -6,6 +6,9 @@ import helpers.Deserializer;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * The construct drink database use case is used for create the database for drinks.
+ */
 public class ConstructDrinkDataBase {
     private static final Deserializer drinkDeserializer = new helpers.Deserializer();
 

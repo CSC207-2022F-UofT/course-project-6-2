@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 // Use Cases Layer
 
+/**
+ * The construct user database use case is used for create the database for users.
+ */
 public class ConstructUserDataBase {
     private static final Deserializer userDeserializer = new Deserializer();
 

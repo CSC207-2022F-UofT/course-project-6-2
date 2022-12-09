@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The drink runtime database use case is used to keep track of all the drinks in the database.
+ */
 public class DrinkRuntimeDataBase {
     /**
      * HashMap of all drinks existed in database.

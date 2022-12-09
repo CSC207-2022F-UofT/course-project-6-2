@@ -7,6 +7,9 @@ import java.util.HashMap;
 
 // Use Cases Layer
 
+/**
+ * The user runtime database use case is used to keep track of all the users in the database.
+ */
 public class UserRuntimeDataBase {
     protected static HashMap<String, Seller> sellers = new HashMap<>();
     protected static HashMap<String, Customer> customers = new HashMap<>();

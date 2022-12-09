@@ -3,6 +3,9 @@ package usecases.drinkusecases;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * The get sum of drinks use case is used to get the total price of all the drinks in the shopping cart.
+ */
 public class GetSumOfDrinks {
     public float getSumOfDrinks(JTable table, ArrayList<Float> totalAmount, float total){
         for (int i = 0; i < table.getRowCount(); i++) {
