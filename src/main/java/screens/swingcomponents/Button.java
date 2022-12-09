@@ -3,6 +3,10 @@ package screens.swingcomponents;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
+// Frameworks/Drivers layer
+/**
+ * Create the methods for the button to use this button class more convenient in the interface.
+ */
 public class Button {
     public JButton button;
     public JButton getButton() {

@@ -3,7 +3,9 @@ package screens.swingcomponents;
 import javax.swing.*;
 
 // Frameworks/Drivers layer
-
+/**
+ * Create the constructor for the label to the vertical panel to use this button class more convenient in the interface.
+ */
 public class LabelTextVerticalPanel extends JPanel {
     JLabel label;
     JTextField textField;
