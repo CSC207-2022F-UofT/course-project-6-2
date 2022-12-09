@@ -1,3 +1,5 @@
+package TestEntities;
+
 import entities.Drink;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,12 +10,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class TestOrder {
-    /** This test is used for testing when adding new drink to the order, the order's number and order status can correctly
-     * get the right data. Also, for testing if the total order get updated.
-     *
-     */
     @Test
-    public void OrderTest(){
+    public void testOrder(){
         Date date1 = new Date();
         Drink drink1 = new Drink("1", 1.0f, "I am description", "beef milk pig", 10, date1, date1, 1);
         Drink drink2 = new Drink("2", 2.0f, "I am description", "chicken milk pig", 1, date1, date1, 1);

@@ -1,3 +1,5 @@
+package TestUseCases;
+
 import entities.Drink;
 import entities.Order;
 import entities.users.Customer;
@@ -50,7 +52,7 @@ public class TestAddToOrderHistory {
 
     @Test
     @DisplayName("Test order number")
-    /** Order Num for the order just checked out (placed into the Order History) should always equal the total order num.
+    /* Order Num for the order just checked out (placed into the Order History) should always equal the total order num.
      */
     public void testOrderNumber(){
         assertEquals(UserRuntimeDataBase.getCurrentCustomer().getOrderHistory().get(0).getOrderNum(), orderHistory.get(0).getTotalOrder());
