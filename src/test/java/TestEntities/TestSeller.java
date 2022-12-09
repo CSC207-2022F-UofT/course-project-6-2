@@ -66,7 +66,6 @@ public class TestSeller {
         Drink drink2 = new Drink("X", 22, "description",
                 "CaCo3", 150, date1, date1, 700);
 
-
         HashMap<Drink, Integer> orderlist1 = new HashMap<>();
         ArrayList<Drink> drinklist = new ArrayList<>();
 

@@ -9,6 +9,9 @@ import entities.Order;
 import java.util.Date;
 import java.util.HashMap;
 
+/**
+ * This test is used for testing when add new drink to the order, if the method in order entity is working properly.
+ */
 public class TestOrder {
     @Test
     public void testOrder(){

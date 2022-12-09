@@ -83,12 +83,10 @@ public class TestCustomer {
         user1.addNewOrder(order2);
         user1.setShoppingCart(cart);
 
-
         //Check the functionality of getOrderHistory
         //Check the functionality of addNewOrder
         assertEquals("inProgress", user1.getOrderHistory().get(0).getOrderStatus());
         assertEquals("Order Not Found", user1.getOrderHistory().get(1).getOrderStatus());
-
 
         // Check the functionality of getShoppingCart
         assertEquals(8, user1.getShoppingCart().getItemList().get(drink2));

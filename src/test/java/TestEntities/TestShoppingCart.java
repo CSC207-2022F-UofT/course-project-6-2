@@ -8,6 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Date;
 import java.util.HashMap;
 
+/**
+ * This test is used to test when adding new drink to the shopping cart, if the method in shopping cart entity can get
+ * the correct data.
+ */
 public class TestShoppingCart {
     @Test
     public void testShoppingCart(){
