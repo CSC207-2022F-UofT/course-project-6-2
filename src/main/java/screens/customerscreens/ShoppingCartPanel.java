@@ -15,6 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
+/**
+ * The shopping cart panel displays the items that the customer has added into the shopping cart, and the total price of
+ * the shopping cart. Also, customer can modify the quantity of the items in this panel.
+ */
 public class ShoppingCartPanel extends JFrame implements ActionListener {
     // Variables declaration
     private final JTable table;

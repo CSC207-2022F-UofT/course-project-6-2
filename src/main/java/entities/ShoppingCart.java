@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+// Entities Layer
 public class ShoppingCart implements Serializable {
     private float totalPrize;
     private HashMap<Drink, Integer> itemList;

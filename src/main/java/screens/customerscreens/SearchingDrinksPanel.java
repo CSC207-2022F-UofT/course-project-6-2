@@ -14,7 +14,7 @@ import java.util.Vector;
 
 /**
  * The search drink panel that let the customer search for particular drink by
- * entering the keyword in the textbox.
+ * entering the keyword in the text box.
  */
 public class SearchingDrinksPanel extends JFrame implements ActionListener {
     private final JFrame frame;

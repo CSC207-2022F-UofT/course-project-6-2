@@ -8,6 +8,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * Order history panel display all the orders that the login customer has checked out.
+ */
 public class OrderHistoryPanel extends JFrame {
 
     // setting up variables
