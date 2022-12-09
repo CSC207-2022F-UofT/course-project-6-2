@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 /**
- * This test is testing ShopingCart constructor and some inherited properties like itemlist and totalprice.
+ * This test is testing ShoppingCart constructor and some inherited properties like itemlist and totalprice.
  */
 public class TestShoppingCart {
     @Test

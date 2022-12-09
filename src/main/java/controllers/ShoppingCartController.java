@@ -23,6 +23,7 @@ public class ShoppingCartController {
     private final JTable table;
 
     /**
+     * Construct an instance of the shopping cart controller.
      * @param data The data in the JTable
      * @param headers The header of the JTable
      * @param drinks The drinks in the shopping cart

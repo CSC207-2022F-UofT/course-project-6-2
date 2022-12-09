@@ -7,6 +7,10 @@ import usecases.databaseusecases.UserRuntimeDataBase;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * The minus from shopping cart use case is used when the quantity of the item in shopping cart minus to 0, then it would
+ * disappear.
+ */
 public class MinusFromShoppingCart {
     public static void minusFromShoppingCart(Drink drink, Integer quantity){
         ShoppingCart currentShoppingCart = UserRuntimeDataBase.getCurrentCustomer().getShoppingCart();
