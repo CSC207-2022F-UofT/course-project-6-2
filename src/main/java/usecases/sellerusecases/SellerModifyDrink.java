@@ -13,18 +13,31 @@ public class SellerModifyDrink {
         return searchedDrink;
     }
 
+    /**
+     * Check if the drink exist in the seller's drink list.
+     * @param name the drink name that seller wants to modify or delete
+     * @return if the drink exist.
+     */
     public Boolean drinkExist(String name) {
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
         if (allDrinks == null) return false;
         return allDrinks.get(name) != null;
     }
 
+    /**
+     * Get the drink object that the seller wants to modify
+     * @param name the drink name that seller wants to modify
+     * @return searched drink object
+     */
     public Drink searchedDrinkToModify(String name){
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());
         searchedDrink = allDrinks.get(name);
         return searchedDrink;
     }
 
+    /**
+     * Modify the drink with the providing drink attribute.
+     */
     public String modifyDrink(String name, float price, String description, String ingredient, int volume, Date productionDate, Date expirationDate, float discount) {
         if (price == -1.0f) {
             return "Price not float";
@@ -53,6 +66,9 @@ public class SellerModifyDrink {
         }
     }
 
+    /**
+     * Add the new drink with the providing drink attribute.
+     */
     public String addDrink(String name, float price, String description, String ingredient, int volume, Date productionDate, Date expirationDate, float discount){
         if (price == -1.0f) {
             return "Price not float";
@@ -75,6 +91,10 @@ public class SellerModifyDrink {
         }
     }
 
+    /**
+     * Delete the drink that seller wants to delete.
+     * @param drink drink object that seller wants to delete.
+     */
     public void deleteDrink(Drink drink){
         // Delete drink from RTDB
         HashMap<String, Drink> allDrinks = DrinkRuntimeDataBase.getDrinks().get(UserRuntimeDataBase.getCurrentSeller().getStoreName());

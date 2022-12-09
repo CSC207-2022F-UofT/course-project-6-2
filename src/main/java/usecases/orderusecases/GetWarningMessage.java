@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+/**
+ * The get warning message use case is used when the customer wants to check out, the use case would output the corresponding
+ * warning message according to the ingredient in the drink items.
+ */
 public class GetWarningMessage {
     public String getWarningMessage(HashMap<Drink, Integer> itemList){
         ArrayList<String> allergens = new ArrayList<>();

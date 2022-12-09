@@ -6,6 +6,10 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * The add quantity button action performed use case is used when the seller clicks the plus button in the shopping
+ * cart panel and wants to add the quantity of an item.
+ */
 public class AddQuantityButtonActionPerformed {
     public static float addQuantityActionPerformed(Vector<String> headers, JTable table,
                                                    ArrayList<Float> totalAmount, float total) {

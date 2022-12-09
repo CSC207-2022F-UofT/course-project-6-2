@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The check total order use case is used when the customer checks out, check if the order number is larger than the
+ * total order, to make the order number distinct.
+ */
 public class CheckTotalOrder {
     public static int checkTotalOrder() {
         // Get hashmap of all sellers

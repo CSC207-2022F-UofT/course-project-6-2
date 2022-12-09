@@ -7,6 +7,10 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Vector;
 
+/**
+ * The minus quantity button action performed use case is used when the seller clicks the minus button in the shopping
+ * cart panel and wants to decrease the quantity of an item.
+ */
 public class MinusQuantityButtonActionPerformed {
 
     public static float minusQuantityActionPerformed(Vector<String> headers, JTable table,

@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
+/**
+ * The checkout  button action performed use case is used when the seller clicks the checkout button in the shopping
+ * cart panel.
+ */
 public class CheckoutButtonActionPerformed {
 
     public static void checkoutButtonActionPerformed(Vector<Vector<String >> data, HashMap<Drink, Integer> drinks,
